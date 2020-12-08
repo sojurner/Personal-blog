@@ -1,0 +1,75 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
+.template-blog {
+  &-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 .7em;
+  }
+
+  &__content-section {
+    padding: 2em 0;
+  }
+
+  &__profile-container {
+    margin: 10px 0 20px;
+    position: relative;
+    width: max-content;
+  }
+
+  &__profile-txt-container {
+    margin-left: 10px;
+  }
+  &__profile-txt-author {
+    opacity: 0.9;
+  }
+  &__profile-txt-date {
+    opacity: 0.6;
+  }
+
+  &__next-link {
+    text-decoration-line: underline;
+    text-align: center;
+    margin: 30px 0;
+  }
+
+  &__previous-link {
+    text-decoration-line: underline;
+    margin: 15px 8px;
+  }
+
+  &__content-article {
+    p {
+      margin-bottom: 25px;
+    }
+
+    ul {
+      margin: -10px 0 25px 0;
+    }
+
+    li {
+      opacity: 0.9;
+      margin: .5em 0;
+    }
+
+    h4 {
+      margin-bottom: 25px;
+      opacity: 0.9;
+    }
+
+    img {
+      margin: 25px auto;
+      height: 400px;
+    }
+
+    h2 {
+      margin: 25px 0 15px 0;
+      color: $color-neutral-600;
+    }
+
+    a {
+      text-decoration-line: underline;
+    }
+  }
+}

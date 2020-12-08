@@ -1,0 +1,28 @@
+@import "../../styles/utils/vars";
+
+$typography-variants: (
+  neutral-default: $color-neutral-400,
+  neutral-light: $color-neutral-900,
+  neutral-dark: $color-neutral-050,
+  neutral-blank: $color-blank-700,
+  negative-default: $color-negative-400,
+  negative-light: $color-negative-050,
+  negative-dark: $color-negative-900,
+  positive-default: $color-positive-400,
+  positive-light: $color-positive-050,
+  positive-dark: $color-positive-900,
+  primary-default: $color-primary-400,
+  primary-light: $color-primary-050,
+  primary-dark: $color-primary-900,
+  secondary-default: $color-secondary-400,
+  secondary-light: $color-secondary-050,
+  secondary-dark: $color-secondary-900,
+);
+
+.typography {
+  @each $variant, $color in $typography-variants {
+    &--#{$variant} {
+      color: $color;
+    }
+  }
+}

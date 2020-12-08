@@ -1,0 +1,25 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
+.page-contact {
+  &__content-section {
+    padding: 0.5em 1em;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  &__title {
+    margin: 1em 0 2em;
+  }
+
+  &__divider {
+      width: 2px;
+      height: 80%;
+      margin: auto 5vw;
+      background: $color-neutral-900;
+      opacity: .07;
+  }
+}

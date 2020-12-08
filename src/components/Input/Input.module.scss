@@ -1,0 +1,41 @@
+@import "../../styles/utils/vars";
+@import "../../styles/utils/mixins";
+
+$input-variants: (
+  //
+  primary: ($color-boxshadow-primary, $color-primary-900, $color-primary-100),
+  secondary: (
+    $color-boxshadow-secondary,
+    $color-secondary-900,
+    $color-secondary-100
+  ),
+  warning: ($color-boxshadow-negative, $color-negative-900, $color-negative-900),
+  success: ($color-boxshadow-positive, $color-positive-900, $color-positive-900),
+  default: ($color-boxshadow-neutral, $color-neutral-900, $color-neutral-100)
+);
+
+.input {
+  &--base {
+    @include blend-shadow($color-boxshadow-neutral, $_z1);
+    height: 60px;
+    width: 100%;
+    padding: 1em 0 1em 1.5em;
+    border: 0;
+    border-radius: 20px;
+    font-family: var(--pk-font-family-secondary);
+  }
+  @each $variant, $colors in $input-variants {
+    &--#{$variant} {
+      // border-color: nth($colors, 2);
+      color: nth($colors, 2);
+      &:focus {
+        outline: none;
+        @include blend-shadow(nth($colors, 1), $_z6);
+      }
+
+      &::placeholder {
+        color: nth($colors, 3);
+      }
+    }
+  }
+}

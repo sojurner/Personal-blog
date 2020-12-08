@@ -1,0 +1,40 @@
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/vars";
+
+$depths: (($_z0, $_z0) ($_z2, $_z5), ($_z4, $_z7), ($_z5, $_z8));
+
+$variants: (
+  default: $color-blank-700,
+  primary: $color-primary-050,
+  secondary: $color-secondary-050,
+  disabled: $color-blank-500,
+);
+
+.card {
+  &--base {
+    padding: 1em;
+    border-radius: 15px;
+    width: max-content;
+  }
+
+  @each $variant, $color in $variants {
+    &--#{$variant} {
+      background: $color;
+    }
+  }
+
+  @each $depth-pair in $depths {
+    $passive-depth: nth($depth-pair, 1);
+    $hover-depth: nth($depth-pair, 2);
+    &--#{$passive-depth} {
+      @include blend-shadow($color-boxshadow-neutral, $passive-depth);
+      border: 1px solid;
+      border-color: $color-blank-800;
+
+      &:hover {
+        @include blend-shadow($color-boxshadow-neutral, $hover-depth);
+        border-color: $color-blank-600;
+      }
+    }
+  }
+}

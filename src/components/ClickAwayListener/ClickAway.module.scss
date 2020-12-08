@@ -1,0 +1,18 @@
+.clickAway {
+    &--base {
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        z-index: 100;
+    }
+
+    &--default {
+        backdrop-filter: blur(0px);
+    }
+
+    &--blur {
+        backdrop-filter: blur(6px);
+    }
+}

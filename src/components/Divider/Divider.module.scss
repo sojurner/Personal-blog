@@ -1,0 +1,17 @@
+@import "../../styles/utils/vars";
+
+.divider {
+  &--primary {
+      height: 0;
+    border-bottom: 1px solid $color-bdr-primary;
+    margin: 10px 0;
+    opacity: .3;
+  }
+
+  &--secondary {
+    height: 0;
+    margin: 10px 0;
+    opacity: .3;
+    border-bottom: 1px solid $color-bdr-secondary;
+  }
+}

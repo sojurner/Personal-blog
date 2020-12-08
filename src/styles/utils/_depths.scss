@@ -1,0 +1,54 @@
+$_z0: "z0";
+$_z1: "z1";
+$_z2: "z2";
+$_z3: "z3";
+$_z4: "z4";
+$_z5: "z5";
+$_z6: "z6";
+$_z7: "z7";
+$_z8: "z8";
+$_z9: "z9";
+$_z10: "z10";
+$_z11: "z11";
+$_z12: "z12";
+$_z13: "z13";
+$_z14: "z14";
+$_z15: "z15";
+$_z16: "z16";
+$_z17: "z17";
+$_z18: "z18";
+$_z19: "z19";
+$_z20: "z20";
+$_z21: "z21";
+$_z22: "z22";
+$_z23: "z23";
+$_z24: "z24";
+
+$boxshadow-depths: (
+  //
+  $_z0: (0 0 0, 0 0 0, 0 0 0, 0 0 0),
+  $_z1: (0 0 0, 2px 1px 1px, 1px 1px 3px, -1px 0 0),
+  $_z2: (0 0 0, 3px 2px 1px, 1px 2px 5px, -2px 0 0),
+  $_z3: (0 0 0, 3px 3px 1px, 3px 4px 8px, -2px 0 0),
+  $_z4: (0 0 0, 2px 4px 1px, 4px 5px 10px, -1px 0 0),
+  $_z5: (0 0 0, 3px 5px 1px, 5px 8px 14px, -1px 0 0),
+  $_z6: (0 0 0, 3px 6px 1px, 5px 10px 18px, -1px 0 0),
+  $_z7: (0 0 0, 4px 7px 2px, 5px 10px 16px, -2px 1px 1px),
+  $_z8: (0 0 0, 5px 8px 3px, 5px 10px 14px, -3px 1px 2px),
+  $_z9: (0 0 0, 5px 9px 3px, 6px 12px 16px, -3px 1px 2px),
+  $_z10: (0 0 0, 6px 10px 4px, 6px 14px 18px, -3px 1px 3px),
+  $_z11: (0 0 0, 6px 11px 4px, 7px 15px 20px, -4px 1px 3px),
+  $_z12: (0 0 0, 7px 12px 5px, 8px 17px 22px, -4px, 2px, 2px),
+  $_z13: (0 0 0, 7px 13px 5px, 8px 19px 24px, -4px 2px 4px),
+  $_z14: (0 0 0, 7px 14px 5px, 9px 21px 26px, -4px 2px 4px),
+  $_z15: (0 0 0, 8px 15px 6px, 9px 22px 28px, -5px 2px 5px),
+  $_z16: (0 0 0, 8px 16px 6px, 10px 24px 30px, -5px 2px 5px),
+  $_z17: (0 0 0, 8px 17px 6px, 11px 26px 32px, -5px 2px 5px),
+  $_z18: (0 0 0, 9px 18px 7px, 11px 28px 34px, -5px 2px 6px),
+  $_z19: (0 0 0, 9px 19px 7px, 12px 29px 36px, -6px 2px 6px),
+  $_z20: (0 0 0, 10px 20px 8px, 13px 31px 38px, -6px 3px 7px),
+  $_z21: (0 0 0, 10px 21px 8px, 13px 33px 40px, -6px 3px 7px),
+  $_z22: (0 0 0, 10px 22px 8px, 14px 35px 42px, -6px 3px 7px),
+  $_z23: (0 0 0, 11px 23px 9px, 14px 36px 44px, -7px 3px 8px),
+  $_z24: (0 0 0, 11px 24px 9px, 15px 38px 46px, -7px 3px 8px)
+);

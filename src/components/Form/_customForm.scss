@@ -1,0 +1,23 @@
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/vars";
+
+.form-contact {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+
+  &__input-group {
+    height: 90px;
+    &:nth-child(1) {
+      margin: 0 0 15px 0;
+    }
+
+    &:nth-child(2) {
+      margin: 15px 0;
+    }
+
+    &:nth-child(3) {
+      margin: 15px 0 0;
+    }
+  }
+}

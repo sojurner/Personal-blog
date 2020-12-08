@@ -1,0 +1,167 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
+.page-blog {
+  &__content-section {
+    padding: 0.5em 1em;
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @media only screen and (max-width: 1030px) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__aside {
+    width: 350px;
+    z-index: 10;
+    height: 100%;
+    position: absolute;
+    left: 15vw;
+
+    @media only screen and (max-width: 1200px) {
+      left: 2vw;
+    }
+
+    @media only screen and (max-width: 1030px) {
+      position: relative;
+      align-self: center;
+      height: max-content
+    }
+  }
+
+  &__aside__filter-container {
+    margin: 20px 0;
+  }
+
+  &__aside__filter-tags-container {
+    margin: 0 0 10px 0;
+  }
+
+  &__aside__filter-title {
+    margin-right: 10px;
+    min-width: 70px;
+    max-width: 70px;
+    display: flex;
+  }
+
+  &__aside__filter-tag {
+    margin: 0 5px 10px 5px;
+    cursor: pointer;
+  }
+
+  &__aside-filter-group {
+    width: 200px;
+  }
+
+  &__content-posts {
+    position: relative;
+    grid-column: 2 / 3;
+    justify-self: start;
+    min-height: 100vh;
+
+    @media only screen and (max-width: 1030px) {
+      align-items: center;
+    }
+  }
+
+  &__card-link {
+    margin: 20px 0;
+    margin-right: 4vw;
+    max-width: 600px;
+  }
+
+  &__card {
+    position: relative;
+    transition: 0.2s ease-in-out;
+    overflow: hidden;
+    width: 550px;
+    padding: 0;
+    box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.116);
+
+    @media only screen and (max-width: 650px) {
+      width: 90vw;
+    }
+    @media only screen and (max-width: 1000px) {
+      margin-right: 0;
+    }
+
+    &:hover {
+      border: 1px solid $color-blank-500;
+    }
+  }
+
+  &__card-header__foreground-img {
+    width: 100%;
+    z-index: 0;
+  }
+
+  &__card-header__profile-container {
+    z-index: 1;
+    margin: -20px 0 0 10px;
+    background: white;
+    padding: .3em .6em;
+    border-radius: 50px;
+    width: max-content;
+  }
+
+  &__card-header__profile-avatar {
+    height: 30px;
+    width: 30px;
+    margin-right: 8px;
+  }
+
+  &__card-header__profile-author {
+    opacity: 0.7;
+    font-weight: 500;
+  }
+
+  &__card-header__timestamp-container {
+    opacity: 1;
+    opacity: 0.7;
+  }
+
+  &__card-header__timestamp-icon {
+    margin-right: 8px;
+  }
+
+  &__card-content {
+    padding: .6em 1.5em;
+  }
+
+  &__card-content__txt-desc {
+    margin: 20px 0 20px 10px;
+    font-weight: 400;
+  }
+
+  &__card-content__details-calendar-icon {
+    margin-right: 5px;
+  }
+
+  &__card-content__details {
+    margin: 5px 0;
+  }
+  &__card-content__divider {
+    opacity: .1;
+    margin: 5px 0
+  }
+
+  &__card-footer-tags {
+    align-items: center;
+    margin: 5px 0 0 0;
+
+    & > * {
+      margin:0 10px 0 0;
+    }
+  }
+
+  &__no-results-img {
+    font-size: 19em;
+    color: $color-neutral-900;
+  }
+
+  &__loader {
+    margin: 1em 0;
+  }
+}

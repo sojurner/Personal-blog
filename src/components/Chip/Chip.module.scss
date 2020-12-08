@@ -1,0 +1,33 @@
+@import "../../styles/utils/vars";
+
+$chip-variants: (
+  //
+  primary: ($color-primary-500, $color-primary-800),
+  secondary: ($color-secondary-500, $color-secondary-800),
+  negative: ($color-negative-500, $color-negative-800),
+  positive: ($color-positive-500, $color-positive-800),
+  neutral: ($color-neutral-500, $color-neutral-800),
+  default: ($color-blank-700, $color-neutral-050)
+);
+
+.chip {
+  &--base {
+    padding: 0.2em 0.5em;
+    border-radius: 15px;
+    font-weight: 500;
+
+    svg {
+      margin-right: 5px;
+    }
+  }
+
+  @each $variant, $colors in $chip-variants {
+    $bg-color: nth($colors, 1);
+    $bdr-color: nth($colors, 2);
+
+    &--#{$variant} {
+      background: $bg-color;
+      border: 1px solid $bdr-color;
+    }
+  }
+}

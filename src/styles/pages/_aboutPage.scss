@@ -1,0 +1,219 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
+.page-about {
+  &__content-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+
+  &__landing-container {
+    &--outer {
+      position: relative;
+      width: 100vw;
+      height: max-content;
+    }
+
+    &--inner-1 {
+      margin-bottom: 5em;
+      margin: 15vh 0 0 10vw;
+      @media only screen and (max-width: 950px) {
+        flex-direction: column;
+        margin: 10vh auto 0 auto;
+      }
+    }
+
+    &--inner-2 {
+      margin: 15vh 0 0 10vw;
+      width: 500px;
+
+      @media only screen and (max-width: 950px) {
+        width: 100vw;
+        margin: 10vh auto 0 auto;
+        padding: 0 15px;
+      }
+    }
+  }
+
+  &__landing-greeting {
+    z-index: 1;
+    @media only screen and (max-width: 950px) {
+      padding: 0 15px;
+    }
+  }
+
+  &__landing-greeting__name {
+    font-size: 6em;
+    @media only screen and (max-width: 950px) {
+      font-size: 18vw;
+    }
+  }
+
+  &__landing-greeting__motto,
+  &__cards-skills__motto,
+  &__cards-contact__motto,
+  &__history__motto {
+    margin-top: 2em;
+    margin-left: 1em;
+    @media only screen and (max-width: 950px) {
+      margin-left: 0;
+    }
+  }
+
+  &__landing-greeting__imgs {
+    position: relative;
+    flex: 1 1 auto;
+    z-index: 0;
+    top: -60%;
+    left: -5%;
+    height: max-content;
+    @media only screen and (max-width: 950px) {
+      position: static;
+      top: 0;
+      left: 0;
+      margin-top: 3em;
+    }
+
+    &-profile {
+      position: absolute;
+      left: 10%;
+      top: 0;
+      z-index: 1;
+      height: 300px;
+      @media only screen and (max-width: 950px) {
+        position: static;
+        left: 10%;
+        top: 0;
+      }
+    }
+    &-brushstroke {
+      font-size: 60em;
+      color: $color-secondary-050;
+      transform: translate(-30%, -32%);
+      @media only screen and (max-width: 950px) {
+        display: none;
+      }
+    }
+  }
+
+  &__landing-greeting__about-header {
+    margin-top: 30px;
+
+    &-div {
+      margin-bottom: 20px;
+      border: 3px solid var(--pk-color-secondary-050);
+      transform: skewY(-45deg) rotate(45deg) translate(-20%, 0);
+      width: 170px;
+    }
+  }
+
+  &__history-container {
+    &--outer {
+      margin: 15vh 0 5vh 10vw;
+
+      @media only screen and (max-width: 950px) {
+        margin: 15vh auto 0 auto;
+        flex-direction: column;
+        padding: 0 15px;
+        width: 100vw;
+      }
+    }
+
+    &--inner {
+      position: relative;
+    }
+  }
+
+  &__history__title,
+  &__history__motto {
+    z-index: 1;
+  }
+
+  &__history__timeline {
+    margin-top: 2em;
+  }
+
+  &__history__bg {
+    position: absolute;
+    font-size: 50em;
+    z-index: 0;
+    opacity: 0.7;
+    color: $color-primary-050;
+    transform: rotate(-180deg) translate(0%, 13%);
+  }
+
+  &__cards-container {
+    height: max-content;
+    width: 100vw;
+    margin-top: 2em;
+  }
+
+  &__cards-container--inner-1,
+  &__cards-container--inner-2 {
+    margin: 15vh 0 10vh 10vw;
+
+    @media only screen and (max-width: 950px) {
+      margin: 15vh auto 10vh auto;
+      flex-direction: column;
+      padding: 0 15px;
+      width: 100vw;
+    }
+  }
+
+  &__cards__skillset__title {
+    margin: 0 0 5px 0;
+  }
+
+  &__cards-skills,
+  &__cards-contact {
+    z-index: 1;
+    width: 400px;
+    margin: 0 10% 0 0;
+    position: relative;
+
+    @media only screen and (max-width: 950px) {
+      margin: 0 auto;
+    }
+  }
+
+  &__card-skills,
+  &__card-contact {
+    @media only screen and (max-width: 950px) {
+      margin: 10% auto 0 auto;
+    }
+  }
+
+  &__cards-skills__title,
+  &__cards-contact__title,
+  &__history__title {
+    font-size: 4.5em;
+  }
+
+  &__ink-grunge,
+  &__splash-grunge {
+    font-size: 50em;
+    z-index: -1;
+    top: -0.25em;
+
+    @media only screen and (max-width: 950px) {
+      left: -0.2em;
+    }
+  }
+
+  &__splash-grunge {
+    color: $color-primary-050;
+    opacity: .7;
+  }
+
+  &__ink-grunge {
+    color: $color-secondary-050;
+    transform: rotate(-90deg);
+  }
+
+  &__brush-stroke,
+  &__ink-grunge,
+  &__splash-grunge {
+    position: absolute;
+  }
+}

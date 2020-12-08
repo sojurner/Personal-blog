@@ -1,0 +1,24 @@
+@import "./vars";
+
+@mixin blend-shadow($rgb, $depth) {
+  $list: append(map-get($boxshadow-depths, $depth), box-shader($rgb));
+  box-shadow: zip($list...);
+}
+
+@mixin dual-gradient($color-1, $color-2) {
+  background: linear-gradient(45deg, $color-1 0%, $color-2 100%);
+}
+
+@function box-shader($rgb) {
+  @return rgba($rgb, 0.2) rgba($rgb, 0.14) rgba($rgb, 0.12);
+}
+
+@mixin philicon($disabled, $active, $focus) {
+  color: $active;
+  &:disabled {
+    color: $disabled;
+  }
+  &:focus {
+    color: $focus;
+  }
+}
