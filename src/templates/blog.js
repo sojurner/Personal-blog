@@ -4,12 +4,15 @@ import { graphql, Link } from "gatsby"
 import MainLayout from "@components/Layouts"
 import Typography from "@components/Typography"
 import Flex from "@components/Flex"
+import Card from "@components/Card"
+import Tag from "@components/Tag"
 import Avatar from "@components/Avatar"
 
 import "@styles/templates/_blogTemplate.scss"
+import { blogTypeRef } from "../utils/constants"
 
 const query = graphql`
-  query($slug: String!) {
+  query($slug: String!, $subject: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
@@ -29,6 +32,24 @@ const query = graphql`
       }
       html
     }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: ASC }
+      filter: { frontmatter: { tags: { eq: $subject } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            date
+            subject
+            foregroundImg
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
   }
 `
 
@@ -41,7 +62,7 @@ const Blog = ({ data }) => {
         <Typography className="template-blog__title" tag="h1">
           {frontmatter.title}
         </Typography>
-        <Flex className="template-blog__profile-container">
+        <Flex className="template-blog__profile-container" classes={["flexRow", "alignItemsCenter"]}>
           <Avatar
             fluid={frontmatter.avatar.childImageSharp.fluid}
             alt={frontmatter.author
@@ -68,8 +89,13 @@ const Blog = ({ data }) => {
               {frontmatter.date}
             </Typography>
           </Flex>
+          <Tag
+          className="template-blog__profile-tag"
+            label={frontmatter.subject}
+            variant={blogTypeRef[frontmatter.subject].tagVariant}
+          />
         </Flex>
-        <img src={frontmatter.foregroundImg} />
+        <img src={frontmatter.foregroundImg} alt="blog front img" />
         {frontmatter.previous && (
           <Flex
             className="template-blog__previous-container"
@@ -97,18 +123,30 @@ const Blog = ({ data }) => {
         <article
           className="template-blog__content-article"
           dangerouslySetInnerHTML={{ __html: html }}
-        ></article>
+        />
         {frontmatter.next && (
           <Link to={`/blog/${frontmatter.subject}/${frontmatter.next}`}>
-            <Typography
-              tag="h2"
-              className="template-blog__next-link"
-              variant="positiveDark"
-            >
+            <Typography tag="h2" className="template-blog__next-link">
               {frontmatter.next}
             </Typography>
           </Link>
         )}
+        {data.allMarkdownRemark.edges.map(ele => {
+          const { slug } = ele.node.fields
+          const { title, date, foregroundImg } = ele.node.frontmatter
+          return (
+            <Link
+              to={`/blog/${frontmatter.subject}/${slug}`}
+              key={`related-${slug}`}
+            >
+              <Card>
+                <img src={foregroundImg} alt="related-front-img" />
+                <Typography tag="h2">{title}</Typography>
+                <Typography>{date}</Typography>
+              </Card>
+            </Link>
+          )
+        })}
       </div>
     </MainLayout>
   )

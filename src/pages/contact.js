@@ -11,13 +11,20 @@ import "@styles/pages/_contactPage.scss"
 
 const Contact = () => (
   <MainLayout className="page-contact">
-    <Typography variant="secondaryDark" className="page-contact__title" tag="h1">
-      Reach out!
-    </Typography>
-    <Flex classes={["flexRow"]}>
-      <ContactCard />
-      <div className="page-contact__divider" />
-      <ContactForm />
+    <Flex classes={["flexColumn", "alignItemsCenter"]} className="page-contact__content-section--inner">
+      <Typography
+        variant="secondaryDark"
+        className="page-contact__title"
+        tag="h1"
+      >
+        Reach out!
+      </Typography>
+      <Flex classes={["flexRow"]} className="page-contact__content-container">
+        {/* <GrungeBG className="page-contact__content__grunge-bg" /> */}
+        <ContactCard />
+        <div className="page-contact__content__divider" />
+        <ContactForm />
+      </Flex>
     </Flex>
   </MainLayout>
 )
