@@ -20,7 +20,7 @@ $icon-bg: rgb(67, 75, 106);
   }
 
   &__links-item {
-    color: white;
+    color: $color-blank-700;
     font-family: var(--pk-font-family-primary);
     font-size: 1.5em;
     margin: 0 10px;
@@ -64,8 +64,10 @@ $icon-bg: rgb(67, 75, 106);
     border-radius: 50%;
   }
 
-  &__copyright-avatar {
+  &__copyright-logo {
     margin-right: 10px;
+    color: $color-blank-700;
+    font-size: 3em;
   }
 
   &__copyright-container {
@@ -79,6 +81,7 @@ $icon-bg: rgb(67, 75, 106);
   &__social-item {
     font-size: 2.5em;
     margin: 0 5px;
+    cursor: pointer;
     svg {
       border-radius: 50%;
       padding: 0.2em;

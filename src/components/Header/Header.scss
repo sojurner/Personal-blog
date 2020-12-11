@@ -3,7 +3,7 @@
 
 .header {
   &--base {
-    padding: 0.2em 1em;
+    padding: 1em 2em;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -19,19 +19,17 @@
   &__logo {
     font-size: 2.7em;
     color: $color-primary-900;
+    display: flex;
+    margin-right: 6vw;
   }
 
-  &__nav-container {
-    margin-left: 20px;
-  }
 
   &__nav-link {
     margin: 0 15px;
     position: relative;
     padding: 0 0.5em;
-
     h4 {
-      transition: .1s linear;
+      transition: 0.1s linear;
       z-index: 1;
       text-transform: capitalize;
     }
@@ -42,18 +40,12 @@
 
     &--active {
       @include dual-gradient($color-primary-800, $color-primary-500);
-      // background: $color-primary-900;
+      margin: 0 15px;
+
       border-radius: 0.3em;
-      transition: .1s linear;
-
-      &:hover {
-        // background: $color-primary-700;
-        @include dual-gradient($color-primary-700, $color-primary-400);
-
-        h4 {
-          color: $color-blank-700;
-        }
-      }
+      padding: 0 0.5em;
+      color: $color-blank-800;
+      text-transform: capitalize;
     }
   }
 
@@ -66,10 +58,14 @@
     margin: 0 5px;
     cursor: pointer;
     color: $color-primary-900;
-
     justify-content: center;
+
     &:hover {
       color: $color-primary-600;
+    }
+
+    @media only screen and (max-width: 550px) {
+      display: none;
     }
   }
 }

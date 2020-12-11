@@ -4,7 +4,7 @@
 $depths: (($_z0, $_z0) ($_z2, $_z5), ($_z4, $_z7), ($_z5, $_z8));
 
 $variants: (
-  default: $color-blank-700,
+  default: $color-blank-800,
   primary: $color-primary-050,
   secondary: $color-secondary-050,
   disabled: $color-blank-500,
@@ -12,7 +12,7 @@ $variants: (
 
 .card {
   &--base {
-    padding: 1em;
+    padding: 1em 2em;
     border-radius: 15px;
     width: max-content;
   }
