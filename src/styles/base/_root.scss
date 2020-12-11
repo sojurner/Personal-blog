@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Stardos+Stencil&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display&display=swap");
 :root {
   --pk-color-neutral-050: #241d34;
   --pk-color-neutral-100: #2f283e;
@@ -78,13 +78,196 @@
   --pk-color-boxshadow-dark: 10, 10, 10;
   --pk-color-boxshadow-light: rgba(0, 0, 0, 0.116);
 
-  --pk-font-family-primary: "Stardos Stencil", sans-serif;
+  --pk-font-family-primary: "Playfair Display", serif;
   --pk-font-family-secondary: "IBM Plex Sans", sans-serif;
   --pk-font-family-code: "Menlo", Courier New, monospace;
+
+  --pk-color-skeleton-bg: #f5f6f7;
+  --pk-color-skeleton-fg: #eee;
+
+  --pk-color-icon-cellphone: gray;
+  --pk-color-icon-email: #dd4a3e;
+  --pk-color-icon-linkedIn: #0a66c2;
+
+  --pk-color-icon-web: #a7c6f9;
+  --pk-color-icon-codetags: #4a546d;
+  --pk-color-icon-tools: #c3c3c3;
+
+  --pk-color-icon-csharp: #652077;
+  --pk-color-icon-js: #f0db4f;
+  --pk-color-icon-ts: #0077c6;
+  --pk-color-icon-html: #ea6228;
+  --pk-color-icon-css: #3596d0;
+  --pk-color-icon-react: #61dafb;
+  --pk-color-icon-node: #88c349;
+  --pk-color-icon-sass: #cc6699;
+  --pk-color-icon-dotnet: #5c2d91;
+  --pk-color-icon-docker: #2396ee;
+  --pk-color-icon-vscode: #0077c6;
+  --pk-color-icon-vs: #68217a;
+  --pk-color-icon-gitlab: #f56a25;
+  --pk-color-icon-github--1: #5c2d91;
 }
 
 body {
   overflow: hidden;
+
+  * {
+    transition: background 0.1s linear, color 0.1s linear;
+  }
+}
+
+body.dark {
+  --pk-color-neutral-050: #ffae00;
+  --pk-color-neutral-100: #e4b667;
+  --pk-color-neutral-200: #ffbb00;
+  --pk-color-neutral-300: #40eb57;
+  --pk-color-neutral-900: #f3be4c;
+  --pk-color-neutral-500: #e2a013;
+  --pk-color-neutral-600: #f8ab06;
+  --pk-color-neutral-700: #a09534;
+  --pk-color-neutral-800: #4d475a;
+  --pk-color-neutral-400: #ecb829;
+
+  --pk-color-neutral-invert: #3a3546;
+
+  --pk-color-primary-900: #f2e5ff;
+  --pk-color-primary-800: #dfbffe;
+  --pk-color-primary-700: #ca95fe;
+  --pk-color-primary-600: #b56afe;
+  --pk-color-primary-500: #a54afd;
+  --pk-color-primary-400: #952afd;
+  --pk-color-primary-300: #8727e7;
+  --pk-color-primary-200: #7824ce;
+  --pk-color-primary-100: #691fb4;
+  --pk-color-primary-050: #4f435c;
+
+  --pk-color-secondary-900: #c2dbff;
+  --pk-color-secondary-800: #9ac4fe;
+  --pk-color-secondary-700: #70aefd;
+  --pk-color-secondary-600: #4f9cfd;
+  --pk-color-secondary-500: #2a8afc;
+  --pk-color-secondary-400: #267de5;
+  --pk-color-secondary-300: #246fcc;
+  --pk-color-secondary-200: #2062b2;
+  --pk-color-secondary-100: #184883;
+  --pk-color-secondary-050: #45425f;
+
+  --pk-color-negative-900: #ffe6ef;
+  --pk-color-negative-800: #fec0d8;
+  --pk-color-negative-700: #fd97be;
+  --pk-color-negative-600: #fc6da4;
+  --pk-color-negative-500: #fc4d91;
+  --pk-color-negative-400: #fb2e7d;
+  --pk-color-negative-300: #e52b71;
+  --pk-color-negative-200: #cc2764;
+  --pk-color-negative-100: #b32158;
+  --pk-color-negative-050: #831b41;
+
+  --pk-color-positive-050: #e6fbf4;
+  --pk-color-positive-100: #c0f5e3;
+  --pk-color-positive-200: #96eed0;
+  --pk-color-positive-300: #6ce7bd;
+  --pk-color-positive-400: #4de2ae;
+  --pk-color-positive-500: #2ddda0;
+  --pk-color-positive-600: #2bc991;
+  --pk-color-positive-700: #28b481;
+  --pk-color-positive-800: #249e71;
+  --pk-color-positive-900: #1b7453;
+
+  --pk-color-blank-400: #e6dacd;
+  --pk-color-blank-500: #5a4026;
+  --pk-color-blank-600: #f8f5f1;
+  --pk-color-blank-700: rgb(80, 77, 100);
+  // --pk-color-blank-800: rgb(49, 46, 66);
+  --pk-color-blank-800: rgb(63, 58, 90);
+
+  --pk-color-bg-main: var(--pk-color-neutral-invert);
+  --pk-color-bg-footer: #161435;
+  --pk-color-bg-header: var(--pk-color-blank-800);
+
+  --pk-color-bdr-primary: #d3dce6;
+  --pk-color-bdr-secondary: #dcd3e6;
+
+  --pk-color-boxshadow-primary: 59, 33, 59;
+  --pk-color-boxshadow-secondary: 39, 83, 136;
+  --pk-color-boxshadow-negative: 66, 31, 38;
+  --pk-color-boxshadow-positive: 44, 77, 67;
+  --pk-color-boxshadow-neutral: 71, 63, 55;
+  --pk-color-boxshadow-dark: 10, 10, 10;
+  --pk-color-boxshadow-light: rgba(0, 0, 0, 0.116);
+
+  --pk-color-skeleton-bg: rgb(42, 40, 65);
+  --pk-color-skeleton-fg: rgb(37, 35, 59);
+
+  --pk-color-icon-cellphone: var(--pk-color-secondary-800);
+  --pk-color-icon-email: var(--pk-color-secondary-800);
+  --pk-color-icon-linkedIn: var(--pk-color-secondary-800);
+  --pk-color-icon-github--2: var(--pk-color-secondary-800);
+
+  --pk-color-icon-web: var(--pk-color-primary-900);
+  --pk-color-icon-codetags: var(--pk-color-primary-900);
+  --pk-color-icon-tools: var(--pk-color-primary-900);
+
+  --pk-color-icon-csharp: var(--pk-color-primary-800);
+  --pk-color-icon-js: var(--pk-color-primary-800);
+  --pk-color-icon-ts: var(--pk-color-primary-800);
+  --pk-color-icon-html: var(--pk-color-primary-800);
+  --pk-color-icon-css: var(--pk-color-primary-800);
+  --pk-color-icon-react: var(--pk-color-primary-800);
+  --pk-color-icon-node: var(--pk-color-primary-800);
+  --pk-color-icon-sass: var(--pk-color-primary-800);
+  --pk-color-icon-dotnet: var(--pk-color-primary-800);
+  --pk-color-icon-docker: var(--pk-color-primary-800);
+  --pk-color-icon-vscode: var(--pk-color-primary-800);
+  --pk-color-icon-vs: var(--pk-color-primary-800);
+  --pk-color-icon-gitlab: var(--pk-color-primary-800);
+  --pk-color-icon-github--1: var(--pk-color-primary-800);
+
+  .page-about__history__timeline {
+    --pk-color-icon-csharp: var(--pk-color-neutral-600);
+    --pk-color-icon-js: var(--pk-color-neutral-600);
+    --pk-color-icon-ts: var(--pk-color-neutral-600);
+    --pk-color-icon-html: var(--pk-color-neutral-600);
+    --pk-color-icon-css: var(--pk-color-neutral-600);
+    --pk-color-icon-react: var(--pk-color-neutral-600);
+    --pk-color-icon-node: var(--pk-color-neutral-600);
+    --pk-color-icon-sass: var(--pk-color-neutral-600);
+    --pk-color-icon-dotnet: var(--pk-color-neutral-600);
+    --pk-color-icon-docker: var(--pk-color-neutral-600);
+    --pk-color-icon-vscode: var(--pk-color-neutral-600);
+    --pk-color-icon-vs: var(--pk-color-neutral-600);
+    --pk-color-icon-gitlab: var(--pk-color-neutral-600);
+    --pk-color-icon-github--1: var(--pk-color-neutral-600);
+  }
+
+  .footer-container {
+    --pk-color-blank-700: var(--pk-color-secondary-900);
+  }
+
+  .header--base {
+    --pk-color-primary-900: #ecb829;
+    --pk-color-primary-800: #ecb829;
+    --pk-color-primary-700: #f8d984;
+    --pk-color-primary-600: #f8d984;
+    --pk-color-primary-500: #df9100;
+    --pk-color-primary-400: #eba31e;
+  }
+
+  .vertical-timeline::before {
+    background: var(--pk-color-neutral-200);
+    
+  }
+  
+  .vertical-timeline-element-icon {
+    background: var(--pk-color-neutral-400);
+    border: 3px solid var(--pk-color-neutral-100);
+  }
+
+  // .vertical-timeline-element-icon {
+  //   background: var(--pk-color-neutral-200);
+  // }
+
 }
 
 code[class*="language-"] *,
@@ -105,7 +288,8 @@ p,
 a,
 span,
 li,
-label {
+label,
+button {
   font-family: var(--pk-font-family-secondary);
 }
 
@@ -122,20 +306,24 @@ h1 {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 30px;
   line-height: 36px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 24px;
   line-height: 30px;
   font-weight: 600;
 }
 
 h4 {
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 400;
   line-height: 28px;
+}
+
+h5 {
+  font-size: 18px;
 }
 
 p {
@@ -201,7 +389,6 @@ a {
 }
 
 .gatsby-highlight pre[class*="language-"] {
-  background-color: var(--pk-color-neutral-500);
   margin: 0;
   padding: 1em;
   overflow: initial;

@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { Link, graphql } from "gatsby"
 import { useInView } from "react-intersection-observer"
 import ContentLoader from "react-content-loader"
 
@@ -16,38 +16,44 @@ import Divider from "@components/Divider"
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
 
-export const blogTypeRef = {
-  military: {
-    textVariant: "negativeDark",
-    chipVariant: "negative",
-    tagVariant: "negative",
-  },
-  storytelling: {
-    textVariant: "secondaryDark",
-    chipVariant: "secondary",
-    tagVariant: "secondary",
-  },
-  social: {
-    textVariant: "primaryDark",
-    chipVariant: "primary",
-    tagVariant: "primary",
-  },
-  code: {
-    textVariant: "primaryDark",
-    chipVariant: "primary",
-    tagVariant: "primary",
-  },
-}
+import { blogTypeRef, tagIconRef } from "../pages/blog"
 
-export const tagIconRef = {
-  code: "codetags",
-  military: "military",
-  storytelling: "book",
-}
+const query = graphql`
+  query($subject: String!) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: ASC }
+      filter: { frontmatter: { tags: { eq: $subject } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            desc
+            date
+            subject
+            author
+            tags
+            foregroundImg
+            avatar {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`
 
-const BlogPage = () => {
+const BlogCategory = ({ data, pathContext }) => {
   const [loading, setLoading] = React.useState(false)
-  const [tagFilter, setTagFilter] = React.useState("all")
+  const [tagFilter] = React.useState(pathContext.subject)
 
   const mainRef = React.useRef()
   const [endRef, inView] = useInView({
@@ -65,43 +71,6 @@ const BlogPage = () => {
     }, 1500)
   }
 
-  const handleTagFilterSet = val => {
-    if (tagFilter === val) return
-    toggleLoading()
-    setTagFilter(val)
-    if (mainRef.current) mainRef.current.scrollTop = 0
-  }
-
-  const data = useStaticQuery(graphql`
-    query {
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
-        edges {
-          node {
-            frontmatter {
-              title
-              desc
-              date
-              subject
-              author
-              tags
-              foregroundImg
-              avatar {
-                childImageSharp {
-                  fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `)
-
   return (
     <RefMainLayout ref={mainRef} className="page-blog">
       {!inView && (
@@ -118,7 +87,7 @@ const BlogPage = () => {
               className="page-blog__aside__filter-tags-container"
               classes={["flexRow", "flexWrap"]}
             >
-              <Link to={`/blog`} className="page-blog__aside__filter-tag">
+              <Link to="/blog" className="page-blog__aside__filter-tag">
                 <Chip
                   label="all"
                   icon="refresh"
@@ -135,7 +104,6 @@ const BlogPage = () => {
                     <Chip
                       label={tag}
                       key={`filter-chip-${index}`}
-                      onClick={handleTagFilterSet.bind(null, tag)}
                       icon={tagIconRef[tag]}
                       variant={
                         tagFilter === tag
@@ -275,4 +243,4 @@ const BlogPage = () => {
   )
 }
 
-export default BlogPage
+export { query, BlogCategory as default }

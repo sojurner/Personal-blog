@@ -7,7 +7,7 @@ tags:
   - code
 author: "Paul Kim"
 foregroundImg: "https://wallpaperaccess.com/full/796847.jpg"
-avatar: ../../images/avatar_pk.png
+avatar: ../../images/avatar-cartoon_pk.png
 ---
 
 ## Intro
@@ -18,9 +18,9 @@ Plenty of amazing & free tools/resources out there available for developers.  He
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1200px-Visual_Studio_Code_1.35_icon.svg.png"
      alt="VS Code logo"
      style="border-radius: 10px; height: 150px;" />
-This is pretty much a no-brainer for front-end developers. If you're a dev, and have never heard of VS Code, I strongly advise lifting that rock over your head.
+This is a no-brainer for front-end developers. If you're a dev, and have never heard of VS Code, I strongly advise lifting that rock over your head.
 
-I can go into details of  the features and benefits of VS Code, but frankly, I wouldn't be able to do it justice. Not to mention, it would take forever.
+I can go into details of the features and benefits of VS Code, but frankly, I wouldn't be able to do it justice. Not to mention, it would take forever.
 
 All I can say, is [try it out](https://code.visualstudio.com/) and see for yourself.
 
@@ -49,7 +49,7 @@ To view their entire feature list head over to [Brave's feature page](https://br
      alt="Openbase logo"
      style="border-radius: 10px; height: 150px;" />
 
-Openbase is a fantastic web app where users can learn, discover, and rate open-source NPM projects.  Personally, I love the clean and futuristic UI.  
+Openbase is a fantastic web app where users can learn, discover, and rate open-source NPM projects.  Personally, I'm a fan of the clean and futuristic UI.  
 
 The sheer amount of information and data it provides is enormous.  I always feel I'm getting a complete picture of the entire npm ecosystem.
 
@@ -63,7 +63,7 @@ I encourage everyone to [check it out](https://openbase.io/)!
 
 Mockaroo is a mock data generator website that supports CSV, JSON, SQL, and Excel formats. Its straightfoward and easy for anyone to use, even without a programming background.
 
-Personally, its most attractive feature is the expansive list of category types to choose from. Example of some types include: Company Name, Phone number, SSN, Drug Name, etc. 
+For me, its most attractive feature is the expansive list of category types to choose from. Example of some types include: Company Name, Phone number, SSN, Drug Name, etc. 
 
 Check out their [website](https://www.mockaroo.com/) to see the full list and start mocking!
 

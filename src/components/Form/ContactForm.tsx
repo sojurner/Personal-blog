@@ -1,21 +1,32 @@
 import React from "react"
 
-import Flex from "@components/Flex"
-import Typography from "@components/Typography"
 import Input from "@components/Input"
+import Flex from "@components/Flex"
+import TextArea from "@components/TextArea"
+import Icon from "@components/Icon"
+import Button from "@components/Button"
 
 import "./_customForm.scss"
 
 const ContactForm = props => {
   return (
     <form className="form-contact" {...props}>
-      <Input
-        name="Name"
-        id="form-contact__name"
-        variant="secondary"
-        className="form-contact__input-group"
-        placeholder="Name..."
-      />
+      <Flex classes={['flexRow', "justifyContentBetween"]}>
+        <Input
+          name="Name"
+          id="form-contact__name"
+          variant="secondary"
+          className="form-contact__input-group"
+          placeholder="first name..."
+        />
+        <Input
+          name=" "
+          id="form-contact__name"
+          variant="secondary"
+          className="form-contact__input-group"
+          placeholder="last name..."
+        />
+      </Flex>
       <Input
         variant="secondary"
         name="Email"
@@ -24,13 +35,17 @@ const ContactForm = props => {
         className="form-contact__input-group"
         placeholder="Email..."
       />
-      <Input
+      <TextArea
         name="Message"
         variant="secondary"
         id="form-contact__message"
-        className="form-contact__input-group"
+        className="form-contact__textarea-group"
         placeholder="Message..."
       />
+      <Button variant="secondary">
+        Submit
+        <Icon svg="telegram" />
+      </Button>
     </form>
   )
 }

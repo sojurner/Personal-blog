@@ -7,7 +7,7 @@ subject: "military"
 tags:
   - military
 foregroundImg: "https://wallpapercave.com/wp/UmbAAfZ.jpg"
-avatar: ../../images/avatar_pk.png
+avatar: ../../images/avatar-cartoon_pk.png
 ---
 
 ## So a bit of history about me...

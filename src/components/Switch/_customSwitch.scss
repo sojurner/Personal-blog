@@ -1,0 +1,55 @@
+@import "../../styles/utils/vars";
+@import "../../styles/utils/mixins";
+
+.switch--darkmode {
+  position: relative;
+  display: flex;
+  margin-left: 20px;
+  align-items: center;
+  justify-content: center;
+
+  label {
+    position: relative;
+    display: block;
+    width:45px;
+    height: 26px;
+    border-radius: 100px;
+    background-color: $color-primary-900;
+    overflow: hidden;
+    cursor: pointer;
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      top: 4px;
+      left: 5px;
+      transition: 0.5s ease;
+    }
+    &:before {
+      background-color: $color-primary-100;
+    }
+
+    &:after {
+      background-color: $color-primary-900;
+      transform: scale(0.00001);
+    }
+  }
+
+  input[type="checkbox"] {
+    display: none;
+    &:checked + label {
+      &:before {
+        background-color: $color-blank-800;
+        transform: translateX(17px);
+      }
+
+      &:after {
+        transform: translateX(10px) scale(1);
+      }
+    }
+  }
+}

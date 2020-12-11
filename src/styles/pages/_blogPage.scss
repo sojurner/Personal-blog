@@ -3,7 +3,7 @@
 
 .page-blog {
   &__content-section {
-    padding: 0.5em 1em;
+    padding: 2em 0 6em 0;
     flex: 1 1 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -70,6 +70,10 @@
     margin: 20px 0;
     margin-right: 4vw;
     max-width: 600px;
+
+    @media only screen and (max-width: 1030px) {
+      margin-right: 0;
+    }
   }
 
   &__card {
@@ -100,7 +104,7 @@
   &__card-header__profile-container {
     z-index: 1;
     margin: -20px 0 0 10px;
-    background: white;
+    background: $color-blank-800;
     padding: .3em .6em;
     border-radius: 50px;
     width: max-content;
@@ -128,6 +132,10 @@
 
   &__card-content {
     padding: .6em 1.5em;
+  }
+
+  &__card-content__txt-title {
+    margin-bottom: 5px;
   }
 
   &__card-content__txt-desc {

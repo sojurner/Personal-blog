@@ -9,6 +9,7 @@
       "@styles/components/*": ["styles/components/*"],
       "@typings/*": ["typings/*"],
       "@utils/*": ["utils/*"],
+      "@pages/*": ["pages/*"],
     },
     "jsx": "react",
     "lib": ["dom", "esnext", "es2015", "es2016", "es2017"],

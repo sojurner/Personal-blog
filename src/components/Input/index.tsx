@@ -21,42 +21,19 @@ interface PKInputComponent extends React.InputHTMLAttributes<HTMLInputElement> {
   className?: string
 }
 
-interface PKTextAreaComponent
-  extends React.InputHTMLAttributes<HTMLTextAreaElement> {
-  variant?: InputVariantKey
-  className?: string
-}
-
 const Input: React.FC<PKInputComponent> = ({
   variant,
   className,
   ...props
 }) => {
-  const classes = `${inputVariants[variant]} ${inputStyles.inputBase}`
+  const classes = `${inputVariants[variant]} ${inputStyles.inputBase} ${className}`
   return (
     <Flex
-      classes={["flexColumn", "justifyContentBetween"]}
-      className={className}
+      classes={["flexColumn"]}
+      className={classes}
     >
       <label htmlFor={props.id}>{props.name}</label>
-      <input className={classes} {...props} />
-    </Flex>
-  )
-}
-
-const TextArea: React.FC<PKTextAreaComponent> = ({
-  variant,
-  className,
-  ...props
-}) => {
-  const classes = `${inputVariants[variant]} ${inputStyles.inputBase}`
-  return (
-    <Flex
-      classes={["flexColumn", "justifyContentBetween"]}
-      className={className}
-    >
-      <label htmlFor={props.id}>{props.name}</label>
-      <textarea className={classes} {...props} />
+      <input {...props} />
     </Flex>
   )
 }
@@ -65,8 +42,4 @@ Input.defaultProps = {
   variant: "default",
 }
 
-TextArea.defaultProps = {
-  variant: "default",
-}
-
-export { TextArea, Input as default }
+export { InputVariantKey, PKInputComponent, Input as default }

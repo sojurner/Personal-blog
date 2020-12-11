@@ -20,6 +20,7 @@ import {
 } from "@components/Svg"
 
 import avatar_1 from "../images/avatar-cartoon_pk.png"
+import army from "../images/army_pk.png"
 
 import "react-vertical-timeline-component/style.min.css"
 import "@styles/index.scss"
@@ -40,16 +41,17 @@ const AboutPage = () => (
             Paul Kim
           </Typography>
           <Typography
-            tag="h2"
+            tag="h3"
             variant="neutralLight"
             className="page-about__landing-greeting__motto"
           >
             - You miss 100% of the shots you don't make
           </Typography>
         </Flex>
-        <Flex class="page-about__landing-greeting__imgs">
+        <Flex className="page-about__landing-greeting__imgs">
           <img
             src={avatar_1}
+            alt={"personal pic"}
             className="page-about__landing-greeting__imgs-profile"
           />
           <BrushStroke className="page-about__brush-stroke page-about__landing-greeting__imgs-brushstroke" />
@@ -64,7 +66,7 @@ const AboutPage = () => (
           tag="h2"
           variant="neutralDefault"
         >
-          Hello, Welcome to my portfolio/blog website
+          Welcome!
         </Typography>
         <Typography
           tag="h2"
@@ -80,8 +82,8 @@ const AboutPage = () => (
           variant="neutralLight"
         >
           I'm a Developer with a passion for root. I currently work for Catalyst
-          Healthcare as a front-end developer. Prior to this, I served 4 years
-          as a Combat Medic in the U.S. Army.
+          Healthcare as a front-end developer. I like to keep things light and
+          quirky.
         </Typography>
         <Typography
           tag="h2"
@@ -111,14 +113,14 @@ const AboutPage = () => (
         className="page-about__history-container--inner"
       >
         <Typography tag="h1" className="page-about__history__title">
-          Work History
+          History
         </Typography>
         <Typography
-          tag="h2"
+          tag="h3"
           variant="neutralLight"
           className="page-about__history__motto"
         >
-          - It's past my bedtime
+          - The plural of anecdote is not statistics.
         </Typography>
         <DripGrunge className="page-about__history__bg" />
       </Flex>
@@ -126,10 +128,11 @@ const AboutPage = () => (
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           date="2013 - 2017"
-          iconStyle={{ background: "#fafcfd" }}
           icon={<Icon svg="military" color="#b32158" />}
         >
+          <img src={army} alt="army-pic" className="page-about__history__timeline__img" />
           <Typography tag="h3">US Army</Typography>
+
           <Typography
             tag="h4"
             variant="neutralLight"
@@ -146,7 +149,6 @@ const AboutPage = () => (
         <VerticalTimelineElement
           className="vertical-timeline-element--work"
           date="2018 - Now"
-          iconStyle={{ background: "#fafcfd" }}
           icon={<Icon svg="codetags" color="#3c354a" />}
         >
           <Typography tag="h3">Catalyst Healthcare</Typography>
@@ -157,8 +159,16 @@ const AboutPage = () => (
           >
             Front-end Developer
           </Typography>
+          <Flex className="page-about__history__timeline__skill-icons">
+            <Icon color="var(--pk-color-icon-csharp)" svg="csharp" />
+            <Icon color="var(--pk-color-icon-js)" svg="javascript" />
+            <Icon color="var(--pk-color-icon-dotnet)" svg="dotnet" />
+            <Icon color="var(--pk-color-icon-react)" svg="react" />
+            <Icon color="var(--pk-color-icon-sass)" svg="sass" />
+            <Icon color="var(--pk-color-icon-docker)" svg="docker" />
+          </Flex>
           <Typography variant="neutralLight">
-            C#, .net core, Blazor, Sass, JS, React
+            Primary front-end developer working mostly in Blazor and .net-core.
           </Typography>
         </VerticalTimelineElement>
       </VerticalTimeline>
@@ -174,7 +184,7 @@ const AboutPage = () => (
             Skillset
           </Typography>
           <Typography
-            tag="h2"
+            tag="h3"
             variant="neutralLight"
             className="page-about__cards-skills__motto"
           >
@@ -193,11 +203,11 @@ const AboutPage = () => (
             Contact
           </Typography>
           <Typography
-            tag="h2"
+            tag="h3"
             variant="neutralLight"
             className="page-about__cards-contact__motto"
           >
-            - 30% of the time, 24/7 Contact all the time
+            - 20% of the time, 24/7 contact all the time.
           </Typography>
           <SplashGrunge className="page-about__splash-grunge" />
         </Flex>

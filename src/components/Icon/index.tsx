@@ -10,7 +10,7 @@ import social from "@iconify-icons/mdi/account-group-outline"
 import book from "@iconify-icons/mdi/book-open-page-variant-outline"
 import console from "@iconify-icons/mdi-light/console"
 import calendar from "@iconify-icons/mdi/calendar-clock"
-import mapMarker from "@iconify-icons/mdi/map-marker";
+import mapMarker from "@iconify-icons/mdi/map-marker"
 
 import csharp from "@iconify-icons/mdi/language-csharp"
 import javascript from "@iconify-icons/mdi/language-javascript"
@@ -36,6 +36,7 @@ import tools from "@iconify-icons/mdi/tools"
 import cellphone from "@iconify-icons/mdi/cellphone"
 import email from "@iconify-icons/mdi/email-outline"
 import linkedIn from "@iconify-icons/mdi/linkedin-box"
+import telegram from "@iconify-icons/mdi/telegram"
 
 import iconStyles from "./Icon.module.scss"
 import { PKColorVariant } from "@typings/component"
@@ -57,7 +58,7 @@ const iconVariants: PKColorVariant = Object.freeze({
   secondaryDefault: iconStyles.iconSecondaryDefault,
   secondaryLight: iconStyles.iconSecondaryLight,
   secondaryDark: iconStyles.iconSecondaryDark,
-  currentColor: "currentColor"
+  currentColor: "currentColor",
 })
 
 const iconSvg = Object.freeze({
@@ -89,13 +90,14 @@ const iconSvg = Object.freeze({
   docker,
   cellphone,
   linkedIn,
-  mapMarker
+  mapMarker,
+  telegram,
 })
 
 type IconVariantKey = keyof typeof iconVariants
-type IconSvgKey = keyof typeof iconSvg | string;
+type IconSvgKey = keyof typeof iconSvg | string
 
-interface PKIconComponent extends Omit<IconifyIcon, "icon"> { 
+interface PKIconComponent extends Omit<IconifyIcon, "icon"> {
   variant?: IconVariantKey
   svg?: IconSvgKey
   className?: string

@@ -22,7 +22,7 @@ const SkillsCard: React.FC<PKCardComponent> = ({ className, ...props }) => {
       >
         <Icon
           className="card-skills__content__title-icon"
-          color="#4A546D"
+          color="var(--pk-color-icon-codetags)"
           svg="codetags"
         />
         <Flex
@@ -37,11 +37,11 @@ const SkillsCard: React.FC<PKCardComponent> = ({ className, ...props }) => {
             Languages
           </Typography>
           <Flex className="card-skills__content__skillset-icons">
-            <Icon color="#652077" svg="csharp" />
-            <Icon color="#F0DB4F" svg="javascript" />
-            <Icon color="#0077C6" svg="typescript" />
-            <Icon color="#EA6228" svg="html" />
-            <Icon color="#3596D0" svg="css" />
+            <Icon color="var(--pk-color-icon-csharp)" svg="csharp" />
+            <Icon color="var(--pk-color-icon-js)" svg="javascript" />
+            <Icon color="var(--pk-color-icon-ts)" svg="typescript" />
+            <Icon color="var(--pk-color-icon-html)" svg="html" />
+            <Icon color="var(--pk-color-icon-css)" svg="css" />
           </Flex>
         </Flex>
       </Flex>
@@ -51,7 +51,7 @@ const SkillsCard: React.FC<PKCardComponent> = ({ className, ...props }) => {
       >
         <Icon
           className="card-skills__content__title-icon"
-          color="#a7c6f9"
+          color="var(--pk-color-icon-web)"
           svg="web"
         />
         <Flex
@@ -66,11 +66,11 @@ const SkillsCard: React.FC<PKCardComponent> = ({ className, ...props }) => {
             Frameworks
           </Typography>
           <Flex className="card-skills__content__skillset-icons">
-            <Icon color="#61dafb" svg="react" />
-            <Icon color="#88C349" svg="nodejs" />
-            <Icon color="#CC6699" svg="sass" />
-            <Icon color="#5C2D91" svg="dotnet" />
-            <Icon color="#2396EE" svg="docker" />
+            <Icon color="var(--pk-color-icon-react)" svg="react" />
+            <Icon color="var(--pk-color-icon-node)" svg="nodejs" />
+            <Icon color="var(--pk-color-icon-sass)" svg="sass" />
+            <Icon color="var(--pk-color-icon-dotnet)" svg="dotnet" />
+            <Icon color="var(--pk-color-icon-docker)" svg="docker" />
           </Flex>
         </Flex>
       </Flex>
@@ -80,7 +80,7 @@ const SkillsCard: React.FC<PKCardComponent> = ({ className, ...props }) => {
       >
         <Icon
           className="card-skills__content__title-icon"
-          color="#c3c3c3"
+          color="var(--pk-color-icon-tools)"
           svg="tools"
         />
         <Flex
@@ -95,10 +95,10 @@ const SkillsCard: React.FC<PKCardComponent> = ({ className, ...props }) => {
             Tools
           </Typography>
           <Flex className="card-skills__content__skillset-icons">
-            <Icon color="#0077C6" svg="vscode" />
-            <Icon color="#68217A" svg="vs" />
-            <Icon color="#F56A25" svg="gitlab" />
-            <Icon color="#5C2D91" svg="github" />
+            <Icon color="var(--pk-color-icon-vscode)" svg="vscode" />
+            <Icon color="var(--pk-color-icon-vs)" svg="vs" />
+            <Icon color="var(--pk-color-icon-gitlab)" svg="gitlab" />
+            <Icon color="var(--pk-color-icon-github--1)" svg="github" />
           </Flex>
         </Flex>
       </Flex>
