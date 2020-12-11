@@ -51,9 +51,9 @@ const query = graphql`
   }
 `
 
-const BlogCategory = ({ data, pathContext }) => {
+const BlogCategory = ({ data, pageContext }) => {
   const [loading, setLoading] = React.useState(false)
-  const [tagFilter] = React.useState(pathContext.subject)
+  const [tagFilter] = React.useState(pageContext.subject)
 
   const mainRef = React.useRef()
   const [endRef, inView] = useInView({

@@ -10,7 +10,7 @@ import Avatar from "@components/Avatar"
 import { blogTypeRef } from "../utils/constants"
 
 import "@styles/index.scss"
-import "@styles/pages/_homepage.scss"
+import "@styles/pages/_homePage.scss"
 
 const HomePage = () => {
   const data = useStaticQuery(graphql`
