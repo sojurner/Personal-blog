@@ -7,7 +7,7 @@ tags:
   - code
 author: "Paul Kim"
 foregroundImg: "https://wallpapercave.com/wp/wp7241559.png"
-avatar: ../../images/avatar_pk.png
+avatar: ../../images/avatar-cartoon_pk.png
 ---
 
 ## Intro
