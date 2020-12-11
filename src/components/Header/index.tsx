@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { useLocation } from "@reach/router"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import Typography from "@components/Typography"
 import Flex, { flexClasses } from "@components/Flex"
@@ -12,35 +13,39 @@ import { DarkModeSwitch } from "@components/Switch"
 import { routes, socialLinks } from "../../utils/constants"
 import "./Header.scss"
 
-const Header = () => {
+const Header = props => {
   const { pathname } = useLocation()
   const [_, root] = pathname.split("/")
+  console.log(root)
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }) => (
         <header
           className={`header--base header--primary ${flexClasses.flexRow} ${flexClasses.alignItemsCenter}`}
         >
-          <Link to="/" className="header__logo">
+          <AniLink
+            swipe
+            right="entry"
+            entryOffset={10}
+            to="/"
+            className="header__logo"
+          >
             <Logo />
-          </Link>
+          </AniLink>
           <Flex className="header__nav-container">
-            {routes.map(routeProps =>
-              routeProps.label == root ? (
-                <Typography
-                  key={`header-link-${routeProps.label}`}
-                  variant={"primaryDark"}
-                  className={"header__nav-link--active"}
-                  tag="h4"
-                >
-                  {routeProps.label}
-                </Typography>
-              ) : (
-                <Link
+            {routes.map((routeProps, index) => {
+              var currentPathIndex = routes.findIndex(
+                route => route.label == root
+              )
+
+              return (
+                <AniLink
                   key={`header-link-${routeProps.label}`}
                   className="header__nav-link"
                   activeClassName="header__nav-link--active"
                   partiallyActive={true}
+                  swipe
+                  direction={currentPathIndex < index ? "left" : "right"}
                   to={routeProps.to}
                 >
                   <Typography
@@ -51,9 +56,9 @@ const Header = () => {
                   >
                     {routeProps.label}
                   </Typography>
-                </Link>
+                </AniLink>
               )
-            )}
+            })}
           </Flex>
           <Flex className="header__social-container">
             {socialLinks.map(ele => (

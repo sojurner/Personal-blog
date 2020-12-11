@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { useInView } from "react-intersection-observer"
 import ContentLoader from "react-content-loader"
 
@@ -13,10 +14,12 @@ import Typography from "@components/Typography"
 import Avatar from "@components/Avatar"
 import Divider from "@components/Divider"
 
+import pk_logo from '../images/pk-logo-loader.svg'
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
 
-import {blogTypeRef, tagIconRef} from '../utils/constants'
+
+import { blogTypeRef, tagIconRef } from "../utils/constants"
 
 const BlogPage = () => {
   const [loading, setLoading] = React.useState(false)
@@ -132,10 +135,22 @@ const BlogPage = () => {
           data.allMarkdownRemark.edges.map((post, index) => {
             const { fields, frontmatter } = post.node
             return (
-              <Link
+              <AniLink
                 key={`post-ref-${index}`}
                 to={`/blog/${frontmatter.subject}/${fields.slug}`}
                 className="page-blog__card-link"
+                duration={2}
+                direction={"bottom"}
+                cover
+                bg={`
+                  var(--pk-color-blank-700)
+                  url(${pk_logo})
+                  center
+                  no-repeat
+                  fixed
+                  padding-box
+                  content-box
+                `}
               >
                 <Card
                   classes={["flexColumn", "justifyContentCenter"]}
@@ -217,7 +232,7 @@ const BlogPage = () => {
                     </Flex>
                   </Flex>
                 </Card>
-              </Link>
+              </AniLink>
             )
           })
         ) : (

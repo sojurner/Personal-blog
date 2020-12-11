@@ -68,16 +68,14 @@
     &--active {
       @include dual-gradient($color-primary-800, $color-primary-500);
       margin: 0 2vw;
-
+      pointer-events: none;
       border-radius: 0.3em;
       padding: 0 0.5em;
-      color: $color-blank-800;
       text-transform: capitalize;
     }
 
     @media only screen and (max-width: 500px) {
-      h4,
-      &--active {
+      h4 {
         font-size: 16px;
       }
     }

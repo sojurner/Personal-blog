@@ -18,7 +18,7 @@ module.exports = {
           "@styles": path.resolve(__dirname, "src/styles"),
           "@typings": path.resolve(__dirname, "src/typings"),
           "@utils/*": path.resolve(__dirname, "src/utils"),
-          "@pages/*": path.resolve(__dirname, "src/pages")
+          "@pages/*": path.resolve(__dirname, "src/pages"),
         },
         extensions: [],
       },
@@ -92,5 +92,6 @@ module.exports = {
     },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-dark-mode",
+    "gatsby-plugin-transition-link",
   ],
 }
