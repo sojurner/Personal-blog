@@ -1,0 +1,39 @@
+@import "../../styles/utils/vars";
+@import "../../styles/utils/mixins";
+
+$btn-variants: (
+  //
+  primary: ($color-primary-500, $color-primary-800),
+  secondary: ($color-secondary-500, $color-secondary-800),
+  negative: ($color-negative-500, $color-negative-800),
+  positive: ($color-positive-500, $color-positive-800),
+  default: ($color-neutral-500, $color-neutral-800)
+);
+
+.btn {
+  &--base {
+    padding: 1em;
+    border-radius: 15px;
+    background: none;
+    border: 0;
+    color: $color-blank-800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+      margin-left: 10px;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: inset 0px -2px 5px rgb(243, 243, 243),
+        inset 0px 2px 5px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  @each $variant, $colors in $btn-variants {
+    &--#{$variant} {
+      @include dual-gradient($colors...);
+    }
+  }
+}
