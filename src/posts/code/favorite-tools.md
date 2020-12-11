@@ -12,7 +12,7 @@ avatar: ../../images/avatar-cartoon_pk.png
 
 ## Intro
 
-Plenty of amazing & free tools/resources out there available for developers.  Here are some of my favorites.  
+There are plenty of amazing & free available tools/resources for developers.  Here are some of my favorites.  
 
 ## VS Code
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/1200px-Visual_Studio_Code_1.35_icon.svg.png"
@@ -38,9 +38,9 @@ Most likely, you'll be using Postman or another similar collaborative API servic
 <img src="https://brave.com/wp-content/uploads/2019/03/brave-logo.png"
      alt="Brave logo"
      style="border-radius: 10px; height: 150px;" />
-This is my main, go-to web browser. For me, the main selling point is its built-in ad block feature.  In my opinion, this is should be a default for any web browser. Tied with the ad blocker, is their rewards program that incentivizes private ad viewership in exchange for BAT coins!
+This is my main, go-to web browser. For me, the main selling point is its built-in ad block feature.  In my opinion, this is should be default for any web browser. Tied with the ad blocker, is their rewards program that incentivizes private ad viewership in exchange for BAT coins!
 
-If you're searching for a more privacy based web browser, then Brave is not going to be it.  Brave is built off of Google's Chromium software, so security/privacy will be second-class features.
+If you're searching for a more privacy based web browser, then Brave is not going to be it.  Brave is built off of Google's Chromium software, so privacy will be second-class a feature.
 
 To view their entire feature list head over to [Brave's feature page](https://brave.com/features/).
 
@@ -63,7 +63,7 @@ I encourage everyone to [check it out](https://openbase.io/)!
 
 Mockaroo is a mock data generator website that supports CSV, JSON, SQL, and Excel formats. Its straightfoward and easy for anyone to use, even without a programming background.
 
-For me, its most attractive feature is the expansive list of category types to choose from. Example of some types include: Company Name, Phone number, SSN, Drug Name, etc. 
+For me, its most attractive feature is the expansive list of category types to choose from. Example of some types include: Company Name, Phone number, SSN, Drug Name, etc.
 
 Check out their [website](https://www.mockaroo.com/) to see the full list and start mocking!
 
@@ -73,9 +73,9 @@ Check out their [website](https://www.mockaroo.com/) to see the full list and st
      alt="Hashrocket logo"
      style="border-radius: 10px; height: 150px;" />
 
-TIL is a great learning resource for programmers.  Simply put, its one large series of informative, code-related blog posts. 
+TIL is a great learning resource for programmers.  Simply put, its one large series of informative, code-related blog posts.
 
-Each post is short & concise, and topics can range anywhere from languages & frameworks to tools & tips/tricks.
+Each post is short, concise and digestible for any dev on the go. Topics can range anywhere from languages & frameworks to tools & tips/tricks.
 
 [Head on over there and start learning!](https://til.hashrocket.com/)
 

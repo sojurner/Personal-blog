@@ -19,6 +19,7 @@ const ContactForm = props => {
           className="form-contact__input-group"
           placeholder="first name..."
         />
+        <div className="form-contact__input-divider" />
         <Input
           name=" "
           id="form-contact__name"

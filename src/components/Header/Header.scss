@@ -8,6 +8,10 @@
     top: 0;
     z-index: 100;
     justify-content: space-between;
+
+    @media only screen and (max-width: 500px) {
+      padding: 1em;
+    }
   }
 
   &--primary {
@@ -21,13 +25,36 @@
     color: $color-primary-900;
     display: flex;
     margin-right: 6vw;
+
+    @media only screen and (max-width: 500px) {
+      font-size: 2em;
+      // margin-right: 4vw;
+    }
   }
 
+  &__nav-container {
+    margin: 0 auto;
+  }
 
   &__nav-link {
-    margin: 0 15px;
     position: relative;
     padding: 0 0.5em;
+
+    &:nth-child(1),
+    &--active:nth-child(1) {
+      margin: 0 2vw 0 0;
+    }
+
+    &:nth-child(2),
+    &--active:nth-child(2) {
+      margin: 0 2vw;
+    }
+
+    &:nth-child(3),
+    &--active:nth-child(3) {
+      margin: 0 0 0 2vw;
+    }
+
     h4 {
       transition: 0.1s linear;
       z-index: 1;
@@ -40,12 +67,19 @@
 
     &--active {
       @include dual-gradient($color-primary-800, $color-primary-500);
-      margin: 0 15px;
+      margin: 0 2vw;
 
       border-radius: 0.3em;
       padding: 0 0.5em;
       color: $color-blank-800;
       text-transform: capitalize;
+    }
+
+    @media only screen and (max-width: 500px) {
+      h4,
+      &--active {
+        font-size: 16px;
+      }
     }
   }
 

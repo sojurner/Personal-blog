@@ -20,10 +20,10 @@ export const blogTypeRef = {
     chipVariant: "secondary",
     tagVariant: "secondary",
   },
-  social: {
-    textVariant: "primaryDark",
-    chipVariant: "primary",
-    tagVariant: "primary",
+  culture: {
+    textVariant: "positiveDark",
+    chipVariant: "positive",
+    tagVariant: "positive",
   },
   code: {
     textVariant: "primaryDark",
@@ -36,6 +36,7 @@ export const tagIconRef = {
   code: "codetags",
   military: "military",
   storytelling: "book",
+  culture: "social"
 }
 
 const routes = [

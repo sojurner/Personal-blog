@@ -16,7 +16,7 @@ import Divider from "@components/Divider"
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
 
-import { blogTypeRef, tagIconRef } from "../pages/blog"
+import { blogTypeRef, tagIconRef } from "../utils/constants"
 
 const query = graphql`
   query($subject: String!) {
@@ -88,6 +88,7 @@ const BlogCategory = ({ data, pageContext }) => {
               classes={["flexRow", "flexWrap"]}
             >
               <Link to="/blog" className="page-blog__aside__filter-tag">
+                {console.log(tagFilter)}
                 <Chip
                   label="all"
                   icon="refresh"

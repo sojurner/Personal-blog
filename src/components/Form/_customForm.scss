@@ -11,8 +11,16 @@
     height: 500px;
   }
 
+  @media only screen and (max-width: 500px) {
+    padding: 0 1em;
+  }
+
   &__input-group {
     height: 90px;
+  }
+
+  &__input-divider {
+    margin: 0 10px;
   }
 
   button {
@@ -20,4 +28,5 @@
       font-size: 1.1em
     }
   }
+  
 }

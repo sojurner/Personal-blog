@@ -9,7 +9,7 @@ $icon-bg: rgb(67, 75, 106);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 5em 2em;
+    padding: 4em 2em 3em;
     justify-self: center;
     background: $color-bg-footer;
   }
@@ -37,8 +37,19 @@ $icon-bg: rgb(67, 75, 106);
     margin: 0 10px;
   }
 
-  &__contact-container {
+  &__contact-container--outer {
+    @media only screen and (max-width: 500px) {
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+    }
+  }
+
+  &__contact-container--inner {
     margin-right: 10vw;
+    @media only screen and (max-width: 500px) {
+      margin: 0;
+    }
   }
 
   &__contact-item-container {
@@ -72,6 +83,16 @@ $icon-bg: rgb(67, 75, 106);
 
   &__copyright-container {
     height: max-content;
+    margin-right: 15px;
+  }
+  
+  &__copyright-social {
+    @media only screen and (max-width: 500px) {
+      flex-direction: row;
+      align-items: center;
+      margin-top: 2em;
+      justify-content: center;
+    }
   }
 
   &__social-container {

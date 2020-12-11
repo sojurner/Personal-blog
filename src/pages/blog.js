@@ -16,34 +16,7 @@ import Divider from "@components/Divider"
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
 
-export const blogTypeRef = {
-  military: {
-    textVariant: "negativeDark",
-    chipVariant: "negative",
-    tagVariant: "negative",
-  },
-  storytelling: {
-    textVariant: "secondaryDark",
-    chipVariant: "secondary",
-    tagVariant: "secondary",
-  },
-  social: {
-    textVariant: "primaryDark",
-    chipVariant: "primary",
-    tagVariant: "primary",
-  },
-  code: {
-    textVariant: "primaryDark",
-    chipVariant: "primary",
-    tagVariant: "primary",
-  },
-}
-
-export const tagIconRef = {
-  code: "codetags",
-  military: "military",
-  storytelling: "book",
-}
+import {blogTypeRef, tagIconRef} from '../utils/constants'
 
 const BlogPage = () => {
   const [loading, setLoading] = React.useState(false)

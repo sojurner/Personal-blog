@@ -130,7 +130,6 @@ const AboutPage = () => (
           date="2013 - 2017"
           icon={<Icon svg="military" color="#b32158" />}
         >
-          <img src={army} alt="army-pic" className="page-about__history__timeline__img" />
           <Typography tag="h3">US Army</Typography>
 
           <Typography
@@ -140,6 +139,7 @@ const AboutPage = () => (
           >
             Combat Medic
           </Typography>
+          <img src={army} alt="army-pic" className="page-about__history__timeline__img" />
           <Typography variant="neutralLight">
             Four years of service with 168th Multifunctional Medical Battalion
             (Camp Walker, S. Korea) and Lyster Army Health Clinic (Fort Rucker,
