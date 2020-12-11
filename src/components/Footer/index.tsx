@@ -3,7 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 
 import Typography from "@components/Typography"
 import Icon from "@components/Icon"
-import Avatar from "@components/Avatar"
+import { Logo } from "@components/Svg"
 import Flex from "@components/Flex"
 
 import { socialLinks } from "../../utils/constants"
@@ -18,13 +18,6 @@ const Footer: React.FC = props => {
           location
           phone
           email
-        }
-      }
-      file(relativePath: { eq: "images/avatar-cartoon_pk-2.png" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
         }
       }
     }
@@ -99,14 +92,7 @@ const Footer: React.FC = props => {
         </Flex>
         <Flex classes={["flexColumn"]}>
           <Flex className="footer__copyright-container">
-            <Avatar
-              className="footer__copyright-avatar"
-              fluid={data.file.childImageSharp.fluid}
-              alt={data.site.siteMetadata.author
-                .split(" ")
-                .map(x => x[0])
-                .join("")}
-            />
+            <Logo className="footer__copyright-logo"/>
             <Flex classes={["flexColumn", "justifyContentCenter"]}>
               <Typography tag="label" variant="neutralBlank">
                 Copyright ©

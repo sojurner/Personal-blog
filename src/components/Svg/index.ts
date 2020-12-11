@@ -2,6 +2,7 @@ import BrushStroke from "./BrushStroke"
 import InkGrunge from "./InkGrunge"
 import SplashGrunge from "./SplashGrunge"
 import DripGrunge from "./DripGrunge"
+import GrungeBG from './GrungeBG';
 
 import Logo from "./Logo"
 import OldManAndTheSea from "./OldManAndTheSea"
@@ -19,5 +20,6 @@ export {
   SplashGrunge,
   DripGrunge,
   OldManAndTheSea,
-  StarCurrent
+  StarCurrent,
+  GrungeBG
 }

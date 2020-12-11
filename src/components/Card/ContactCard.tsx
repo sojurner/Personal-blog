@@ -9,26 +9,26 @@ import "./_customCard.scss"
 const contactInfo = [
   {
     icon: "cellphone",
-    iconColor: "gray",
+    iconColor: "var(--pk-color-icon-cellphone)",
     label: "Mobile",
     value: "(303) - 257 - 7590",
   },
   {
     icon: "email",
-    iconColor: "#DD4A3E",
+    iconColor: "var(--pk-color-icon-email)",
     label: "Email",
     value: "paul.kim0591@gmail.com",
   },
   {
     icon: "github",
-    iconColor: "#323131",
+    iconColor: "var(--pk-color-icon-github--2)",
     label: "Github",
     value: "@sojurner",
     link: "https://github.com/sojurner",
   },
   {
     icon: "linkedIn",
-    iconColor: "#0a66c2",
+    iconColor: "var(--pk-color-icon-linkedIn)",
     label: "LinkedIn",
     value: "@paulkim-sojurner",
     link: "https://www.linkedin.com/in/paulkim-sojurner/",
