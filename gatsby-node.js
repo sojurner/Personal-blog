@@ -1,18 +1,21 @@
 const path = require("path")
-
-module.exports.onCreateNode = ({ node, actions }) => {
+const { createFilePath } = require(`gatsby-source-filesystem`)
+module.exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type == "MarkdownRemark") {
-    const value = path.basename(node.fileAbsolutePath, ".md")
+    // const slug = createFilePath({ node, getNode })
+    // const value = path.basename(node.fileAbsolutePath, ".md")
+    const [_, root, subject, slug] = createFilePath({ node, getNode }).split(
+      "/"
+    )
 
-    createNodeField({ node, name: "slug", value })
+    createNodeField({ node, name: "slug", value: slug })
+    createNodeField({ node, name: "subject", value: subject })
   }
 }
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-
-  const blogTemplate = path.resolve("./src/templates/blog.js")
 
   const response = await graphql(`
     query {
@@ -24,6 +27,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
             }
             fields {
               slug
+              subject
             }
           }
         }
@@ -35,9 +39,15 @@ module.exports.createPages = async ({ graphql, actions }) => {
     const { fields, frontmatter } = edge.node
 
     createPage({
-      component: blogTemplate,
+      component: path.resolve("./src/templates/blogCategory.js"),
+      path: `/blog/${frontmatter.subject}`,
+      context: { subject: frontmatter.subject },
+    })
+
+    createPage({
+      component: path.resolve("./src/templates/blog.js"),
       path: `/blog/${frontmatter.subject}/${fields.slug}`,
-      context: { slug: fields.slug },
+      context: { slug: fields.slug, subject: frontmatter.subject },
     })
   })
 }
