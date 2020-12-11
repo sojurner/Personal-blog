@@ -5,7 +5,7 @@
   &-container {
     max-width: 700px;
     margin: 0 auto;
-    padding: 0 .7em;
+    padding: 0 0.7em;
   }
 
   &__content-section {
@@ -13,19 +13,25 @@
   }
 
   &__profile-container {
-    margin: 10px 0 20px;
+    margin: 10px 0 40px;
     position: relative;
     width: max-content;
   }
 
   &__profile-txt-container {
-    margin-left: 10px;
+    margin: 0 15px 0 10px;
   }
+
   &__profile-txt-author {
     opacity: 0.9;
   }
+
   &__profile-txt-date {
     opacity: 0.6;
+  }
+
+  &__profile-tag {
+    height: max-content;
   }
 
   &__next-link {
@@ -50,26 +56,28 @@
 
     li {
       opacity: 0.9;
-      margin: .5em 0;
+      margin: 0.5em 0;
     }
 
     h4 {
-      margin-bottom: 25px;
+      margin-bottom: 30px;
       opacity: 0.9;
     }
 
     img {
-      margin: 25px auto;
+      margin: 30px auto;
       height: 400px;
     }
 
     h2 {
-      margin: 25px 0 15px 0;
+      margin: 40px 0 15px 0;
       color: $color-neutral-600;
     }
 
     a {
       text-decoration-line: underline;
+      color: $color-neutral-400;
+      font-weight: bold;
     }
   }
 }

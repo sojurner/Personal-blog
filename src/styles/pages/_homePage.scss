@@ -1,0 +1,150 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
+.page-home {
+  &__content-section {
+    padding-bottom: 5em;
+  }
+
+  &__landing-header {
+    width: 100%;
+    margin: 7em auto;
+    height: max-content;
+    @media only screen and (max-width: 850px) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__landing-container {
+    min-height: 100vh;
+    position: relative;
+  }
+
+  &__landing-header-txt {
+    width: 400px;
+    margin-right: 3vw;
+
+    @media only screen and (max-width: 850px) {
+      margin-top: 2em;
+    }
+
+    & > h1 {
+      margin-bottom: 0.5em;
+    }
+
+    & > h4 {
+      a {
+        font-size: 1em;
+        font-weight: bold;
+        color: $color-neutral-700;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__landing-header__link-about,
+  &__post-section__link-blog {
+    border: 1.5px solid $color-neutral-500;
+    background: $color-neutral-500;
+    padding: 0.3em 2.5em 0.3em 1em;
+    border-radius: 30px;
+    width: max-content;
+
+    h4 {
+      cursor: pointer;
+      letter-spacing: 1.5px;
+      position: relative;
+      &::after {
+        content: "→";
+        right: -1.4em;
+        position: absolute;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    &:hover {
+      h4 {
+        &::after {
+          animation-name: arrow-shift;
+          animation-duration: 1s;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: infinite;
+        }
+      }
+    }
+    // margin-top: -1em;
+  }
+
+  &__landing-front-img {
+    height: 25em;
+    width: 25em;
+  }
+
+  &__post-section {
+    align-items: center;
+  }
+
+  &__post-section {
+    margin: 7em 0 3em 0;
+    & > h1 {
+      margin: 0 0 2em;
+    }
+  }
+
+  &__post-section__cards-container {
+    max-width: 900px;
+    margin-bottom: 2em;
+  }
+
+  &__post-section__card {
+    width: 370px;
+    height: 420px;
+    margin: 1em 2em;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+      h3,
+      p {
+        text-decoration: underline;
+      }
+    }
+
+    img {
+      width: 370px;
+      height: 200px;
+      border-radius: 10px;
+    }
+
+    h3 {
+      margin: 1em 0 0.3em;
+      width: 370px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__post-section__card__date-tag {
+    margin: 0.3em 0 0.5em 0;
+  }
+  &__post-section__card__tag {
+    margin-left: 10px;
+  }
+}
+
+@keyframes arrow-shift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(7px, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
