@@ -7,6 +7,7 @@ import GrungeBG from './GrungeBG';
 import Logo from "./Logo"
 import OldManAndTheSea from "./OldManAndTheSea"
 import StarCurrent from "./StarCurrent"
+import GradientWrapper from './GradientWrapper'
 
 interface PKSvgComponent extends React.HTMLAttributes<HTMLOrSVGElement> {
   className?: string
@@ -21,5 +22,6 @@ export {
   DripGrunge,
   OldManAndTheSea,
   StarCurrent,
-  GrungeBG
+  GrungeBG,
+  GradientWrapper
 }

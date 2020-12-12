@@ -4,6 +4,7 @@ import { useInView } from "react-intersection-observer"
 import ContentLoader from "react-content-loader"
 
 import { RefMainLayout } from "@components/Layouts"
+import {AniLoaderLink} from '@components/Link'
 import Flex from "@components/Flex"
 import Card from "@components/Card"
 import Chip from "@components/Chip"
@@ -134,7 +135,7 @@ const BlogCategory = ({ data, pageContext }) => {
           data.filteredRemarks.edges.map((post, index) => {
             const { fields, frontmatter } = post.node
             return (
-              <Link
+              <AniLoaderLink
                 key={`post-ref-${index}`}
                 to={`/blog/${frontmatter.subject}/${fields.slug}`}
                 className="page-blog__card-link"
@@ -219,7 +220,7 @@ const BlogCategory = ({ data, pageContext }) => {
                     </Flex>
                   </Flex>
                 </Card>
-              </Link>
+              </AniLoaderLink>
             )
           })
         ) : (

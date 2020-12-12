@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import { AniLoaderLink, AniFadeLink } from "@components/Link"
 
 import MainLayout from "@components/Layouts"
 import Typography from "@components/Typography"
@@ -59,7 +60,7 @@ const query = graphql`
 `
 
 const Blog = ({ data }) => {
-  const { frontmatter, fields, html } = data.markdownRemark
+  const { frontmatter, html } = data.markdownRemark
 
   return (
     <MainLayout className="template-blog">
@@ -67,7 +68,10 @@ const Blog = ({ data }) => {
         <Flex
           classes={["flexColumn", "justifyContentCenter"]}
           className="template-blog__header"
-        >
+          >
+            <AniFadeLink to="/blog">
+          <Typography className="template-blog__go-back" variant="neutralLight">⤺ back to posts</Typography>
+          </AniFadeLink>
           <Typography className="template-blog__title" tag="h1">
             {frontmatter.title}
           </Typography>
@@ -101,11 +105,15 @@ const Blog = ({ data }) => {
                 {frontmatter.date}
               </Typography>
             </Flex>
-            <Tag
+            <AniFadeLink
               className="template-blog__profile-tag"
-              label={frontmatter.subject}
-              variant={blogTypeRef[frontmatter.subject].tagVariant}
-            />
+              to={`/blog/${frontmatter.subject}`}
+            >
+              <Tag
+                label={frontmatter.subject}
+                variant={blogTypeRef[frontmatter.subject].tagVariant}
+              />
+            </AniFadeLink>
           </Flex>
           <img src={frontmatter.foregroundImg} alt="blog front img" />
         </Flex>
@@ -159,37 +167,46 @@ const Blog = ({ data }) => {
             const { slug } = ele.node.fields
             const { title, date, subject, foregroundImg } = ele.node.frontmatter
             return (
-              <Link
-                to={`/blog/${subject}/${slug}`}
-                template-blog__related
-                key={`related-${slug}`}
-                className="template-blog__related__link-card"
+              <Card
+                className="template-blog__related__card"
+                depth="z4"
+                classes={["flexColumn"]}
               >
-                <Card
-                  className="template-blog__related__card"
-                  depth="z4"
-                  classes={["flexColumn"]}
+                <AniLoaderLink
+                  to={`/blog/${subject}/${slug}`}
+                  key={`related-${slug}`}
                 >
                   <img src={foregroundImg} alt="related-front-img" />
-                  <Flex
-                    classes={["flexColumn"]}
-                    className="template-blog__related__card-text"
+                </AniLoaderLink>
+                <Flex
+                  classes={["flexColumn"]}
+                  className="template-blog__related__card-text"
+                >
+                  <AniLoaderLink
+                    to={`/blog/${subject}/${slug}`}
+                    key={`related-${slug}`}
                   >
                     <Typography tag="h3">{title}</Typography>
-                    <Flex 
+                  </AniLoaderLink>
+                  <Flex
                     classes={["flexRow", "alignItemsCenter"]}
-                    className="template-blog__related__card__date-tag">
+                    className="template-blog__related__card__date-tag"
+                  >
+                    <AniFadeLink
+                      to={`/blog/${subject}`}
+                      key={`related-${slug}`}
+                    >
                       <Tag
                         label={subject}
                         variant={blogTypeRef[subject].tagVariant}
                       />
-                      <Typography variant="neutralLight" tag="label">
-                        {date}
-                      </Typography>
-                    </Flex>
+                    </AniFadeLink>
+                    <Typography variant="neutralLight" tag="label">
+                      {date}
+                    </Typography>
                   </Flex>
-                </Card>
-              </Link>
+                </Flex>
+              </Card>
             )
           })}
         </Flex>

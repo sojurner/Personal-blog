@@ -1,7 +1,7 @@
 import React from "react"
 import { useLocation } from "@reach/router"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { AniFadeLink } from "@components/Link"
 
 import Typography from "@components/Typography"
 import Flex, { flexClasses } from "@components/Flex"
@@ -21,24 +21,17 @@ const Header = () => {
         <header
           className={`header--base header--primary ${flexClasses.flexRow} ${flexClasses.alignItemsCenter}`}
         >
-          <AniLink
-            fade
-            duration={0.3}
-            to="/"
-            className="header__logo"
-          >
+          <AniFadeLink to="/" className="header__logo">
             <Logo />
-          </AniLink>
+          </AniFadeLink>
           <Flex className="header__nav-container">
             {routes.map(routeProps => {
               return (
-                <AniLink
+                <AniFadeLink
                   key={`header-link-${routeProps.label}`}
                   className="header__nav-link"
                   activeClassName="header__nav-link--active"
                   partiallyActive={true}
-                  fade
-                  duration={0.3}
                   to={routeProps.to}
                 >
                   <Typography
@@ -49,7 +42,7 @@ const Header = () => {
                   >
                     {routeProps.label}
                   </Typography>
-                </AniLink>
+                </AniFadeLink>
               )
             })}
           </Flex>

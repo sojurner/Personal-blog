@@ -11,7 +11,7 @@
   --pk-color-neutral-800: #4d475a;
   --pk-color-neutral-900: #817c8a;
 
-  --pk-color-neutral-invert: #f9fafc;
+  --pk-color-neutral-invert: hsl(225deg, 25%, 95%);
 
   --pk-color-primary-050: #f2e5ff;
   --pk-color-primary-100: #dfbffe;
@@ -82,8 +82,8 @@
   --pk-font-family-secondary: "IBM Plex Sans", sans-serif;
   --pk-font-family-code: "Menlo", Courier New, monospace;
 
-  --pk-color-skeleton-bg: #f5f6f7;
-  --pk-color-skeleton-fg: #eee;
+  --pk-color-skeleton-bg: #e3e3e4;
+  --pk-color-skeleton-fg: rgb(216, 216, 216);
 
   --pk-color-icon-cellphone: gray;
   --pk-color-icon-email: #dd4a3e;
@@ -177,7 +177,7 @@ body.dark {
 
   --pk-color-blank-400: #e6dacd;
   --pk-color-blank-500: #5a4026;
-  --pk-color-blank-600: #f8f5f1;
+  --pk-color-blank-600: #484b4e;
   --pk-color-blank-700: rgb(80, 77, 100);
   // --pk-color-blank-800: rgb(49, 46, 66);
   --pk-color-blank-800: rgb(63, 58, 90);
@@ -256,9 +256,8 @@ body.dark {
 
   .vertical-timeline::before {
     background: var(--pk-color-neutral-200);
-    
   }
-  
+
   .vertical-timeline-element-icon {
     background: var(--pk-color-neutral-400);
     border: 3px solid var(--pk-color-neutral-100);
@@ -267,7 +266,6 @@ body.dark {
   // .vertical-timeline-element-icon {
   //   background: var(--pk-color-neutral-200);
   // }
-
 }
 
 code[class*="language-"] *,
@@ -370,28 +368,4 @@ a {
 
 .pointer {
   cursor: pointer;
-}
-
-.gatsby-highlight-code-line {
-  background-color: #feb;
-  display: block;
-  margin-right: -1em;
-  margin-left: -1em;
-  padding-right: 1em;
-  padding-left: 0.75em;
-  border-left: 0.25em solid #f99;
-}
-
-.gatsby-highlight {
-  border-radius: 1em;
-  margin: 1em 0;
-  overflow: auto;
-}
-
-.gatsby-highlight pre[class*="language-"] {
-  margin: 0;
-  padding: 1em;
-  overflow: initial;
-  float: left; /* 1 */
-  min-width: 100%; /* 2 */
 }

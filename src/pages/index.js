@@ -1,15 +1,14 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import MainLayout from "@components/Layouts"
 import Flex from "@components/Flex"
+import { AniFadeLink, AniLoaderLink } from "@components/Link"
 import Tag from "@components/Tag"
 import Typography from "@components/Typography"
 import Avatar from "@components/Avatar"
 
 import { blogTypeRef } from "../utils/constants"
-import pk_logo from '../images/pk-logo-loader.svg'
 import "@styles/index.scss"
 import "@styles/pages/_homePage.scss"
 
@@ -80,16 +79,14 @@ const HomePage = () => {
               Hope You enjoy!
             </Typography>
 
-            <AniLink
+            <AniFadeLink
               to="/about"
-              swipe
-              direction="left"
               className="page-home__landing-header__link-about"
             >
               <Typography variant="neutralBlank" tag="h4">
                 More About Me
               </Typography>
-            </AniLink>
+            </AniFadeLink>
           </Flex>
           <Avatar
             className="page-home__landing-front-img"
@@ -112,23 +109,11 @@ const HomePage = () => {
             {data.allMarkdownRemark.edges.map(edge => {
               const { frontmatter, fields } = edge.node
               return (
-                <AniLink
-                  direction="bottom"
-                  duration={2}
-                  cover
-                  bg={`
-                    var(--pk-color-blank-700)
-                    url(${pk_logo})
-                    center
-                    no-repeat
-                    fixed
-                    padding-box
-                    content-box
-                  `}
+                <AniLoaderLink
+                  key={`latest-posts-${frontmatter.title}`}
                   to={`blog/${frontmatter.subject}/${fields.slug}`}
                 >
                   <Flex
-                    key={`latest-post-${frontmatter.title}`}
                     classes={["flexColumn"]}
                     className="page-home__post-section__card"
                   >
@@ -151,20 +136,19 @@ const HomePage = () => {
                     </Flex>
                     <Typography>{frontmatter.desc}</Typography>
                   </Flex>
-                </AniLink>
+                </AniLoaderLink>
               )
             })}
           </Flex>
-          <AniLink
+          <AniFadeLink
             to="/blog"
-            swipe
             direction="left"
             className="page-home__post-section__link-blog"
           >
             <Typography variant="neutralBlank" tag="h4">
               View More
             </Typography>
-          </AniLink>
+          </AniFadeLink>
         </Flex>
       </Flex>
     </MainLayout>

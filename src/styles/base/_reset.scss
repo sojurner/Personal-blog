@@ -5,6 +5,91 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  vertical-align: baseline;
+}
 /* Remove default margin */
 body,
 h1,
@@ -67,31 +152,4 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-.vertical-timeline {
-  margin: 0;
-}
-
-.vertical-timeline-element-content {
-  background: var(--pk-color-blank-800);
-  box-shadow: 0px 10px 20px 0px var(--pk-color-boxshadow-light);
-}
-
-.vertical-timeline-element-content-arrow {
-  border-right: 7px solid var(--pk-color-blank-800);
-}
-
-.vertical-timeline-element-icon {
-  background: var(--pk-color-blank-800);
-  border: 3px solid var(--pk-color-blank-600);
-  box-shadow: none;
-}
-
-.vertical-timeline-element-date {
-  color: var(--pk-color-neutral-600);
-}
-
-.tl-wrapper {
-  overflow: hidden;
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import { AniLoaderLink } from "@components/Link"
 import { useInView } from "react-intersection-observer"
 import ContentLoader from "react-content-loader"
 
@@ -14,15 +14,14 @@ import Typography from "@components/Typography"
 import Avatar from "@components/Avatar"
 import Divider from "@components/Divider"
 
-import pk_logo from "../images/pk-logo-loader.svg"
+import { blogTypeRef, tagIconRef } from "../utils/constants"
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
 
-import { blogTypeRef, tagIconRef } from "../utils/constants"
 
 const BlogPage = () => {
   const [loading, setLoading] = React.useState(false)
-  const [tagFilter, setTagFilter] = React.useState("all")
+  const [tagFilter] = React.useState("all")
 
   const mainRef = React.useRef()
   const [endRef, inView] = useInView({
@@ -38,13 +37,6 @@ const BlogPage = () => {
     setTimeout(() => {
       setLoading(false)
     }, 1500)
-  }
-
-  const handleTagFilterSet = val => {
-    if (tagFilter === val) return
-    toggleLoading()
-    setTagFilter(val)
-    if (mainRef.current) mainRef.current.scrollTop = 0
   }
 
   const data = useStaticQuery(graphql`
@@ -138,22 +130,10 @@ const BlogPage = () => {
           data.allMarkdownRemark.edges.map((post, index) => {
             const { fields, frontmatter } = post.node
             return (
-              <AniLink
+              <AniLoaderLink
                 key={`post-ref-${index}`}
                 to={`/blog/${frontmatter.subject}/${fields.slug}`}
                 className="page-blog__card-link"
-                duration={2}
-                direction={"bottom"}
-                cover
-                bg={`
-                  var(--pk-color-blank-700)
-                  url(${pk_logo})
-                  center
-                  no-repeat
-                  fixed
-                  padding-box
-                  content-box
-                `}
               >
                 <Card
                   classes={["flexColumn", "justifyContentCenter"]}
@@ -235,7 +215,7 @@ const BlogPage = () => {
                     </Flex>
                   </Flex>
                 </Card>
-              </AniLink>
+              </AniLoaderLink>
             )
           })
         ) : (
