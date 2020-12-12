@@ -15,7 +15,6 @@ import "./Header.scss"
 const Header = () => {
   const { pathname } = useLocation()
   const [_, root] = pathname.split("/")
-  console.log(root)
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }) => (
@@ -46,7 +45,7 @@ const Header = () => {
                     variant={
                       routeProps.label == root ? "neutralBlank" : "primaryDark"
                     }
-                    tag="h4"
+                    tag="p"
                   >
                     {routeProps.label}
                   </Typography>
