@@ -14,10 +14,9 @@ import Typography from "@components/Typography"
 import Avatar from "@components/Avatar"
 import Divider from "@components/Divider"
 
-import pk_logo from '../images/pk-logo-loader.svg'
+import pk_logo from "../images/pk-logo-loader.svg"
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
-
 
 import { blogTypeRef, tagIconRef } from "../utils/constants"
 
@@ -51,6 +50,7 @@ const BlogPage = () => {
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+        totalCount
         edges {
           node {
             frontmatter {
@@ -74,6 +74,10 @@ const BlogPage = () => {
             }
           }
         }
+        group(field: frontmatter___tags) {
+          tag: fieldValue
+          totalCount
+        }
       }
     }
   `)
@@ -96,26 +100,25 @@ const BlogPage = () => {
             >
               <Link to={`/blog`} className="page-blog__aside__filter-tag">
                 <Chip
-                  label="all"
+                  label={`all (${data.allMarkdownRemark.totalCount})`}
                   icon="refresh"
                   variant={tagFilter === "all" ? "neutral" : "default"}
                 />
               </Link>
-              {Object.keys(tagIconRef).map((tag, index) => {
+              {data.allMarkdownRemark.group.map((ele, index) => {
                 return (
                   <Link
                     key={`post-ref-${index}`}
-                    to={`/blog/${tag}`}
+                    to={`/blog/${ele.tag}`}
                     className="page-blog__aside__filter-tag"
                   >
                     <Chip
-                      label={tag}
+                      label={`${ele.tag} (${ele.totalCount})`}
                       key={`filter-chip-${index}`}
-                      onClick={handleTagFilterSet.bind(null, tag)}
-                      icon={tagIconRef[tag]}
+                      icon={tagIconRef[ele.tag]}
                       variant={
-                        tagFilter === tag
-                          ? blogTypeRef[tag].chipVariant
+                        tagFilter === ele.tag
+                          ? blogTypeRef[ele.tag].chipVariant
                           : "default"
                       }
                     />

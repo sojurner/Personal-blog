@@ -33,22 +33,32 @@ module.exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      tagsGroup: allMarkdownRemark(limit: 1000) {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
     }
   `)
 
-  response.data.allMarkdownRemark.edges.forEach(edge => {
+  const {edges: posts} = response.data.allMarkdownRemark
+
+  const {group: tags} = response.data.tagsGroup
+
+  posts.forEach(edge => {
     const { fields, frontmatter } = edge.node
-
-    createPage({
-      component: path.resolve("./src/templates/blogCategory.js"),
-      path: `/blog/${frontmatter.subject}`,
-      context: { subject: frontmatter.subject },
-    })
-
     createPage({
       component: path.resolve("./src/templates/blog.js"),
       path: `/blog/${frontmatter.subject}/${fields.slug}`,
       context: { slug: fields.slug, subject: frontmatter.subject },
+    })
+  })
+
+  tags.forEach(tag => {
+    createPage({
+      component: path.resolve("./src/templates/blogCategory.js"),
+      path: `/blog/${tag.fieldValue}`,
+      context: { subject: tag.fieldValue },
     })
   })
 }

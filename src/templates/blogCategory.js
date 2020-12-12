@@ -20,7 +20,7 @@ import { blogTypeRef, tagIconRef } from "../utils/constants"
 
 const query = graphql`
   query($subject: String!) {
-    allMarkdownRemark(
+    filteredRemarks: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: ASC }
       filter: { frontmatter: { tags: { eq: $subject } } }
     ) {
@@ -46,6 +46,13 @@ const query = graphql`
             slug
           }
         }
+      }
+    }
+    metaRemarks: allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+      totalCount
+      group(field: frontmatter___tags) {
+        tag: fieldValue
+        totalCount
       }
     }
   }
@@ -88,27 +95,26 @@ const BlogCategory = ({ data, pageContext }) => {
               classes={["flexRow", "flexWrap"]}
             >
               <Link to="/blog" className="page-blog__aside__filter-tag">
-                {console.log(tagFilter)}
                 <Chip
-                  label="all"
+                  label={`all (${data.metaRemarks.totalCount})`}
                   icon="refresh"
                   variant={tagFilter === "all" ? "neutral" : "default"}
                 />
               </Link>
-              {Object.keys(tagIconRef).map((tag, index) => {
+              {data.metaRemarks.group.map((ele, index) => {
                 return (
                   <Link
                     key={`post-ref-${index}`}
-                    to={`/blog/${tag}`}
+                    to={`/blog/${ele.tag}`}
                     className="page-blog__aside__filter-tag"
                   >
                     <Chip
-                      label={tag}
+                      label={`${ele.tag} (${ele.totalCount})`}
                       key={`filter-chip-${index}`}
-                      icon={tagIconRef[tag]}
+                      icon={tagIconRef[ele.tag]}
                       variant={
-                        tagFilter === tag
-                          ? blogTypeRef[tag].chipVariant
+                        tagFilter === ele.tag
+                          ? blogTypeRef[ele.tag].chipVariant
                           : "default"
                       }
                     />
@@ -125,7 +131,7 @@ const BlogCategory = ({ data, pageContext }) => {
         classes={["flexColumn", "alignItemsEnd"]}
       >
         {!loading ? (
-          data.allMarkdownRemark.edges.map((post, index) => {
+          data.filteredRemarks.edges.map((post, index) => {
             const { fields, frontmatter } = post.node
             return (
               <Link
