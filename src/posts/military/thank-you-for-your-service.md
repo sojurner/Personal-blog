@@ -28,18 +28,18 @@ In many ways, I felt unworthy of carrying the **Veteran** label.
 
 I served only 4 non-combat years. It dwarfs in comparison to the majority who've done double digit years of service, along with multiple tours of duty.
 
-In addtions, the term **Veteran** implies experience, insight, and wisdom. These were qualities I felt I lacked as a 25 year-old at the time, who was still unsure on a career path.
+In addition, the term **Veteran** implies experience, insight, and wisdom. These were qualities I felt I lacked as a 25 year-old at the time, who was still unsure on a career path.
 
 ## My awkwardness exemplified
 
 To avoid social awkward interactions, I try to be discrete about my military past.
 
-Almost always, the first thing someone tellsme when they learn of my **Veteran** status is:  
+Usually, the first thing someone tells me when they learn of my **Veteran** status is:  
 **"Thank you for your service, sir"**.
 
 I have yet to think of a sharp, genuine response to this remark. It always ends up being awkward.
 
-Here are the best responses, I've been able to come up with over the years:
+Here are the responses I've come up with over the years:
 
 - **"Your welcome?"**
 - **"Thank you ... for thanking me?"**
@@ -50,7 +50,7 @@ Here are the best responses, I've been able to come up with over the years:
 Let's break these down one by one:  
 **"Your welcome?"**
 
-- This would be the brain fart response. You're always suppose to say **"Your welcome"** after a **"Thank you"**. But, it makes no sense in this context.
+- This would be the brain fart response. They say its always polite to follow up a **"Thank you"** with **"Your welcome"** . But, thats usually said in the context of a favor or a task well-done.
 
 **"Thank you ... for thanking me?"**
 
@@ -58,7 +58,7 @@ Let's break these down one by one:
 
 **"I appreciate that, thank you"**
 
-- This would be my go to move. I'm still thanking them for the thanks, but at least theres a buffer in between.
+- This would be my go to move. It's still a bit awkward, since I'm thanking them for their thanks.  But at least, theres a buffer in between.
 
 **"It's all bullshit"**
 
@@ -66,13 +66,13 @@ Let's break these down one by one:
 
 **"No need, the real heroes are still serving"**
 
-- Its the last item on this list for a reason. Its too cheesy for my taste.
+- Its the last item on this list for a reason.  I'd have to be at a Country Club to say something like this.
 
 ## Its a job, not a sacrifice
 
 Nonetheless, its weird to be thanking someone for a past job. And yes, it is a job. It's a job just like any other in the workforce, but with additional quirks.
 
-Just like a normal job, there's an annual salary, 30 days of leave granted every year, and work hours (can vary depending on where you're stationed, tour of duty, etc.) for the most part are scoped to the weekdays.
+Just like a normal job, there's an annual salary, 30 days of leave granted every year, and work hours (can vary depending on where you're stationed, tour of duty, etc.) for the most part, are scoped to the weekdays.
 
 **"Thank you for your service"** insinuates **sacrifice**, which to me, is defined by the intent of giving up something without any expectation of personal gain/benefit.
 
