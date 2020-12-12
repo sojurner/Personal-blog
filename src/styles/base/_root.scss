@@ -64,7 +64,7 @@
   --pk-color-blank-800: #fff;
 
   --pk-color-bg-main: var(--pk-color-neutral-invert);
-  --pk-color-bg-footer: #32374a;
+  --pk-color-bg-footer: #383d52;
   --pk-color-bg-header: var(--pk-color-blank-800);
 
   --pk-color-bdr-primary: #d3dce6;
@@ -183,7 +183,7 @@ body.dark {
   --pk-color-blank-800: rgb(63, 58, 90);
 
   --pk-color-bg-main: var(--pk-color-neutral-invert);
-  --pk-color-bg-footer: #161435;
+  --pk-color-bg-footer: #333358;
   --pk-color-bg-header: var(--pk-color-blank-800);
 
   --pk-color-bdr-primary: #d3dce6;
@@ -354,15 +354,15 @@ a {
   background: var(--pk-color-bg-main);
 
   &::-webkit-scrollbar {
-    width: 5px;
+    width: 7px;
 
     &-track {
-      background: var(--pk-color-blank-500);
-      border-radius: 2px;
+      background: var(--pk-color-blank-700);
+      border-radius: 3px;
     }
 
     &-thumb {
-      border-radius: 2px;
+      border-radius: 3px;
       background: var(--pk-color-neutral-900);
     }
   }

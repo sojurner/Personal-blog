@@ -86,6 +86,10 @@
   &__landing-front-img {
     height: 25em;
     width: 25em;
+    
+    @media only screen and (max-width: 850px) {
+      margin: -3em 0 2em 0;
+    }
   }
 
   &__post-section {
