@@ -15,7 +15,7 @@ const Divider: React.FC<PKComponent<DividerVariantKey>> = ({
   className,
   ...props
 }) => {
-  const classes = `${dividerVariants[variant]} ${className && className}`.trim()
+  const classes = `${dividerVariants[variant]} ${className ? className : ""}`.trim()
   return <hr {...props} className={classes} />
 }
 

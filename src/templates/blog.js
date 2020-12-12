@@ -5,6 +5,7 @@ import MainLayout from "@components/Layouts"
 import Typography from "@components/Typography"
 import Flex from "@components/Flex"
 import Card from "@components/Card"
+import Divider from "@components/Divider"
 import Tag from "@components/Tag"
 import Avatar from "@components/Avatar"
 
@@ -12,7 +13,7 @@ import "@styles/templates/_blogTemplate.scss"
 import { blogTypeRef } from "../utils/constants"
 
 const query = graphql`
-  query($slug: String!, $subject: String!) {
+  query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
@@ -30,11 +31,15 @@ const query = graphql`
           }
         }
       }
+      fields {
+        slug
+      }
       html
     }
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: ASC }
-      filter: { frontmatter: { tags: { eq: $subject } } }
+      filter: { fields: { slug: { ne: $slug } } }
+      limit: 4
     ) {
       edges {
         node {
@@ -54,48 +59,56 @@ const query = graphql`
 `
 
 const Blog = ({ data }) => {
-  const { frontmatter, html } = data.markdownRemark
+  const { frontmatter, fields, html } = data.markdownRemark
 
   return (
     <MainLayout className="template-blog">
       <div className="template-blog-container">
-        <Typography className="template-blog__title" tag="h1">
-          {frontmatter.title}
-        </Typography>
-        <Flex className="template-blog__profile-container" classes={["flexRow", "alignItemsCenter"]}>
-          <Avatar
-            fluid={frontmatter.avatar.childImageSharp.fluid}
-            alt={frontmatter.author
-              .split(" ")
-              .map(x => x[0])
-              .join("")}
-            className="template-blog__profile-avatar"
-          />
+        <Flex
+          classes={["flexColumn", "justifyContentCenter"]}
+          className="template-blog__header"
+        >
+          <Typography className="template-blog__title" tag="h1">
+            {frontmatter.title}
+          </Typography>
           <Flex
-            className="template-blog__profile-txt-container"
-            classes={["flexColumn", "justifyContentCenter"]}
+            className="template-blog__profile-container"
+            classes={["flexRow", "alignItemsCenter"]}
           >
-            <Typography
-              tag="label"
-              className="template-blog__profile-txt-author"
+            <Avatar
+              fluid={frontmatter.avatar.childImageSharp.fluid}
+              alt={frontmatter.author
+                .split(" ")
+                .map(x => x[0])
+                .join("")}
+              className="template-blog__profile-avatar"
+            />
+            <Flex
+              className="template-blog__profile-txt-container"
+              classes={["flexColumn", "justifyContentCenter"]}
             >
-              {frontmatter.author}
-            </Typography>
-            <Typography
-              tag="span"
-              variant="neutralLight"
-              className="template-blog__profile-txt-date"
-            >
-              {frontmatter.date}
-            </Typography>
+              <Typography
+                tag="label"
+                className="template-blog__profile-txt-author"
+              >
+                {frontmatter.author}
+              </Typography>
+              <Typography
+                tag="span"
+                variant="neutralLight"
+                className="template-blog__profile-txt-date"
+              >
+                {frontmatter.date}
+              </Typography>
+            </Flex>
+            <Tag
+              className="template-blog__profile-tag"
+              label={frontmatter.subject}
+              variant={blogTypeRef[frontmatter.subject].tagVariant}
+            />
           </Flex>
-          <Tag
-          className="template-blog__profile-tag"
-            label={frontmatter.subject}
-            variant={blogTypeRef[frontmatter.subject].tagVariant}
-          />
+          <img src={frontmatter.foregroundImg} alt="blog front img" />
         </Flex>
-        <img src={frontmatter.foregroundImg} alt="blog front img" />
         {frontmatter.previous && (
           <Flex
             className="template-blog__previous-container"
@@ -131,23 +144,56 @@ const Blog = ({ data }) => {
             </Typography>
           </Link>
         )}
-        {data.allMarkdownRemark.edges.map(ele => {
-          const { slug } = ele.node.fields
-          const { title, date, foregroundImg } = ele.node.frontmatter
-          return (
-            <Link
-              to={`/blog/${frontmatter.subject}/${slug}`}
-              key={`related-${slug}`}
-            >
-              <Card>
-                <img src={foregroundImg} alt="related-front-img" />
-                <Typography tag="h2">{title}</Typography>
-                <Typography>{date}</Typography>
-              </Card>
-            </Link>
-          )
-        })}
+        <Divider className="template-blog__end-div" />
       </div>
+      <Flex
+        classes={["flexColumn", "alignItemsCenter"]}
+        className="template-blog__related"
+      >
+        <Typography tag="h2">Related Articles...</Typography>
+        <Flex
+          classes={["flexRow", "flexWrap", "justifyContentCenter"]}
+          className="template-blog__related__link-card-section"
+        >
+          {data.allMarkdownRemark.edges.map(ele => {
+            const { slug } = ele.node.fields
+            const { title, date, subject, foregroundImg } = ele.node.frontmatter
+            return (
+              <Link
+                to={`/blog/${subject}/${slug}`}
+                template-blog__related
+                key={`related-${slug}`}
+                className="template-blog__related__link-card"
+              >
+                <Card
+                  className="template-blog__related__card"
+                  depth="z4"
+                  classes={["flexColumn"]}
+                >
+                  <img src={foregroundImg} alt="related-front-img" />
+                  <Flex
+                    classes={["flexColumn"]}
+                    className="template-blog__related__card-text"
+                  >
+                    <Typography tag="h3">{title}</Typography>
+                    <Flex 
+                    classes={["flexRow", "alignItemsCenter"]}
+                    className="template-blog__related__card__date-tag">
+                      <Tag
+                        label={subject}
+                        variant={blogTypeRef[subject].tagVariant}
+                      />
+                      <Typography variant="neutralLight" tag="label">
+                        {date}
+                      </Typography>
+                    </Flex>
+                  </Flex>
+                </Card>
+              </Link>
+            )
+          })}
+        </Flex>
+      </Flex>
     </MainLayout>
   )
 }

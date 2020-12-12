@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import { useLocation } from "@reach/router"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
@@ -13,7 +12,7 @@ import { DarkModeSwitch } from "@components/Switch"
 import { routes, socialLinks } from "../../utils/constants"
 import "./Header.scss"
 
-const Header = props => {
+const Header = () => {
   const { pathname } = useLocation()
   const [_, root] = pathname.split("/")
   console.log(root)
@@ -24,28 +23,23 @@ const Header = props => {
           className={`header--base header--primary ${flexClasses.flexRow} ${flexClasses.alignItemsCenter}`}
         >
           <AniLink
-            swipe
-            right="entry"
-            entryOffset={10}
+            fade
+            duration={0.3}
             to="/"
             className="header__logo"
           >
             <Logo />
           </AniLink>
           <Flex className="header__nav-container">
-            {routes.map((routeProps, index) => {
-              var currentPathIndex = routes.findIndex(
-                route => route.label == root
-              )
-
+            {routes.map(routeProps => {
               return (
                 <AniLink
                   key={`header-link-${routeProps.label}`}
                   className="header__nav-link"
                   activeClassName="header__nav-link--active"
                   partiallyActive={true}
-                  swipe
-                  direction={currentPathIndex < index ? "left" : "right"}
+                  fade
+                  duration={0.3}
                   to={routeProps.to}
                 >
                   <Typography
