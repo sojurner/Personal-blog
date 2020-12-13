@@ -5,10 +5,9 @@ import {
 } from "react-vertical-timeline-component"
 
 import MainLayout from "@components/Layouts"
-
+import SEO from "@components/SEO"
 import Flex from "@components/Flex"
 import Icon from "@components/Icon"
-
 import Typography from "@components/Typography"
 import { ContactCard, SkillsCard } from "@components/Card"
 
@@ -28,6 +27,7 @@ import "@styles/pages/_aboutPage.scss"
 
 const AboutPage = () => (
   <MainLayout className="page-about">
+    <SEO title="About" />
     <Flex
       classes={["flexColumn"]}
       className="page-about__landing-container--outer"
@@ -139,7 +139,11 @@ const AboutPage = () => (
           >
             Combat Medic
           </Typography>
-          <img src={army} alt="army-pic" className="page-about__history__timeline__img" />
+          <img
+            src={army}
+            alt="army-pic"
+            className="page-about__history__timeline__img"
+          />
           <Typography variant="neutralLight">
             Four years of service with 168th Multifunctional Medical Battalion
             (Camp Walker, S. Korea) and Lyster Army Health Clinic (Fort Rucker,

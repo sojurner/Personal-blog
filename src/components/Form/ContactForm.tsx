@@ -14,7 +14,7 @@ const ContactForm = props => {
       <Flex classes={['flexRow', "justifyContentBetween"]}>
         <Input
           name="Name"
-          id="form-contact__name"
+          id="form-contact__firstname"
           variant="secondary"
           className="form-contact__input-group"
           placeholder="first name..."
@@ -22,7 +22,7 @@ const ContactForm = props => {
         <div className="form-contact__input-divider" />
         <Input
           name=" "
-          id="form-contact__name"
+          id="form-contact__lastname"
           variant="secondary"
           className="form-contact__input-group"
           placeholder="last name..."

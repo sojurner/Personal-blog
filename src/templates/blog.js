@@ -9,6 +9,7 @@ import Card from "@components/Card"
 import Divider from "@components/Divider"
 import Tag from "@components/Tag"
 import Avatar from "@components/Avatar"
+import SEO from "@components/SEO"
 
 import "@styles/templates/_blogTemplate.scss"
 import { blogTypeRef } from "../utils/constants"
@@ -21,6 +22,7 @@ const query = graphql`
         date
         author
         subject
+        desc
         next
         previous
         foregroundImg
@@ -64,13 +66,19 @@ const Blog = ({ data }) => {
 
   return (
     <MainLayout className="template-blog">
+      <SEO title={frontmatter.title} description={frontmatter.desc} />
       <div className="template-blog-container">
         <Flex
           classes={["flexColumn", "justifyContentCenter"]}
           className="template-blog__header"
-          >
-            <AniFadeLink to="/blog">
-          <Typography className="template-blog__go-back" variant="neutralLight">⤺ back to posts</Typography>
+        >
+          <AniFadeLink to="/blog">
+            <Typography
+              className="template-blog__go-back"
+              variant="neutralLight"
+            >
+              ⤺ back to posts
+            </Typography>
           </AniFadeLink>
           <Typography className="template-blog__title" tag="h1">
             {frontmatter.title}

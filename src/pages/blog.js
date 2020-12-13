@@ -1,10 +1,10 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { AniLoaderLink } from "@components/Link"
 import { useInView } from "react-intersection-observer"
 import ContentLoader from "react-content-loader"
 
 import { RefMainLayout } from "@components/Layouts"
+import { AniLoaderLink } from "@components/Link"
 import Flex from "@components/Flex"
 import Card from "@components/Card"
 import Chip from "@components/Chip"
@@ -13,11 +13,11 @@ import Icon from "@components/Icon"
 import Typography from "@components/Typography"
 import Avatar from "@components/Avatar"
 import Divider from "@components/Divider"
+import SEO from "@components/SEO"
 
 import { blogTypeRef, tagIconRef } from "../utils/constants"
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
-
 
 const BlogPage = () => {
   const [loading, setLoading] = React.useState(false)
@@ -76,6 +76,7 @@ const BlogPage = () => {
 
   return (
     <RefMainLayout ref={mainRef} className="page-blog">
+      <SEO title="Blog" />
       {!inView && (
         <aside className="page-blog__aside">
           <Flex className="page-blog__aside__filter-container">

@@ -4,7 +4,7 @@ import { useInView } from "react-intersection-observer"
 import ContentLoader from "react-content-loader"
 
 import { RefMainLayout } from "@components/Layouts"
-import {AniLoaderLink} from '@components/Link'
+import { AniLoaderLink } from "@components/Link"
 import Flex from "@components/Flex"
 import Card from "@components/Card"
 import Chip from "@components/Chip"
@@ -13,6 +13,7 @@ import Icon from "@components/Icon"
 import Typography from "@components/Typography"
 import Avatar from "@components/Avatar"
 import Divider from "@components/Divider"
+import SEO from "@components/SEO"
 
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
@@ -49,7 +50,9 @@ const query = graphql`
         }
       }
     }
-    metaRemarks: allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+    metaRemarks: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: ASC }
+    ) {
       totalCount
       group(field: frontmatter___tags) {
         tag: fieldValue
@@ -81,6 +84,7 @@ const BlogCategory = ({ data, pageContext }) => {
 
   return (
     <RefMainLayout ref={mainRef} className="page-blog">
+      <SEO title={`Blog (${pageContext.subject})`} />
       {!inView && (
         <aside className="page-blog__aside">
           <Flex className="page-blog__aside__filter-container">

@@ -5,12 +5,14 @@ import Flex from "@components/Flex"
 import Typography from "@components/Typography"
 import { ContactCard } from "@components/Card"
 import { ContactForm } from "@components/Form"
+import SEO from "@components/SEO"
 
 import "@styles/index.scss"
 import "@styles/pages/_contactPage.scss"
 
 const Contact = () => (
   <MainLayout className="page-contact">
+    <SEO title="Contact" />
     <Flex classes={["flexColumn", "alignItemsCenter"]} className="page-contact__content-section--inner">
       <Typography
         variant="secondaryDark"

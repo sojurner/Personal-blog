@@ -2,8 +2,10 @@ const path = require("path")
 
 module.exports = {
   siteMetadata: {
-    title: "Paul Kim",
+    title: "PK",
     phone: "(303) - 257 - 7590",
+    description: "portfolio and blog",
+    url: "https://paul-y.kim",
     location: "North America, Earth",
     email: "paul.kim0591@gmail",
     description: "My portfolio website",

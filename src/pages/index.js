@@ -7,6 +7,7 @@ import { AniFadeLink, AniLoaderLink } from "@components/Link"
 import Tag from "@components/Tag"
 import Typography from "@components/Typography"
 import Avatar from "@components/Avatar"
+import SEO from "@components/SEO"
 
 import { blogTypeRef } from "../utils/constants"
 import "@styles/index.scss"
@@ -52,6 +53,7 @@ const HomePage = () => {
 
   return (
     <MainLayout className="page-home">
+    <SEO />
       <Flex className="page-home__landing-container" classes={["flexColumn"]}>
         <Flex
           classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}

@@ -1,78 +1,99 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 
-const SEO = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
+const detailsQuery = graphql`
+  query SEO {
+    site {
+      siteMetadata {
+        title
+        description
+        email
+        url
+        author
+        phone
       }
-    `
-  )
-  const metaDescription = description || site.siteMetadata.description
+    }
+  }
+`
+
+const SEO = ({ description, keywords, author, title, url, email }) => {
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
+    <StaticQuery
+      query={detailsQuery}
+      render={data => {
+        const metaDescription =
+          description || data.site.siteMetadata.description
+        const metaTitle = data.site.siteMetadata.title
+        const metaAuthor = author || data.site.siteMetadata.author
+        const metaURL = url || data.site.siteMetadata.url
+        const metaEmail = email || data.site.siteMetadata.email
+        const metaKeywords = keywords || [
+          "paul kim",
+          "blog",
+          "army",
+          "code",
+          "programming",
+          "",
+        ]
+
+        return (
+          <Helmet
+            title={metaTitle}
+            titleTemplate={`%s${title ? " - " + title : ""}`}
+            meta={[
+              {
+                name: `description`,
+                content: metaDescription,
+              },
+              {
+                property: `og:title`,
+                content: metaTitle,
+              },
+              {
+                property: `og:description`,
+                content: metaDescription,
+              },
+              {
+                property: `og:email`,
+                content: metaEmail,
+              },
+              {
+                property: `og.url`,
+                content: metaURL,
+              },
+              {
+                property: `og;type`,
+                content: `website`,
+              },
+              {
+                name: `twitter:card`,
+                content: `summary`,
+              },
+              {
+                name: `twitter:creator`,
+                content: metaAuthor,
+              },
+              {
+                name: `twitter:title`,
+                content: title,
+              },
+              {
+                name: `twitter:description`,
+                content: description,
+              },
+            ].concat(
+              metaKeywords && metaKeywords.length > 0
+                ? {
+                    name: `keywords`,
+                    content: metaKeywords.join(", "),
+                  }
+                : []
+            )}
+          />
+        )
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
     />
   )
-}
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
 }
 export default SEO
