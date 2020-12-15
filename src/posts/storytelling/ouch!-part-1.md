@@ -33,7 +33,7 @@ Parking was difficult to find that night, so I ended up settling on some street 
 
 I parked my car and stepped out of the car with my backpack and food in my hands. This was the last memory I could recall, because the next moment after, I found myself waking up on hospital bed choking on an [endotracheal tube](https://www.ncbi.nlm.nih.gov/books/NBK539747/).
 
-#### Apparently, I had been unconcious for a couple hours. It was as if I had entered a portal and was immediately teleported to a hospital. The experience was surreal.
+***Apparently, I had been unconcious for a couple hours. It was as if I had entered a portal and was immediately teleported to a hospital. The experience was surreal.***
 
 My body was unnoticeable. My legs were were covered in bloodied bandages and throbbing with aches. The left part of my face was stiff as it was covered in blood that had dried. There was a pain on my left hand that really stood out. Apparently, it was nerve damage. It had felt as though it was being lit under a constant, blazing fire.
 
