@@ -13,10 +13,10 @@ First off, by no means am I an economist.  I am certainly not knowledgable when 
 
 Since 2000, the median US household income has risen 50%(45k~63k), while the [average price of a home has doubled (135k~278k)](https://dqydj.com/historical-home-prices/).  The number of people that can comfortably afford to buy a decent house has never been lower.  Currently, I reside in Colorado, and the average for a 2br,2ba is 350K.
 
-In general, people are expect to pay extra for a home if its a better fit.  Many could justify spending a couple thousands more, but many like me, would have to draw the line when it reaches the ten thousands.  
-
 There are many aspects of Colorado that I enjoy. In particular, I love the mountains and the seemingly endless variety of outdoor activities.  However, is all of that worth an arm and a leg?
 
-The millenial generation is synonymous with student loans.  It has crippled us, and made us more reluctant to take on further debt.  Personally, I've not been big fan of college.  While there are certainly technical fields that require university education     All debating on whether to take the debt or re-explore alternative options.  
+In general, people expect to pay extra for a home if its a better fit.  Many could justify spending a couple thousands more, but many like me, would have to draw the line when it reaches the ten thousands.
 
-Fortunately if we're willing to explore and discover new places, their are plenty of hidden gem cities across the States.  One of the more underrated traits of this Country, is its diverse landscape.  So many different state/city cultures that provide so many different fits for the diverse population.
+One thing to note, the millenial generation has been crippled by student debt.  It has made us more wary and reluctant to take on further debt.  At this point many like I, are considering  re-exploring alternative and cheaper options.  
+
+Fortunately if we're willing to venture out, their are plenty of hidden gem cities across the States waiting to be discovered.  One of the more underrated traits of this Country, is its diverse landscape.   So many different state/city cultures that provide so many different fits for the diverse population.
