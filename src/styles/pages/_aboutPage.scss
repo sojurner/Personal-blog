@@ -14,22 +14,25 @@
       position: relative;
       width: 100vw;
       height: max-content;
+      margin: 13vh auto 0 auto;
     }
-
+    
     &--inner-1 {
       margin-bottom: 5em;
-      margin: 15vh 0 0 10vw;
+      margin: 0 auto;
       @media only screen and (max-width: 950px) {
         flex-direction: column;
-        margin: 10vh auto 0 auto;
+        margin: 0 auto 10vh auto;
       }
     }
 
     &--inner-2 {
-      margin: 15vh 0 0 10vw;
+      margin: 15vh auto 0 auto;
       width: 500px;
+      transform: translate(-11.7em, 0);
 
       @media only screen and (max-width: 950px) {
+        transform: translate(0, 0);
         width: 100vw;
         margin: 10vh auto 0 auto;
         padding: 0 15px;
@@ -48,7 +51,7 @@
     font-size: 6em;
 
     @media only screen and (max-width: 500px) {
-      font-size: 4.5em;
+      font-size: 4.3em;
     }
   }
 
@@ -69,10 +72,7 @@
 
   &__landing-greeting__imgs {
     position: relative;
-    flex: 1 1 auto;
     z-index: 0;
-    top: -60%;
-    left: -5%;
     height: max-content;
     @media only screen and (max-width: 950px) {
       position: static;
@@ -82,9 +82,6 @@
     }
 
     &-profile {
-      position: absolute;
-      left: 10%;
-      top: 0;
       z-index: 1;
       height: 300px;
       @media only screen and (max-width: 950px) {
@@ -96,7 +93,7 @@
     &-brushstroke {
       font-size: 60em;
       color: $color-secondary-050;
-      transform: translate(-30%, -32%);
+      transform: translate(-50%, -32%);
       @media only screen and (max-width: 950px) {
         display: none;
       }
@@ -126,9 +123,12 @@
 
   &__history-container {
     &--outer {
-      margin: 15vh 0 5vh 10vw;
+      margin: 15vh auto 5vh auto;
+      transform: translate(8em, 0);
 
       @media only screen and (max-width: 950px) {
+        transform: translate(0, 0);
+
         margin: 15vh auto 0 auto;
         flex-direction: column;
         padding: 0 15px;
@@ -186,9 +186,12 @@
 
   &__cards-container--inner-1,
   &__cards-container--inner-2 {
-    margin: 15vh 0 10vh 10vw;
+    margin: 15vh auto 10vh auto;
+    transform: translate(-6em, 0);
 
     @media only screen and (max-width: 950px) {
+      transform: translate(0, 0);
+
       margin: 15vh auto 10vh auto;
       flex-direction: column;
       padding: 0 15px;
@@ -222,7 +225,7 @@
   &__cards-skills__title,
   &__cards-contact__title,
   &__history__title {
-    font-size: 4.5em
+    font-size: 4.3em
   }
 
   &__ink-grunge,
