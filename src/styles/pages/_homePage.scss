@@ -1,6 +1,8 @@
 @import "../utils/vars";
 @import "../utils/mixins";
 
+$fill-colors: #a54afd, #4f9cfd, #ffbf55, #fc4d91, #4de2ae;
+
 .page-home {
   &__content-section {
     padding-bottom: 5em;
@@ -107,6 +109,38 @@
     &__img {
       font-size: 20em;
       color: $color-neutral-400;
+      position: relative;
+
+      svg {
+        &:nth-child(2) {
+          position: absolute;
+        }
+      }
+
+      &-sax-cat {
+        svg:nth-child(2) {
+          right: 0;
+          top: 25%;
+          @for $i from 1 to 6 {
+            g path:nth-child(#{$i}) {
+              opacity: 0;
+              fill: nth($fill-colors, $i);
+              animation: music-notes 3.5s ease-in-out forwards infinite;
+              animation-delay: #{$i}s;
+            }
+          }
+        }
+      }
+
+      &-drummer-cat {
+        svg:nth-child(2) {
+          opacity: .4;
+          right: -0.03em;
+          top: -.03em;
+          animation: music-revolver 50s linear forwards infinite;
+          transform: rotate(0deg);
+        }
+      }
     }
 
     &__txt {
@@ -170,6 +204,10 @@
 
       &__link {
         margin: 1.5em 0 0 0;
+      }
+
+      &__img {
+        margin: 0 0 .1em 0;
       }
     }
   }
@@ -279,5 +317,29 @@
   }
   100% {
     transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes music-notes {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes music-revolver {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

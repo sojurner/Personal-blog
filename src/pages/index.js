@@ -103,7 +103,7 @@ const HomePage = () => {
         </Flex>
         <Flex className="page-home__about-section" classes={["flexColumn"]}>
           <Flex className="page-home__about-section--inner">
-            <Flex className="page-home__about-section__img">
+            <Flex className="page-home__about-section__img page-home__about-section__img-sax-cat">
               <SaxophoneCat />
             </Flex>
             <Flex
@@ -164,7 +164,7 @@ const HomePage = () => {
                 </Typography>
               </AniFadeLink>
             </Flex>
-            <Flex className="page-home__about-section__img">
+            <Flex className="page-home__about-section__img page-home__about-section__img-drummer-cat">
               <DrummerCat />
             </Flex>
           </Flex>
