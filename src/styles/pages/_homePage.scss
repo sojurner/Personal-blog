@@ -1,7 +1,8 @@
 @import "../utils/vars";
 @import "../utils/mixins";
 
-$fill-colors: #a54afd, #4f9cfd, #ffbf55, #fc4d91, #4de2ae;
+$fill-colors: #a54afd, #4f9cfd, #ffbf55, #fc4d91, #4de2ae, rgb(113, 222, 241),
+  rgb(140, 148, 255), rgb(172, 88, 172), rgb(243, 150, 150);
 
 .page-home {
   &__content-section {
@@ -134,11 +135,17 @@ $fill-colors: #a54afd, #4f9cfd, #ffbf55, #fc4d91, #4de2ae;
 
       &-drummer-cat {
         svg:nth-child(2) {
-          opacity: .4;
+          opacity: 0.5;
           right: -0.03em;
-          top: -.03em;
+          top: -0.03em;
           animation: music-revolver 50s linear forwards infinite;
           transform: rotate(0deg);
+
+          @for $i from 1 to 477 {
+            g path:nth-child(#{$i}) {
+              fill: nth($fill-colors, random(9));
+            }
+          }
         }
       }
     }
@@ -207,7 +214,7 @@ $fill-colors: #a54afd, #4f9cfd, #ffbf55, #fc4d91, #4de2ae;
       }
 
       &__img {
-        margin: 0 0 .1em 0;
+        margin: 0 0 0.1em 0;
       }
     }
   }
