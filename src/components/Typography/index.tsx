@@ -20,6 +20,7 @@ const typographyVariants: PKColorVariant = Object.freeze({
   secondaryDefault: typographyStyles["typographySecondaryDefault"],
   secondaryLight: typographyStyles["typographySecondaryLight"],
   secondaryDark: typographyStyles["typographySecondaryDark"],
+  currentColor: "",
 })
 
 const typographyTags = Object.freeze({

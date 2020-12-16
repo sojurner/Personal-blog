@@ -1,13 +1,14 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
+import { AniFadeLink, AniLoaderLink } from "@components/Link"
+import { SaxophoneCat, DrummerCat } from "@components/Svg"
+import Icon from "@components/Icon"
+import Typography from "@components/Typography"
 import MainLayout from "@components/Layouts"
 import Flex from "@components/Flex"
-import { AniFadeLink, AniLoaderLink } from "@components/Link"
 import Tag from "@components/Tag"
-import Typography from "@components/Typography"
 import Avatar from "@components/Avatar"
-import { SaxophoneCat, DrummerCat } from "@components/Svg"
 import SEO from "@components/SEO"
 
 import { blogTypeRef } from "../utils/constants"
@@ -139,9 +140,18 @@ const HomePage = () => {
                 Call me, Maybe?
               </Typography>
               <Typography tag="h4" variant="neutralLight">
-                Currently, I work as a full-stack developer. However, my
-                expertise and areas of strength lean more towards the front-end.
+                As a full-stack dev, here are the technology stacks I'm familiar
+                with:
               </Typography>
+              <Flex className="page-home__about-section__skill-icons">
+                <Icon color="var(--pk-color-neutral-900)" svg="csharp" />
+                <Icon color="var(--pk-color-neutral-900)" svg="javascript" />
+                <Icon color="var(--pk-color-neutral-900)" svg="typescript" />
+                <Icon color="var(--pk-color-neutral-900)" svg="dotnet" />
+                <Icon color="var(--pk-color-neutral-900)" svg="react" />
+                <Icon color="var(--pk-color-neutral-900)" svg="sass" />
+                <Icon color="var(--pk-color-neutral-900)" svg="docker" />
+              </Flex>
               <Typography variant="neutralLight" tag="h4">
                 If you like my content, feel free to reach out!
               </Typography>
