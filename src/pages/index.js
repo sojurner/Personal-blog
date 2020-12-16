@@ -7,6 +7,7 @@ import { AniFadeLink, AniLoaderLink } from "@components/Link"
 import Tag from "@components/Tag"
 import Typography from "@components/Typography"
 import Avatar from "@components/Avatar"
+import { SaxophoneCat, DrummerCat } from "@components/Svg"
 import SEO from "@components/SEO"
 
 import { blogTypeRef } from "../utils/constants"
@@ -53,52 +54,110 @@ const HomePage = () => {
 
   return (
     <MainLayout className="page-home">
-    <SEO />
+      <SEO />
       <Flex className="page-home__landing-container" classes={["flexColumn"]}>
         <Flex
-          classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
-          className="page-home__landing-header"
+          classes={["flexColumn", "alignItemsCenter", "justifyContentCenter"]}
+          className="page-home__landing-container--inner"
         >
           <Flex
-            classes={["flexColumn"]}
-            className="page-home__landing-header-txt"
+            classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
+            className="page-home__landing-header"
           >
-            <Typography tag="h1" variant="neutralDark">
-              Greetings, I'm Paul.
-            </Typography>
-            <Typography tag="h4" variant="neutralLight">
-              I started this website as a creative and therapeutic outlet. I'll
-              share all that I know, and all that I've wondered through{" "}
-              <Link to="/blog">my blog</Link>.
-            </Typography>
-            <Typography
-              variant="neutralLight"
-              style={{
-                margin: "0 0 2em 0",
-              }}
-              tag="h4"
+            <Flex
+              classes={["flexColumn"]}
+              className="page-home__landing-header-txt"
             >
-              Hope You enjoy!
-            </Typography>
-
-            <AniFadeLink
-              to="/about"
-              className="page-home__landing-header__link-about"
-            >
-              <Typography variant="neutralBlank" tag="h4">
-                More About Me
-              </Typography>
-            </AniFadeLink>
+              <Flex
+                classes={["flexColumn"]}
+                className="page-home__landing-header-txt__name"
+              >
+                <Typography
+                  className="page-home__landing-header-txt__firstname"
+                  tag="h1"
+                  variant="neutralDark"
+                >
+                  <Typography tag="span">P</Typography>
+                  aul
+                </Typography>
+                <Typography
+                  className="page-home__landing-header-txt__lastname"
+                  tag="h1"
+                  variant="neutralDark"
+                >
+                  <Typography tag="span">K</Typography> im
+                </Typography>
+              </Flex>
+            </Flex>
+            <Avatar
+              className="page-home__landing-front-img"
+              shape="hexagon"
+              fluid={data.file.childImageSharp.fluid}
+              alt={data.site.siteMetadata.author
+                .split(" ")
+                .map(x => x[0])
+                .join("")}
+            />
           </Flex>
-          <Avatar
-            className="page-home__landing-front-img"
-            shape="hexagon"
-            fluid={data.file.childImageSharp.fluid}
-            alt={data.site.siteMetadata.author
-              .split(" ")
-              .map(x => x[0])
-              .join("")}
-          />
+        </Flex>
+        <Flex className="page-home__about-section" classes={["flexColumn"]}>
+          <Flex className="page-home__about-section--inner">
+            <Flex className="page-home__about-section__img">
+              <SaxophoneCat />
+            </Flex>
+            <Flex
+              className="page-home__about-section__txt"
+              classes={["flexColumn"]}
+            >
+              <Typography variant="neutralDark" tag="h2">
+                Hey there, Lurker!
+              </Typography>
+              <Typography tag="h4" variant="neutralLight">
+                I started this website as a creative and therapeutic outlet.
+                I'll share all that I know, and all that I've wondered through{" "}
+                <Link to="/blog">my blog</Link>.
+              </Typography>
+              <Typography variant="neutralLight" tag="h4">
+                Hope You enjoy!
+              </Typography>
+              <AniFadeLink
+                to="/about"
+                className="page-home__about-section__link"
+              >
+                <Typography variant="neutralBlank" tag="h4">
+                  More About Me
+                </Typography>
+              </AniFadeLink>
+            </Flex>
+          </Flex>
+          <Flex className="page-home__about-section--inner">
+            <Flex
+              className="page-home__about-section__txt"
+              classes={["flexColumn"]}
+            >
+              <Typography variant="neutralDark" tag="h2">
+                Call me, Maybe?
+              </Typography>
+              <Typography tag="h4" variant="neutralLight">
+                Currently, I work as a full-stack developer. However, my
+                expertise and areas of strength lean more towards the front-end.
+              </Typography>
+              <Typography variant="neutralLight" tag="h4">
+                If you like my content, feel free to reach out!
+              </Typography>
+              <AniFadeLink
+                to="/contact"
+                className="page-home__about-section__link"
+              >
+                <Typography variant="neutralBlank" tag="h4">
+                  Contact
+                </Typography>
+              </AniFadeLink>
+            </Flex>
+            <Flex className="page-home__about-section__img">
+              <DrummerCat />
+            </Flex>
+          </Flex>
         </Flex>
         <Flex classes={["flexColumn"]} className="page-home__post-section">
           <Typography tag="h1" variant="neutralDark">

@@ -34,4 +34,4 @@ const OldManAndTheSea: React.FC<PKSvgComponent> = props => (
   </svg>
 )
 
-export default OldManAndTheSea;
+export default OldManAndTheSea
