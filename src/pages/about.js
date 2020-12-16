@@ -81,9 +81,23 @@ const AboutPage = () => (
           className="page-about__landing-greeting__about-skills"
           variant="neutralLight"
         >
-          I'm a Developer with a passion for root. I currently work for Catalyst
-          Healthcare as a front-end developer. I like to keep things light and
-          quirky.
+          I'm a programmer with a{" "}
+          <Typography
+            tag="span"
+            variant="neutralDark"
+            onClick={() =>
+              window.open(
+                "https://images-na.ssl-images-amazon.com/images/I/51hethHdQnL.jpg",
+                "_blank"
+              )
+            }
+          >
+            passion for root
+          </Typography>
+          . I currently work as a full-stack developer with emphasis on
+          front-end. Other than my work, I love <strong>Hiking</strong>, I'm an
+          avid fan of <strong>Baseball</strong>, and my favorite snack are{" "}
+          <strong>Pork Rinds</strong>.
         </Typography>
         <Typography
           tag="h2"
@@ -98,9 +112,9 @@ const AboutPage = () => (
           className="page-about__landing-greeting__about-skills"
           variant="neutralLight"
         >
-          I blog just about anything. Typically, I'll stick to personal
-          interests and experiences, such as programming, army-related topics,
-          and health & fitness.
+          As of now, I'll blog just about anything that comes to my mind.
+          Typically, I'll stick to what I know: personal interests and
+          experiences, programming tools and tips, and getting revenge on twitter.
         </Typography>
       </Flex>
     </Flex>

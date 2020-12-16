@@ -116,6 +116,11 @@
   }
 
   &__landing-greeting__about-skills {
+    span {
+      font-size: 18px;
+      text-decoration: underline;
+      cursor: pointer;
+    }
     @media only screen and (max-width: 500px) {
       font-size: 1em;
     }
