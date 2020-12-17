@@ -52,3 +52,5 @@ Those who are higher up in the corporate ladder have greater priveleges that ena
 They'll schedule "mandatory" after work gatherings *(such as dinner at a bar or karaoke night)*. Usually, these will be during middle of the week, where the following morning will be a work day. These gatherings involve heavy drinking and a lot of grovelling & obsequious behavior towards bosses.  
 
 As you can imagine, its not very fun.  Definitely, not how I would want to spend my wednesday night. Unfortunately it is "mandatory" in the sense that refusal to attend leads to consequences that can negatively affect chances of a promotion or raise.
+
+The friends that I've made during 2013-2015, all have jobs, and almost each one hate their lives because of this.  They are forced to drink for hours after a long work day, and have little to no choice but to repeat it over and over.
