@@ -38,7 +38,7 @@ const AboutPage = () => (
           classes={["flexColumn", "alignItemsStart"]}
         >
           <Typography tag="h1" className="page-about__landing-greeting__name">
-            Paul Kim
+            About
           </Typography>
           <Typography
             tag="h3"
@@ -73,7 +73,7 @@ const AboutPage = () => (
           variant="neutralDark"
           className="page-about__landing-greeting__about-header"
         >
-          A Little Bit About Me
+          Who Am I?
         </Typography>
         <div className="page-about__landing-greeting__about-header-div" />
         <Typography
