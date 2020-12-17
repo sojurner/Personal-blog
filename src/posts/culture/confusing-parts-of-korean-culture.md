@@ -25,13 +25,15 @@ The Korean entertainment industry is, at its raw core, just sugar. It's a form c
 
 Year in and year out, there's virtually been zero artistic variation between Kpop songs. They all follow the same formula, reenact the same routine, recite the same lyrics, wear the same outfits, and dance to the same beat. Just listen to one song and you'll have heard all of them.
 
-KDramas are not much different.  Its almost always a diluted romance involving two main characters in the "A" storyline and two supporting characters in the "B" storyline.Perhaps the most unappealing aspect for me was that instead of implementing true character development, dramas would opt for relationship development.  Rarely, will the main character develop introspectively, but rather as a result of circumstances and events that force them to change for the sake of the relationship.
+KDramas are not much different.  Its almost always a diluted, drawn-out romance involving two main characters, both with extraordinary situations.  For me, the most unappealing aspect of KDramas is the lack of true character development, and instead heavy focus on relationship development.  Rarely, will the main characters change/develop introspectively, but rather as a result of circumstances and events that force their hand for the sake of the relationship.  
+
+In a sense its putting relationship above the individual, which in reality is a recipe for disaster.
 
 ## The Education System
 
 One of the many blessings that I'm constantly grateful for, is that I've never had to go through the Korean education system.  There aren't sufficient adjectives to describe its cut-throat and unforgiving environment.  I for sure would not have lasted.  Oddly, this devoid of compassion system is all geared towards one test (수능).  
 
-수능 (sooneung) is basically their SAT's but with life implications.  Performance on this test usually paints the future outlook of the student.  It dictates which college they can go to, which in turn determines which jobs they can get, and eventually how much they can earn and where in the social heirarchy they'll be placed.  An anecdote from my native friend illustrated a typical day during his high school years:
+수능 (sooneung) is basically their SAT's but with life implications.  Performance on this test will paint the future outlook of the student.  It dictates which college they can go to, which in turn determines which jobs they can get, and eventually how much they can earn, and where in the social heirarchy they'll be placed.  An anecdote from my native friend illustrated a typical day during his high school years:
 
 - 6:30am - wakeup, breakfast
 - 8:00am - start of school
