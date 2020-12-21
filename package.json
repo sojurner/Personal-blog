@@ -6,10 +6,10 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "dev": "env-cmd -f .env.dev gatsby develop",
+    "dev": "env-cmd -f .env.development gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve",
+    "serve": "gatsby .env.development serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
@@ -51,6 +51,7 @@
     "@types/node": "^14.14.6",
     "@types/react": "^16.9.55",
     "@types/react-dom": "^16.9.9",
+    "cross-env": "^7.0.3",
     "env-cmd": "^10.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.15.0",
