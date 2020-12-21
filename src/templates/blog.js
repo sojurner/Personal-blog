@@ -1,18 +1,20 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import { AniLoaderLink, AniFadeLink } from "@components/Link"
 
+import { AniLoaderLink, AniFadeLink } from "@components/Link"
 import MainLayout from "@components/Layouts"
 import Typography from "@components/Typography"
 import Flex from "@components/Flex"
 import Card from "@components/Card"
 import Divider from "@components/Divider"
 import Tag from "@components/Tag"
+import Icon from "@components/Icon"
 import Avatar from "@components/Avatar"
 import SEO from "@components/SEO"
 
 import "@styles/templates/_blogTemplate.scss"
 import { blogTypeRef } from "../utils/constants"
+import { usePageView } from "../hooks"
 
 const query = graphql`
   query($slug: String!) {
@@ -62,7 +64,8 @@ const query = graphql`
 `
 
 const Blog = ({ data }) => {
-  const { frontmatter, html } = data.markdownRemark
+  const { frontmatter, fields, html } = data.markdownRemark
+  const [viewCount] = usePageView(fields.slug)
 
   return (
     <MainLayout className="template-blog">
@@ -84,37 +87,30 @@ const Blog = ({ data }) => {
             {frontmatter.title}
           </Typography>
           <Flex
-            className="template-blog__profile-container"
+            className="template-blog__subheader-container"
             classes={["flexRow", "alignItemsCenter"]}
           >
-            <Avatar
-              fluid={frontmatter.avatar.childImageSharp.fluid}
-              alt={frontmatter.author
-                .split(" ")
-                .map(x => x[0])
-                .join("")}
-              className="template-blog__profile-avatar"
-            />
             <Flex
-              className="template-blog__profile-txt-container"
-              classes={["flexColumn", "justifyContentCenter"]}
+              classes={["flexRow", "alignItemsCenter"]}
+              className="template-blog__subheader__profile"
             >
+              <Avatar
+                fluid={frontmatter.avatar.childImageSharp.fluid}
+                alt={frontmatter.author
+                  .split(" ")
+                  .map(x => x[0])
+                  .join("")}
+                className="template-blog__subheader__profile-avatar"
+              />
               <Typography
                 tag="label"
-                className="template-blog__profile-txt-author"
+                className="template-blog__subheader__profile-author"
               >
                 {frontmatter.author}
               </Typography>
-              <Typography
-                tag="span"
-                variant="neutralLight"
-                className="template-blog__profile-txt-date"
-              >
-                {frontmatter.date}
-              </Typography>
             </Flex>
             <AniFadeLink
-              className="template-blog__profile-tag"
+              className="template-blog__subheader__tag"
               to={`/blog/${frontmatter.subject}`}
             >
               <Tag
@@ -122,6 +118,45 @@ const Blog = ({ data }) => {
                 variant={blogTypeRef[frontmatter.subject].tagVariant}
               />
             </AniFadeLink>
+          </Flex>
+          <Flex
+            className="template-blog__subheader-container"
+            classes={["flexRow", "alignItemsCenter"]}
+          >
+            <Flex
+              classes={["flexRow", "alignItemsCenter"]}
+              className="template-blog__subheader__date-container"
+            >
+              <Icon
+                svg="calendar"
+                variant="neutralLight"
+                className="template-blog__subheader__date-icon"
+              />
+              <Typography
+                tag="span"
+                variant="neutralLight"
+                className="template-blog__subheader__date-text"
+              >
+                {frontmatter.date}
+              </Typography>
+            </Flex>
+            <Flex
+              classes={["flexRow", "alignItemsCenter"]}
+              className="template-blog__subheader__view-counter-container"
+            >
+              <Icon
+                svg="eye"
+                variant="neutralLight"
+                className="template-blog__subheader__view-counter-icon"
+              />
+              <Typography
+                tag="span"
+                variant="neutralLight"
+                className="template-blog__subheader__view-counter-text"
+              >
+                {viewCount} views
+              </Typography>
+            </Flex>
           </Flex>
           <img src={frontmatter.foregroundImg} alt="blog front img" />
         </Flex>
@@ -176,6 +211,7 @@ const Blog = ({ data }) => {
             const { title, date, subject, foregroundImg } = ele.node.frontmatter
             return (
               <Card
+                key={`related-card-${slug}`}
                 className="template-blog__related__card"
                 depth="z4"
                 classes={["flexColumn"]}

@@ -258,6 +258,11 @@ $fill-colors: #a54afd, #4f9cfd, #ffbf55, #fc4d91, #4de2ae, rgb(113, 222, 241),
     @media only screen and (max-width: 850px) {
       margin: -3em 0 2em 0;
     }
+
+    @media only screen and (max-width: 500px) {
+      height: 23em;
+      width: 23em;
+    }
   }
 
   &__post-section {

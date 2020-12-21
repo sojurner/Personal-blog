@@ -5,6 +5,7 @@ import blog from "@iconify-icons/mdi-light/message-text"
 import military from "@iconify-icons/mdi/knife-military"
 import account from "@iconify-icons/mdi-light/account"
 import refresh from "@iconify-icons/mdi-light/refresh"
+import eye from "@iconify-icons/mdi/eye-outline"
 
 import social from "@iconify-icons/mdi/account-group-outline"
 import book from "@iconify-icons/mdi/book-open-page-variant-outline"
@@ -92,6 +93,7 @@ const iconSvg = Object.freeze({
   linkedIn,
   mapMarker,
   telegram,
+  eye
 })
 
 type IconVariantKey = keyof typeof iconVariants

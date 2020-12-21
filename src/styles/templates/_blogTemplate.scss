@@ -27,33 +27,53 @@
     }
   }
 
-  &__title {
-  }
+  &__subheader {
+    &-container {
+      position: relative;
+      width: max-content;
 
-  &__profile-container {
-    margin: 20px 0 40px;
-    position: relative;
-    width: max-content;
-  }
+      &:nth-child(3) {
+        margin: 10px 0 5px;
+      }
+      &:nth-child(4) {
+        margin: 10px 0 40px;
+      }
+    }
 
-  &__profile-txt-container {
-    margin: 0 15px 0 10px;
-  }
+    &__profile-author {
+      margin: 0 15px 0 10px;
+    }
 
-  &__profile-txt-author {
-    opacity: 0.9;
-  }
+    &__tag {
+      height: max-content;
+      span {
+        cursor: pointer;
+      }
+    }
 
-  &__profile-txt-date {
-    opacity: 0.6;
-  }
+    &__date {
+      &-container {
+        opacity: 0.8;
+        margin: 0 15px 0 0;
+      }
+      &-icon {
+        margin-right: 5px;
+      }
 
-  &__profile-tag {
-    height: max-content;
-    span {
-      cursor: pointer;
+      &-text {
+      }
+    }
+
+    &__view-counter {
+      &-container {
+        opacity: .8;
+      }
+      &-icon {
+        margin-right: 5px;
+      }
     }
   }
+
 
   &__next-link {
     text-decoration-line: underline;
@@ -129,7 +149,7 @@
     position: relative;
     height: 350px;
     overflow: hidden;
-    transition: .2s linear;
+    transition: 0.2s linear;
     &:hover {
       transform: scale(1.02);
     }
@@ -153,7 +173,7 @@
 
   &__related__card__date-tag {
     margin: 10px 0 0;
-    
+
     span {
       cursor: pointer;
       margin: 0 10px 0 0;

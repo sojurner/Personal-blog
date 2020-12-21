@@ -16,12 +16,14 @@ import Divider from "@components/Divider"
 import SEO from "@components/SEO"
 
 import { blogTypeRef, tagIconRef } from "../utils/constants"
+import { usePageViewMeta } from "../hooks"
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
 
 const BlogPage = () => {
   const [loading, setLoading] = React.useState(false)
   const [tagFilter] = React.useState("all")
+  const [pageViews] = usePageViewMeta()
 
   const mainRef = React.useRef()
   const [endRef, inView] = useInView({
@@ -73,7 +75,6 @@ const BlogPage = () => {
       }
     }
   `)
-
   return (
     <RefMainLayout ref={mainRef} className="page-blog">
       <SEO title="Blog" />
@@ -179,22 +180,44 @@ const BlogPage = () => {
                       {frontmatter.title}
                     </Typography>
                     <Flex className="page-blog__card-content__details">
-                      <Flex classes={["flexRow", "alignItemsCenter"]}>
+                      <Flex
+                        className="page-blog__card-content__details__date"
+                        classes={["flexRow", "alignItemsCenter"]}
+                      >
                         <Icon
                           svg="calendar"
-                          className="page-blog__card-content__details-calendar-icon"
+                          className="page-blog__card-content__details-icon"
                           variant="neutralLight"
                         />
                         <Typography
                           tag="span"
-                          className="page-blog__card-content__details-date"
+                          className="page-blog__card-content__details-txt"
                           variant="neutralLight"
                         >
                           {frontmatter.date}
                         </Typography>
                       </Flex>
+                      <Flex
+                        className="page-blog__card-content__details__view-counter page-blog__card-content__details-inner"
+                        classes={["flexRow", "alignItemsCenter"]}
+                      >
+                        <Icon
+                          svg="eye"
+                          className="page-blog__card-content__details-icon"
+                          variant="neutralLight"
+                        />
+                        <Typography
+                          tag="span"
+                          className="page-blog__card-content__details-txt"
+                          variant="neutralLight"
+                        >
+                          {pageViews && pageViews[fields.slug]
+                            ? pageViews[fields.slug].views
+                            : 0}{" "}
+                          views
+                        </Typography>
+                      </Flex>
                     </Flex>
-
                     <Typography
                       className="page-blog__card-content__txt-desc"
                       variant={blogTypeRef[frontmatter.subject].textVariant}
