@@ -31,11 +31,11 @@ const usePageViewMeta = () => {
   const [viewState, setViewState] = useState()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
-  const pageRef = firebase.database().ref("pages")
-
+  
   useEffect(() => {
-    setLoading(false)
-
+    setLoading(true)
+    
+    const pageRef = firebase.database().ref("pages")
     pageRef.once("value", snapshot => {
       if (snapshot.exists()) {
         setViewState(snapshot.val())
@@ -44,10 +44,10 @@ const usePageViewMeta = () => {
       }
     })
 
-    setLoading(true)
+    setLoading(false)
   }, [])
 
-  return [viewState]
+  return [viewState, loading, error]
 }
 
 export { usePageView, usePageViewMeta }
