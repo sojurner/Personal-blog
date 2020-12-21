@@ -1,6 +1,6 @@
 // ViewCounter.js
 import { useEffect, useState } from "react"
-import firebase from "gatsby-plugin-firebase"
+import firebase from "firebase"
 
 const usePageView = id => {
   const [viewCount, setViewCount] = useState(0)
