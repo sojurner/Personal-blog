@@ -9,15 +9,17 @@ foregroundImg: "https://i.ytimg.com/vi/9bZkp7q19f0/maxresdefault.jpg"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 
+## Before I Begin...
+
 I had the fortune of living in Korea from 2013 - 2015. During that time, I enjoyed experiencing all that the country had to offer, and learned alot about the societal & cultural norms that dominated its modern society. Two years doesn't make me an expert on this subject matter, but it was plenty of time for me to observe and come to my own conclusions. And so, here are some aspects of Korean culture that confused the shit out of me...
 
 ## The Age heirachy
 
 Age means a great deal in Korean culture. Simply being older, means entitlement to unconditional respect, formal addressment, and priority in most social and political agendas (opinions, benefits, etc).
 
-In many ways, I oppose this age-based value system. To me, its miscorrelating a linear numerical value (age) with wisdom. While being older certainly represents more lived opportunities for growth and development, it doesn't necessarily equate to greater depth of knowledge and insight. Having opportunites vs learning from them are significant differences.
+In many ways, I oppose this age-based value system. To me, its assuming that age and wisdom follow a positive linear correlation. While being older certainly represents more lived opportunities for growth and development, actually learning from them is the bridge to greater insight and wisdom. Having opportunites is important, but improving upon them is the difference.
 
-Personally, I am in support for respect and decency to be measured on a merocratic system. Meaning, your social value and worth should be tied to your character and personal accomplishments rather than age.
+I support the idea of respect through a meritocracy, which is a strong core American belief.  It's not perfect, but it has developed arguably the most diverse and perhaps one of the richest nations in history.
 
 ## KPop & KDrama
 
@@ -27,13 +29,13 @@ Year in and year out, there's virtually been zero artistic variation between Kpo
 
 KDramas are not much different.  Its almost always a diluted, drawn-out romance involving two main characters, both with extraordinary situations.  For me, the most unappealing aspect of KDramas is the lack of true character development, and instead heavy focus on relationship development.  Rarely, will the main characters change/develop introspectively, but rather as a result of circumstances and events that force their hand for the sake of the relationship.  
 
-In a sense its putting relationship above the individual, which in reality is a recipe for disaster.
+I may sound a little cynical here, but I say this out of desire for a positive revolution in Korean entertainment.
 
 ## The Education System
 
 One of the many blessings that I'm constantly grateful for, is that I've never had to go through the Korean education system.  There aren't sufficient adjectives to describe its cut-throat and unforgiving environment.  I for sure would not have lasted.  Oddly, this devoid of compassion system is all geared towards one test (수능).  
 
-수능 (sooneung) is basically their SAT's but with life implications.  Performance on this test will paint the future outlook of the student.  It dictates which college they can go to, which in turn determines which jobs they can get, and eventually how much they can earn, and where in the social heirarchy they'll be placed.  An anecdote from my native friend illustrated a typical day during his high school years:
+수능 (sooneung) is basically their SAT's but with life implications. Frighteningly, performance on this test will paint the future outlook of the student.  It dictates which college they can go to, which in turn determines which jobs they can get, leading to how much they can earn, and ultimately, where in the social heirarchy they'll be placed.  An anecdote from my native friend illustrated a typical day during his high school years:
 
 - 6:30am - wakeup, breakfast
 - 8:00am - start of school
@@ -56,3 +58,8 @@ They'll schedule "mandatory" after work gatherings *(such as dinner at a bar or 
 As you can imagine, its not very fun.  Definitely, not how I would want to spend my wednesday night. Unfortunately, it is "mandatory" in the sense that refusal to attend leads to consequences that can negatively affect chances of a promotion or raise.
 
 The friends that I've made during 2013-2015, all have jobs, and almost each one hate their lives because of this.  They are forced to drink for long hours after a grueling work day, and have little to no choice but to repeat it over and over.
+
+## Cosmetic Surgery
+This has been a controversial subject in Korea for as long as i can remember. Admittingly, I am not aware of their arguments for it.  However, I think many would agree that if you dug deeper, this is an issue that stems from insecurity and lack of self-identity.  I believe that the lack of self-confidence is a result of a socially ruthless competitive culture, in which it's boundaries have extended towards mental harm.  That may very well be a stretch, but frighteningly, its reasonable to assume.
+
+As an American, I'll never have an objection to freedom of choice.  If someone wishes to partake in a cosmetic procudure, by all means, they should.

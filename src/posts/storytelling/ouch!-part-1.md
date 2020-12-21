@@ -31,11 +31,11 @@ I knew I was in for a long night of studying. So after the night class had ended
 
 Parking was difficult to find that night, so I ended up settling on some street parking about half a mile from the residence.
 
-I parked my car and stepped out of the car with my backpack and food in my hands. This was the last memory I could recall, because the next moment after, I found myself waking up on hospital bed choking on an [endotracheal tube](https://www.ncbi.nlm.nih.gov/books/NBK539747/).
+I parked my car and got out with my backpack and food in my hands. This was the last memory I could recall, because the next moment after, I found myself waking up on hospital bed choking on an [endotracheal tube](https://www.ncbi.nlm.nih.gov/books/NBK539747/).
 
-***Apparently, I had been unconcious for a couple hours. It was as if I had entered a portal and was immediately teleported to a hospital. The experience was surreal.***
+**_Apparently, I had been unconcious for a couple hours. It was as if I had entered a portal and teleported to a hospital. The experience was surreal._**
 
-My body was unnoticeable. My legs were were covered in bloodied bandages and throbbing with aches. The left part of my face was stiff as it was covered in blood that had dried. There was a pain on my left hand that really stood out. Apparently, it was nerve damage. It had felt as though it was being lit under a constant, blazing fire.
+My body was unnoticeable. My legs were were covered in bloodied bandages and throbbing with aches. The left part of my face was stiff as it was covered in blood that had dried. There was a pain on my left hand that really stood out. Apparently, it was nerve damage. My hand felt as though it was being lit under a constant, blazing fire.
 
 I had suffered an open compound fracture on my left tibia and a closed fracture on my right. Metal rods were inserted in both legs through a procedure called [Intramedullary Nailing](https://orthoinfo.aaos.org/en/diseases--conditions/tibia-shinbone-shaft-fractures/#:~:text=Intramedullary%20nailing.&text=During%20this%20procedure%2C%20a%20specially,in%20proper%20position%20during%20healing.).
 
@@ -55,11 +55,11 @@ After I'd gathered my bearings, i had plenty of questions that needed answers...
 
 #### "How long will that be?"
 
-- - 2 weeks - slow walk with assistance
-  - month 1 - unassisted slow walk
-  - month 2 - back to normal walk
-  - month 3 - slow jog
-  - month 4 - 90-100% recovery
+- 2 weeks - slow walk with assistance
+- 1 month - unassisted slow walk
+- 2 months - back to normal walk
+- 3 months - slow jog
+- 4 months - 90-100% recovery
 
 #### "What about my test?"
 
