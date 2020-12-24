@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import Img from "gatsby-image"
 
 import { AniLoaderLink, AniFadeLink } from "@components/Link"
 import MainLayout from "@components/Layouts"
@@ -27,12 +28,19 @@ const query = graphql`
         desc
         next
         previous
-        foregroundImg
+        featuredImgAlt
         avatar {
           childImageSharp {
-            fluid(maxWidth: 800) {
+            fluid(maxWidth: 100) {
               ...GatsbyImageSharpFluid
             }
+          }
+        }
+      }
+      featuredImg {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -42,9 +50,9 @@ const query = graphql`
       html
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: ASC }
+      sort: { fields: [frontmatter___date], order: DESC }
       filter: { fields: { slug: { ne: $slug } } }
-      limit: 4
+      limit: 6
     ) {
       edges {
         node {
@@ -52,7 +60,14 @@ const query = graphql`
             title
             date
             subject
-            foregroundImg
+            featuredImgAlt
+          }
+          featuredImg {
+            childImageSharp {
+              fluid(maxWidth: 400) {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
           fields {
             slug
@@ -64,8 +79,55 @@ const query = graphql`
 `
 
 const Blog = ({ data }) => {
-  const { frontmatter, fields, html } = data.markdownRemark
+  const { frontmatter, fields, featuredImg, html } = data.markdownRemark
   const [viewCount] = usePageView(fields.slug)
+
+  const createColumn = ele => {
+    const { frontmatter, fields, featuredImg } = ele.node
+    return (
+      <div
+        key={`related-${fields.slug}`}
+        className="template-blog__related__card"
+        depth="z4"
+      >
+        <AniLoaderLink to={`/blog/${frontmatter.subject}/${fields.slug}`}>
+          <Img
+            loading="lazy"
+            fluid={featuredImg.childImageSharp.fluid}
+            alt={frontmatter.featuredImgAlt}
+          />
+        </AniLoaderLink>
+        <Flex
+          classes={["flexColumn"]}
+          className="template-blog__related__card-text"
+        >
+          <AniLoaderLink
+            to={`/blog/${frontmatter.subject}/${fields.slug}`}
+            key={`related-${fields.slug}`}
+          >
+            <Typography tag="h3">{frontmatter.title}</Typography>
+          </AniLoaderLink>
+          <Flex
+            classes={["flexRow", "alignItemsCenter"]}
+            className="template-blog__related__card__date-tag"
+          >
+            <AniFadeLink
+              to={`/blog/${frontmatter.subject}`}
+              key={`related-${fields.slug}`}
+            >
+              <Tag
+                label={frontmatter.subject}
+                variant={blogTypeRef[frontmatter.subject].tagVariant}
+              />
+            </AniFadeLink>
+            <Typography variant="neutralLight" tag="label">
+              {frontmatter.date}
+            </Typography>
+          </Flex>
+        </Flex>
+      </div>
+    )
+  }
 
   return (
     <MainLayout className="template-blog">
@@ -158,7 +220,10 @@ const Blog = ({ data }) => {
               </Typography>
             </Flex>
           </Flex>
-          <img src={frontmatter.foregroundImg} alt="blog front img" />
+          <Img
+            fluid={featuredImg.childImageSharp.fluid}
+            alt={frontmatter.featuredImgAlt}
+          />
         </Flex>
         {frontmatter.previous && (
           <Flex
@@ -206,53 +271,12 @@ const Blog = ({ data }) => {
           classes={["flexRow", "flexWrap", "justifyContentCenter"]}
           className="template-blog__related__link-card-section"
         >
-          {data.allMarkdownRemark.edges.map(ele => {
-            const { slug } = ele.node.fields
-            const { title, date, subject, foregroundImg } = ele.node.frontmatter
-            return (
-              <Card
-                key={`related-card-${slug}`}
-                className="template-blog__related__card"
-                depth="z4"
-                classes={["flexColumn"]}
-              >
-                <AniLoaderLink
-                  to={`/blog/${subject}/${slug}`}
-                  key={`related-${slug}`}
-                >
-                  <img src={foregroundImg} alt="related-front-img" />
-                </AniLoaderLink>
-                <Flex
-                  classes={["flexColumn"]}
-                  className="template-blog__related__card-text"
-                >
-                  <AniLoaderLink
-                    to={`/blog/${subject}/${slug}`}
-                    key={`related-${slug}`}
-                  >
-                    <Typography tag="h3">{title}</Typography>
-                  </AniLoaderLink>
-                  <Flex
-                    classes={["flexRow", "alignItemsCenter"]}
-                    className="template-blog__related__card__date-tag"
-                  >
-                    <AniFadeLink
-                      to={`/blog/${subject}`}
-                      key={`related-${slug}`}
-                    >
-                      <Tag
-                        label={subject}
-                        variant={blogTypeRef[subject].tagVariant}
-                      />
-                    </AniFadeLink>
-                    <Typography variant="neutralLight" tag="label">
-                      {date}
-                    </Typography>
-                  </Flex>
-                </Flex>
-              </Card>
-            )
-          })}
+          <Flex classes={["flexColumn"]}>
+            {data.allMarkdownRemark.edges.slice(0, 3).map(createColumn)}
+          </Flex>
+          <Flex classes={["flexColumn"]}>
+            {data.allMarkdownRemark.edges.slice(3, 6).map(createColumn)}
+          </Flex>
         </Flex>
       </Flex>
     </MainLayout>

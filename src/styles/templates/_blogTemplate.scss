@@ -147,7 +147,6 @@
     width: 350px;
     white-space: pre-wrap;
     position: relative;
-    height: 350px;
     overflow: hidden;
     transition: 0.2s linear;
     &:hover {
@@ -165,7 +164,7 @@
   }
 
   &__related__card-text {
-    margin: 65% 0 0 0;
+    margin: 5% 0 0 0;
     h3:hover {
       text-decoration: underline;
     }

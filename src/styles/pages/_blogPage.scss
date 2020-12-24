@@ -94,6 +94,17 @@
     &:hover {
       border: 1px solid $color-blank-500;
     }
+
+    &--loaded {
+      bottom: 0;
+      opacity: 1;
+      transition: .5s;
+    }
+
+    &--hidden {
+      opacity: 0;
+      bottom: -30px;
+    }
   }
 
   &__card-header__foreground-img {

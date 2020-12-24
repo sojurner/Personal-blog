@@ -42,7 +42,7 @@ const HomePage = () => {
               subject
               date
               tags
-              foregroundImg
+              featuredImgUrl
             }
             fields {
               slug
@@ -111,7 +111,7 @@ const HomePage = () => {
               classes={["flexColumn"]}
             >
               <Typography variant="neutralDark" tag="h2">
-                Hey there, Lurker!
+                Welcome!
               </Typography>
               <Typography tag="h4" variant="neutralLight">
                 I started this website as a creative and therapeutic outlet.
@@ -188,7 +188,7 @@ const HomePage = () => {
                     classes={["flexColumn"]}
                     className="page-home__post-section__card"
                   >
-                    <img src={frontmatter.foregroundImg} alt="blog front img" />
+                    <img src={frontmatter.featuredImgUrl} alt="blog front img" />
                     <Typography variant="neutralDark" tag="h3">
                       {frontmatter.title}
                     </Typography>
