@@ -1,11 +1,48 @@
 const path = require("path")
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const {
+  createFilePath,
+  createRemoteFileNode,
+} = require(`gatsby-source-filesystem`)
 
-module.exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
+module.exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  createTypes(`
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+      featuredImg: File @link(from: "featuredImg___NODE")
+    }
+    type Frontmatter {
+      title: String!
+      featuredImgUrl: String
+      featuredImgAlt: String
+    }
+  `)
+}
+
+module.exports.onCreateNode = async ({
+  node,
+  getNode,
+  actions: { createNode, createNodeField },
+  store,
+  cache,
+  createNodeId,
+}) => {
   if (node.internal.type == "MarkdownRemark") {
-    // const slug = createFilePath({ node, getNode })
-    // const value = path.basename(node.fileAbsolutePath, ".md")
+    if (node.frontmatter.featuredImgUrl !== null) {
+      let fileNode = await createRemoteFileNode({
+        url: node.frontmatter.featuredImgUrl, // string that points to the URL of the image
+        parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
+        createNode, // helper function in gatsby-node to generate the node
+        createNodeId, // helper function in gatsby-node to generate the node id
+        cache, // Gatsby's cache
+        store, // Gatsby's Redux store
+      })
+      // if the file was created, attach the new node to the parent node
+      if (fileNode) {
+        node.featuredImg___NODE = fileNode.id
+      }
+    }
+
     const [_, root, subject, slug] = createFilePath({ node, getNode }).split(
       "/"
     )
@@ -41,9 +78,9 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  const {edges: posts} = response.data.allMarkdownRemark
+  const { edges: posts } = response.data.allMarkdownRemark
 
-  const {group: tags} = response.data.tagsGroup
+  const { group: tags } = response.data.tagsGroup
 
   posts.forEach(edge => {
     const { fields, frontmatter } = edge.node
