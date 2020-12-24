@@ -8,16 +8,10 @@ import "./_customCard.scss"
 
 const contactInfo = [
   {
-    icon: "cellphone",
-    iconColor: "var(--pk-color-icon-cellphone)",
-    label: "Mobile",
-    value: "(303) - 257 - 7590",
-  },
-  {
     icon: "email",
     iconColor: "var(--pk-color-icon-email)",
     label: "Email",
-    value: "paul.kim0591@gmail.com",
+    value: "pa.kim.0591@gmail.com",
   },
   {
     icon: "github",

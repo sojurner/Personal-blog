@@ -22,16 +22,12 @@ const Footer: React.FC = props => {
       }
     }
   `)
-  const { location, phone, email } = data.site.siteMetadata
+  const { location, email } = data.site.siteMetadata
 
   const contactInfo = [
     {
       icon: "mapMarker",
       value: location,
-    },
-    {
-      icon: "cellphone",
-      value: phone,
     },
     {
       icon: "email",
