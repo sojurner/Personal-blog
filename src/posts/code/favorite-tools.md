@@ -6,7 +6,8 @@ subject: "code"
 tags:
   - code
 author: "Paul Kim"
-foregroundImg: "https://wallpaperaccess.com/full/796847.jpg"
+featuredImgUrl: "https://wallpaperaccess.com/full/796847.jpg"
+featuredImgAlt: "Code block of a song"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 

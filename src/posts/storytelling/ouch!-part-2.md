@@ -5,7 +5,8 @@ date: "Nov 14, 2020"
 subject: "storytelling"
 tags: [storytelling]
 author: "Paul Kim"
-foregroundImg: "https://this.deakin.edu.au/wp-content/uploads/2020/01/hospital.jpg"
+featuredImgUrl: "https://this.deakin.edu.au/wp-content/uploads/2020/01/hospital.jpg"
+featuredImgAlt: "hospital emergency scene"
 avatar: ../../images/avatar-cartoon_pk.png
 previous: [ouch!-part-1]
 ---

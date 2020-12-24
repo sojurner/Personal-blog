@@ -5,7 +5,8 @@ date: "Dec 11, 2020"
 subject: "culture"
 tags: [culture]
 author: "Paul Kim"
-foregroundImg: "https://wallpapercave.com/wp/8BvMgXa.jpg"
+featuredImgUrl: "https://wallpapercave.com/wp/8BvMgXa.jpg"
+featuredImgAlt: "walmart slogan"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 

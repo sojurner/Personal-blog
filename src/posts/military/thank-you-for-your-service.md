@@ -6,7 +6,8 @@ date: "Nov 14, 2020"
 subject: "military"
 tags:
   - military
-foregroundImg: "https://wallpapercave.com/wp/UmbAAfZ.jpg"
+featuredImgUrl: "https://wallpapercave.com/wp/UmbAAfZ.jpg"
+featuredImgAlt: "American flag"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 

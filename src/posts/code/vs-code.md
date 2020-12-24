@@ -6,7 +6,8 @@ subject: "code"
 tags:
   - code
 author: "Paul Kim"
-foregroundImg: "https://wallpapercave.com/wp/wp7241559.png"
+featuredImgUrl: "https://wallpapercave.com/wp/wp7241559.png"
+featuredImgAlt: "vs code wallpaper"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 

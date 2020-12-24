@@ -6,7 +6,8 @@ subject: "storytelling"
 tags:
   - storytelling
 author: "Paul Kim"
-foregroundImg: "https://www.thelundreport.org/sites/default/files/article-images/Hospital%20dark%20hallway%20with%20doctors%20and%20gurney.jpg"
+featuredImgUrl: "https://www.thelundreport.org/sites/default/files/article-images/Hospital%20dark%20hallway%20with%20doctors%20and%20gurney.jpg"
+featuredImgAlt: "hospital bed"
 avatar: ../../images/avatar-cartoon_pk.png
 next: "ouch!-part-2"
 ---

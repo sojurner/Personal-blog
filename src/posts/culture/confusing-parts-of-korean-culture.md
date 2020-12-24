@@ -5,7 +5,8 @@ date: "Dec 11, 2020"
 subject: "culture"
 tags: [culture]
 author: "Paul Kim"
-foregroundImg: "https://i.ytimg.com/vi/9bZkp7q19f0/maxresdefault.jpg"
+featuredImgUrl: "https://i.ytimg.com/vi/9bZkp7q19f0/maxresdefault.jpg"
+featuredImgAlt: "cartoon psy"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 
