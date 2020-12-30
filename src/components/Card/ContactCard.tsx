@@ -11,7 +11,7 @@ const contactInfo = [
     icon: "email",
     iconColor: "var(--pk-color-icon-email)",
     label: "Email",
-    value: "paul.kim.0591@protonmail.com",
+    value: "paul.kim.0591@protonmail",
   },
   {
     icon: "github",

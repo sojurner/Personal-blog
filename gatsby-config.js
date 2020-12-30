@@ -11,7 +11,7 @@ module.exports = {
     description: "portfolio and blog",
     url: "https://paul-y.kim",
     location: "North America, Earth",
-    email: "paul.kim.0591@protonmail.com",
+    email: "paul.kim.0591@protonmail",
     description: "My portfolio website",
     author: "Paul Kim",
   },
