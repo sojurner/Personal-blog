@@ -34,7 +34,7 @@ $darkmode-light: #ecb829;
   &__shade-transition {
     position: absolute;
     bottom: 75px;
-    height: 75px;
+    height: 10px;
     width: 100%;
   }
 
@@ -42,12 +42,17 @@ $darkmode-light: #ecb829;
     margin-top: -10em;
     z-index: 1;
     max-width: 750px;
+    padding: 0 0.5em;
   }
 
   &__title {
     font-size: 50px;
     text-align: center;
     color: $darkmode-default;
+
+    @media only screen and (max-width: 500px) {
+      font-size: 35px;
+    }
   }
 
   &__tag-divider {

@@ -12,7 +12,6 @@ import Tag from "@components/Tag"
 import Icon from "@components/Icon"
 import Avatar from "@components/Avatar"
 import SEO from "@components/SEO"
-import { GradientWrapper } from "@components/Svg"
 
 import "@styles/templates/_blogTemplate.scss"
 import { blogTypeRef } from "../utils/constants"
@@ -80,8 +79,7 @@ const query = graphql`
 `
 
 const Blog = ({ data }) => {
-  const mainRef = React.useRef()
-  const [endRef, inView] = useInView({ threshold: 0 })
+  const [endRef, inView] = useInView({ threshold: .5 })
 
   const { frontmatter, fields, featuredImg, html } = data.markdownRemark
   const [viewCount] = usePageView(fields.slug)
