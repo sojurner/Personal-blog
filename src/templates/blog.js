@@ -3,7 +3,7 @@ import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import { AniLoaderLink, AniFadeLink } from "@components/Link"
-import MainLayout from "@components/Layouts"
+import { TemplateLayout } from "@components/Layouts"
 import Typography from "@components/Typography"
 import Flex from "@components/Flex"
 import Divider from "@components/Divider"
@@ -129,49 +129,59 @@ const Blog = ({ data }) => {
   }
 
   return (
-    <MainLayout className="template-blog">
-      <SEO title={frontmatter.title} description={frontmatter.desc} />
-      <div className="template-blog-container">
+    <TemplateLayout className="template-blog">
+      <Flex
+        className="template-blog__landing-container"
+        classes={["flexColumn", "justifyContentCenter", "alignItemsCenter"]}
+      >
+        <Img
+          className="template-blog__feature-img"
+          fluid={featuredImg.childImageSharp.fluid}
+          alt={frontmatter.featuredImgAlt}
+        />
+        <div className="template-blog__shade-transition" />
+        <AniFadeLink to="/blog">
+          <Typography className="template-blog__go-back" variant="neutralDark">
+            ⤺ back to posts
+          </Typography>
+        </AniFadeLink>
+        <Flex
+          classes={["flexRow", "alignItemsCenter"]}
+          className="template-blog__author-profile"
+        >
+          <Typography
+            tag="h3"
+            className="template-blog__author-profile__author"
+          >
+            {frontmatter.author}
+          </Typography>
+          <Avatar
+            fluid={frontmatter.avatar.childImageSharp.fluid}
+            alt={frontmatter.author
+              .split(" ")
+              .map(x => x[0])
+              .join("")}
+            className="template-blog__author-profile__avatar"
+          />
+        </Flex>
         <Flex
           classes={["flexColumn", "justifyContentCenter"]}
           className="template-blog__header"
         >
-          <AniFadeLink to="/blog">
-            <Typography
-              className="template-blog__go-back"
-              variant="neutralLight"
-            >
-              ⤺ back to posts
-            </Typography>
-          </AniFadeLink>
-          <Typography className="template-blog__title" tag="h1">
+          <Typography
+            className="template-blog__title"
+            variant="neutralDark"
+            tag="h1"
+          >
             {frontmatter.title}
           </Typography>
           <Flex
-            className="template-blog__subheader-container"
-            classes={["flexRow", "alignItemsCenter"]}
+            className="template-blog__tag-divider"
+            classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
           >
-            <Flex
-              classes={["flexRow", "alignItemsCenter"]}
-              className="template-blog__subheader__profile"
-            >
-              <Avatar
-                fluid={frontmatter.avatar.childImageSharp.fluid}
-                alt={frontmatter.author
-                  .split(" ")
-                  .map(x => x[0])
-                  .join("")}
-                className="template-blog__subheader__profile-avatar"
-              />
-              <Typography
-                tag="label"
-                className="template-blog__subheader__profile-author"
-              >
-                {frontmatter.author}
-              </Typography>
-            </Flex>
+            <div className="template-blog__tag-divider__divider" />
             <AniFadeLink
-              className="template-blog__subheader__tag"
+              className="template-blog__tag-divider__tag"
               to={`/blog/${frontmatter.subject}`}
             >
               <Tag
@@ -179,10 +189,11 @@ const Blog = ({ data }) => {
                 variant={blogTypeRef[frontmatter.subject].tagVariant}
               />
             </AniFadeLink>
+            <div className="template-blog__tag-divider__divider" />
           </Flex>
           <Flex
             className="template-blog__subheader-container"
-            classes={["flexRow", "alignItemsCenter"]}
+            classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
           >
             <Flex
               classes={["flexRow", "alignItemsCenter"]}
@@ -190,12 +201,12 @@ const Blog = ({ data }) => {
             >
               <Icon
                 svg="calendar"
-                variant="neutralLight"
+                variant="neutralDefault"
                 className="template-blog__subheader__date-icon"
               />
               <Typography
                 tag="span"
-                variant="neutralLight"
+                variant="neutralDefault"
                 className="template-blog__subheader__date-text"
               >
                 {frontmatter.date}
@@ -207,23 +218,22 @@ const Blog = ({ data }) => {
             >
               <Icon
                 svg="eye"
-                variant="neutralLight"
+                variant="neutralDefault"
                 className="template-blog__subheader__view-counter-icon"
               />
               <Typography
                 tag="span"
-                variant="neutralLight"
+                variant="neutralDefault"
                 className="template-blog__subheader__view-counter-text"
               >
                 {viewCount} views
               </Typography>
             </Flex>
           </Flex>
-          <Img
-            fluid={featuredImg.childImageSharp.fluid}
-            alt={frontmatter.featuredImgAlt}
-          />
         </Flex>
+      </Flex>
+      <SEO title={frontmatter.title} description={frontmatter.desc} />
+      <div className="template-blog-container">
         {frontmatter.previous && (
           <Flex
             className="template-blog__previous-container"
@@ -278,7 +288,7 @@ const Blog = ({ data }) => {
           </Flex>
         </Flex>
       </Flex>
-    </MainLayout>
+    </TemplateLayout>
   )
 }
 

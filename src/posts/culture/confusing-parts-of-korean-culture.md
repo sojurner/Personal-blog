@@ -1,5 +1,5 @@
 ---
-title: "The Confusing parts of Modern Korean Culture"
+title: "The Confusing Parts of Modern Korean Culture"
 desc: "All modernized cultures have both good and bad elements.  Then there are parts that are just confusing..."
 date: "Dec 11, 2020"
 subject: "culture"

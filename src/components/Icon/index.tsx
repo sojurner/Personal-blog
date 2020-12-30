@@ -4,7 +4,7 @@ import { Icon as IIcon, IconifyIcon } from "@iconify/react"
 import blog from "@iconify-icons/mdi-light/message-text"
 import military from "@iconify-icons/mdi/knife-military"
 import account from "@iconify-icons/mdi-light/account"
-import refresh from "@iconify-icons/mdi-light/refresh"
+import refresh from "@iconify-icons/mdi/refresh"
 import eye from "@iconify-icons/mdi/eye-outline"
 
 import social from "@iconify-icons/mdi/account-group-outline"

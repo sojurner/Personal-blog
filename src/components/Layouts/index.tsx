@@ -2,7 +2,7 @@ import React from "react"
 
 import Footer from "@components/Footer"
 import { GradientWrapper } from "@components/Svg"
-import Header from "@components/Header"
+import Header, {TemplateHeader} from "@components/Header"
 
 const MainLayout = ({ children, className, ...props }) => {
   return (
@@ -14,6 +14,14 @@ const MainLayout = ({ children, className, ...props }) => {
     </main>
   )
 }
+
+const TemplateLayout = ({ children, className, ...props }) => (
+  <main className={`${className || ""} page-base`} {...props}>
+    <TemplateHeader />
+    <section className={`${className}__content-section`}>{children}</section>
+    <Footer />
+  </main>
+)
 
 interface LayoutProps extends React.HTMLAttributes<HTMLElement> {
   className: string
@@ -30,4 +38,4 @@ const RefMainLayout = React.forwardRef<HTMLInputElement, LayoutProps>(
   )
 )
 
-export { RefMainLayout, MainLayout as default }
+export { RefMainLayout, TemplateLayout, MainLayout as default }

@@ -12,14 +12,14 @@ import { DarkModeSwitch } from "@components/Switch"
 import { routes, socialLinks } from "../../utils/constants"
 import "./Header.scss"
 
-const Header = () => {
+const MainHeader = () => {
   const { pathname } = useLocation()
   const [_, root] = pathname.split("/")
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }) => (
         <header
-          className={`header--base header--primary ${flexClasses.flexRow} ${flexClasses.alignItemsCenter}`}
+          className={`header--base header--sticky header--primary ${flexClasses.flexRow} ${flexClasses.alignItemsCenter}`}
         >
           <AniFadeLink to="/" className="header__logo">
             <Logo />
@@ -67,4 +67,50 @@ const Header = () => {
   )
 }
 
-export { Header as default }
+const TemplateHeader = () => {
+  const { pathname } = useLocation()
+  const [_, root] = pathname.split("/")
+  return (
+    <ThemeToggler>
+      {({ theme, toggleTheme }) => (
+        <header
+          className={`header--base ${flexClasses.flexRow} ${flexClasses.alignItemsCenter}`}
+        >
+          <AniFadeLink to="/" className="header__logo">
+            <Logo />
+          </AniFadeLink>
+          <Flex className="header__nav-container">
+            {routes.map(routeProps => {
+              return (
+                <AniFadeLink
+                  key={`header-link-${routeProps.label}`}
+                  className="header__nav-link"
+                  activeClassName="header__nav-link--active"
+                  partiallyActive={true}
+                  to={routeProps.to}
+                >
+                  <Typography
+                    variant={
+                      routeProps.label == root ? "neutralBlank" : "primaryDark"
+                    }
+                    tag="p"
+                  >
+                    {routeProps.label}
+                  </Typography>
+                </AniFadeLink>
+              )
+            })}
+          </Flex>
+          <Flex className="header__social-container">
+            <DarkModeSwitch
+              onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
+              checked={theme === "dark"}
+            />
+          </Flex>
+        </header>
+      )}
+    </ThemeToggler>
+  )
+} 
+
+export { TemplateHeader, MainHeader as default }
