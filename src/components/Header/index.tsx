@@ -47,15 +47,6 @@ const MainHeader = () => {
             })}
           </Flex>
           <Flex className="header__social-container">
-            {socialLinks.map(ele => (
-              <Flex
-                className="header__social-item"
-                key={`social-${ele.icon}`}
-                onClick={() => window.open(ele.link, "_blank")}
-              >
-                <Icon svg={ele.icon} color="currentColor" />
-              </Flex>
-            ))}
             <DarkModeSwitch
               onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
               checked={theme === "dark"}
@@ -111,6 +102,6 @@ const TemplateHeader = () => {
       )}
     </ThemeToggler>
   )
-} 
+}
 
 export { TemplateHeader, MainHeader as default }

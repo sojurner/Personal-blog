@@ -1,11 +1,16 @@
 const socialLinks = [
   {
-    icon: "github",
-    link: "https://github.com/sojurner",
-  },
-  {
     icon: "linkedIn",
     link: "https://www.linkedin.com/in/paulkim-sojurner/",
+  },
+  {
+    icon: "accountFile",
+    link:
+      "https://drive.google.com/file/d/1orOhfD7jKerqiN1NXIVKNXt1Zmj9VBri/view?usp=sharing",
+  },
+  {
+    icon: "github",
+    link: "https://github.com/sojurner",
   },
 ]
 
@@ -36,7 +41,7 @@ export const tagIconRef = {
   code: "codetags",
   military: "military",
   storytelling: "book",
-  culture: "social"
+  culture: "social",
 }
 
 const routes = [
