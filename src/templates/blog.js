@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
+import { useInView } from "react-intersection-observer"
 
 import { AniLoaderLink, AniFadeLink } from "@components/Link"
 import { TemplateLayout } from "@components/Layouts"
@@ -11,6 +12,7 @@ import Tag from "@components/Tag"
 import Icon from "@components/Icon"
 import Avatar from "@components/Avatar"
 import SEO from "@components/SEO"
+import { GradientWrapper } from "@components/Svg"
 
 import "@styles/templates/_blogTemplate.scss"
 import { blogTypeRef } from "../utils/constants"
@@ -78,6 +80,9 @@ const query = graphql`
 `
 
 const Blog = ({ data }) => {
+  const mainRef = React.useRef()
+  const [endRef, inView] = useInView({ threshold: 0 })
+
   const { frontmatter, fields, featuredImg, html } = data.markdownRemark
   const [viewCount] = usePageView(fields.slug)
 
@@ -129,17 +134,18 @@ const Blog = ({ data }) => {
   }
 
   return (
-    <TemplateLayout className="template-blog">
+    <TemplateLayout inView={inView} className="template-blog">
       <Flex
         className="template-blog__landing-container"
         classes={["flexColumn", "justifyContentCenter", "alignItemsCenter"]}
       >
+        <SEO title={frontmatter.title} description={frontmatter.desc} />
         <Img
           className="template-blog__feature-img"
           fluid={featuredImg.childImageSharp.fluid}
           alt={frontmatter.featuredImgAlt}
         />
-        <div className="template-blog__shade-transition" />
+        <div ref={endRef} className="template-blog__shade-transition" />
         <AniFadeLink to="/blog">
           <Typography className="template-blog__go-back" variant="neutralDark">
             ⤺ back to posts
@@ -232,7 +238,6 @@ const Blog = ({ data }) => {
           </Flex>
         </Flex>
       </Flex>
-      <SEO title={frontmatter.title} description={frontmatter.desc} />
       <div className="template-blog-container">
         {frontmatter.previous && (
           <Flex

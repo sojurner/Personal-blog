@@ -6,10 +6,17 @@
     padding: 1em 2em;
     z-index: 100;
     justify-content: space-between;
+    width: 100%;
 
     @media only screen and (max-width: 500px) {
       padding: 1em;
     }
+  }
+
+  &--fixed {
+    position: fixed;
+    width: 99.5%;
+    animation: down-drag 0.5s ease-in-out;
   }
 
   &--sticky {
@@ -18,7 +25,6 @@
   }
 
   &--primary {
-    width: 100%;
     background: $color-bg-main;
   }
 
@@ -30,7 +36,6 @@
 
     @media only screen and (max-width: 500px) {
       font-size: 2em;
-      // margin-right: 4vw;
     }
   }
 
@@ -41,8 +46,8 @@
 
   &__nav-link {
     position: relative;
-    padding: 0 .6em;
-    
+    padding: 0 0.6em;
+
     &:nth-child(1),
     &--active:nth-child(1) {
       margin: 0 2vw 0 0;
@@ -75,7 +80,7 @@
       margin: 0 2vw;
       pointer-events: none;
       border-radius: 15px;
-      padding: 0 .6em .1em 0.6em;
+      padding: 0 0.6em 0.1em 0.6em;
       text-transform: capitalize;
     }
 
@@ -86,23 +91,52 @@
     }
   }
 
-  &__social-container {
+  &__dark-mode-switch {
     font-size: 1.5em;
-    align-items: center;
+  }
+}
+
+$darkmode-light: #ecb829;
+$darkmode-default: #f8d984;
+$darkmode-dark: #df9100;
+
+.header-template {
+  &__logo {
+    color: $darkmode-light;
   }
 
-  &__social-item {
-    margin: 0 5px;
-    cursor: pointer;
-    color: $color-primary-900;
-    justify-content: center;
-
-    &:hover {
-      color: $color-primary-600;
+  &__nav-link {
+    &:hover p {
+      color: $darkmode-default;
+    }
+    p {
+      color: $darkmode-light;
     }
 
-    @media only screen and (max-width: 550px) {
-      display: none;
+    &--active {
+      @include dual-gradient($darkmode-light, $darkmode-dark);
+      p {
+        color: #3a3546;
+      }
     }
+  }
+
+  &__dark-mode-switch {
+    & ~ label {
+      background-color: $darkmode-light;
+
+      &::before {
+        background-color: rgb(63, 58, 90);
+      }
+    }
+  }
+}
+
+@keyframes down-drag {
+  0% {
+    top: -75px;
+  }
+  100% {
+    top: 0;
   }
 }

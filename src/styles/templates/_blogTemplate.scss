@@ -1,6 +1,9 @@
 @import "../utils/vars";
 @import "../utils/mixins";
 
+$darkmode-default: #ffae00;
+$darkmode-light: #ecb829;
+
 .template-blog {
   &-container {
     max-width: 700px;
@@ -25,14 +28,12 @@
     z-index: 0;
     top: -75px;
     left: 0;
-    opacity: 0.4;
-    filter: contrast(0.7) brightness(0.4);
+    filter: contrast(0.85) brightness(0.2);
   }
 
   &__shade-transition {
-    position: absolute !important;
+    position: absolute;
     bottom: 75px;
-    box-shadow: inset 0 -47px 30px -9px var(--pk-color-bg-main);
     height: 75px;
     width: 100%;
   }
@@ -46,6 +47,7 @@
   &__title {
     font-size: 50px;
     text-align: center;
+    color: $darkmode-default;
   }
 
   &__tag-divider {
@@ -55,12 +57,19 @@
       height: 2px;
       width: 30px;
       margin: 0 20px;
-      background: $color-neutral-050;
+      background: $darkmode-default;
       opacity: 0.6;
     }
 
-    &__tag span {
-      cursor: pointer;
+    &__tag {
+      span {
+        color: #3a3546;
+
+        &::before {
+          background: #3a3546;
+        }
+        cursor: pointer;
+      }
     }
   }
 
@@ -74,6 +83,7 @@
     right: 40px;
 
     &__author {
+      color: $darkmode-default;
       margin-right: 10px;
     }
   }
@@ -83,6 +93,7 @@
     top: 20px;
     left: 30px;
     cursor: pointer;
+    color: $darkmode-default;
     opacity: 0.8;
 
     &:hover {
@@ -99,14 +110,15 @@
 
     &__view-counter,
     &__date {
-      
       &-icon {
         margin-right: 5px;
+        color: $darkmode-light;
       }
 
       &-text {
         letter-spacing: 1px;
         font-size: 14px;
+        color: $darkmode-light;
       }
     }
   }

@@ -2,7 +2,7 @@ import React from "react"
 
 import Footer from "@components/Footer"
 import { GradientWrapper } from "@components/Svg"
-import Header, {TemplateHeader} from "@components/Header"
+import Header, { TemplateHeader } from "@components/Header"
 
 const MainLayout = ({ children, className, ...props }) => {
   return (
@@ -15,9 +15,10 @@ const MainLayout = ({ children, className, ...props }) => {
   )
 }
 
-const TemplateLayout = ({ children, className, ...props }) => (
+const TemplateLayout = ({ children, className, inView, ...props }) => (
   <main className={`${className || ""} page-base`} {...props}>
-    <TemplateHeader />
+    <TemplateHeader fixed={!inView} />
+    {!inView && <GradientWrapper />}
     <section className={`${className}__content-section`}>{children}</section>
     <Footer />
   </main>

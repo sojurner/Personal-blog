@@ -5,11 +5,10 @@ import { AniFadeLink } from "@components/Link"
 
 import Typography from "@components/Typography"
 import Flex, { flexClasses } from "@components/Flex"
-import Icon from "@components/Icon"
 import { Logo } from "@components/Svg"
 import { DarkModeSwitch } from "@components/Switch"
 
-import { routes, socialLinks } from "../../utils/constants"
+import { routes } from "../../utils/constants"
 import "./Header.scss"
 
 const MainHeader = () => {
@@ -46,28 +45,32 @@ const MainHeader = () => {
               )
             })}
           </Flex>
-          <Flex className="header__social-container">
-            <DarkModeSwitch
-              onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
-              checked={theme === "dark"}
-            />
-          </Flex>
+          <DarkModeSwitch
+            className="header__dark-mode-switch"
+            onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
+            checked={theme === "dark"}
+          />
         </header>
       )}
     </ThemeToggler>
   )
 }
 
-const TemplateHeader = () => {
+const TemplateHeader = ({ fixed }) => {
   const { pathname } = useLocation()
   const [_, root] = pathname.split("/")
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }) => (
         <header
-          className={`header--base ${flexClasses.flexRow} ${flexClasses.alignItemsCenter}`}
+          className={`header--base ${
+            fixed && "header--fixed header--primary"
+          } ${flexClasses.flexRow} ${flexClasses.alignItemsCenter}`}
         >
-          <AniFadeLink to="/" className="header__logo">
+          <AniFadeLink
+            to="/"
+            className={`header__logo ${!fixed && "header-template__logo"}`}
+          >
             <Logo />
           </AniFadeLink>
           <Flex className="header__nav-container">
@@ -75,8 +78,12 @@ const TemplateHeader = () => {
               return (
                 <AniFadeLink
                   key={`header-link-${routeProps.label}`}
-                  className="header__nav-link"
-                  activeClassName="header__nav-link--active"
+                  className={`header__nav-link ${
+                    !fixed && "header-template__nav-link"
+                  }`}
+                  activeClassName={`header__nav-link--active ${
+                    !fixed && "header-template__nav-link--active"
+                  }`}
                   partiallyActive={true}
                   to={routeProps.to}
                 >
@@ -92,12 +99,13 @@ const TemplateHeader = () => {
               )
             })}
           </Flex>
-          <Flex className="header__social-container">
-            <DarkModeSwitch
-              onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
-              checked={theme === "dark"}
-            />
-          </Flex>
+          <DarkModeSwitch
+            className={`header__dark-mode-switch ${
+              !fixed && "header-template__dark-mode-switch"
+            }`}
+            onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
+            checked={theme === "dark"}
+          />
         </header>
       )}
     </ThemeToggler>
