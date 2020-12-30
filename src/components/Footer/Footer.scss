@@ -68,11 +68,9 @@ $icon-bg: rgb(67, 75, 106);
   }
 
   &__contact-item__icon {
-    margin-right: 20px;
+    margin-right: 10px;
     font-size: 2em;
-    background: $icon-bg;
     padding: 0.2em;
-    border-radius: 50%;
   }
 
   &__copyright-logo {
@@ -88,15 +86,14 @@ $icon-bg: rgb(67, 75, 106);
   
   &__copyright-social {
     @media only screen and (max-width: 500px) {
-      flex-direction: row;
-      align-items: center;
-      margin-top: 2em;
-      justify-content: center;
+      // flex-direction: column-reverse;
     }
   }
-
+  
   &__social-container {
-    margin-top: 15px;
+    @media only screen and (max-width: 500px) {
+      margin: 3em 0 1em;
+    }
   }
 
   &__social-item {

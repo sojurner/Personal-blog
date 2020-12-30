@@ -66,7 +66,10 @@ const Footer: React.FC = props => {
         </Link>
       </Flex>
       <Flex className="footer__contact-container--outer">
-        <Flex className="footer__contact-container--inner" classes={["flexColumn"]}>
+        <Flex
+          className="footer__contact-container--inner"
+          classes={["flexColumn"]}
+        >
           {contactInfo.map((ele, index) => (
             <Flex
               key={`footer-contact-ele-${index}`}
@@ -88,17 +91,6 @@ const Footer: React.FC = props => {
           ))}
         </Flex>
         <Flex className="footer__copyright-social" classes={["flexColumn"]}>
-          <Flex className="footer__copyright-container">
-            <Logo className="footer__copyright-logo" />
-            <Flex classes={["flexColumn", "justifyContentCenter"]}>
-              <Typography tag="label" variant="neutralBlank">
-                Copyright ©
-              </Typography>
-              <Typography tag="label" variant="neutralBlank">
-                2020 Paul Kim
-              </Typography>
-            </Flex>
-          </Flex>
           <Flex className="footer__social-container" classes={["flexRow"]}>
             {socialLinks.map(ele => (
               <div
@@ -109,6 +101,17 @@ const Footer: React.FC = props => {
                 <Icon svg={ele.icon} color="#FEE" />
               </div>
             ))}
+          </Flex>
+          <Flex className="footer__copyright-container">
+            <Logo className="footer__copyright-logo" />
+            <Flex classes={["flexColumn", "justifyContentCenter"]}>
+              <Typography tag="label" variant="neutralBlank">
+                Copyright ©
+              </Typography>
+              <Typography tag="label" variant="neutralBlank">
+                2020 Paul Kim
+              </Typography>
+            </Flex>
           </Flex>
         </Flex>
       </Flex>
