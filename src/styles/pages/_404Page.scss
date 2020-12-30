@@ -1,0 +1,27 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
+.page-404 {
+  &__content-section {
+    margin-top: -75px;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &__title {
+      font-size: 4em;
+      margin: -2em 0 1.5em 0;
+  }
+  &__4 {
+    font-size: 20em;
+    margin: -.3em .1em 0 0.1em;
+  }
+
+  &__feature-img {
+    font-size: 20em;
+    color: $color-neutral-400;
+  }
+}
