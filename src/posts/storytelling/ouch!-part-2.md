@@ -1,6 +1,6 @@
 ---
 title: "Ouch! Part 2"
-desc: "Part 2 of my life changing injury.  "
+desc: "Part 2 of my life changing injury."
 date: "Nov 14, 2020"
 subject: "storytelling"
 tags: [storytelling]
@@ -11,7 +11,7 @@ avatar: ../../images/avatar-cartoon_pk.png
 previous: [ouch!-part-1]
 ---
 
-**If you haven't read part 1, none of this is going to make any sense. So, head on over there before continuing!**
+> *If you haven't read part 1, none of this is going to make any sense. So, head on over there before continuing!*
 
 ## Recap
 
@@ -19,50 +19,48 @@ I had sustained serious injuries as a result of a hit and run. A long road to re
 
 ## The first week
 
-First week was one of the worst I'd experienced. Nerve damage on my left hand was a fiery pain that kept me up at night. My brittle legs only allowed for one or two sleeping positions, which led to incredible discomfort. Nothing about the week was enjoyable.
+*First week* was one of the worst I'd **experienced**. Nerve damage on my left hand was a *fiery pain* that kept me **up at night**. My brittle legs could only support *one* or *two* **sleeping positions**, which led to **incredible discomfort**. Nothing about the *week* was **enjoyable**.
 
-My limited mobility made simple and routine tasks 10x more difficult. Stuff you'd never think twice about, such as getting water, going to the bathroom, and changing clothes were near impossible without assistance.
+My *limited mobility* made simple and routine tasks **10x** more difficult. Stuff you'd never think twice about, such as *getting water*, *going to the bathroom*, and *changing clothes* were near **impossible** without assistance.
 
-I would first experience the restrictive nature of my situation through the **Bedpan**.
+I would first experience the **restrictive nature** of my situation through the **Bedpan**.
 
 ## The Bedpan
 
-During this week, I had consumed loads of pain meds and as a result, was unable to "do my busineess". It wasn't until day four, when the buildup had reached its critical mass, and there was no where left for it but (pun intended) out.
+During this week, I had consumed loads of pain meds and as a result, was unable to *"do my busineess"*. It wasn't until day four, when the buildup had reached its **critical mass**, and there was no where left for it but (pun intended) out.
 
-However, there was a problem. I was virtually glued to my hospital bed. It had only been a few days since surgery, and consequently, couldn't lift my legs. This meant using the restroom was not possible. My only option was the **Bedpan**.
+However, there was a *problem*. I was virtually **glued to my hospital bed**. It had only been a few days since surgery, and consequently, couldn't lift my legs. This meant using the restroom was not possible. *My only option was the Bedpan*.
 
-Another limitation I had that would play a role in this situation was that I couldn't sit upright. The furthest sitting angle I could achieve was about 140°. As you can imagine, thats practically a straight line.
+> Another *limitation of note* that would be a factor, was I couldn't sit upright. The *furthest achievable* sitting angle I could reach was about **140°**. As you can imagine, that's practically a *straight line*.
 
-The first aspect of the challenge was getting the bedpan under my ass. Because of the nerve damage on my left hand, it was motorless. Doing this with only my right arm was difficult, but at this point I had no other choice. My pride was too fragile for a nurse to get involved. It was essential that I did this unassisted.
+The *first aspect* of the challenge was getting the **bedpan** under my bottom. Because of the *nerve damage* on my left hand, it was **motorless**. While doing this with only *my right arm* was **difficult**, at this point, I had *no other choice*. My pride was shook and too *fragile* for a nurse to get **involved**. It was *essential* that I did this **unassisted**.
 
-Eventually, with grit & determination (and perhaps out of desparation), I was able to get the bedpan underneath. All that was left to do was the actual act.
+Eventually, with *grit & determination* (and perhaps out of *desparation*), I was able to get the bedpan **underneath**. All that was *left to do was* the **actual act**.
 
-As I began this portion of the challenge, I wondered, "How hard and how long am I going to have to push?".
+As I began this portion of the challenge, the *question loomed*: **"How how long is this going to take?"**.
 
-Unfortunately, the answer would be **"Yes"**.
+Unfortunately, the *answer* would be **"Yes"**.
 
-The awkward sitting position, straight stiff legs, and 3+ days of constipation made it whimsically difficult. No matter how hard I tried pushing, it fought back effortlessly.  Any effort attempts to adjust my sitting position to help push harder, was struck down by semi-paralysis.  It felt like I was running in place for the first couple minutes.
+The *awkward sitting position*, *straight stiff legs*, and *3+ days of constipation* made the entire experience **whimsically difficult**. No matter how hard I *pushed*, it fought back **effortlessly**.  Every *attempt* to adjust my sitting position for more **pushing power**, was reminded by the *inner edges* of the bedpan **piercing** my butt cheeks.  *Nothing* I did seemed to add any **progress** towards the goal.
 
-After what seemed to be hours (probably a couple minutes), it finally started to give in. I began to see the light at the end of the tunnel. Now, all that was left needed was the setup.  I gave some minor heaves to push it as close to the door as possible.  It was finally ready for the coup de grace...
+After what seemed like an eternity of [Sisyphus](https://en.wikipedia.org/wiki/Sisyphus), it finally started to give in. The light at the end of the tunnel began to appear. Now, came the most *important* step, **the setup**.  I gave some minor *nudges* to get it as **close to the door** as possible.  It was finally ready for the final move...
 
 <img src="https://i.pinimg.com/originals/d1/77/92/d177925f82d41d1d9005f21a91d4b224.jpg" 
      alt="Crying dawson meme"/>
 
 I exhaled...I was rewarded with release.
 
-My body was drenched in sweat and the tears of remorse lined my cheeks.
+My sheets were *drenched in my sweat*, while **tears of remorse** lined my cheeks.  After briefly *relishing the moment*, I took an intrguing look **inside** the bedpan.
 
-I took a glance inside the bedpan.
+The enormity of its *size* and its profound *measurements* were beyond **awe-inspiring**.  This was, with a doubt, the *new number 1* on my **all-time size list**. 
 
-No amount of adjectives could properly justify its size and enormity. I was in awe.
-
-The nurse swung by to collect the bedpan. As she picked it up, her eyes dilated. Oddly, she curious enough to take a peek.  She, immediately shot me a look.
+The *nurse* swung by to **collect the bedpan**. As she *picked it up*, her **eyes dilated**. Oddly enough, her *curiousity* pulled her towards taking a **peek**.  Immediately, She *shot* me a **dumbfounded** look.
 
 <img src="https://i.pinimg.com/474x/9a/ca/df/9acadf778303b6bd32b34d2a5805a106--smiling-dogs-smiling-animals.jpg"
      alt="Smiling Dog"
      style="border-radius: 10px;border:1px solid gray; height: 300px;" />
 
-I returned it with a proud smile.
+I returned it with a *proud*, *lofty* **smile**.
 
-I reflect back on that day every now and then. Almost always, I'm left feeling regret.
-Regret that I didn't take a picture.
+Strangely, on sleepy days such as today, I *think back* to that **moment**. Almost always, I'm left with *regret*.
+*Regret* that I didn't take a **picture**.
