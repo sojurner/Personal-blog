@@ -11,13 +11,11 @@ featuredImgAlt: "American flag"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 
-## So a bit of history about me...
+## My Military Past
 
-I served 4 years in the US Army as a **Combat Medic**.
+I served *4 years* in the US Army as a **Combat Medic**. During my time, I was stationed in **Camp Walker** _(대구 / South Korea)_ and **Lyster Army Health Clinic** _(Fort Rucker / AL)_.
 
-During my time, I was stationed in **Camp Walker** _(대구 / South Korea)_ and **Lyster Army Health Clinic** _(Fort Rucker / AL)_.
-
-I finished my 4 year contract back in 2017, and from then was officially considered a **veteran**.
+After completing my initial enlistment back in 2017, I was officially considered a **Veteran**.
 
 <img src="https://res.cloudinary.com/paulkim/image/upload/v1552393702/images/professional/army_photo.jpg"
      alt="Markdown Monster icon"
@@ -25,67 +23,66 @@ I finished my 4 year contract back in 2017, and from then was officially conside
 
 ## Me a Veteran?
 
-In many ways, I felt unworthy of carrying the **"Veteran"** label.
+In many ways, I felt unworthy and undeserving of carrying the **Veteran** label.
 
-I served only 4 non-combat years. Its minuscule compared to the majority, who do double digits in years, along with multiple tours of duty.
+For starters, I served only *4* **non-combat** years. It's *minuscule* compared to the majority, who have done **double digit** years, along with **multiple tours** of duty.
 
-In addition, the term **Veteran** implies experience, insight, and wisdom. These were qualities I felt I lacked as a 25 year-old at the time, who was still unsure on a career path.
+In addition, the term *"Veteran"* implies **experience**, **insight**, and **wisdom**. These were qualities I felt I *lacked* as a 25 year-old at the time, who was still *unsure* on a **career path**.
 
-For the most part, I try to be discrete about this four-year military past.  While it was an incredible chapter in my life, it certainly was not going to be my most defining.
+For the most part, I prefer to be *discreeet* about my short **military past**.  While it was an *incredible chapter* in my life, it certainly was not going be my **most defining**.
 
 ## My awkwardness exemplified
 
-My **"Veteran"** status would end up being a talking point in alot of normal converstions that startoff innocently. Usually, the first thing someone tells me when they learn of my **Veteran** status is:  
+My *"Veteran"* status would end up being a talking point in alot of normal, casual conversations. Usually, the *first thing* someone mentions when they learn of my **Veteran status** is:  
 
-**"Thank you for your service, sir"**.
+*"Thank you for your service"*.
 
-I have yet to think of a sharp, genuine response to this remark. It always ends up being awkward.
+This statement generates an *awkward standstill*, where no response can be adequately **sharp** or **genuine**. It always ends up being cringey.
 
 Here are the responses I've come up with over the years:
 
-- **"Your welcome?"**
-- **"Thank you ... for thanking me?"**
-- **"I appreciate that, thank you."**
-- **"I didn't really do shit, but nontheless, I appreciate the gesture."**
-- **"No need, the real heroes are still serving."**
+- *"Your welcome?"*
+- *"Thank you ... for thanking me?"*
+- *"I appreciate that, thank you."*
+- *"I didn't really do shit, but nontheless, I appreciate the gesture."*
+- *"No need, the real heroes are still serving."*
 
-Let's break these down one by one:  
-**"Your welcome?"**
+**Let's break these down one by one:**
 
-- This would be the brain fart response. They say its always polite to follow up a **"Thank you"** with **"Your welcome"** . But, thats usually said in the context of a favor or a task well-done.
+*"You're welcome?"*
 
-**"Thank you ... for thanking me?"**
+- They say its always polite to follow up a **"Thank you"** with **"You're welcome"** . But, thats usually this case in the context of a favor or a task well-done.
 
-- I've actually said this a few times. Do not recommend.
+*"Thank you ...(for thanking me)?"*
 
-**"I appreciate that, thank you"**
+- I've actually said this a few times. **Do not recommend**.
 
-- This would be my go to move. It's still a bit awkward, since I'm thanking them for their thanks.  But at least, theres a buffer in between.
+*"I appreciate that, thank you."*
 
+- This would be my go to move. It's still a **bit awkward**, since I'm thanking them for their thanks.  But, at least there's a **buffer** in between.
 
-**"I didn't really do shit, but nontheless, the gesture is appreciated."**
+*"I didn't really do much, but nontheless, I appreciate the gesture."*
 
-- This is what I really want to say, but probably never will.
+- This is what I really **want** to say, but probably **never will**.
 
+*"No need, the real heroes are still serving."*
 
-**"No need, the real heroes are still serving"**
-
-- I'd have to be at a Country Club to say something like this.
+- I'd have to be at a **Country Club** to say something like this.
 
 ## Its a job, not a sacrifice
 
-Its weird to be thanking someone for a past job. And yes, it is a job. It's one just like any other in the workforce, but with additional quirks.
+Any way you slice it, *thanking someone* for a *past job* is **weird**. While some may *argue against* its label as a **"job"**, serving in the military is just like any other full-time position in the workforce.
 
-Like a normal job, there's an annual salary, 30 vacation days every year, and work hours (can vastly vary) for the most part, are scoped to the weekdays.
+Like a normal job, there's a *fixed* annual **salary**, roughly the *same* number of **vacation days** rewarded yearly, and *working hours*, for the most part, are *scoped* to the **weekdays**.
 
-**"Thank you for your service"** insinuates **sacrifice**, which to me, is defined by the intent of giving up something without any expectation of personal gain/benefit.
+*"Thank you for your service"* insinuates **sacrifice**, which to me, is defined by the *intent* of giving up something without any *expectation* of personal **gain/benefit**.
 
-Being or having been a service member doesn't meet this criteria, since benefits and pay are contractual obligations in exchange for time and service.
+Being or having been a service member doesn't meet this *criteria*, because *benefits and pay* are *contractual obligations* that were signed up for in exchange for **time and service**.
 
-Not to mention, its voluntary. A mass **conscription** hasn't been in effect since the Vietnam War. Granted, the circumstances of the service shouldn't necessarily add weight to the **sacrifice** argument. But, in that case, **Thank you for your service** would have a different, but still substantial, connotation.
+And lets not forget, military service is voluntary.  A *mass conscription* hasn't been in effect since the **Vietnam War**. Granted, the circumstances of the service shouldn't necessarily add/reduce weight to the **sacrifice** argument. But, under the terms of a draft, **Thank you for your service** would have a different, but substantial connotation.
 
 ## Conclusion
 
-I've grown to realize that **"Thank you for your service"** is less about recognizing one's past contributions, and more about **establishing a social connection**.
+I've grown to realize that *"Thank you for your service"* is less about recognizing one's past contributions, and more about **establishing a social connection**.
 
-In that sense, I have no objection. But its still awkard.
+In that sense, I have *no objection*. But, it's still **awkard**.
