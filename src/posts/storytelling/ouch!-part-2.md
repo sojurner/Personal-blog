@@ -27,32 +27,32 @@ I would first experience the **restrictive nature** of my situation through the 
 
 ## The Bedpan
 
-During this week, I had consumed loads of pain meds and as a result, was unable to *"do my busineess"*. It wasn't until day four, when the buildup had reached its **critical mass**, and there was no where left for it but (pun intended) out.
+During this week, I had consumed loads of *pain meds* and consequently, was unable to **"do my busineess"**. By day four, the buildup had reached **critical mass**, and there was no where left for it but (pun intended) out.
 
-However, there was a *problem*. I was virtually **glued to my hospital bed**. It had only been a few days since surgery, and consequently, couldn't lift my legs. This meant using the restroom was not possible. *My only option was the Bedpan*.
+However, there was a *problem*. I was virtually **glued to my hospital bed**. Surgery had only been a couple days ago, and, thus was unable lift my legs. This meant using the restroom was not an available option. *My only choice was the Bedpan*.
 
-> Another *limitation of note* that would be a factor, was I couldn't sit upright. The *furthest achievable* sitting angle I could reach was about **140°**. As you can imagine, that's practically a *straight line*.
+> Another *item of note* that would play a factor, was I couldn't sit **upright**. The *furthest achievable* sitting angle I could reach was about **140°**. As you can imagine, that's practically a *straight line*.
 
 The *first aspect* of the challenge was getting the **bedpan** under my bottom. Because of the *nerve damage* on my left hand, it was **motorless**. While doing this with only *my right arm* was **difficult**, at this point, I had *no other choice*. My pride was shook and too *fragile* for a nurse to get **involved**. It was *essential* that I did this **unassisted**.
 
 Eventually, with *grit & determination* (and perhaps out of *desparation*), I was able to get the bedpan **underneath**. All that was *left to do was* the **actual act**.
 
-As I began this portion of the challenge, the *question loomed*: **"How how long is this going to take?"**.
+As I began this portion of the challenge, the *question loomed* in my mind: **"How how long is this going to take?"**.
 
 Unfortunately, the *answer* would be **"Yes"**.
 
-The *awkward sitting position*, *straight stiff legs*, and *3+ days of constipation* made the entire experience **whimsically difficult**. No matter how hard I *pushed*, it fought back **effortlessly**.  Every *attempt* to adjust my sitting position for more **pushing power**, was reminded by the *inner edges* of the bedpan **piercing** my butt cheeks.  *Nothing* I did seemed to add any **progress** towards the goal.
+The *awkward sitting position*, *straight stiff legs*, and *3+ days of constipation* made the entire experience **whimsically difficult**. No matter how hard I *pushed*, it fought back **effortlessly**.  Every *attempt* to adjust my sitting position for more **pushing power**, was rejected by the *inner edges* of the bedpan **piercing** my butt cheeks.  *Nothing* I did seemed to add any **progress** towards the goal.
 
-After what seemed like an eternity of [Sisyphus](https://en.wikipedia.org/wiki/Sisyphus), it finally started to give in. The light at the end of the tunnel began to appear. Now, came the most *important* step, **the setup**.  I gave some minor *nudges* to get it as **close to the door** as possible.  It was finally ready for the final move...
+After what seemed like an eternity of [Sisyphus](https://en.wikipedia.org/wiki/Sisyphus), it finally started to give in. The light at the end of the tunnel began to appear. Now, came the most *important* step, **the setup**.  I gave some minor *nudges* to get it as **close to the door** as possible.  Eventually, it ready for the final move...
 
 <img src="https://i.pinimg.com/originals/d1/77/92/d177925f82d41d1d9005f21a91d4b224.jpg" 
      alt="Crying dawson meme"/>
 
-I exhaled...I was rewarded with release.
+I exhaled...I was rewarded with release.  It felt as though I had emerged from a cocoon.
 
-My sheets were *drenched in my sweat*, while **tears of remorse** lined my cheeks.  After briefly *relishing the moment*, I took an intrguing look **inside** the bedpan.
+My sheets were *drenched in sweat*, while **tears of remorse** lined my cheeks.  After briefly *relishing the moment*, I took an intriguing look **inside** the bedpan.
 
-The enormity of its *size* and its profound *measurements* were beyond **awe-inspiring**.  This was, with a doubt, the *new number 1* on my **all-time size list**. 
+The enormity of its *size*, and its profound *measurements* were beyond **awe-inspiring**.  This was, with a doubt, the *new number 1* on my **all-time size list**.
 
 The *nurse* swung by to **collect the bedpan**. As she *picked it up*, her **eyes dilated**. Oddly enough, her *curiousity* pulled her towards taking a **peek**.  Immediately, She *shot* me a **dumbfounded** look.
 
