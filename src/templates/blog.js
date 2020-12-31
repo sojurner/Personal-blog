@@ -251,9 +251,9 @@ const Blog = ({ data }) => {
                 to={`/blog/${frontmatter.subject}/${link}`}
               >
                 <Typography
-                  tag="h2"
+                  tag="h4"
                   className="template-blog__previous-link"
-                  variant="positiveDark"
+                  variant="neutralDark"
                 >
                   {link}
                 </Typography>
@@ -267,7 +267,7 @@ const Blog = ({ data }) => {
         />
         {frontmatter.next && (
           <Link to={`/blog/${frontmatter.subject}/${frontmatter.next}`}>
-            <Typography tag="h2" className="template-blog__next-link">
+            <Typography tag="h3" className="template-blog__next-link">
               {frontmatter.next}
             </Typography>
           </Link>
