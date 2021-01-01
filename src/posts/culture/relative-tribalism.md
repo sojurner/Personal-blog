@@ -52,4 +52,4 @@ What I've discovered over time, is that the _contextual matrix_ of tribalism are
 
 Perhaps, for me, the most _fascinating aspect_ of all of this, is the awareness of ideas and self that end up in our **blind spots**. These layers of our tribal identities are so _convoluted_ that we have become a **mystery to ourselves**. 
 
-We are more focused on the _flaws_ and _deficiencies_ of our **perceived enemies**, that we're blinded by our **own**, similar **shortcomings**. Our criticisms of eachother are _projections of personal insecurities_, screaming to be **heard and understood**, but, instead are _exacerbated_ by reciprocal, stubborn **finger-pointing**. 
+We are more focused on the _flaws_ and _deficiencies_ of our **perceived enemies**, that we're blinded by our **own**, similar **shortcomings**. Our outward criticisms are _projections of our own personal insecurities_, screaming to be **heard and understood**, but, instead are _exacerbated_ by reciprocal, stubborn **finger-pointing**.
