@@ -27,7 +27,7 @@ I would first experience the **restrictive nature** of my situation through the 
 
 ## The Bedpan
 
-During this week, I had consumed loads of *pain meds* and consequently, was unable to **"do my busineess"**. By day four, the buildup had reached **critical mass**, and there was no where left for it but (pun intended) out.
+During this week, I had consumed loads of *pain meds* and consequently, was unable to **"do my busineess"**. By day 4, the buildup had reached **critical mass**, and there was no where left for it but (pun intended) out.
 
 However, there was a *problem*. I was virtually **glued to my hospital bed**. Surgery had only been a couple days ago, and, thus was unable lift my legs. This meant using the restroom was not an available option. *My only choice was the Bedpan*.
 
@@ -41,7 +41,7 @@ As I began this portion of the challenge, the *question loomed* in my mind: **"H
 
 Unfortunately, the *answer* would be **"Yes"**.
 
-The *awkward sitting position*, *straight stiff legs*, and *3+ days of constipation* made the entire experience **whimsically difficult**. No matter how hard I *pushed*, it fought back **effortlessly**.  Every *attempt* to adjust my sitting position for more **pushing power**, was rejected by the *inner edges* of the bedpan **piercing** my butt cheeks.  *Nothing* I did seemed to add any **progress** towards the goal.
+The *awkward sitting position*, *straight stiff legs*, and *3+ days of constipation* made the entire experience **whimsically difficult**. No matter how hard I *pushed*, it fought back **effortlessly**.  Every *attempt* to adjust my sitting position, was rejected by the *inner edges* of the bedpan **piercing** my butt cheeks.  *Nothing* I did seemed to add any **progress** towards the goal.
 
 After what seemed like an eternity of [Sisyphus](https://en.wikipedia.org/wiki/Sisyphus), it finally started to give in. The light at the end of the tunnel began to appear. Now, came the most *important* step, **the setup**.  I gave some minor *nudges* to get it as **close to the door** as possible.  Eventually, it ready for the final move...
 
@@ -52,9 +52,9 @@ I exhaled...I was rewarded with release.  It felt as though I had emerged from a
 
 My sheets were *drenched in sweat*, while **tears of remorse** lined my cheeks.  After briefly *relishing the moment*, I took an intriguing look **inside** the bedpan.
 
-The enormity of its *size*, and its profound *measurements* were beyond **awe-inspiring**.  This was, with a doubt, the *new number 1* on my **all-time size list**.
+The enormity of its *size* and profound *measurements* were beyond **awe-inspiring**.  This was, with a doubt, the *new number 1* on my **all-time size list**.
 
-The *nurse* swung by to **collect the bedpan**. As she *picked it up*, her **eyes dilated**. Oddly enough, her *curiousity* pulled her towards taking a **peek**.  Immediately, She *shot* me a **dumbfounded** look.
+The *nurse* swung by to **collect the bedpan**. As she *picked it up*, her **eyes dilated**. Oddly enough, her *curiousity* pulled her towards taking a **peek**.  Immediately, she *shot* me a **dumbfounded** look.
 
 <img src="https://i.pinimg.com/474x/9a/ca/df/9acadf778303b6bd32b34d2a5805a106--smiling-dogs-smiling-animals.jpg"
      alt="Smiling Dog"
