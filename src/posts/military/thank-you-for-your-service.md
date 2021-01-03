@@ -29,7 +29,7 @@ For starters, I served only _4_ **non-combat** years. It's _minuscule_ compared 
 
 In addition, the term _"Veteran"_ implies **experience**, **insight**, and **wisdom**. These were qualities I seemingly _lacked_ as a 25 year-old at the time, who was still _uncertain_ on a **career path**.
 
-For the most part, I prefer to be _discreet_ about my short **military past**. While it was an _incredible chapter_ in my life, it certainly was not going be my **most defining**.
+For the most part, I prefer to be _discreet_ about my short **military past**. While it was an _incredible chapter_ in my life, it was certainly not going be my **most defining**.
 
 ## My Awkwardness Exemplified
 
@@ -44,7 +44,7 @@ Here are the responses I've come up with over the years:
 - _"You're welcome?"_
 - _"Thank you ... for thanking me?"_
 - _"I appreciate that, thank you."_
-- _"I didn't really do much, but nontheless, I appreciate the gesture."_
+- _"I didn't really do much, but okay."_
 - _"No need, the real heroes are still serving."_
 
 ![confession bear meme](https://i.imgflip.com/1v6tq8.jpg)
@@ -53,7 +53,7 @@ Here are the responses I've come up with over the years:
 
 _"You're welcome?"_
 
-- They say its always polite to follow up a **"Thank you"** with **"You're welcome"** . But, thats usually this case in the context of a favor or a task well-done.
+- They say its always polite to follow up a **"Thank you"** with **"You're welcome"** . But, thats usually the case in the context of completing a favor.
 
 _"Thank you ...(for thanking me)?"_
 
@@ -63,25 +63,25 @@ _"I appreciate that, thank you."_
 
 - This would be my go to move. It's still a **bit awkward**, since I'm thanking them for their thanks. But, at least there's a **buffer** in between.
 
-_"I didn't really do much, but nontheless, I appreciate the gesture."_
+_"I didn't really do much, but okay."_
 
 - This is what I really **want** to say, but probably **never will**.
 
 _"No need, the real heroes are still serving."_
 
-- I'd have to be at a **Country Club** to say something like this.
+- The day I join a **Country Club** is the day I'll say this.
 
 ## Its a Job, Not a Sacrifice
 
 Any way you slice it, _thanking someone_ for a _past job_ is **weird**. While some may _argue against_ its label as a **"job"**, serving in the military is just like any other full-time position in the workforce.
 
-Like a normal job, there's a _fixed_ annual **salary**, roughly the _same_ number of **vacation days** rewarded yearly, and _working hours_, for the most part, are _scoped_ to the **weekdays**.
+Like a normal job, there's a _fixed_ annual **salary**, roughly the _same_ number of **vacation days** granted yearly, and _working hours_, for the most part, are _scoped_ to the **weekdays**.
 
 _"Thank you for your service"_ insinuates **sacrifice**, which to me, is defined by the _intent_ of giving up something without any _expectation_ of personal **gain/benefit**.
 
-Being or having been a service member doesn't meet this _criteria_, because _benefits and pay_ are _contractual obligations_ that were signed up for in exchange for **time and service**.
+Being or having been a service member doesn't meet this _criteria_, because _benefits and pay_ are _contractual obligations_ that were agreed upon in exchange for **time and service**.
 
-And lets not forget, military service is voluntary. A _mass conscription_ hasn't been in effect since the **Vietnam War**. Granted, the circumstances of the service shouldn't necessarily add/reduce weight to the **sacrifice** argument. But, under the terms of a draft, **Thank you for your service** would have a different, but substantial connotation.
+And let us not forget, modern military service is voluntary. A _mass conscription_ hasn't been in effect since the **Vietnam War**. Granted, the circumstances of the service shouldn't necessarily add/reduce weight to the **sacrifice** argument. However, under the terms of a draft, **Thank you for your service** would have a different, but substantial connotation.
 
 ![conscription](https://static1.squarespace.com/static/56eddde762cd9413e151ac92/570cb87b5bd33022b93a0272/5c4ae0794fa51a0af25d1882/1548590474437/conscription.jpg?format=1500w)
 
