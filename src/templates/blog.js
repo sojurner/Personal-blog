@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-import { useInView } from "react-intersection-observer"
+import VSensor from "react-visibility-sensor"
 
 import { AniLoaderLink, AniFadeLink } from "@components/Link"
 import { TemplateLayout } from "@components/Layouts"
@@ -79,10 +79,13 @@ const query = graphql`
 `
 
 const Blog = ({ data }) => {
-  const [endRef, inView] = useInView({ threshold: .5 })
-
+  const [isVisible, setIsVisible] = React.useState(false)
   const { frontmatter, fields, featuredImg, html } = data.markdownRemark
   const [viewCount] = usePageView(fields.slug)
+
+  const onChange = visible => {
+    if (isVisible !== visible) setIsVisible(visible)
+  }
 
   const createColumn = ele => {
     const { frontmatter, fields, featuredImg } = ele.node
@@ -132,7 +135,7 @@ const Blog = ({ data }) => {
   }
 
   return (
-    <TemplateLayout inView={inView} className="template-blog">
+    <TemplateLayout inView={isVisible} className="template-blog">
       <Flex
         className="template-blog__landing-container"
         classes={["flexColumn", "justifyContentCenter", "alignItemsCenter"]}
@@ -143,7 +146,9 @@ const Blog = ({ data }) => {
           fluid={featuredImg.childImageSharp.fluid}
           alt={frontmatter.featuredImgAlt}
         />
-        <div ref={endRef} className="template-blog__shade-transition" />
+        <VSensor intervalDelay={500} onChange={onChange} offset={{top: -30}}>
+          <div className="template-blog__shade-transition" />
+        </VSensor>
         <AniFadeLink to="/blog">
           <Typography className="template-blog__go-back" variant="neutralDark">
             ⤺ back to posts
