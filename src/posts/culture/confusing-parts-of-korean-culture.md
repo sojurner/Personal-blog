@@ -12,7 +12,7 @@ avatar: ../../images/avatar-cartoon_pk.png
 
 ## Before I Begin...
 
-I had the fortune of living in Korea from 2013 - 2015. During that time, I enjoyed experiencing all that the country had to offer, and learned alot about the societal & cultural norms that dominated its modern society. Two years doesn't make me an expert on this subject matter, but it was plenty of time for me to observe and come to my own conclusions. And so, here are some aspects of Korean culture that had me scratching my head.
+I had the pleasure of living in Korea from **2013 - 2015**. During that time, I made it a personal goal to *embrace* and *experience* all that the country had to offer with an **open mind**.  In doing so, I learned a great deal about the *societal* & *cultural* norms that dominated its **modern society**. Clearly, 2 years hasn't made me an *expert* on this subject matter, but it was plenty of time for me to **observe** and come to my **own conclusions**. And so, here are a list of some of Korea's *cultural practices* that had me **scratching my head**.
 
 ## The Age Heirarchy
 
@@ -20,11 +20,11 @@ I had the fortune of living in Korea from 2013 - 2015. During that time, I enjoy
      alt="Crying cat, thumbs up"
      style="border-radius: 10px; height: 180px; float:right;margin:0 0 10px 10px;" />
 
-*Age* means a great deal in Korean culture. Simply being older, means entitlement to unconditional respect, formal addressment, and priority in most social and political agendas (opinions, benefits, etc).
+*Age* has unbelievably overbearing power in Korea. Simply being older, means entitlement to unconditional respect, formal addressment, and priority in almost every social and political agenda (opinions, benefits, etc).
 
-In many ways, I oppose this age-based value system. To me, its assuming that age and wisdom follow a positive linear correlation. While being older certainly represents more lived opportunities for growth and development, actually learning from them is the bridge to greater insight and wisdom. Having opportunites is important, but improving upon them is the difference.
+I understood the intent and logic behind this culutral practice.  But in many ways, it has felt become an absolute, rigid approach in establishing a contextual heirarchy.
 
-I support the idea of respect earned through a meritocracy, which is a core American value. It's not perfect, but it has arguably developed the most diverse and undisputedly one of the richest nations in history.
+To me, its assuming that age and wisdom invariably follow a positive linear correlation. While being older certainly represents more lived opportunities for growth and development, actually learning from them is the bridge to greater insight and wisdom. Having had opportunites is important, but growing from them should be the line of difference.
 
 ## K-Pop & K-Drama
 
@@ -36,9 +36,11 @@ The *Korean entertainment* industry is, behind all of its fluff, just sugar. Fro
 
 Year in and year out, there's virtually been zero artistic variation between *K-pop* songs. They all follow the same formula, reenact the same routine, recite the same lyrics, wear the same outfits, and dance to the same beat. Just listen to one song and you'll have heard all of them.
 
-K-Dramas are not much different. Its almost always a diluted, drawn-out romance involving two main characters, both with extraordinary situations. For me, the most unappealing aspect is the lack of true *character development*, and instead heavy focus on *relationship development*. Rarely, will the main characters change/grow introspectively, but rather as a result of circumstances and events that force their hand for the sake of the relationship.
+Unfortunately, K-Dramas are not too far different from their cousin. For the most part, every drama series plays out the same diluted, drawn-out romancantic storyline.  While I can certainly appreciate all the nuances and difficulties of executing a well-designed drama, directors and producers often default to safe and proven methods and rarely experiment with new ideas.
 
-I may sound a little cynical here, but I say this out of desire for a positive reform within the industry.
+For me, the most unappealing aspect of K-dramas is the lack of true *character development*, and instead overwhelming focus on *relationship development*. Rarely, will the main characters change/grow introspectively, but rather as a result of circumstances and events that force their hand for the sake of the relationship.
+
+I may sound overly critical, but I say this out of hope for a positive reform within the industry.
 
 ## The Education System
 
@@ -65,7 +67,7 @@ I recently spoke to an close native friend about this, and even he agrees it mak
 
 Those who are higher up in the corporate ladder have greater priveleges that enable control and abuse of power within the group. And rightfully so, people in executive positions are given more responsibilities and should have the final say in company decisions. However, this final say often extends past the work hours, and intrudes upon the employees' personal time.
 
-They will schedule "mandatory" after work gatherings, such as _late dinner at a bar_ or _karaoke night_. Usually, these will be during middle of the week, where the following morning will be a work day. 
+They will schedule "mandatory" after work gatherings, such as _late dinner at a bar_ or _karaoke night_. Usually, these will be during middle of the week, where the following morning will be a work day.
 
 > These gatherings involve heavy drinking and a lot of grovelling & obsequious behavior towards bosses that'll last until midnight.
 
@@ -73,8 +75,8 @@ As you can imagine, its not very fun. Definitely, not how I would want to spend 
 
 The friends that I've made during 2013-2015, all have jobs, and almost each one hate their lives because of this. They are forced to drink for long hours after a grueling work day, and have little to no choice but to repeat it over and over.
 
-## Cosmetic Surgery
+## Plastic Surgery
 
-This has been a controversial subject in Korea for as long as i can remember. Admittingly, I am not aware of their arguments for it. However, I think many would agree that if you dug deeper, this is an issue that stems from insecurity and lack of self-identity. I believe that the lack of self-confidence is a result of a socially ruthless competitive culture, in which it's boundaries have extended towards mental harm. That may very well be a stretch, but frighteningly, its reasonable to assume.
+This has been a controversial subject in Korea for as long as I can remember.  The idea of going under the knife for cosmetic purposes, has slowly been normalized in their society.  To me, this is an issue that stems from insecurity and lack of self-confidence as a result of a socially ruthless competitive culture, in which it's boundaries have extended towards mental harm.
 
-As an American, I'll never have an objection to freedom of choice. If someone wishes to partake in a cosmetic procudure, by all means, they should.
+Admittingly, I'm not entirely versed on the public's argument in support of cosmetic surgery, nor do I care enough to investigate. If someone is determined to partake in a cosmetic procudure, by all means, they should have freedom of choice to do so.

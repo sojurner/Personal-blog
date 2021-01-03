@@ -197,11 +197,14 @@
     @media only screen and (max-width: 950px) {
       transform: translate(0, 0);
 
-      margin: 15vh auto 10vh auto;
       flex-direction: column;
       padding: 0 15px;
       width: 100vw;
     }
+  }
+
+  &__cards-container--inner-2 {
+    margin: 15vh auto 30vh auto;
   }
 
   &__cards__skillset__title {

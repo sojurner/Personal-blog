@@ -3,7 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 
 import Typography from "@components/Typography"
 import Icon from "@components/Icon"
-import { Logo } from "@components/Svg"
+import { Logo, Wings } from "@components/Svg"
 import Flex from "@components/Flex"
 
 import { socialLinks } from "../../utils/constants"
@@ -37,6 +37,14 @@ const Footer: React.FC = props => {
 
   return (
     <footer className="footer-container" {...props}>
+      <Flex
+        classes={["flexRow", "alignItemsCenter", "justifyContentCenter"]}
+        className="footer__wings-div"
+      >
+        <div />
+        <Wings />
+        <div />
+      </Flex>
       <Flex
         className="footer__links-container"
         classes={["flexRow", "alignItemsCenter"]}
@@ -79,7 +87,7 @@ const Footer: React.FC = props => {
               <Icon
                 className="footer__contact-item__icon"
                 svg={ele.icon}
-                color="#FEE"
+                color="var(--pk-color-blank-700)"
               />
               <Typography
                 className="footer__contact-value"
@@ -98,7 +106,7 @@ const Footer: React.FC = props => {
                 key={`social-${ele.icon}`}
                 onClick={() => window.open(ele.link, "_blank")}
               >
-                <Icon svg={ele.icon} color="#FEE" />
+                <Icon svg={ele.icon} color="var(--pk-color-blank-700)" />
               </div>
             ))}
           </Flex>

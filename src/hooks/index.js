@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 import getFirebase from '../utils/firebase';
 
-export default function useFirebase() {
+const useFirebase = () => {
   const [instance, setInstance] = useState(null);
 
   useEffect(() => {
@@ -67,4 +67,4 @@ const usePageViewMeta = () => {
   return [viewState, loading, error]
 }
 
-export { usePageView, usePageViewMeta }
+export { usePageView, usePageViewMeta, useFirebase as default }

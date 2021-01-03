@@ -1,9 +1,6 @@
 @import "../utils/vars";
 @import "../utils/mixins";
 
-$fill-colors: #a54afd, #4f9cfd, #ffbf55, #fc4d91, #4de2ae, rgb(113, 222, 241),
-  rgb(140, 148, 255), rgb(172, 88, 172), rgb(243, 150, 150);
-
 .page-home {
   &__content-section {
     padding-bottom: 5em;
@@ -13,64 +10,148 @@ $fill-colors: #a54afd, #4f9cfd, #ffbf55, #fc4d91, #4de2ae, rgb(113, 222, 241),
     width: 100%;
     margin-top: -15em;
     height: max-content;
+    position: relative;
+
     @media only screen and (max-width: 850px) {
       flex-direction: column-reverse;
-      margin-top: -3em;
+      margin-top: -5em;
     }
   }
 
   &__landing-container {
-    min-height: 100vh;
     position: relative;
+    min-height: 100vh;
 
     &--inner {
       height: 100vh;
     }
   }
 
-  &__landing-header-txt {
-    width: 400px;
+  &__landing-header__logo {
+    position: absolute;
+    color: $color-neutral-050;
+    opacity: 0.04;
+    font-size: 15em;
+    top: -5px;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    @media only screen and (max-width: 500px) {
+      font-size: 10em;
+      top: 5%;
+    }
+  }
+
+  &__landing-header__txt {
+    position: relative;
     margin-right: 3vw;
 
-    &__name {
-      width: 335px;
-      margin: 1em 0 3em;
-      position: relative;
-      &::after {
-        content: "Software Developer";
-        position: absolute;
-        height: 30px;
-        width: 65%;
-        display: flex;
-        justify-content: center;
-        border: 2px solid var(--pk-color-neutral-100);
-        border-left: none;
-        border-right: none;
-        color: var(--pk-color-neutral-100);
-        font-family: var(--pk-font-family-primary);
-        margin: 0 2em;
-        top: 36%;
-        left: 7%;
-        opacity: 0.7;
-        transform: rotate(-55deg);
+    &-divider {
+      position: absolute;
+      transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.375);
+      height: 3px;
+      opacity: 0.5;
+
+      &--1 {
+        width: 35%;
+        top: 0%;
+        left: 32%;
+        background: $color-primary-800;
       }
 
+      &--2 {
+        width: 24%;
+        bottom: 45px;
+        right: 51%;
+        background: $color-secondary-800;
+      }
+    }
+
+    &-name {
+      width: 450px;
+      margin: 1em 0 3em;
+      position: relative;
+
       h1 {
-        font-size: 45px;
+        font-size: 55px;
       }
 
       span {
-        font-size: 2.7em;
+        font-size: 4em;
         font-family: var(--pk-font-family-primary);
+      }
+
+      label {
+        position: absolute;
+        font-style: italic;
+        font-size: 18px;
+        opacity: 0;
+        transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.375);
+      }
+
+      &--loaded {
+        .page-home__landing-header__txt-divider--1 {
+          width: 68%;
+        }
+
+        .page-home__landing-header__txt-divider--2 {
+          width: 49%;
+        }
+
+        label {
+          opacity: 1;
+        }
+      }
+
+      @media only screen and (max-width: 500px) {
+        width: 330px;
+        h1 {
+          font-size: 45px;
+        }
+
+        span {
+          font-size: 3.5em;
+        }
       }
     }
 
-    &__firstname {
-      align-self: flex-start;
+    &-name--loaded h1 {
+      &:nth-child(2) {
+        label {
+          transform: translate(0, 0);
+        }
+      }
+      &:nth-child(4) {
+        label {
+          transform: translate(0, 0);
+        }
+      }
+
+      label {
+        @media only screen and (max-width: 500px) {
+          font-size: 15px;
+        }
+      }
     }
 
-    &__lastname {
+    &-firstname {
+      align-self: flex-start;
+
+      label {
+        right: 0;
+        transform: translate(-30%, 0);
+        top: -40px;
+      }
+    }
+
+    &-lastname {
       align-self: flex-end;
+
+      label {
+        left: 0;
+        bottom: 0;
+        transform: translate(30%, 0);
+      }
     }
 
     & > h1 {
@@ -94,10 +175,9 @@ $fill-colors: #a54afd, #4f9cfd, #ffbf55, #fc4d91, #4de2ae, rgb(113, 222, 241),
 
   &__about-section {
     margin: auto;
-    height: 100vh;
 
     &--inner {
-      margin: 5em 0;
+      margin: 10em 0;
       &:first-child {
         margin-top: -5em;
       }
@@ -119,14 +199,17 @@ $fill-colors: #a54afd, #4f9cfd, #ffbf55, #fc4d91, #4de2ae, rgb(113, 222, 241),
       }
 
       &-sax-cat {
+        @media only screen and (max-width: 500px) {
+          margin: 0 0 0.1em -50px !important;
+        }
         svg:nth-child(2) {
           right: 0;
-          top: 25%;
+          top: 80px;
           @for $i from 1 to 6 {
             g path:nth-child(#{$i}) {
-              opacity: 0;
+              // opacity: 0;
               fill: nth($fill-colors, $i);
-              animation: music-notes 3.5s ease-in-out forwards infinite;
+              animation: music-notes 6s ease-in-out forwards infinite;
               animation-delay: #{$i}s;
             }
           }
@@ -223,7 +306,7 @@ $fill-colors: #a54afd, #4f9cfd, #ffbf55, #fc4d91, #4de2ae, rgb(113, 222, 241),
   &__post-section__link-blog {
     border: 1.5px solid $color-neutral-500;
     background: $color-neutral-500;
-    padding: 0.3em 2.5em 0.3em 1em;
+    padding: 0.5em 2.5em;
     border-radius: 30px;
     width: max-content;
 
@@ -235,33 +318,22 @@ $fill-colors: #a54afd, #4f9cfd, #ffbf55, #fc4d91, #4de2ae, rgb(113, 222, 241),
         content: "→";
         right: -1.4em;
         position: absolute;
-        transform: translate3d(0, 0, 0);
+        opacity: 0;
+        transform: translate3d(10px, 0, 0);
+        transition: 0.3s linear;
+        animation-name: arrow-shift;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
       }
     }
 
     &:hover {
       h4 {
         &::after {
-          animation-name: arrow-shift;
-          animation-duration: 1s;
-          animation-timing-function: ease-in-out;
-          animation-iteration-count: infinite;
+          opacity: 1;
         }
       }
-    }
-  }
-
-  &__landing-front-img {
-    height: 25em;
-    width: 25em;
-
-    @media only screen and (max-width: 850px) {
-      margin: -3em 0 2em 0;
-    }
-
-    @media only screen and (max-width: 500px) {
-      height: 23em;
-      width: 23em;
     }
   }
 
@@ -334,13 +406,37 @@ $fill-colors: #a54afd, #4f9cfd, #ffbf55, #fc4d91, #4de2ae, rgb(113, 222, 241),
 
 @keyframes music-notes {
   0% {
-    opacity: 0;
+    fill: nth($fill-colors, random(9));
+  }
+  10% {
+    fill: nth($fill-colors, random(9));
+  }
+  20% {
+    fill: nth($fill-colors, random(9));
+  }
+  30% {
+    fill: nth($fill-colors, random(9));
+  }
+  40% {
+    fill: nth($fill-colors, random(9));
   }
   50% {
-    opacity: 1;
+    fill: nth($fill-colors, random(9));
+  }
+  60% {
+    fill: nth($fill-colors, random(9));
+  }
+  70% {
+    fill: nth($fill-colors, random(9));
+  }
+  80% {
+    fill: nth($fill-colors, random(9));
+  }
+  90% {
+    fill: nth($fill-colors, random(9));
   }
   100% {
-    opacity: 0;
+    fill: nth($fill-colors, random(9));
   }
 }
 

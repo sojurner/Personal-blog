@@ -2,13 +2,12 @@ import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 
 import { AniFadeLink, AniLoaderLink } from "@components/Link"
-import { SaxophoneCat, DrummerCat } from "@components/Svg"
+import { SaxophoneCat, DrummerCat, Logo } from "@components/Svg"
 import Icon from "@components/Icon"
 import Typography from "@components/Typography"
-import MainLayout from "@components/Layouts"
+import { RefMainLayout } from "@components/Layouts"
 import Flex from "@components/Flex"
 import Tag from "@components/Tag"
-import Avatar from "@components/Avatar"
 import SEO from "@components/SEO"
 
 import { blogTypeRef } from "../utils/constants"
@@ -24,13 +23,6 @@ const HomePage = () => {
           location
           phone
           email
-        }
-      }
-      file(relativePath: { eq: "images/avatar-cartoon_pk-2.png" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
         }
       }
       allMarkdownRemark(limit: 4) {
@@ -53,8 +45,15 @@ const HomePage = () => {
     }
   `)
 
+  const mainRef = React.useRef()
+  const [loaded, setLoaded] = React.useState(false)
+
+  React.useEffect(() => {
+    setTimeout(() => setLoaded(true), 1000)
+  }, [])
+
   return (
-    <MainLayout className="page-home">
+    <RefMainLayout ref={mainRef} className="page-home">
       <SEO />
       <Flex className="page-home__landing-container" classes={["flexColumn"]}>
         <Flex
@@ -65,40 +64,46 @@ const HomePage = () => {
             classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
             className="page-home__landing-header"
           >
+            <Logo className="page-home__landing-header__logo" />
             <Flex
               classes={["flexColumn"]}
-              className="page-home__landing-header-txt"
+              className="page-home__landing-header__txt"
             >
               <Flex
                 classes={["flexColumn"]}
-                className="page-home__landing-header-txt__name"
+                className={`page-home__landing-header__txt-name ${
+                  loaded && "page-home__landing-header__txt-name--loaded"
+                }`}
               >
+                <div className="page-home__landing-header__txt-divider page-home__landing-header__txt-divider--1" />
+
                 <Typography
-                  className="page-home__landing-header-txt__firstname"
+                  className="page-home__landing-header__txt-firstname"
                   tag="h1"
-                  variant="neutralDark"
                 >
-                  <Typography tag="span">P</Typography>
+                  <Typography tag="label" variant="primaryDark">
+                    Software Developer
+                  </Typography>
+                  <Typography variant="primaryDark" tag="span">
+                    P
+                  </Typography>
                   aul
                 </Typography>
+                <div className="page-home__landing-header__txt-divider page-home__landing-header__txt-divider--2" />
                 <Typography
-                  className="page-home__landing-header-txt__lastname"
+                  className="page-home__landing-header__txt-lastname"
                   tag="h1"
-                  variant="neutralDark"
                 >
-                  <Typography tag="span">K</Typography> im
+                  <Typography tag="label" variant="secondaryDark">
+                    Null Enthusiast
+                  </Typography>
+                  <Typography variant="secondaryDark" tag="span">
+                    K
+                  </Typography>{" "}
+                  im
                 </Typography>
               </Flex>
             </Flex>
-            <Avatar
-              className="page-home__landing-front-img"
-              shape="hexagon"
-              fluid={data.file.childImageSharp.fluid}
-              alt={data.site.siteMetadata.author
-                .split(" ")
-                .map(x => x[0])
-                .join("")}
-            />
           </Flex>
         </Flex>
         <Flex className="page-home__about-section" classes={["flexColumn"]}>
@@ -119,7 +124,7 @@ const HomePage = () => {
                 <Link to="/blog">my blog</Link>.
               </Typography>
               <Typography variant="neutralLight" tag="h4">
-                Hope You enjoy!
+                Hope you enjoy!
               </Typography>
               <AniFadeLink
                 to="/about"
@@ -131,6 +136,7 @@ const HomePage = () => {
               </AniFadeLink>
             </Flex>
           </Flex>
+
           <Flex className="page-home__about-section--inner">
             <Flex
               className="page-home__about-section__txt"
@@ -140,7 +146,7 @@ const HomePage = () => {
                 Call me, Maybe?
               </Typography>
               <Typography tag="h4" variant="neutralLight">
-                As a full-stack dev, here are the technology stacks I'm familiar
+                As a full-stack developer, here are the technology stacks I'm familiar
                 with:
               </Typography>
               <Flex className="page-home__about-section__skill-icons">
@@ -153,7 +159,7 @@ const HomePage = () => {
                 <Icon color="var(--pk-color-neutral-900)" svg="docker" />
               </Flex>
               <Typography variant="neutralLight" tag="h4">
-                If you like my content, feel free to reach out!
+                If you like what you see, feel free to reach out!
               </Typography>
               <AniFadeLink
                 to="/contact"
@@ -188,7 +194,10 @@ const HomePage = () => {
                     classes={["flexColumn"]}
                     className="page-home__post-section__card"
                   >
-                    <img src={frontmatter.featuredImgUrl} alt="blog front img" />
+                    <img
+                      src={frontmatter.featuredImgUrl}
+                      alt="blog front img"
+                    />
                     <Typography variant="neutralDark" tag="h3">
                       {frontmatter.title}
                     </Typography>
@@ -222,7 +231,7 @@ const HomePage = () => {
           </AniFadeLink>
         </Flex>
       </Flex>
-    </MainLayout>
+    </RefMainLayout>
   )
 }
 

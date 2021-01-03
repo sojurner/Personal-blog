@@ -4,12 +4,14 @@ import SplashGrunge from "./SplashGrunge"
 import DripGrunge from "./DripGrunge"
 import GrungeBG from "./GrungeBG"
 
-import Logo from "./Logo"
 import OldManAndTheSea from "./OldManAndTheSea"
 import DrummerCat from "./DrummerCat"
 import SaxophoneCat from "./SaxophoneCat"
 import StarCurrent from "./StarCurrent"
 import GradientWrapper from "./GradientWrapper"
+
+import Logo from "./Logo"
+import Wings from './Wings';
 
 interface PKSvgComponent extends React.HTMLAttributes<HTMLOrSVGElement> {
   className?: string
@@ -28,4 +30,5 @@ export {
   SaxophoneCat,
   DrummerCat,
   GradientWrapper,
+  Wings
 }
