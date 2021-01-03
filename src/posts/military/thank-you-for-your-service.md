@@ -89,4 +89,4 @@ And let us not forget, modern military service is voluntary. A _mass conscriptio
 
 I've grown to realize that _"Thank you for your service"_ is less about recognizing one's past contributions, and more about **establishing a social connection**.
 
-In that sense, I have _no objection_. But, it's still **awkard**.
+In that sense, I have _no objection_. But, it's still **awkward**.
