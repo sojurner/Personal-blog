@@ -61,7 +61,7 @@ _"Thank you ...(for thanking me)?"_
 
 _"I appreciate that, thank you."_
 
-- This would be my go to move. It's still a **bit awkward**, since I'm thanking them for their thanks. But, at least there's a **buffer** in between.
+- This would be my go to move. It's still a **bit awkward**, since I'm thanking them for their thanks. But, less so due to a **buffer** in between.
 
 _"I didn't really do much, but okay."_
 
