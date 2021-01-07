@@ -110,6 +110,7 @@
   &__card-header__foreground-img {
     width: 100%;
     z-index: 0;
+    box-shadow: 0 0 8px 0 $color-neutral-900;
   }
 
   &__card-header__profile-container {
@@ -119,6 +120,7 @@
     padding: .3em .6em;
     border-radius: 50px;
     width: max-content;
+    box-shadow: 0 0 5px 0 $color-neutral-900;
   }
 
   &__card-header__profile-avatar {
