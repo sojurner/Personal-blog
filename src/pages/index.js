@@ -1,11 +1,12 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-
+import Img from "gatsby-image"
 import { AniFadeLink, AniLoaderLink } from "@components/Link"
-import { SaxophoneCat, DrummerCat, Logo } from "@components/Svg"
+import { SaxophoneCat, DrummerCat } from "@components/Svg"
 import Icon from "@components/Icon"
 import Typography from "@components/Typography"
 import { RefMainLayout } from "@components/Layouts"
+
 import Flex from "@components/Flex"
 import Tag from "@components/Tag"
 import SEO from "@components/SEO"
@@ -23,6 +24,13 @@ const HomePage = () => {
           location
           phone
           email
+        }
+      }
+      file(relativePath: { eq: "images/avatar-bitmap.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
         }
       }
       allMarkdownRemark(limit: 4) {
@@ -64,43 +72,47 @@ const HomePage = () => {
             classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
             className="page-home__landing-header"
           >
-            <Logo className="page-home__landing-header__logo" />
             <Flex
-              classes={["flexColumn"]}
+              classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
               className="page-home__landing-header__txt"
             >
+              <Img
+                className="page-home__landing-header__front-img"
+                shape="hexagon"
+                fluid={data.file.childImageSharp.fluid}
+                alt={data.site.siteMetadata.author
+                  .split(" ")
+                  .map(x => x[0])
+                  .join("")}
+              />
+              <svg className="page-home__landing-header__curved-svg" viewBox="0 0 500 500">
+                <path
+                  id="curve"
+                  d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"
+                />
+                <text width="500">
+                  <textPath xlinkHref="#curve">Software Developer</textPath>
+                </text>
+              </svg>
               <Flex
                 classes={["flexColumn"]}
                 className={`page-home__landing-header__txt-name ${
                   loaded && "page-home__landing-header__txt-name--loaded"
                 }`}
               >
-                <div className="page-home__landing-header__txt-divider page-home__landing-header__txt-divider--1" />
-
                 <Typography
                   className="page-home__landing-header__txt-firstname"
                   tag="h1"
+                  variant="primaryDark"
                 >
-                  <Typography tag="label" variant="primaryDark">
-                    Software Developer
-                  </Typography>
-                  <Typography variant="primaryDark" tag="span">
-                    P
-                  </Typography>
-                  aul
+                  PAUL
                 </Typography>
-                <div className="page-home__landing-header__txt-divider page-home__landing-header__txt-divider--2" />
                 <Typography
                   className="page-home__landing-header__txt-lastname"
                   tag="h1"
+                  variant="secondaryDark"
                 >
-                  <Typography tag="label" variant="secondaryDark">
-                    Null Enthusiast
-                  </Typography>
-                  <Typography variant="secondaryDark" tag="span">
-                    K
-                  </Typography>{" "}
-                  im
+                  KIM
                 </Typography>
               </Flex>
             </Flex>
@@ -146,8 +158,8 @@ const HomePage = () => {
                 Call me, Maybe?
               </Typography>
               <Typography tag="h4" variant="neutralLight">
-                As a full-stack developer, here are the technology stacks I'm familiar
-                with:
+                As a full-stack developer, here are the technology stacks I'm
+                familiar with:
               </Typography>
               <Flex className="page-home__about-section__skill-icons">
                 <Icon color="var(--pk-color-neutral-900)" svg="csharp" />
