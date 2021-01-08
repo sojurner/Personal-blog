@@ -26,7 +26,7 @@ However, I think the first step to better handling mental health is a less techn
 
 Recently, theres been a lot of press towards comittment to a cleaner and greener future. Not too long ago, California's governer issued [Executive Order N-79-20](https://www.gov.ca.gov/wp-content/uploads/2020/09/9.23.20-EO-N-79-20-Climate.pdf) pledging to implement state-wide zero-emission cars by 2035. As a realist, this proclammation seems a bit over ambitious. First and foremost, it would be impossible to enforce without ruffling a lot of feathers. The automobile industry, big oil, and citizens who can't afford an EV will not acquiese easily.
 
-However, my main concern with this whole transition to EVs, is that not everyone is on board. This type of mass scale shift in the industry is going to require collective agreeance and uniform action towards a gas-free future. Proof of concept, which has been overly focused on, is only half the equation. The other half is the need for a charging network (charging stations) on a scale that is comparable to that for gas vehicles (gas stations). This cannot be achieved if everyone is implementing their own super-charging input/output models with no cross-platform compatability.
+However, my main concern with this whole transition to EVs, is that not everyone is on board. This type of mass scale shift is going to require collective agreeance and uniformal action towards a gas-free future. Proof of concept, which has been overly focused on, is only half the equation. The other half is the need for a charging network (charging stations) on a scale that is comparable to that for gas vehicles (gas stations). This cannot be achieved if everyone is implementing their own super-charging input/output models with no cross-platform compatability.
 
 ## Pet Industry Reform
 
@@ -34,14 +34,14 @@ According to [ASPCA](https://www.aspca.org/animal-homelessness/shelter-intake-an
 
 ~25% rate of homelessness amongst cats and dogs seems overly high. Surely, we can do better.
 
-Based off of conversations I've had with other pet owners, there are two main sides of this equation: untethered demand from overzealous pet owners and careless breeders who have prioritized monetary gain over humane and lawful practices. While there's plenty of blame to go around, it doesnt change the bottom line: maturiety towards a more responsible and productive pet society is going to start by:
+Based off of conversations I've had with other pet owners, there seems to be two main sides of this equation: untethered demand from overzealous pet owners and greedy breeders who have prioritized monetary gain over humane and lawful practices. While there's plenty of blame to go around, it doesnt change the bottom line: maturiety towards a more responsible and productive pet society is going to start by:
 
 - Pet owners tailoring their expectations and demands.
 - Holding breeders accountable to strict legal standards.
 
 ## Politics is Everywhere, All the Time
 
-Politics, in this social media driven era, has rapidly become an attention-seeking narcissist, demanding to be the star in every conversation, issue, and/or topic. Everything has become: this or that, yes or no, good vs evil and us vs them.  Not only is it exhausting, but more importantly, it's wildly unproductive.
+Politics, in this social media driven era, has become an attention-seeking narcissist, demanding to be the star in every conversation, issue, and/or topic. Everything has become: this or that, yes or no, good vs evil and us vs them.  Not only is it exhausting, but more importantly, it's wildly unproductive.
 
 The traditional idiom: "Theres a time and place for everything", seemingly has never been more apparent. I hope it can be applied more this year.
 
@@ -50,6 +50,8 @@ The traditional idiom: "Theres a time and place for everything", seemingly has n
 I pride myself in personal caretaking of my health and fitness. I make sure I eat right and exercise daily. The problem is, never have i been more confused as to what is considered, the "right way to eat".
 
 There are so many conflicting schools of thought, each with their own cavalcade of rambunctious supporters, all claiming life-changing health results. Personally, I find them all obnoxious and unproductive towards a better uniformal understanding of human diet.  What has made matters worse, is that there seems to be an endless stream of research studies which partially support all sides of this chaotic debate, adding more fuel to the fire.  
+
+It seems to me, that the reason why positive results can be observed in every diet is because they all contain elements of truth.  It becomes a problem when people start advocating elimination of an entire food group (vegans) or restricting intake to one food group (carnivores).  Perhaps, the answer can be found through a balanced combination of all diets.
 
 ## Technology is Progressing Too Fast
 
