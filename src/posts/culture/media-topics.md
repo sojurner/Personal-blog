@@ -10,7 +10,7 @@ featuredImgAlt: "mainstream media"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 
-2020 was a very challenging year for citizens across the globe. An unexpected pandemic has reshaped every nation's economy and have forced many people to make adjustments in order to survive. Despite a reputedly gloomier future outlook, I see a desire within society for a positive shift towards healthier social discourse. Here are some issues/topic I hope will be given more mainstream attention in 2021.
+2020 was a very challenging year for everyone. An unexpected, global pandemic has reshaped every nation's economy and forced many people to make undesirable adjustments in order to survive. Despite the reputedly gloomy clouds that surround our near-future outlook, I see a desire within society for a positive shift towards a healthier social discourse. Here are some issues/topics I hope will be given more mainstream attention in 2021.
 
 ## Mental Health
 
