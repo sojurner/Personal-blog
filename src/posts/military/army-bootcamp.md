@@ -37,9 +37,9 @@ Personally, my biggest challenge during this time was **sleep deprivation**.  I 
 
 There was a *particular morning* on the second or third day, which I recall vividly as the **lowest** i had ever felt.  It was *5am* with temperatures that hovered around **20°F (-7.2°C)**.  Presumably, we had a long day ahead of us, so we were instructed to get *breakfast* early out of the way.  Apparently, 100 other groups had the same plan, and so, by the time we arrived to the *D-FAC (Dining Facility)*, a **Black Friday** sized line had already formed.  
 
-> At that point, We had not been issued our official *military attire*, and so none of us were *properly clothed* for the **weather**.  It took about *two hours* before we reached the *inside* of the building.  During the two hours, we stood silently in *single file formation*, while the **frigid winds** pierced through our bodies us from all directions.  It was *impossible* to focus on anything else other than the **soul-crushing cold**.  It was an *insufferable experience*.
+> At that point, We had not been issued our official *military attire*, and so none of us were *properly clothed* for the **weather**.  It took about *two hours* before we reached the *inside* of the building.  During the two hours, we stood silently in *single file formation*, while the **frigid winds** pierced through our bodies us from all directions.  It was *impossible* to focus on anything else other than the **soul-crushing coldness**.  It was an *insufferable experience*.
 
-Get used to the cold, because one way or another you'll encounter plenty of experiences similar to this.
+Get used to the cold, because one way or another, you'll encounter plenty of experiences similar to this.
 
 ## Parting Advice
 
