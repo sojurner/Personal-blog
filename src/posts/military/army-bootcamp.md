@@ -39,6 +39,8 @@ There was a *particular morning* on the second or third day, which I recall vivi
 
 > At that point, We had not been issued our official *military attire*, and so none of us were *properly clothed* for the **weather**.  It took about *two hours* before we reached the *inside* of the building.  During the two hours, we stood silently in *single file formation*, while the **frigid winds** pierced through our bodies us from all directions.  It was *impossible* to focus on anything else other than the **soul-crushing cold**.  It was an *insufferable experience*.
 
+Get used to the cold, because one way or another you'll encounter plenty of experiences similar to this.
+
 ## Parting Advice
 
 Everyone's time at reception is going to be more or less **unique**.  However, those who have enlisted in the military all share a *common trait*: **a desire and hunger for new experiences**.  With that considered, the best piece of advice I can offer for the young *padawans* is to **expect the unexpected**.  *Embrace* all aspects of the military, even reception, as they come.  In doing so, trust that *hindsight* will prove these moments to be *integral* in **developing a better you**.
