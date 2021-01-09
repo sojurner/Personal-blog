@@ -14,25 +14,24 @@ I began my wild journey in the *US Army* back in Feb 27, 2013, when i was shippe
 
 ## Reception
 
-To put things into perspective, I had *zero experience/interaction* with anything military related up until my arrival at Fort Jackson.  I really did not know what to expect.  So when I had arrived and was first introduced to the concept of a *Drill Sergeant*, my world was flipped upside down.  If you come from a similar *sheltered background*, **brace yourself**, because the environment and atmosphere will break you down mentally.  *Privacy* and *personal space* no longer **exist**, *sleep deprivation* is the new **norm**, and every sentence out of your mouth has to be *carefully constructed* or else it will come at an **undesirable cost**.
+To put things into perspective, I had *zero experience/interaction* with anything military related up until Fort Jackson.  I really did not know what to expect.  And so, upon my arrival, when I I was first introduced to the concept of a *Drill Sergeant*, my small little world was flipped upside down.  If you come from a similar *sheltered background*, **brace yourself**, because the environment and atmosphere will break you down mentally.  *Privacy* and *personal space* no longer **exist**, *sleep deprivation* is the new **norm**, and every sentence out of your mouth has to be *carefully constructed* or else it will come at an **undesirable cost**.
 
-The *Reception period*, was and still is, without a doubt, the **worst week** of my life. In a nutshell, it is *4-5 days* of **in-processing**.  You'll be assigned to a *platoon* of *40-50* other **privates**, and travel as one group between various stations to:
+The *Reception period*, was and still is, without a doubt, the **worst week** of my life. In a nutshell, it is *4-5 days* of nothing but **in-processing**.  You'll be assigned to a *platoon* of *40-50* other **privates**, and travel as one group between various stations to:
 
 - Fill out and sign paperwork/documentation
 - Recieve military uniform and equipment
 - Shave your head (if your a guy)
 - Health/fitness evaluation
 - Briefings and instructions on various Military guidelines
-- and many other boring stuff i can't recall
+- And plenty other boring stuff I can't recall
 
 ## Sleep-Depriving Drill Sergeants
 
-Depending on the station, it can take anywhere from *5-20 minutes* per person person. If you extrapolate that to *40-50 people* per group, it can end up taking numerous hours.  And since you're required to travel as a *group*, you have no choice but to wait like a robot until the very **last person** finishes.  You're not allowed to *converse* amongst your peers, and most importantly 
-you cannot be caught *dozing off* for reasons I'll go into later.  
+Depending on the station, it can take anywhere from *5-20 minutes* per person person. If you extrapolate that to *40-50 people* per group, it can end up taking numerous hours.  And since you're required to travel as a *group*, you have no choice but to wait, like a robot, until the very **last person** finishes.  You're not allowed to *converse* amongst your peers, and, most importantly, you cannot be caught *dozing off* for reasons I'll go into later.  
 
-The only voices you'll hear are *screaming* and *cursing* from drill sergeants at an **inexplicable** level.  Think of every possible *insult* you've received in your life and *multiply* it by **100**.  It's important to to develop some *thick skin* in preparation for this.
+The only (non-stop) voices you'll hear are *screaming* and *cursing* from drill sergeants at an **inexplicable** level.  Think of every possible *insult* you've received in your life and *multiply* it by **100**.  It's important to to develop some *thick skin* in preparation for this.
 
-Personally, my biggest challenge during this time was **sleep deprivation**.  I averaged about *2 hours* of sleep each night during this stretch.  What made matters worse was the *swarm of drill sergeants* surveying each platoon like a *hawk*, in delight hopes to catch anyone showing the slightest sign of **dozing off**.  If one person was *caught*, the entire group of the individual **paid the price**.  Usually the punishment would be some form of *tedious labor* during **sleeping hours**.  In hindsight, the drill sergeants themselves weren't necessarily *scary*, but rather the *fear of ostracization* is what made the entire process **impossibly stressful**.
+Personally, my biggest challenge during this time was **sleep deprivation**.  I averaged about *2 hours* of sleep each night during this stretch.  This in conjunction with the *swarm of yelling drill sergeants* surveying each platoon like a *hawk*, in delight hopes to catch anyone showing the slightest sign of **dozing off**, made the entire situation unbelievably uncomfortable.  If one person was *caught*, the entire group **paid the price**.  And if you haven't guessed, the price would usually be in the form of sleep: typically some form of *tedious labor* during **sleeping hours**.  In hindsight, the drill sergeants themselves weren't necessarily *scary*, but rather the *fear of ostracization* and possibly losing the little freedom you had made the entire process **impossibly stressful**.
 
 ## The Cold
 
