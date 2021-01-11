@@ -2,7 +2,7 @@
 title: "Thank you for your Service"
 author: "Paul Kim"
 desc: "As a military vet, I often hear people say, ''Thank you for your service''. I never know what to say in response."
-date: "Nov 14, 2020"
+date: "2020-12-01"
 subject: "military"
 tags:
   - military

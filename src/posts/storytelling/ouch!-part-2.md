@@ -1,7 +1,7 @@
 ---
 title: "Ouch! Part 2"
 desc: "Part 2 of my life changing injury."
-date: "Nov 14, 2020"
+date: "2020-12-14"
 subject: "storytelling"
 tags: [storytelling]
 author: "Paul Kim"

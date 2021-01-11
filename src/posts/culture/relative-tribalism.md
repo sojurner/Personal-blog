@@ -1,7 +1,7 @@
 ---
 title: "Relative Tribalism"
 desc: "Our tribal identity, shifts and adjusts in relation to the setting and context.  I refer to this phenomenon as relative tribalism."
-date: "Dec 11, 2020"
+date: "2020-12-30"
 subject: "culture"
 tags: [culture]
 author: "Paul Kim"

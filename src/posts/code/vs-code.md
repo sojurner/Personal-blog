@@ -1,7 +1,7 @@
 ---
 title: "VS Code Setup"
 desc: "Clearly, my favorite Code Editor is VS Code.  I go over my part of my config: theming, plugins, etc."
-date: "Dec 5, 2020"
+date: "2020-12-18"
 subject: "code"
 tags:
   - code

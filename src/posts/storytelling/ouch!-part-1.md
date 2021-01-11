@@ -1,7 +1,7 @@
 ---
 title: "Ouch! Part 1"
 desc: "Years ago, I was the victim of a hit and run.  I suffered severe injuries that took many months to recover.  Here's my story."
-date: "Nov 14, 2020"
+date: "2020-11-27"
 subject: "storytelling"
 tags:
   - storytelling

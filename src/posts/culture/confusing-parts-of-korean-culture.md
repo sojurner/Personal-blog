@@ -1,7 +1,7 @@
 ---
 title: "The Confusing Parts of Modern Korean Culture"
 desc: "All modernized cultures have both good and bad elements.  Then there are parts that are just confusing..."
-date: "Dec 11, 2020"
+date: "2020-12-15"
 subject: "culture"
 tags: [culture]
 author: "Paul Kim"

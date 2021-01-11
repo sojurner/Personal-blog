@@ -1,7 +1,7 @@
 ---
 title: "My Aspirations for 2021"
 desc: "Mainstream media has incredible power and influence over our society.  Often what is talked about is not always the most pertinent.."
-date: "Dec 31, 2020"
+date: "2021-01-01"
 subject: "culture"
 tags: [culture]
 author: "Paul Kim"

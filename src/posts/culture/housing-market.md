@@ -1,7 +1,7 @@
 ---
 title: "The Outrageous Housing Market"
 desc: "As a an aspiring first-time home buyer, I'm concerned by availability of affordable homes."
-date: "Dec 14, 2020"
+date: "2020-12-20"
 subject: "culture"
 tags: [culture]
 author: "Paul Kim"
