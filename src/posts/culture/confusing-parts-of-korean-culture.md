@@ -86,4 +86,4 @@ If someone is determined to partake in a cosmetic procudure, by all means, they 
 
 ## Conclusion
 
-Being of korean descent, I often wonder how emotionally and intellectually different I'd be had I been raised in Korea. Would I be supportive to alot of these cultural practices or would I still share the same skepticism and perplexities as I do now, as an American?
+Being of korean descent, I often wonder how emotionally and intellectually different I'd be had I been raised in Korea. Would I be supportive of these cultural practices or would I still share the same skepticism and perplexities as I do now, as an American?  Only I can wonder...
