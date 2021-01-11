@@ -40,7 +40,7 @@ Unfortunately, K-Dramas are not too far different from their distant cousin. For
 
 For me, the most unappealing aspect of K-dramas is the lack of true _character development_, and instead, focus on _relationship development_. Rarely, will the main characters change/grow introspectively, but as a result of circumstantial relationship events that force their hand.
 
-In general, the common thread I see within Korean entertainment that has festered its progression, is the reluctance to experiment and adopt new ideas. The executives at the top, who lead the industry charge, often default to safe and proven methods rather than going for it with different, unique ideas.
+In general, progression within Korean entertainment has been festered, because of reluctance to experiment and adopt new ideas. The executives at the top, who lead the industry charge, often default to safe and proven methods, rather than going for it with different, unique ideas.
 
 I may sound overly critical, but I say this out of hope for a positive reform within the industry.
 
@@ -61,13 +61,13 @@ _수능 (suneung)_ is basically their SAT's but with life implications. Frighten
 - 7:00pm - self study (in school) until 9~11pm
 - 11:30pm - go home and sleep
 
-The educuation system needs reformation. Year after year, [Korea has led in every negative mental health statistic](koreaherald.com/view.php?ud=20200427000687). Since 2007, suicide has been the No. 1 cause of death for teenagers. In 2019, 28.2% of middle & high school students reported some form of depression. And the list goes on and on. No matter how the numbers are framed, Korea does not look good.
+The educuation system needs reformation. Year after year, [Korea has led in every negative mental health statistic](koreaherald.com/view.php?ud=20200427000687). Since 2007, suicide has been the No. 1 cause of death for teenagers. In 2019, 28.2% of middle & high school students reported some form of depression. The list of damning statistical evidence is virtually endless. No matter how the numbers are framed, Korea does not look good.
 
 ## The Work Culture
 
 In a nutshell, Korea's work culture operates similarly to its age heirarchy, but instead of age, it's company rank.
 
-Those who are higher up in the corporate ladder have so-called _unspoken_ privileges of control and **absuive power** within the group. While I agree that individuals holding executive positions of greater responsibilities, should receieve a certain level of respect. However, there is a sense of entitlement and freedom to behave imprudently with their lower ranking employees'.
+Those who are higher up in the corporate ladder have so-called _unspoken_ privileges of control and **absuive power** within the group. I agree that individuals holding executive positions of greater responsibilities, should receieve a certain level of respect. However, in the context of Korea, there is a sense of entitlement and freedom to behave imprudently with lower ranking employees'.
 
 Often these higher-ups will schedule "mandatory" after work gatherings, such as _late dinner at a bar_ or _karaoke night_. To add to the sulk, these "gatherings" are usually held during the middle of the week, where employees are still required to wake up early the next morning for work.
 
