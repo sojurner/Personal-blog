@@ -1,7 +1,7 @@
 ---
 title: "My Favorite Dev Tools / Resources"
 desc: "Plenty of amazing & free tools/resources out there available for developers.  Here are some of my favorites."
-date: "Dec 5, 2020"
+date: "2020-12-05"
 subject: "code"
 tags:
   - code
