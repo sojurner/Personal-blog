@@ -85,7 +85,10 @@ const HomePage = () => {
                   .map(x => x[0])
                   .join("")}
               />
-              <svg className="page-home__landing-header__curved-svg" viewBox="0 0 500 500">
+              <svg
+                className="page-home__landing-header__curved-svg"
+                viewBox="0 0 500 500"
+              >
                 <path
                   id="curve"
                   d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"
@@ -130,6 +133,8 @@ const HomePage = () => {
               <Typography variant="neutralDark" tag="h2">
                 Welcome!
               </Typography>
+              <div className="page-home__about-section__divider" />
+
               <Typography tag="h4" variant="neutralLight">
                 I started this website as a creative and therapeutic outlet.
                 I'll share all that I know, and all that I've wondered through{" "}
@@ -157,6 +162,8 @@ const HomePage = () => {
               <Typography variant="neutralDark" tag="h2">
                 Call me, Maybe?
               </Typography>
+              <div className="page-home__about-section__divider" />
+
               <Typography tag="h4" variant="neutralLight">
                 As a full-stack developer, here are the technology stacks I'm
                 familiar with:
@@ -204,7 +211,9 @@ const HomePage = () => {
                 >
                   <Flex
                     classes={["flexColumn"]}
-                    className="page-home__post-section__card"
+                    className={`page-home__post-section__card--${
+                      blogTypeRef[frontmatter.subject].tagVariant
+                    } page-home__post-section__card`}
                   >
                     <img
                       src={frontmatter.featuredImgUrl}
