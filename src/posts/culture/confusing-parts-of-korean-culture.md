@@ -79,9 +79,9 @@ All the friends that I've made during 2013-2015, have grown-up and gotten jobs. 
 
 ## Plastic Surgery
 
-This has been a controversial subject in Korea for as long as I can remember. The idea of going under the knife for cosmetic purposes, has slowly been normalized in their society. To me, this is an outcry of insecurity and lack of self-confidence due to a socially cutthroat, competitive culture. The fear of ostracism and the deep desire to succeed, has translated into a mentally harmed society.
+This has been a controversial subject in Korea for as long as I can remember. The idea of going under the knife for cosmetic purposes, has slowly been normalized into a neutral-positive narrative. To me, this is an outcry of insecurity and lack of self-confidence due to a socially cutthroat, competitive culture. The fear of ostracism and the deep desire to succeed, has translated into a mentally harmed society.
 
-If someone is determined to partake in a cosmetic procudure, by all means, they should have freedom of choice to do so. However, normalizing this practice is downplaying deeper, systemic issues within the society.
+If someone is determined to partake in a cosmetic procudure, by all means, they should have freedom of choice to do so. However, normalizing this practice is overlooking deeper systemic issues of self-esteem that has sprung up in other factions of their society.
 
 
 ## Conclusion
