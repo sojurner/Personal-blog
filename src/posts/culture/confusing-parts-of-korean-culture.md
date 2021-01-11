@@ -75,7 +75,7 @@ Often these higher-ups will schedule "mandatory" after work gatherings, such as 
 
 Unfortunately, these gatherings are "mandatory" in the sense that refusal to attend leads to unfavorable consequences that can deeply affect chances of a promotion or raise.
 
-All the friends that I've made during 2013-2015, have grown-up and gotten jobs. Sadly, almost each hate their current situations because of this insepid work culture. They are forced to drink for long hours after a grueling work day, wake up early the next morning only to repeat it over and over.
+All the friends that I've made during 2013-2015, have grown-up and gotten jobs. Sadly, almost each hate their current situations because of this soul-crushing work culture. They are forced to drink for long hours after a grueling work day, wake up early the next morning only to repeat it over and over.
 
 ## Plastic Surgery
 
