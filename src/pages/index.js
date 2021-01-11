@@ -40,7 +40,7 @@ const HomePage = () => {
               title
               desc
               subject
-              date
+              date(formatString: "MMM DD, YYYY")
               tags
               featuredImgUrl
             }
