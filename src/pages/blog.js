@@ -25,14 +25,14 @@ import "@styles/pages/_blogPage.scss"
 const BlogPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
         totalCount
         edges {
           node {
             frontmatter {
               title
               desc
-              date
+              date(formatString: "MMM D, YYYY")
               subject
               author
               tags

@@ -26,7 +26,7 @@ import { usePageViewMeta } from "../hooks"
 const query = graphql`
   query($subject: String!) {
     filteredRemarks: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: ASC }
+      sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { eq: $subject } } }
     ) {
       edges {
@@ -34,7 +34,7 @@ const query = graphql`
           frontmatter {
             title
             desc
-            date
+            date(formatString: "MMM D, YYYY")
             subject
             author
             tags
