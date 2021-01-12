@@ -33,7 +33,10 @@ const HomePage = () => {
           }
         }
       }
-      allMarkdownRemark(limit: 4) {
+      allMarkdownRemark(
+        limit: 6
+        sort: { fields: [frontmatter___date], order: DESC }
+        ) {
         edges {
           node {
             frontmatter {
