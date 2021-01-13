@@ -69,6 +69,6 @@ Here is the *cost* of a **Service Dress Uniform** multiplied by the most recent 
 
 These are *gross estimations*. Depending on the **state of national affairs** (war vs peacetime), the number of recruitments could *drastically increase*.  However, I'll stick to "**peacetime**" numbers, since it is the default state.
 
-That means, each year, about **140 million** of tax-payer dollars is being spent on these uni-dimensional uniforms alone.
+That means, each year, about **140 million** of tax-payer dollars is being spent soley on these uni-dimensional uniforms.
 
 As much as military tradition is revered in our young nation, is it really worth the arduous costs?
