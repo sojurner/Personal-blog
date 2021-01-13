@@ -1,6 +1,6 @@
 ---
 title: "Army Reception"
-desc: "For those who have signed up to serve and are awaiting bootcamp, here are is what you can expect in your first week."
+desc: "For those who have signed up to serve and are awaiting bootcamp, here are some things to expect and mentally prepare for in your first week."
 date: 2021-01-08
 subject: "military"
 tags: [military]
