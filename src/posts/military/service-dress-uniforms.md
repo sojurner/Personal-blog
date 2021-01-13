@@ -71,4 +71,4 @@ These are *gross estimations*. Depending on the **state of national affairs** (w
 
 That means, each year, about **140 million** of tax-payer dollars is being spent on these uni-dimensional uniforms alone.
 
-As much as militray tradition is revered in our young nation, is it really worth the arduous cost?
+As much as militray tradition is revered in our young nation, is it really worth the arduous costs?
