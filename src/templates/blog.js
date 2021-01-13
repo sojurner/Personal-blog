@@ -141,14 +141,14 @@ const Blog = ({ data }) => {
         classes={["flexColumn", "justifyContentCenter", "alignItemsCenter"]}
       >
         <SEO title={frontmatter.title} description={frontmatter.desc} />
+        <VSensor intervalDelay={500} partialVisibility={true} onChange={onChange} offset={{bottom: -30}}>
         <Img
           className="template-blog__feature-img"
           fluid={featuredImg.childImageSharp.fluid}
           alt={frontmatter.featuredImgAlt}
         />
-        <VSensor intervalDelay={500} onChange={onChange} offset={{top: -30}}>
-          <div className="template-blog__shade-transition" />
         </VSensor>
+          <div className="template-blog__shade-transition" />
         <AniFadeLink to="/blog">
           <Typography className="template-blog__go-back" variant="neutralDark">
             ⤺ back to posts
