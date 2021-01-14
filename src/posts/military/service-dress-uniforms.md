@@ -19,17 +19,17 @@ To begin, I'd like to discuss an *ancillary issue* related to the SDUs, *Stolen 
 
 ![stolen valor](https://www.wearethemighty.com/app/uploads/legacy/assets.rbl.ms/17246658/origin.jpg)
 
-It's fairly easy to spot a **military imposter**, because like this individual above, they're *bad at it*.  While the *uniform* is a clear red flag, his *weight* alone is a tell-all sign.  As for the uniform, aside from the *unkemptness and disarray*, it's nearly impossible for anyone to have that many awards.
+It's fairly easy to spot a **military imposter**, because like this individual above, they're *bad at it*.  While there's all sorts of mistakes with his *uniform*, his *weight* alone is a huge red flag. Aside from the noticeable *unkemptness and disarray*, it's nearly impossible for anyone to have that many awards.
 
 ## Don't Steal my Valor?
 
-I've never actually encountered a **military imposter**.  I've only seen them through youtube videos and google images.  As far as my "*out of sight, out of mind*" reality is concerned, they are a *myth*.  
+I've never actually encountered a **military imposter**.  Much of what I know, about these kinds of individuals are only through stories.  As far as my "*out of sight, out of mind*" reality is concerned, they are a *myth*.  
 
-As a veteran, even if this type of practice is *commonplace*, I could care less about it.  Granted, having only served 4 short years, I am not as *emotionally invested* in my **military identity** as others.  With that said, accusing this act as "*stealing*" is an **over exaggeration**.  I would say it falls more in the line with "*lying*".
+As a veteran, even if this type of practice is *commonplace*, I could care less about it.  Granted, having only served 4 short years, I am not as *emotionally invested* in my **military identity** as most others.  With that said, accusing this act as "*stealing*" is an **over exaggeration**.  I would say it falls more in line with "*lying*".
 
-Let's take a step back and apply some sensical judgement. **Valor** isn't some rare substance in a *finite pool*.  It's not as if **imposters** are *stripping* away portions of it meant for other deserving veterans.  It's simply a *social concept* to award those who have **served**.  It's as *plentiful* and *abundant* as our minds make it out to be.  No one is *stealing* from anyone.  
+Let's take a step back and apply some sensical judgement. **Valor** isn't some rare substance in a *finite pool*.  It's not as if **imposters** are *stripping* away portions of it meant for true deserving veterans.  It's simply a *social concept* to recognize those who have **served**.  It's as *plentiful* and *abundant* as our minds make it out to be.  No one is *stealing* from anyone.  
 
-Clearly, **Stolen Valor** isn't what you'd deem as *commendable* behavior, but nor is it as *bad* as it's made out to be.  In fact, I'd argue that the act itself, isn't necessarily *harmful* to anyone else other then potentially, **the imposter's themselves**.
+Clearly, **Stolen Valor** isn't what you'd deem as *commendable* behavior, but nor is it as *bad* as it's publicized.  In fact, I'd argue that the act itself, isn't necessarily *harmful* to anyone else other then potentially, **the imposter's themselves**.
 
 Sure we can make the inarguable point that they're, "**Standing on the Graves of Veterans!**".  However, if we're digging this deep for reasons to *demonize* these trivial individuals, then perhaps we've *lost sight* of more pressing veteran issues, such as **homelessness, depression, and suicide**.
 
@@ -43,18 +43,20 @@ However much I despised the physical SDU, it was the *painstaking, nazi-like* un
 
 To illustrate the absurd commitment towards the SDU, there's an entire **manual** detailing out the exact *positional measurements* for every *ribbon, badge, medal*, and item to be placed on the uniform.
 
+## What is Straight?
+
 The amount of time I've spent, making these things "**straight**", gives me *partial PTSD* just thinking about it.
 
-In this context, "**straight**" is *relative*.  If the goal is to be "**straight**" as in parallel to the ground, then simple common sense would suggest it to be an *impossible task to achieve*.  
+The problem is, at least in this context, "**straight**", is *relative*.  If the goal is to be "**straight**" as in parallel to the ground, then simple common sense would suggest it to be a near *impossible task to achieve*.  
 
-You can't pin something "**straight**" on an article of clothing that is made to fit on the curvature of the upper body.  Its not a *flat surface*; you're dealing with both *depth & height*.  Also, something that is pinned "**straight**" when the jacket is *hanging from a hanger*, won't appear "**straight**" when the jacket is worn on a variably moving human being.
+You can't pin something "**straight**" on an article of clothing that is made to fit on the curvature of the upper body, especially when its pinned on two sides.  Its not a *flat surface*; you're dealing with both *depth & height*. Something that is pinned "**straight**" when the jacket is *hanging from a hanger*, won't appear "**straight**" when the jacket is worn on a variably moving human being.
 
 In addition, if it's not by military standards "**straight**", it can *appear* "**straight**" by simply *adjusting* the wear of the jacket (pulling it more towards one side). I've actually tricked people this way, which only further supports the *ridiculousness* of this whole ordeal.
 
 I've gotten into my fair share of trouble, *arguing endlessly* with hardcore **sergeants** about why the SDU is necessary.  The main argument I was constantly *rebutted* against was: 
 > It is a timeless *tradition* that revolves around **Paying Attention to Detail**, which translates to *all aspects* of being a service member*.
 
-OK, in that case, why can't it both *serve a purpose* and *be productive*? Other unpopular practices in the military, such as **room inspections** and **overnight duty**, at least offer some form of *productive result* (a cleaned room, surveilance requirements) while serving the *same purpose*.  I fail to see any *productive* output when the **SDUs** are utilized.
+OK, in that case, why can't it both *serve a purpose* and *be productive*? Other unpopular practices in the military, such as **room inspections** and **overnight duty**, at least offer some form of *productive result* (a cleaned room, surveilance requirements) while serving the *same purpose*.  The only "*productive*" output I see with SDUs are emotional feelings.
 
 ## The Costs
 

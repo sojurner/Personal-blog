@@ -17,67 +17,6 @@ import "@styles/templates/_blogTemplate.scss"
 import { blogTypeRef } from "../utils/constants"
 import { usePageView } from "../hooks"
 
-const query = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        date(formatString: "MMM D, YYYY")
-        author
-        subject
-        desc
-        next
-        previous
-        featuredImgAlt
-        avatar {
-          childImageSharp {
-            fluid(maxWidth: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-      featuredImg {
-        childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      fields {
-        slug
-      }
-      html
-    }
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { slug: { ne: $slug } } }
-      limit: 6
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date
-            subject
-            featuredImgAlt
-          }
-          featuredImg {
-            childImageSharp {
-              fluid(maxWidth: 400) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`
-
 const Blog = ({ data }) => {
   const [isVisible, setIsVisible] = React.useState(false)
   const { frontmatter, fields, featuredImg, html } = data.markdownRemark
@@ -141,14 +80,19 @@ const Blog = ({ data }) => {
         classes={["flexColumn", "justifyContentCenter", "alignItemsCenter"]}
       >
         <SEO title={frontmatter.title} description={frontmatter.desc} />
-        <VSensor intervalDelay={500} partialVisibility={true} onChange={onChange} offset={{bottom: -30}}>
-        <Img
-          className="template-blog__feature-img"
-          fluid={featuredImg.childImageSharp.fluid}
-          alt={frontmatter.featuredImgAlt}
-        />
+        <VSensor
+          intervalDelay={500}
+          partialVisibility={true}
+          onChange={onChange}
+          offset={{ bottom: -30 }}
+        >
+          <Img
+            className="template-blog__feature-img"
+            fluid={featuredImg.childImageSharp.fluid}
+            alt={frontmatter.featuredImgAlt}
+          />
         </VSensor>
-          <div className="template-blog__shade-transition" />
+        <div className="template-blog__shade-transition" />
         <AniFadeLink to="/blog">
           <Typography className="template-blog__go-back" variant="neutralDark">
             ⤺ back to posts
@@ -299,5 +243,66 @@ const Blog = ({ data }) => {
     </TemplateLayout>
   )
 }
+
+const query = graphql`
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+        date(formatString: "MMM D, YYYY")
+        author
+        subject
+        desc
+        next
+        previous
+        featuredImgAlt
+        avatar {
+          childImageSharp {
+            fluid(maxWidth: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+      featuredImg {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      fields {
+        slug
+      }
+      html
+    }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { slug: { ne: $slug } } }
+      limit: 6
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            date
+            subject
+            featuredImgAlt
+          }
+          featuredImg {
+            childImageSharp {
+              fluid(maxWidth: 400) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`
 
 export { query, Blog as default }
