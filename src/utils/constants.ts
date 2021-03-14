@@ -47,7 +47,6 @@ export const tagIconRef = {
 const routes = [
   { to: "/about", label: "about" },
   { to: "/blog", label: "blog" },
-  { to: "/contact", label: "contact" },
 ]
 
 export { socialLinks, routes }

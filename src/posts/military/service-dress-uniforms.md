@@ -10,8 +10,6 @@ featuredImgAlt: "service dress uniforms"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 
-This is probably going to *strike a nerve* for those stout military **advocates**. This is simply my *opinion* on **Service Dress Uniforms (SDU)**, so please take it as such.  
-
 ## Stolen Valor
 
 To begin, I'd like to discuss an *ancillary issue* related to the SDUs, *Stolen Valor*.  For those who have never heard of this term, the [definition](https://en.wikipedia.org/wiki/Military_impostor) of *Stolen Valor* is:
@@ -23,17 +21,17 @@ It's fairly easy to spot a **military imposter**, because like the person above,
 
 ## Don't Steal my Valor?
 
-I've never actually encountered a **military imposter**.  Much of what I know, about these kinds of individuals are only through stories.  As far as my "*out of sight, out of mind*" reality is concerned, they are a *myth*.  
+I've never actually encountered a **military imposter**.  As far as my "*out of sight, out of mind*" reality is concerned, they are a *myth*.
 
-As a veteran, even if this type of practice is *commonplace*, I could care less about it.  Granted, having only served 4 short years, I am not as *emotionally invested* in my **military identity** as most others.  With that said, accusing this act as "*stealing*" is an **over exaggeration**.  I would say it falls more in line with "*lying*".
+As a veteran, even if this type of practice is *commonplace*, I could care less about it.  Granted, having only served 4 short years, I am not as *emotionally invested* in my **military identity** as many others.  With that said, accusing this act as "*stealing*" is an **over exaggeration**.
 
-**Valor** isn't some rare substance circulating in a *finite pool*.  It's not as if **imposters** are *stripping* away portions of it, otherwise meant for true deserving veterans.  It's simply a *social concept* to recognize those who have **served**.  It's as *plentiful* and *abundant* as our minds make it out to be.  No one is *stealing* from anyone.  
+**Valor** isn't some non-fungible asset circulating in a *finite pool*. It's simply a *social concept* to recognize those who have **served**.  It's as *plentiful* and *abundant* as our minds make it out to be.  Stealing implies that the valor meant for true deserving veterans are being stripped away by these imposters.  No one is *stealing* from anyone.  
 
-Clearly, **Stolen Valor** isn't what you'd deem as *commendable* behavior, but nor is it as *bad* as it's publicized.  In fact, I'd argue that the act itself, isn't necessarily *harmful* to anyone else other then potentially, **the imposter's themselves**.
+Clearly, **Stolen Valor** isn't what you'd deem as *commendable* behavior, but nor is it as *bad* as it's publicized in the military.  In fact, I'd argue that the act itself, isn't necessarily being *harmful* to anyone else other than potentially, **the imposter's themselves**.
 
-Sure we can make the inarguable point that they're, "**Standing on the Graves of Veterans!**".  However, if we're digging this deep for reasons to *demonize* these trivial individuals, then perhaps we've *lost sight* of more pressing veteran issues, such as **homelessness, depression, and suicide**.
+Sure we can make the inarguable *political* point that they're, "**Standing on the Graves of Veterans!**".  However, if we're digging this deep for reasons to *demonize* these trivial individuals, then perhaps we're losing focus on the more pertinent veteran issues, such as **homelessness, depression, and suicide**.
 
-Also, let's not forget that the biggest reason **Stolen Valor** even exists, is because of the **Service Dress Uniforms**.
+Also, the only reason **Stolen Valor** can even exist, are because of the **Service Dress Uniforms**.
 
 ## Service Dress Uniforms
 
@@ -41,26 +39,24 @@ For the record, I hated my **Service Dress Uniform (SDU)**.  As someone who stro
 
 However much I despised my uncomfortable SDUs, it was the *painstaking, nazi-like* uniform **inspections** that drove me crazy. It is one aspect of the military, I'm glad to be done with.  
 
-To illustrate the absurd commitment towards the SDU, there's an entire **manual** detailing out the exact *positional measurements* for every *ribbon, badge, medal*, and item to be placed on the uniform.
+To illustrate the depth of commitment the military has towards the SDU, there's an entire **manual** detailing out the exact *positional measurements* for every *ribbon, badge, medal*, and item to be placed on the uniform.
 
 ## What is Straight?
 
-The amount of time I've spent, making these things "**straight**", gives me *partial PTSD* just thinking about it.
+The amount of time I've spent, making these things "**straight**", gives me *partial PTSD* thinking about it.
 
-The problem is, at least in this context, "**straight**" is *relative*.  If the goal is to be "**straight**" as in parallel to the ground, then simple common sense would suggest it to be a near *impossible task to achieve*.  
+The problem is that "**military straight**" is *relative*.  If the goal is to be "**straight**" as in parallel to the ground, then from my experience, it's an *impossible task to achieve*.  
 
-You can't pin something "**straight**" on an article of clothing that is made to fit on the curvature of the upper body, especially when its pinned on two sides.  Its not a *flat surface*; you're dealing with both *depth & height*. Something that is pinned "**straight**" when the jacket is *hanging from a hanger*, won't appear "**straight**" when the jacket is worn on a variably moving human being.
+You can't pin something "**straight**" on an article of clothing that is made to fit on the curvature of the upper body, especially when its pinned on two sides.  Its not a *flat surface*; you're dealing with both *depth & height*. Something that is pinned "**straight**" when the jacket is *hanging from a hanger*, won't appear "**straight**" when the jacket is worn on a moving human being.
 
 In addition, if it's not by military standards "**straight**", it can *appear* "**straight**" by simply *adjusting* the wear of the jacket (pulling it more towards one side). I've actually tricked people this way, which only further supports the *ridiculousness* of this whole ordeal.
 
-I've gotten into my fair share of trouble, *arguing endlessly* with hardcore **sergeants** about why the SDU is necessary.  The main argument I was constantly *rebutted* against was: 
+I've gotten into my fair share of trouble, *arguing endlessly* with hardcore **sergeants** about why the SDU is necessary.  Perhaps a clear sign, that a military career wasn't for me.  The main argument I was constantly *rebutted* against was:
 > It is a timeless *tradition* that revolves around **Paying Attention to Detail**, which translates to *all aspects* of being a service member*.
 
-OK, in that case, why can't it both *serve a purpose* and *be productive*? Other unpopular practices in the military, such as **room inspections** and **overnight duty**, at least offer some form of *productive result* (a cleaned room, surveilance requirements) while serving the *same purpose*.  The only "*productive*" output I see with SDUs is **recognition and valor**, which appears *unnecessary* when taking **financial cost** into account.
+OK, in that case, why can't it both *serve a purpose* and *be productive*? Other unpopular customs in the military, such as **room inspections** and **overnight duty**, at least offer some form of *productive result* (a cleaned room, surveilance requirements) while instilling the same *paying attention to detail* practice.  The only "*productive*" output I see with SDUs is **recognition and tradition**, which appears more *unnecessary* when considering the **financial costs**.
 
 ## The Costs
-
-The *financial aspect*, which I'm sure would **raise plenty of green eyebrows**, is the crux of my frustration with the SDU.
 
 Here is the *cost* of a **Service Dress Uniform** multiplied by the most recent *annual recruitment* numbers for each branch:
 
@@ -69,10 +65,8 @@ Here is the *cost* of a **Service Dress Uniform** multiplied by the most recent 
 - Marine Corp: [$700](http://www.uniforms-4u.com/p-usmc-enlisted-dress-blue-uniform-14463.aspx) * [38,000 recruits](https://www.thebalancecareers.com/things-to-consider-when-choosing-to-join-the-marine-corps-3354338#:~:text=With%20the%20exception%20of%20the,average%2080%2C000%20yearly%20recruiting%20goal.) ~ **26 million**
 - Navy: [$650](https://taskandpurpose.com/news/cost-officer-uniforms-demonstrates-gender-inequality-navy/) * [50,000 recruits](https://www.cnrc.navy.mil/pages-nrc-links/nrc-facts-stats.htm) ~ **32.5 million**
 
-These are *gross estimations*. Depending on the **state of national affairs** (war vs peacetime), the number of recruitments could *drastically increase*.  However, I'll stick to "**peacetime**" numbers, since it is the default state.
+These are *gross estimations*. Depending on the **state of national affairs** (war vs peacetime), the number of recruitments could be *drastically higher*.  However, I'll stick to "**peacetime**" numbers, since it is the most likely default state.
 
 That means, each year, about **140 million** of tax-payer dollars is being spent soley on these uni-dimensional uniforms.
 
-In our current socioeconomic landscape, there's been considerable pushback against big corporations compromising moral values in exchange for monetary gain.  Ironically, we have the polar opposite for this situation.  
-
-As much as military tradition is revered in our young nation, is it really worth these arduous costs?
+In our current *socio-economic* landscape, there's been a constant growing disdain of the public against big, greedy corporations who have prioritized monetary gains over moral values.  Ironically, in this situation, the polar opposite is occuring.  

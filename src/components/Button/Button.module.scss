@@ -3,23 +3,32 @@
 
 $btn-variants: (
   //
-  primary: ($color-primary-500, $color-primary-800),
-  secondary: ($color-secondary-500, $color-secondary-800),
-  negative: ($color-negative-500, $color-negative-800),
-  positive: ($color-positive-500, $color-positive-800),
-  default: ($color-neutral-500, $color-neutral-800)
+  primary: ($color-primary-600, $color-primary-050),
+  secondary: ($color-secondary-600, $color-primary-050),
+  negative: ($color-negative-600, $color-primary-050),
+  positive: ($color-positive-600, $color-primary-050),
+  default: ($color-neutral-600, $color-primary-050)
 );
 
 .btn {
   &--base {
-    padding: 1em;
+    width: max-content;
+    padding: 0.6em 1em;
     border-radius: 15px;
     background: none;
     border: 0;
     color: $color-blank-800;
     display: flex;
     justify-content: center;
+    position: relative;
     align-items: center;
+    box-shadow: 0px 0px 5px var(--pk-color-blank-800),
+      0px 4px 15px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: ease-in-out 0.35s;
+    z-index: 2;
+    overflow: hidden;
+
     svg {
       margin-left: 10px;
     }
@@ -33,7 +42,52 @@ $btn-variants: (
 
   @each $variant, $colors in $btn-variants {
     &--#{$variant} {
-      @include dual-gradient($colors...);
+      $color-2: nth($colors, 2);
+      $color-1: nth($colors, 1);
+      
+      color: $color-1;
+
+      &::before {
+        content: '';
+        position: absolute;
+        transition: all 0.3s;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.15s, 0.15s border-radius 0.15s;
+        opacity: 0;
+        background: $color-1;
+        transform: scale(0.1, 0.1);
+        border-radius: 50%;
+        z-index: -1;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        transition: all 0.3s;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s;
+        border: 1px solid $color-1;
+        border-radius: 15px;
+
+      }
+
+      &:hover {
+        color: $color-2;
+        &::before {
+          opacity: 1;
+          transform: scale(1, 1);
+          border-radius: 0;
+        }
+        &::after {
+          opacity: 0;
+        }
+      }
     }
   }
 }

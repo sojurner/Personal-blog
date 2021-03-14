@@ -22,6 +22,7 @@ import html from "@iconify-icons/mdi/language-html5"
 
 import react from "@iconify-icons/mdi/react"
 import nodejs from "@iconify-icons/mdi/nodejs"
+import blazor from '@iconify-icons/simple-icons/blazor'
 import sass from "@iconify-icons/mdi/sass"
 import dotnet from "@iconify-icons/mdi/dot-net"
 
@@ -95,6 +96,7 @@ const iconSvg = Object.freeze({
   mapMarker,
   telegram,
   accountFile,
+  blazor,
   eye
 })
 

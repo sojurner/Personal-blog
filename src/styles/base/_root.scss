@@ -95,7 +95,7 @@
   --pk-color-icon-tools: #c3c3c3;
 
   --pk-color-icon-csharp: #652077;
-  --pk-color-icon-js: #f0db4f;
+  --pk-color-icon-js: #d4c258;
   --pk-color-icon-ts: #0077c6;
   --pk-color-icon-html: #ea6228;
   --pk-color-icon-css: #3596d0;
@@ -107,7 +107,7 @@
   --pk-color-icon-vscode: #0077c6;
   --pk-color-icon-vs: #68217a;
   --pk-color-icon-gitlab: #f56a25;
-  --pk-color-icon-github--1: #5c2d91;
+  --pk-color-icon-github: #463e4e;
 }
 
 body {
@@ -204,7 +204,7 @@ body.dark {
   --pk-color-icon-cellphone: var(--pk-color-secondary-800);
   --pk-color-icon-email: var(--pk-color-secondary-800);
   --pk-color-icon-linkedIn: var(--pk-color-secondary-800);
-  --pk-color-icon-github--2: var(--pk-color-secondary-800);
+  --pk-color-icon-github: var(--pk-color-secondary-800);
 
   --pk-color-icon-web: var(--pk-color-primary-900);
   --pk-color-icon-codetags: var(--pk-color-primary-900);
@@ -223,7 +223,6 @@ body.dark {
   --pk-color-icon-vscode: var(--pk-color-primary-800);
   --pk-color-icon-vs: var(--pk-color-primary-800);
   --pk-color-icon-gitlab: var(--pk-color-primary-800);
-  --pk-color-icon-github--1: var(--pk-color-primary-800);
 
   .page-about__history__timeline {
     --pk-color-icon-csharp: var(--pk-color-neutral-600);
@@ -239,7 +238,7 @@ body.dark {
     --pk-color-icon-vscode: var(--pk-color-neutral-600);
     --pk-color-icon-vs: var(--pk-color-neutral-600);
     --pk-color-icon-gitlab: var(--pk-color-neutral-600);
-    --pk-color-icon-github--1: var(--pk-color-neutral-600);
+    --pk-color-icon-github: var(--pk-color-neutral-600);
   }
 
   .footer-container {
@@ -251,8 +250,6 @@ body.dark {
     --pk-color-primary-800: #ecb829;
     --pk-color-primary-700: #f8d984;
     --pk-color-primary-600: #f8d984;
-    --pk-color-primary-500: #df9100;
-    --pk-color-primary-400: #eba31e;
   }
 
   .vertical-timeline::before {

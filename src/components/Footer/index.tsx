@@ -39,11 +39,13 @@ const Footer: React.FC = props => {
     <footer className="footer-container" {...props}>
       <Flex
         classes={["flexRow", "alignItemsCenter", "justifyContentCenter"]}
-        className="footer__wings-div"
+        className="footer__wings-border"
       >
-        <div />
-        <Wings />
-        <div />
+        <div className="footer__wings-border__left" />
+        <div className="footer__wings-border__center">
+          <Wings />
+        </div>
+        <div className="footer__wings-border__right" />
       </Flex>
       <Flex
         className="footer__links-container"
@@ -63,14 +65,6 @@ const Footer: React.FC = props => {
           activeClassName="footer__links-item--active"
         >
           Blog
-        </Link>
-        <div className="footer__links-divider" />
-        <Link
-          to="/contact"
-          className="footer__links-item"
-          activeClassName="footer__links-item--active"
-        >
-          Contact
         </Link>
       </Flex>
       <Flex className="footer__contact-container--outer">

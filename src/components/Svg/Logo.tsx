@@ -10,7 +10,6 @@ const Logo: React.FC<PKSvgComponent> = props => {
       version="1"
       viewBox="0 0 202 136"
       fill="currentColor"
-      filter="url(#red-glow)"
       {...props}
     >
       <path

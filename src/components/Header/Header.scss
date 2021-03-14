@@ -5,7 +5,7 @@
   &--base {
     padding: 1em 2em;
     z-index: 100;
-    justify-content: space-between;
+    // justify-content: space-between;
     width: 100%;
 
     @media only screen and (max-width: 500px) {
@@ -32,7 +32,6 @@
     font-size: 2.7em;
     color: $color-primary-900;
     display: flex;
-    margin-right: 6vw;
 
     @media only screen and (max-width: 500px) {
       font-size: 2em;
@@ -40,7 +39,7 @@
   }
 
   &__nav-container {
-    margin: 0 auto;
+    margin: 0 auto 0 auto;
     height: 30px;
   }
 
@@ -50,17 +49,12 @@
 
     &:nth-child(1),
     &--active:nth-child(1) {
-      margin: 0 2vw 0 0;
+      margin: 0 1vw 0 0;
     }
 
     &:nth-child(2),
     &--active:nth-child(2) {
-      margin: 0 2vw;
-    }
-
-    &:nth-child(3),
-    &--active:nth-child(3) {
-      margin: 0 0 0 2vw;
+      margin: 0 1vw;
     }
 
     p {
@@ -72,14 +66,15 @@
     }
 
     &:hover p {
-      color: $color-primary-700;
+      color: $color-primary-600;
     }
 
     &--active {
-      @include dual-gradient($color-primary-800, $color-primary-500);
+      @include dual-gradient($color-secondary-600, $color-primary-500);
       margin: 0 2vw;
       pointer-events: none;
-      border-radius: 15px;
+      border-radius: 6px;
+      box-shadow: 0px 10px 20px 0px $color-boxshadow-light;
       padding: 0 0.6em 0.1em 0.6em;
       text-transform: capitalize;
     }
@@ -105,21 +100,21 @@ $darkmode-dark: #df9100;
     color: $darkmode-light;
   }
 
-  &__nav-link {
-    &:hover p {
-      color: $darkmode-default;
-    }
-    p {
-      color: $darkmode-light;
-    }
+  // &__nav-link {
+  //   &:hover p {
+  //     color: $darkmode-default;
+  //   }
+  //   p {
+  //     color: $darkmode-light;
+  //   }
 
-    &--active {
-      @include dual-gradient($darkmode-light, $darkmode-dark);
-      p {
-        color: #3a3546;
-      }
-    }
-  }
+  //   &--active {
+  //     @include dual-gradient($darkmode-light, $darkmode-dark);
+  //     p {
+  //       color: #3a3546;
+  //     }
+  //   }
+  // }
 
   &__dark-mode-switch {
     & ~ label {

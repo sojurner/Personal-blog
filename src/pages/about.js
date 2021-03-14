@@ -3,6 +3,7 @@ import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component"
+import ReactTooltip from "react-tooltip"
 
 import MainLayout from "@components/Layouts"
 import SEO from "@components/SEO"
@@ -114,7 +115,7 @@ const AboutPage = () => (
         >
           As of now, I'll blog just about anything that comes to my mind.
           Typically, I'll stick to what I know: personal interests and
-          experiences, programming tools and tips, and {" "}
+          experiences, programming tools and tips, and{" "}
           <Typography
             tag="span"
             variant="neutralDark"
@@ -170,7 +171,10 @@ const AboutPage = () => (
             alt="army-pic"
             className="page-about__history__timeline__img"
           />
-          <Typography variant="neutralLight">
+          <Typography
+            variant="neutralLight"
+            className="page-about__history__timeline__p"
+          >
             Four years of service with 168th Multifunctional Medical Battalion
             (Camp Walker, S. Korea) and Lyster Army Health Clinic (Fort Rucker,
             AL).
@@ -190,15 +194,86 @@ const AboutPage = () => (
             Front-end Developer
           </Typography>
           <Flex className="page-about__history__timeline__skill-icons">
-            <Icon color="var(--pk-color-icon-csharp)" svg="csharp" />
-            <Icon color="var(--pk-color-icon-js)" svg="javascript" />
-            <Icon color="var(--pk-color-icon-dotnet)" svg="dotnet" />
-            <Icon color="var(--pk-color-icon-react)" svg="react" />
-            <Icon color="var(--pk-color-icon-sass)" svg="sass" />
-            <Icon color="var(--pk-color-icon-docker)" svg="docker" />
+            <ReactTooltip
+              id="icon-dotnet"
+              backgroundColor="var(--pk-color-icon-dotnet)"
+              type="dark"
+              effect="solid"
+            >
+              <span>Asp.net core</span>
+            </ReactTooltip>
+            <Icon
+              data-tip
+              data-for="icon-dotnet"
+              color="var(--pk-color-icon-dotnet)"
+              svg="dotnet"
+            />
+
+            <ReactTooltip
+              id="icon-blazor"
+              backgroundColor="var(--pk-color-icon-dotnet)"
+              type="dark"
+              effect="solid"
+            >
+              <span>Blazor</span>
+            </ReactTooltip>
+            <Icon
+              data-tip
+              data-for="icon-blazor"
+              color="var(--pk-color-icon-dotnet)"
+              svg="blazor"
+            />
+
+            <ReactTooltip
+              id="icon-react"
+              backgroundColor="var(--pk-color-icon-react)"
+              type="light"
+              effect="solid"
+            >
+              <span>ReactJS</span>
+            </ReactTooltip>
+            <Icon
+              data-tip
+              data-for="icon-react"
+              color="var(--pk-color-icon-react)"
+              svg="react"
+            />
+
+            <ReactTooltip
+              id="icon-sass"
+              backgroundColor="var(--pk-color-icon-sass)"
+              type="dark"
+              effect="solid"
+            >
+              <span>Sass</span>
+            </ReactTooltip>
+            <Icon
+              data-tip
+              data-for="icon-sass"
+              color="var(--pk-color-icon-sass)"
+              svg="sass"
+            />
+
+            <ReactTooltip
+              id="icon-docker"
+              backgroundColor="var(--pk-color-icon-docker)"
+              type="dark"
+              effect="solid"
+            >
+              <span>Docker</span>
+            </ReactTooltip>
+            <Icon
+              data-tip
+              data-for="icon-docker"
+              color="var(--pk-color-icon-docker)"
+              svg="docker"
+            />
           </Flex>
-          <Typography variant="neutralLight">
-            Primary front-end developer working mostly in Blazor and .net-core.
+          <Typography
+            variant="neutralLight"
+            className="page-about__history__timeline__p"
+          >
+            Primary front-end developer working mostly in Blazor and .asp-net core.
           </Typography>
         </VerticalTimelineElement>
       </VerticalTimeline>

@@ -15,34 +15,43 @@ $icon-bg: rgba(77, 79, 80, 0.623);
     position: relative;
   }
 
-  &__wings-div {
+  &__wings-border {
     position: absolute;
     width: 100%;
     top: 0;
     margin: 0 0 5em 0;
     transform: translate(0, -49%);
-  
-    svg {
-      background: var(--pk-color-bg-footer);
-      padding:0 .3em;
-      width: 350px;
-      border-radius: 40px;
-      font-size: 4.5em;
-      position: relative;
-      border-top: 2px solid $color-neutral-500;
-    
-      @for $i from 1 to 41 {
-        g path:nth-child(#{$i}) {
-          fill: nth($fill-colors, random(9));
-        }
-      }
-      
-    }
-    div {
-      // opacity: 0.5;
+
+    &__right,
+    &__left {
       width: inherit;
       height: 3px;
       background: $color-neutral-500;
+      box-shadow: 0 0 13px 0px $color-neutral-600;
+    }
+
+    &__center {
+      background: var(--pk-color-bg-footer);
+      border-radius: 40px;
+      position: relative;
+      border-top: 2px solid $color-neutral-500;
+      overflow: hidden;
+      width: 450px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      svg {
+        font-size: 4em;
+        width: 100%;
+
+        @for $i from 1 to 41 {
+          g path:nth-child(#{$i}) {
+            fill: nth($fill-colors, random(9));
+          }
+        }
+      }
     }
   }
 
@@ -115,13 +124,13 @@ $icon-bg: rgba(77, 79, 80, 0.623);
     height: max-content;
     margin-right: 15px;
   }
-  
+
   &__copyright-social {
     @media only screen and (max-width: 500px) {
       // flex-direction: column-reverse;
     }
   }
-  
+
   &__social-container {
     @media only screen and (max-width: 500px) {
       margin: 3em 0 1em;
@@ -142,12 +151,12 @@ $icon-bg: rgba(77, 79, 80, 0.623);
 
 @keyframes flicker {
   0% {
-    opacity: .2;
+    opacity: 0.2;
   }
   50% {
     opacity: 1;
   }
   100% {
-    opacity: .2;
+    opacity: 0.2;
   }
 }

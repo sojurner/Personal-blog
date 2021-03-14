@@ -231,11 +231,18 @@
       & > h4 {
         line-height: 35px;
 
+        em {
+          color: $color-secondary-700;  
+        }
+
         a {
-          font-size: 1em;
           font-weight: bold;
-          color: $color-neutral-600;
+          color: $color-primary-500;
           text-decoration: underline;
+
+          &:hover {
+            filter:hue-rotate(20deg)
+          }
         }
 
         &:nth-child(4) {
@@ -249,10 +256,15 @@
     }
 
     &__skill-icons {
-      font-size: 1.8em;
-      margin: 0.5em 0;
+      font-size: 2em;
+      margin: 0.5em 0 .2em;
       justify-self: center;
       align-self: center;
+
+      div {
+        margin: .3em;
+      }
+      
       svg {
         margin: 0 0.2em;
       }
@@ -292,37 +304,7 @@
 
   &__about-section__link,
   &__post-section__link-blog {
-    border: 1.5px solid $color-neutral-500;
-    background: $color-neutral-500;
-    padding: 0.5em 2.5em;
-    border-radius: 30px;
-    width: max-content;
 
-    h4 {
-      cursor: pointer;
-      letter-spacing: 1.5px;
-      position: relative;
-      &::after {
-        content: "→";
-        right: -1.4em;
-        position: absolute;
-        opacity: 0;
-        transform: translate3d(10px, 0, 0);
-        transition: 0.3s linear;
-        animation-name: arrow-shift;
-        animation-duration: 1s;
-        animation-timing-function: ease-in-out;
-        animation-iteration-count: infinite;
-      }
-    }
-
-    &:hover {
-      h4 {
-        &::after {
-          opacity: 1;
-        }
-      }
-    }
   }
 
   &__post-section {
@@ -392,18 +374,6 @@
   &__post-section__card__tag {
     cursor: pointer;
     margin-left: 10px;
-  }
-}
-
-@keyframes arrow-shift {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(7px, 0, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
   }
 }
 

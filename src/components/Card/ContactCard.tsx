@@ -15,7 +15,7 @@ const contactInfo = [
   },
   {
     icon: "github",
-    iconColor: "var(--pk-color-icon-github--2)",
+    iconColor: "var(--pk-color-icon-github)",
     label: "Github",
     value: "@sojurner",
     link: "https://github.com/sojurner",

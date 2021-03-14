@@ -1,15 +1,17 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
+import ReactTooltip from "react-tooltip"
+
 import { AniFadeLink, AniLoaderLink } from "@components/Link"
 import { SaxophoneCat, DrummerCat } from "@components/Svg"
 import Icon from "@components/Icon"
 import Typography from "@components/Typography"
 import { RefMainLayout } from "@components/Layouts"
-
 import Flex from "@components/Flex"
 import Tag from "@components/Tag"
 import SEO from "@components/SEO"
+import Button from "@components/Button"
 
 import { blogTypeRef } from "../utils/constants"
 import "@styles/index.scss"
@@ -36,7 +38,7 @@ const HomePage = () => {
       allMarkdownRemark(
         limit: 6
         sort: { fields: [frontmatter___date], order: DESC }
-        ) {
+      ) {
         edges {
           node {
             frontmatter {
@@ -139,20 +141,16 @@ const HomePage = () => {
               <div className="page-home__about-section__divider" />
 
               <Typography tag="h4" variant="neutralLight">
-                I started this website as a creative and therapeutic outlet.
-                I'll share all that I know, and all that I've wondered through{" "}
-                <Link to="/blog">my blog</Link>.
+                I started this website as a <em>creative</em> and{" "}
+                <em>therapeutic</em> outlet. I'll share all that I know, and all
+                that I've wondered through my blog.
               </Typography>
-              <Typography variant="neutralLight" tag="h4">
-                Hope you enjoy!
-              </Typography>
+
               <AniFadeLink
-                to="/about"
+                to="/blog"
                 className="page-home__about-section__link"
               >
-                <Typography variant="neutralBlank" tag="h4">
-                  More About Me
-                </Typography>
+                <Button variant="primary">Go to blog</Button>
               </AniFadeLink>
             </Flex>
           </Flex>
@@ -163,33 +161,171 @@ const HomePage = () => {
               classes={["flexColumn"]}
             >
               <Typography variant="neutralDark" tag="h2">
-                Call me, Maybe?
+                About
               </Typography>
               <div className="page-home__about-section__divider" />
 
               <Typography tag="h4" variant="neutralLight">
-                As a full-stack developer, here are the technology stacks I'm
+                As a full-stack developer, here are some technologies I'm most
                 familiar with:
               </Typography>
-              <Flex className="page-home__about-section__skill-icons">
-                <Icon color="var(--pk-color-neutral-900)" svg="csharp" />
-                <Icon color="var(--pk-color-neutral-900)" svg="javascript" />
-                <Icon color="var(--pk-color-neutral-900)" svg="typescript" />
-                <Icon color="var(--pk-color-neutral-900)" svg="dotnet" />
-                <Icon color="var(--pk-color-neutral-900)" svg="react" />
-                <Icon color="var(--pk-color-neutral-900)" svg="sass" />
-                <Icon color="var(--pk-color-neutral-900)" svg="docker" />
+              <Flex
+                className="page-home__about-section__skill-icons"
+                classes={["flexColumn", "alignItemsCenter"]}
+              >
+                <Flex>
+                  <ReactTooltip
+                    id="icon-js"
+                    backgroundColor="var(--pk-color-icon-js)"
+                    type="light"
+                    effect="solid"
+                  >
+                    <span>JavaScript</span>
+                  </ReactTooltip>
+                  <Icon
+                    data-tip
+                    data-for="icon-js"
+                    color="var(--pk-color-icon-js)"
+                    svg="javascript"
+                  />
+
+                  <ReactTooltip
+                    id="icon-ts"
+                    backgroundColor="var(--pk-color-icon-ts)"
+                    type="dark"
+                    effect="solid"
+                  >
+                    <span>TypeScript</span>
+                  </ReactTooltip>
+                  <Icon
+                    data-tip
+                    data-for="icon-ts"
+                    color="var(--pk-color-icon-ts)"
+                    svg="typescript"
+                  />
+                  <ReactTooltip
+                    id="icon-node"
+                    backgroundColor="var(--pk-color-icon-node)"
+                    type="dark"
+                    effect="solid"
+                  >
+                    <span>NodeJS</span>
+                  </ReactTooltip>
+                  <Icon
+                    data-tip
+                    data-for="icon-node"
+                    color="var(--pk-color-icon-node)"
+                    svg="nodejs"
+                  />
+                  <ReactTooltip
+                    id="icon-react"
+                    backgroundColor="var(--pk-color-icon-react)"
+                    type="light"
+                    effect="solid"
+                  >
+                    <span>ReactJS</span>
+                  </ReactTooltip>
+                  <Icon
+                    data-tip
+                    data-for="icon-react"
+                    color="var(--pk-color-icon-react)"
+                    svg="react"
+                  />
+                </Flex>
+                <Flex>
+                  <ReactTooltip
+                    id="icon-csharp"
+                    backgroundColor="var(--pk-color-icon-csharp)"
+                    type="dark"
+                    effect="solid"
+                  >
+                    <span>C#</span>
+                  </ReactTooltip>
+                  <Icon
+                    data-tip
+                    data-for="icon-csharp"
+                    color="var(--pk-color-icon-csharp)"
+                    svg="csharp"
+                  />
+                  <ReactTooltip
+                    id="icon-dotnet"
+                    backgroundColor="var(--pk-color-icon-dotnet)"
+                    type="dark"
+                    effect="solid"
+                  >
+                    <span>Asp.net core</span>
+                  </ReactTooltip>
+                  <Icon
+                    data-tip
+                    data-for="icon-dotnet"
+                    color="var(--pk-color-icon-dotnet)"
+                    svg="dotnet"
+                  />
+                  <ReactTooltip
+                    id="icon-blazor"
+                    backgroundColor="var(--pk-color-icon-dotnet)"
+                    type="dark"
+                    effect="solid"
+                  >
+                    <span>Blazor</span>
+                  </ReactTooltip>
+                  <Icon
+                    data-tip
+                    data-for="icon-blazor"
+                    color="var(--pk-color-icon-dotnet)"
+                    svg="blazor"
+                  />
+                </Flex>
+                <Flex>
+                  <ReactTooltip
+                    id="icon-html"
+                    backgroundColor="var(--pk-color-icon-html)"
+                    type="dark"
+                    effect="solid"
+                  >
+                    <span>HTML5</span>
+                  </ReactTooltip>
+                  <Icon
+                    data-tip
+                    data-for="icon-html"
+                    color="var(--pk-color-icon-html)"
+                    svg="html"
+                  />
+                  <ReactTooltip
+                    id="icon-sass"
+                    backgroundColor="var(--pk-color-icon-sass)"
+                    type="dark"
+                    effect="solid"
+                  >
+                    <span>SASS</span>
+                  </ReactTooltip>
+                  <Icon
+                    data-tip
+                    data-for="icon-sass"
+                    color="var(--pk-color-icon-sass)"
+                    svg="sass"
+                  />
+                  <ReactTooltip
+                    id="icon-css"
+                    backgroundColor="var(--pk-color-icon-css)"
+                    type="dark"
+                    effect="solid"
+                  >
+                    <span>CSS3</span>
+                  </ReactTooltip>
+                  <Icon
+                    data-tip
+                    data-for="icon-css"
+                    color="var(--pk-color-icon-css)"
+                    svg="css"
+                  />
+                </Flex>
               </Flex>
-              <Typography variant="neutralLight" tag="h4">
-                If you like what you see, feel free to reach out!
-              </Typography>
               <AniFadeLink
-                to="/contact"
+                to="/about"
                 className="page-home__about-section__link"
               >
-                <Typography variant="neutralBlank" tag="h4">
-                  Contact
-                </Typography>
+                <Button variant="secondary">More about me</Button>
               </AniFadeLink>
             </Flex>
             <Flex className="page-home__about-section__img page-home__about-section__img-drummer-cat">
