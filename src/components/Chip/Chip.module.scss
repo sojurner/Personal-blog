@@ -3,10 +3,10 @@
 $chip-variants: (
   //
   primary: ($color-primary-600, $color-primary-800),
-  secondary: ($color-secondary-500, $color-secondary-800),
-  negative: ($color-negative-500, $color-negative-800),
-  positive: ($color-positive-500, $color-positive-800),
-  neutral: ($color-neutral-500, $color-neutral-800),
+  secondary: ($color-secondary-600, $color-secondary-800),
+  negative: ($color-negative-600, $color-negative-800),
+  positive: ($color-positive-600, $color-positive-800),
+  neutral: ($color-neutral-050, $color-neutral-800),
   default: ($color-blank-700, $color-neutral-050)
 );
 

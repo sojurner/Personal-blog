@@ -285,7 +285,7 @@ const query = graphql`
         node {
           frontmatter {
             title
-            date
+            date(formatString: "MMM D, YYYY")
             subject
             featuredImgAlt
           }

@@ -76,6 +76,8 @@
       h1 {
         font-size: 55px;
         position: relative;
+        width: max-content;
+        
         &::first-letter {
           @media only screen and (max-width: 500px) {
             font-size: 100px;
