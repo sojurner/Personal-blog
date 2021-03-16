@@ -36,11 +36,9 @@ const SEO = ({ description, keywords, author, title, url, email }) => {
           "programming",
           "",
         ]
-
         return (
           <Helmet
-            title={metaTitle}
-            titleTemplate={`%s${title ? " - " + title : ""}`}
+            title={title}
             meta={[
               {
                 name: `description`,

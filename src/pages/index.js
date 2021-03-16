@@ -67,7 +67,7 @@ const HomePage = () => {
 
   return (
     <RefMainLayout ref={mainRef} className="page-home">
-      <SEO />
+      <SEO title={data.site.siteMetadata.author} />
       <Flex className="page-home__landing-container" classes={["flexColumn"]}>
         <Flex
           classes={["flexColumn", "alignItemsCenter", "justifyContentCenter"]}

@@ -98,7 +98,7 @@ const BlogCategory = ({ data, pageContext }) => {
 
   return (
     <RefMainLayout ref={mainRef} className="page-blog">
-      <SEO title={`Blog (${pageContext.subject})`} />
+      <SEO title={`Blogs - ${pageContext.subject}`} />
       {!inView && (
         <aside className="page-blog__aside">
           <Flex className="page-blog__aside__filter-container">

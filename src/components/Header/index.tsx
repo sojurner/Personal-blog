@@ -89,7 +89,7 @@ const TemplateHeader = ({ fixed }) => {
                 >
                   <Typography
                     variant={
-                      routeProps.label == root ? "neutralBlank" : "primaryDark"
+                      routeProps.label == root ? "neutralBlank" : "primaryDefault"
                     }
                     tag="p"
                   >
