@@ -90,6 +90,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/memes`,
+      },
+    },
+    {
       resolve: "gatsby-plugin-sass",
       options: {
         name: "src",

@@ -41,6 +41,12 @@ import email from "@iconify-icons/mdi/email-outline"
 import linkedIn from "@iconify-icons/mdi/linkedin-box"
 import telegram from "@iconify-icons/mdi/telegram"
 
+import uparrow from '@iconify-icons/mdi/arrow-up-bold-outline';
+import downarrow from '@iconify-icons/mdi/arrow-down-bold';
+
+import upfinger from "@iconify-icons/mdi/hand-pointing-up";
+import downfinger from "@iconify-icons/mdi/hand-pointing-down"
+
 import iconStyles from "./Icon.module.scss"
 import { PKColorVariant } from "@typings/component"
 
@@ -97,7 +103,11 @@ const iconSvg = Object.freeze({
   telegram,
   accountFile,
   blazor,
-  eye
+  eye,
+  upfinger,
+  downfinger,
+  uparrow,
+  downarrow
 })
 
 type IconVariantKey = keyof typeof iconVariants

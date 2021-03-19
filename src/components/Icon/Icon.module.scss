@@ -20,6 +20,10 @@ $typography-variants: (
 );
 
 .icon {
+  &--base {
+    box-sizing: border-box;
+  }
+  
   @each $variant, $color in $typography-variants {
     &--#{$variant} {
       color: $color;

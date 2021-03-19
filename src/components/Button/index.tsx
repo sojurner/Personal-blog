@@ -5,12 +5,17 @@ import { PKExtendedVariant } from "@typings/component"
 
 const btnVariants: PKExtendedVariant = Object.freeze({
   primary: btnStyles.btnPrimary,
+  primaryActive: btnStyles.btnPrimaryActive,
   secondary: btnStyles.btnSecondary,
+  secondaryActive: btnStyles.btnSecondaryActive,
   negative: btnStyles.btnNegative,
+  negativeActive: btnStyles.btnNegativeActive,
   positive: btnStyles.btnPositive,
+  positiveActive: btnStyles.btnPositiveActive,
   neutral: btnStyles.btnNeutral,
   default: btnStyles.btnDefault,
 })
+console.log(btnStyles)
 
 type BtnVariantKey = keyof typeof btnVariants
 

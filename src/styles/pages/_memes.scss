@@ -1,0 +1,58 @@
+@import "../utils/vars";
+@import "../utils/mixins";
+
+.page-memes {
+  &__content-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5em 0 10em 0;
+  }
+
+  .meme {
+    position: relative;
+  }
+
+  .meme-img {
+    width: 550px;
+    margin: auto;
+    @include blend-shadow($color-boxshadow-neutral, $_z12);
+  }
+
+  .meme-info {
+    margin: 5px 0 15px;
+  }
+
+  .meme-tags {
+    * {
+      pointer-events: none;
+      margin: 0 3px;
+    }
+  }
+
+  .meme-title {
+    width: 100%;
+  }
+
+  .meme-vote {
+    font-size: 1.7em;
+    padding: .4em;
+    margin: 10px 10px 0 10px;
+  }
+
+  .meme-stats {
+    margin: 10px 10px 0 10px;
+    width: 30px;
+    justify-content: space-between;
+  }
+
+  .meme-divider {
+    margin: 50px 0;
+  }
+
+  @media only screen and (max-width: 1030px) {
+    .meme-img {
+      width: 450px;
+    }
+  }
+}

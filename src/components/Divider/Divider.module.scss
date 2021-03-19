@@ -1,17 +1,22 @@
 @import "../../styles/utils/vars";
 
 .divider {
-  &--primary {
-      height: 0;
-    border-bottom: 1px solid $color-bdr-primary;
+  &--base {
+    height: 0;
+    border: 1px solid;
     margin: 10px 0;
-    opacity: .3;
+    opacity: 0.6;
+  }
+
+  &--default {
+    border-color: $color-bdr-default;
+  }
+
+  &--primary {
+    border-color: $color-bdr-primary;
   }
 
   &--secondary {
-    height: 0;
-    margin: 10px 0;
-    opacity: .3;
-    border-bottom: 1px solid $color-bdr-secondary;
+    border-color: $color-bdr-secondary;
   }
 }
