@@ -10,13 +10,17 @@ import Chip from "@components/Chip"
 import Divider from "@components/Divider"
 import Typography from "@components/Typography"
 import Icon from "@components/Icon"
+import { AniLoaderLink } from "@components/Link"
 
 import "@styles/pages/_memes.scss"
 import { memes, tagIconRef } from "../utils/constants"
 import { useMemeMeta } from "../hooks"
 
-const MemesPage = () => {
+const MemesPage = ({ location }) => {
   const [memeSession, setMemeSession] = React.useState({})
+  const [notification, setNotification] = React.useState(false)
+  const [memeState, updateMemePoints] = useMemeMeta()
+
   const data = useStaticQuery(graphql`
     query {
       allFile(
@@ -44,7 +48,26 @@ const MemesPage = () => {
     updateMemePoints(id, vote)
   }
 
-  const [memeState, updateMemePoints] = useMemeMeta()
+  const onMemeCopyLink = path => {
+    const el = document.createElement("textarea")
+    el.value = `${location.origin}/meme/${path}`
+    console.log(location)
+
+    el.setAttribute("readonly", "")
+    el.style.position = "absolute"
+    el.style.opacity = 0
+
+    document.body.appendChild(el)
+    el.select()
+
+    document.execCommand("copy")
+    document.body.removeChild(el)
+
+    setNotification(true)
+    setTimeout(() => {
+      setNotification(false)
+    }, 4000)
+  }
 
   return (
     <MainLayout className="page-memes">
@@ -52,93 +75,118 @@ const MemesPage = () => {
       <Flex className="memes" classes={["flexColumn"]}>
         {data.allFile.edges.map(({ node }, index) => {
           return node.childImageSharp ? (
-            <>
-              <Flex
-                key={`meme-${index}`}
-                className="meme"
-                classes={["flexColumn"]}
-              >
-                <Flex className="meme-title">
-                  <Typography tag="h3" variant="neutralDefault">
-                    {memes[node.name].title}
-                  </Typography>
-                </Flex>
-                <Flex
-                className="meme-info"
-                  classes={[
-                    "flexRow",
-                    "justifyContentBetween",
-                    "alignItemsCenter",
-                  ]}
-                >
-                  <Typography tag="span" variant="neutralDark">
-                    {new Intl.DateTimeFormat("en-US", {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    }).format(new Date(memes[node.name].timestamp))}
-                  </Typography>
-                  <Flex className="meme-tags">
-                    {memes[node.name].tags.map(tag => (
-                      <>
+            <div key={`meme-${index}`}>
+              <Flex className="meme" classes={["flexColumn"]}>
+                <AniLoaderLink className="meme-link--title" to={`/meme/${node.name}`}>
+                  <Flex className="meme-title">
+                    <Typography tag="h3" variant="neutralDefault">
+                      {memes[node.name].title}
+                    </Typography>
+                  </Flex>
+
+                  <Flex
+                    className="meme-info"
+                    classes={[
+                      "flexRow",
+                      "justifyContentBetween",
+                      "alignItemsCenter",
+                    ]}
+                  >
+                    <Typography tag="span" variant="neutralDark">
+                      {new Intl.DateTimeFormat("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      }).format(new Date(memes[node.name].timestamp))}
+                    </Typography>
+                    <Flex className="meme-tags">
+                      {memes[node.name].tags.map((tag, i) => (
                         <Chip
                           variant="default"
                           label={tag}
-                          key={`filter-chip-${index}`}
+                          key={`chip-${node.name}-${i}`}
                           icon={tagIconRef[tag]}
                         />
-                      </>
-                    ))}
+                      ))}
+                    </Flex>
                   </Flex>
-                </Flex>
-                <Img
-                  className="meme-img"
-                  key={`img-${index}`}
-                  fluid={node.childImageSharp.fluid}
-                />
-                {memeState && (
-                  <Flex className="meme-stats" classes={["flexRow","alignItemsCenter"]}>
-                    <Icon svg="uparrow" variant="neutralDark" />
-                    <Typography tag="p" variant="neutralDark">
-                      {memeState[node.name].points}
-                    </Typography>
-                  </Flex>
-                )}
-                <Flex classes={["flexRow", "justifyContentCenter"]}>
-                  <Button
-                    className="meme-vote meme-vote--up"
-                    variant={
-                      memeSession.hasOwnProperty(node.name)
-                        ? memeSession[node.name]
-                          ? "positiveActive"
+                </AniLoaderLink>
+                <AniLoaderLink className="meme-link--img" to={`/meme/${node.name}`}>
+                  <Img
+                    className="meme-img"
+                    key={`img-${index}`}
+                    fluid={node.childImageSharp.fluid}
+                  />
+                </AniLoaderLink>
+                <Flex
+                  className="meme-footer"
+                  classes={["flexRow", "alignItemsCenter"]}
+                >
+                  {memeState && (
+                    <Flex
+                      className="meme-stats"
+                      classes={["flexRow", "alignItemsCenter"]}
+                    >
+                      <Icon svg="uparrow" variant="neutralDark" />
+                      <Typography tag="p" variant="neutralDark">
+                        {memeState[node.name].points}
+                      </Typography>
+                    </Flex>
+                  )}
+                  <Flex
+                    className="meme-actions"
+                    classes={["flexRow", "justifyContentCenter"]}
+                  >
+                    <Button
+                      className="meme-vote meme-vote--up"
+                      variant={
+                        memeSession.hasOwnProperty(node.name)
+                          ? memeSession[node.name]
+                            ? "positiveActive"
+                            : "positive"
                           : "positive"
-                        : "positive"
-                    }
-                    onClick={() => onMemeVote(node.name, true)}
-                  >
-                    <Icon svg="upfinger" />
-                  </Button>
+                      }
+                      onClick={() => onMemeVote(node.name, true)}
+                    >
+                      <Icon svg="upfinger" />
+                    </Button>
+                    <Button
+                      className="meme-vote meme-vote--down"
+                      variant={
+                        memeSession.hasOwnProperty(node.name)
+                          ? memeSession[node.name]
+                            ? "negative"
+                            : "negativeActive"
+                          : "negative"
+                      }
+                      onClick={() => onMemeVote(node.name, false)}
+                    >
+                      <Icon svg="downfinger" />
+                    </Button>
+                  </Flex>
                   <Button
-                    className="meme-vote meme-vote--down"
-                    variant={
-                      memeSession.hasOwnProperty(node.name)
-                        ? memeSession[node.name]
-                          ? "negative"
-                          : "negativeActive"
-                        : "negative"
-                    }
-                    onClick={() => onMemeVote(node.name, false)}
+                    onClick={() => onMemeCopyLink(node.name)}
+                    variant="secondary"
+                    className="meme-share"
                   >
-                    <Icon svg="downfinger" />
+                    <Icon svg="link" />
                   </Button>
                 </Flex>
               </Flex>
               {index < data.allFile.edges.length - 1 && (
                 <Divider className="meme-divider" />
               )}
-            </>
+            </div>
           ) : null
         })}
+      </Flex>
+      <Flex
+        className={`notification-clipboard notification--${
+          Boolean(notification) ? "show" : "hide"
+        }`}
+      >
+        <Icon svg="link" />
+        <Typography>Copied Link!</Typography>
       </Flex>
     </MainLayout>
   )

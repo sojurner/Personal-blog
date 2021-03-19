@@ -43,9 +43,7 @@ module.exports.onCreateNode = async ({
       }
     }
 
-    const [_, root, subject, slug] = createFilePath({ node, getNode }).split(
-      "/"
-    )
+    const [_, __, subject, slug] = createFilePath({ node, getNode }).split("/")
 
     createNodeField({ node, name: "slug", value: slug })
     createNodeField({ node, name: "subject", value: subject })
@@ -75,12 +73,24 @@ module.exports.createPages = async ({ graphql, actions }) => {
           fieldValue
         }
       }
+      allFile(
+        filter: {
+          extension: { regex: "/(jpeg|jpg|gif|png)/" }
+          relativePath: { regex: "/memes/" }
+        }
+      ) {
+        edges {
+          node {
+            name
+          }
+        }
+      }
     }
   `)
 
   const { edges: posts } = response.data.allMarkdownRemark
-
   const { group: tags } = response.data.tagsGroup
+  const { edges: memes } = response.data.allFile
 
   posts.forEach(edge => {
     const { fields, frontmatter } = edge.node
@@ -96,6 +106,15 @@ module.exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve("./src/templates/blogCategory.js"),
       path: `/blog/${tag.fieldValue}`,
       context: { subject: tag.fieldValue },
+    })
+  })
+
+  memes.forEach(kek => {
+    const { name } = kek.node
+    createPage({
+      component: path.resolve("./src/templates/meme.js"),
+      path: `/meme/${name}`,
+      context: { name },
     })
   })
 }

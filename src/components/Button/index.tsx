@@ -15,7 +15,6 @@ const btnVariants: PKExtendedVariant = Object.freeze({
   neutral: btnStyles.btnNeutral,
   default: btnStyles.btnDefault,
 })
-console.log(btnStyles)
 
 type BtnVariantKey = keyof typeof btnVariants
 

@@ -46,6 +46,7 @@ import downarrow from '@iconify-icons/mdi/arrow-down-bold';
 
 import upfinger from "@iconify-icons/mdi/hand-pointing-up";
 import downfinger from "@iconify-icons/mdi/hand-pointing-down"
+import link from "@iconify-icons/mdi/link-variant"
 
 import iconStyles from "./Icon.module.scss"
 import { PKColorVariant } from "@typings/component"
@@ -107,7 +108,8 @@ const iconSvg = Object.freeze({
   upfinger,
   downfinger,
   uparrow,
-  downarrow
+  downarrow,
+  link
 })
 
 type IconVariantKey = keyof typeof iconVariants

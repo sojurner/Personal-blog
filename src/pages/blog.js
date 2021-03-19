@@ -66,8 +66,8 @@ const BlogPage = () => {
   `)
 
   const [visibleState, setVisibleState] = React.useState(
-    data.allMarkdownRemark.edges.reduce((result, { node: { fields } }) => {
-      result[fields.slug] = false
+    data.allMarkdownRemark.edges.reduce((result, { node }) => {
+      result[node.fields.slug] = false
       return result
     }, {})
   )
