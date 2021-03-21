@@ -202,11 +202,14 @@ $darkmode-light: #ecb829;
     }
 
     blockquote {
-      padding-left: 15px;
+      background: $color-blank-800;
+      padding:10px 15px;
       border-left: 3px solid $color-neutral-900;
       font-weight: 500;
+      margin-bottom: 25px;
       p {
         color: $color-neutral-600;
+        margin: 0;
       }
     }
   }
