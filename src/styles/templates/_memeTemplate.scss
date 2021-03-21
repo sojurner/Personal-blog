@@ -11,12 +11,16 @@
 
   .meme-img {
     width: 550px;
-    margin: auto;
+    margin: 0;
     @include blend-shadow($color-boxshadow-neutral, $_z12);
   }
 
   .meme-info {
     margin: 5px 0 15px;
+  }
+
+  .meme-date {
+    opacity: 0.6;
   }
 
   .meme-tags {
@@ -36,7 +40,7 @@
 
   .meme-stats {
     margin-right: 10px;
-
+    opacity: 0.6;
     p {
       margin-left: 3px;
     }
@@ -69,17 +73,56 @@
     opacity: 0;
   }
 
-  @media only screen and (max-width: 1030px) {
-    .memes {
+  .other-memes {
+    margin-top: 10em;
+  }
+
+  .other-memes-title {
+    margin-bottom: 2em;
+  }
+
+  .other-memes-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px 40px;
+  }
+
+  .other-memes-img-container {
+    transition: 0.2s ease-in;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.05);
+      p {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .other-memes-img {
+    width: 240px;
+    height: 150px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .meme {
       width: 95vw;
     }
     .meme-img {
       width: 100%;
     }
+    .other-memes-img {
+      width: 300px;
+    }
+
+    .other-memes-group {
+      grid-template-columns: 1fr;
+    }
   }
 }
 
 .notification-clipboard {
+  @include blend-shadow($color-boxshadow-neutral, $_z10);
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -101,6 +144,7 @@
 .notification--show {
   opacity: 1;
   bottom: 20px;
+  z-index: 100;
 }
 
 .notification--hide {

@@ -12,6 +12,8 @@ import Flex from "@components/Flex"
 import Tag from "@components/Tag"
 import SEO from "@components/SEO"
 import Button from "@components/Button"
+import Carousel from "@components/Carousel"
+import { memes } from "../utils/constants"
 
 import { blogTypeRef } from "../utils/constants"
 import "@styles/index.scss"
@@ -49,8 +51,32 @@ const HomePage = () => {
               tags
               featuredImgUrl
             }
+            featuredImg {
+              childImageSharp {
+                fluid(maxWidth: 500) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
             fields {
               slug
+            }
+          }
+        }
+      }
+      allFile(
+        filter: {
+          extension: { regex: "/(jpeg|jpg|gif|png)/" }
+          relativePath: { regex: "/memes/" }
+        }
+      ) {
+        edges {
+          node {
+            name
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
             }
           }
         }
@@ -334,15 +360,16 @@ const HomePage = () => {
           </Flex>
         </Flex>
         <Flex classes={["flexColumn"]} className="page-home__post-section">
-          <Typography tag="h1" variant="neutralDark">
-            Latest Posts
+          <Typography className="extended-title" tag="h1" variant="neutralDark">
+            Latest Blogs
           </Typography>
+
           <Flex
             className="page-home__post-section__cards-container"
             classes={["flexRow", "justifyContentAround", "flexWrap"]}
           >
-            {data.allMarkdownRemark.edges.map(edge => {
-              const { frontmatter, fields } = edge.node
+            {data.allMarkdownRemark.edges.map(({ node }) => {
+              const { frontmatter, fields, featuredImg } = node
               return (
                 <AniLoaderLink
                   key={`latest-posts-${frontmatter.title}`}
@@ -354,9 +381,11 @@ const HomePage = () => {
                       blogTypeRef[frontmatter.subject].tagVariant
                     } page-home__post-section__card`}
                   >
-                    <img
+                    <Img
+                      fluid={featuredImg.childImageSharp.fluid}
                       src={frontmatter.featuredImgUrl}
                       alt="blog front img"
+                      className={`page-home__post-section__card__img`}
                     />
                     <Typography variant="neutralDark" tag="h3">
                       {frontmatter.title}
@@ -383,11 +412,44 @@ const HomePage = () => {
           <AniFadeLink
             to="/blog"
             direction="left"
-            className="page-home__post-section__link-blog"
+            className="page-home__post-section__link-blog to-section-btn-link"
           >
-            <Typography variant="neutralBlank" tag="h4">
-              View More
-            </Typography>
+            <Button variant="default">More Posts</Button>
+          </AniFadeLink>
+        </Flex>
+
+        <Flex className="memes" classes={["flexColumn", "alignItemsCenter"]}>
+          <Typography
+            className="memes-title extended-title"
+            tag="h1"
+            variant="neutralDark"
+          >
+            Lates Memes
+          </Typography>
+          <Carousel className="memes-carousel">
+            {data.allFile.edges.map(({ node }, index) => (
+              <AniFadeLink
+                key={`${node.name}-${index}`}
+                to={`/meme/${node.name}`}
+              >
+                <Flex className="meme-img-container" classes={["flexCloumn"]}>
+                  <Img
+                    className="meme-img"
+                    fluid={node.childImageSharp.fluid}
+                  />
+                  <Typography tag="p" variant="neutralLight">
+                    {memes[node.name].title}
+                  </Typography>
+                </Flex>
+              </AniFadeLink>
+            ))}
+          </Carousel>
+          <AniFadeLink
+            to="/memes"
+            direction="left"
+            className="meme-all-link to-section-btn-link"
+          >
+            <Button variant="default">More Memes</Button>
           </AniFadeLink>
         </Flex>
       </Flex>

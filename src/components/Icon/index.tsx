@@ -43,9 +43,12 @@ import telegram from "@iconify-icons/mdi/telegram"
 
 import uparrow from '@iconify-icons/mdi/arrow-up-bold-outline';
 import downarrow from '@iconify-icons/mdi/arrow-down-bold';
-
 import upfinger from "@iconify-icons/mdi/hand-pointing-up";
 import downfinger from "@iconify-icons/mdi/hand-pointing-down"
+import rightChevron from "@iconify-icons/mdi/chevron-right"
+import leftChevron from "@iconify-icons/mdi/chevron-left"
+
+
 import link from "@iconify-icons/mdi/link-variant"
 
 import iconStyles from "./Icon.module.scss"
@@ -109,7 +112,9 @@ const iconSvg = Object.freeze({
   downfinger,
   uparrow,
   downarrow,
-  link
+  link,
+  leftChevron,
+  rightChevron
 })
 
 type IconVariantKey = keyof typeof iconVariants

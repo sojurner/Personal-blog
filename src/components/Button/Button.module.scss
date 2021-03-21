@@ -29,6 +29,11 @@ $btn-variants: (
     z-index: 2;
     overflow: hidden;
 
+    &:disabled {
+      opacity: .4;
+      pointer-events: none;
+    }
+
     &:focus {
       outline: none;
       box-shadow: inset 0px -2px 5px rgb(243, 243, 243),

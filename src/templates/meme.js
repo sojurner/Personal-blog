@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import MainLayout from "@components/Layouts"
@@ -9,6 +9,8 @@ import Flex from "@components/Flex"
 import Chip from "@components/Chip"
 import Typography from "@components/Typography"
 import Icon from "@components/Icon"
+import Carousel from "@components/Carousel"
+import { AniFadeLink } from "@components/Link"
 
 import "@styles/templates/_memeTemplate.scss"
 import { memes, tagIconRef } from "../utils/constants"
@@ -19,8 +21,10 @@ const DOWNVOTE = "downvote"
 
 const Meme = ({ data, location }) => {
   const { name, childImageSharp } = data.file
+  let { edges } = data.allFile
+  edges = edges.sort((a, b) => 0.5 - Math.random())
 
-  const [memePts, updatePoints, error, landing] = useMemeView(name)
+  const [memePts, updatePoints] = useMemeView(name)
   const [voteSession, setVoteSession] = React.useState("")
   const [notification, setNotification] = React.useState(false)
 
@@ -51,7 +55,7 @@ const Meme = ({ data, location }) => {
 
   return (
     <MainLayout className="page-meme">
-      <SEO title={"meme"} />
+      <SEO title={memes[name].title} />
       <Flex className="meme" classes={["flexColumn"]}>
         <Flex className="meme-title">
           <Typography tag="h3" variant="neutralDefault">
@@ -63,7 +67,7 @@ const Meme = ({ data, location }) => {
           className="meme-info"
           classes={["flexRow", "justifyContentBetween", "alignItemsCenter"]}
         >
-          <Typography tag="span" variant="neutralDark">
+          <Typography className="meme-date" tag="span" variant="neutralLight">
             {new Intl.DateTimeFormat("en-US", {
               month: "short",
               day: "numeric",
@@ -88,8 +92,8 @@ const Meme = ({ data, location }) => {
             className="meme-stats"
             classes={["flexRow", "alignItemsCenter"]}
           >
-            <Icon svg="uparrow" variant="neutralDark" />
-            <Typography tag="p" variant="neutralDark">
+            <Icon svg="uparrow" variant="neutralLight" />
+            <Typography tag="p" variant="neutralLight">
               {Boolean(memePts) ? memePts : 0}
             </Typography>
           </Flex>
@@ -114,7 +118,7 @@ const Meme = ({ data, location }) => {
               className="meme-vote meme-vote--down"
               variant={
                 voteSession
-                  ? voteSession == DOWNVOTE
+                  ? voteSession === DOWNVOTE
                     ? "negativeActive"
                     : "negative"
                   : "negative"
@@ -134,11 +138,41 @@ const Meme = ({ data, location }) => {
         </Flex>
       </Flex>
       <Flex
-        className=
-        {`notification-clipboard notification--${
+        className="other-memes"
+        classes={["flexColumn", "alignItemsCenter"]}
+      >
+        <Typography className="other-memes-title" tag="h2">
+          Other Memes
+        </Typography>
+        <Flex>
+          <div className="other-memes-group">
+            {edges.map(({ node }, index) => (
+              <AniFadeLink
+                key={`${node.name}-${index}`}
+                to={`/meme/${node.name}`}
+              >
+                <Flex
+                  className="other-memes-img-container"
+                  classes={["flexColumn", "justifyContentCenter"]}
+                >
+                  <Img
+                    className="other-memes-img"
+                    fluid={node.childImageSharp.fluid}
+                  />
+                  <Typography tag="p" variant="neutralLight">
+                    {memes[node.name].title}
+                  </Typography>
+                </Flex>
+              </AniFadeLink>
+            ))}
+          </div>
+        </Flex>
+      </Flex>
+      <Flex
+        className={`notification-clipboard notification--${
           Boolean(notification) ? "show" : "hide"
         }`}
-        >
+      >
         <Icon svg="link" />
         <Typography>Copied Link!</Typography>
       </Flex>
@@ -153,6 +187,25 @@ const query = graphql`
       childImageSharp {
         fluid(maxWidth: 700) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    allFile(
+      limit: 6
+      filter: {
+        extension: { regex: "/(jpeg|jpg|gif|png)/" }
+        relativePath: { regex: "/memes/" }
+        name: { ne: $name }
+      }
+    ) {
+      edges {
+        node {
+          name
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }

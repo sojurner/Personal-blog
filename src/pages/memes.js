@@ -92,7 +92,7 @@ const MemesPage = ({ location }) => {
                       "alignItemsCenter",
                     ]}
                   >
-                    <Typography tag="span" variant="neutralDark">
+                    <Typography className="meme-date" tag="span" variant="neutralLight">
                       {new Intl.DateTimeFormat("en-US", {
                         month: "short",
                         day: "numeric",
@@ -127,8 +127,8 @@ const MemesPage = ({ location }) => {
                       className="meme-stats"
                       classes={["flexRow", "alignItemsCenter"]}
                     >
-                      <Icon svg="uparrow" variant="neutralDark" />
-                      <Typography tag="p" variant="neutralDark">
+                      <Icon svg="uparrow" variant="neutralLight" />
+                      <Typography tag="p" variant="neutralLight">
                         {memeState[node.name].points}
                       </Typography>
                     </Flex>

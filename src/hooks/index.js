@@ -115,7 +115,7 @@ const useMemeMeta = () => {
 }
 
 const useMemeView = id => {
-  const [firebase, table] = useFirebase("memes")
+  const [_, table] = useFirebase("memes")
 
   const [memePoints, setMemePoints] = useState(null)
   const [error, setError] = useState("")

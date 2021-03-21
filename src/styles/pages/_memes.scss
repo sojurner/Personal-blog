@@ -33,6 +33,10 @@
     margin: 5px 0 15px;
   }
 
+  .meme-date {
+    opacity: 0.7;
+  }
+
   .meme-tags {
     * {
       pointer-events: none;
@@ -78,7 +82,7 @@
     margin: 50px 0;
   }
 
-  @media only screen and (max-width: 1030px) {
+  @media only screen and (max-width: 600px) {
     .memes {
       width: 95vw;
     }
