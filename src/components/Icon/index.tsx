@@ -48,8 +48,8 @@ import downfinger from "@iconify-icons/mdi/hand-pointing-down"
 import rightChevron from "@iconify-icons/mdi/chevron-right"
 import leftChevron from "@iconify-icons/mdi/chevron-left"
 
-
 import link from "@iconify-icons/mdi/link-variant"
+import share from "@iconify-icons/mdi/share-variant-outline"
 
 import iconStyles from "./Icon.module.scss"
 import { PKColorVariant } from "@typings/component"
@@ -110,11 +110,12 @@ const iconSvg = Object.freeze({
   eye,
   upfinger,
   downfinger,
+  link,
+  share,
   uparrow,
   downarrow,
-  link,
   leftChevron,
-  rightChevron
+  rightChevron,
 })
 
 type IconVariantKey = keyof typeof iconVariants

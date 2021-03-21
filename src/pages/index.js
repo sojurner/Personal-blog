@@ -69,6 +69,7 @@ const HomePage = () => {
           extension: { regex: "/(jpeg|jpg|gif|png)/" }
           relativePath: { regex: "/memes/" }
         }
+        limit: 9
       ) {
         edges {
           node {
@@ -424,7 +425,7 @@ const HomePage = () => {
             tag="h1"
             variant="neutralDark"
           >
-            Lates Memes
+            Latest Memes
           </Typography>
           <Carousel className="memes-carousel">
             {data.allFile.edges.map(({ node }, index) => (

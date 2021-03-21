@@ -70,12 +70,31 @@
     margin: 10px;
     height: max-content;
   }
+  .meme-social {
+    margin-left: auto;
+  }
 
-  .meme-share {
+  .meme-share,
+  .meme-src-link {
     font-size: 1.2em;
     padding: 0.4em;
     height: max-content;
-    margin-left: auto;
+    margin: 0 5px;
+  }
+
+  .meme-src-link {
+    display: flex;
+    padding: 0.4em .5em .4em .4em;
+
+    span {
+      margin-left: 5px;
+      color: inherit;
+      font-weight: 500;
+    }
+
+    &:hover {
+      color: $color-blank-500;
+    }
   }
 
   .meme-divider {

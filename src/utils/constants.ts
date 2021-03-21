@@ -60,6 +60,29 @@ const SOCIAL: string = "social"
 const memeTags: string[] = [DEV, TECH, SOCIAL]
 
 const memes = {
+  "canadian-wolves": {
+    title: "Canadian Wolves",
+    tags: [SOCIAL],
+    timestamp: "3-21-2021",
+    src: "https://twitter.com/JubilationsArt/status/1103799553264771072"
+  },
+  "monke-skywalker": {
+    title: "Monke Skywalker",
+    tags: [SOCIAL],
+    timestamp: "3-21-2021",
+  },
+  "depressed-sonic-kid": {
+    title: "Faster than Light",
+    tags: [SOCIAL],
+    timestamp: "3-21-2021",
+    src: "https://www.reddit.com/r/MemeRestoration/comments/ejqdod/depressed_kid_in_sonic_costumethe_problem_of/"
+  },
+  "say-no-to-robber": {
+    title: "Just say no",
+    tags: [SOCIAL],
+    timestamp: "3-21-2021",
+    src: "https://ifunny.co/picture/getting-robbed-just-say-no-your-robber-legally-cannot-take-wUqTRclf6"
+  },
   "army-clown-nft": {
     title: "You know about NFTs?",
     tags: [SOCIAL],

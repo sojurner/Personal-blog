@@ -163,7 +163,7 @@ const BlogPage = () => {
                     depth={"z5"}
                     variant={"default"}
                   >
-                    {featuredImg && (
+                    {featuredImg && visibleState[fields.slug] && (
                       <Img
                         fluid={featuredImg.childImageSharp.fluid}
                         className="page-blog__card-header__foreground-img"

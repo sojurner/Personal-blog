@@ -9,7 +9,6 @@ import Flex from "@components/Flex"
 import Chip from "@components/Chip"
 import Typography from "@components/Typography"
 import Icon from "@components/Icon"
-import Carousel from "@components/Carousel"
 import { AniFadeLink } from "@components/Link"
 
 import "@styles/templates/_memeTemplate.scss"
