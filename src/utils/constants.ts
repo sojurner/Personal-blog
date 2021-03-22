@@ -44,7 +44,7 @@ export const tagIconRef = {
   culture: "social",
   dev: "codetags",
   social: "social",
-  tech: "console"
+  tech: "console",
 }
 
 const routes = [
@@ -60,11 +60,29 @@ const SOCIAL: string = "social"
 const memeTags: string[] = [DEV, TECH, SOCIAL]
 
 const memes = {
+  "fat-avengers": {
+    title: "Fat Avengers",
+    tags: [SOCIAL],
+    timestamp: "3-22-2021",
+  },
+  "put-a-sock-in-it": {
+    title: "Put a sock in it",
+    tags: [SOCIAL],
+    timestamp: "3-22-2021",
+    src:
+      "https://www.reddit.com/r/blursedimages/comments/ei17hq/blursed_shoes/",
+  },
+  "padme-lol": {
+    title: "lol",
+    tags: [SOCIAL],
+    timestamp: "3-22-2021",
+    src: "https://www.reddit.com/r/me_irl/comments/m7os99/me_irl/",
+  },
   "canadian-wolves": {
     title: "Canadian Wolves",
     tags: [SOCIAL],
     timestamp: "3-21-2021",
-    src: "https://twitter.com/JubilationsArt/status/1103799553264771072"
+    src: "https://twitter.com/JubilationsArt/status/1103799553264771072",
   },
   "monke-skywalker": {
     title: "Monke Skywalker",
@@ -75,13 +93,15 @@ const memes = {
     title: "Faster than Light",
     tags: [SOCIAL],
     timestamp: "3-21-2021",
-    src: "https://www.reddit.com/r/MemeRestoration/comments/ejqdod/depressed_kid_in_sonic_costumethe_problem_of/"
+    src:
+      "https://www.reddit.com/r/MemeRestoration/comments/ejqdod/depressed_kid_in_sonic_costumethe_problem_of/",
   },
   "say-no-to-robber": {
     title: "Just say no",
     tags: [SOCIAL],
     timestamp: "3-21-2021",
-    src: "https://ifunny.co/picture/getting-robbed-just-say-no-your-robber-legally-cannot-take-wUqTRclf6"
+    src:
+      "https://ifunny.co/picture/getting-robbed-just-say-no-your-robber-legally-cannot-take-wUqTRclf6",
   },
   "army-clown-nft": {
     title: "You know about NFTs?",
