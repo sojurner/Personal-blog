@@ -26,7 +26,9 @@ I've never actually encountered a **military imposter** in real life. So it's ha
 
 However, even if this type of practice was _commonplace_, I, as a veteran, could care less about it. Granted, having only served 4 short years, I am not as _emotionally invested_ in my **military identity** as many others. With that said, accusing this act as "_stealing_" is an **over exaggeration**.
 
-**Valor** isn't some non-fungible asset circulating in a _finite pool_. It's simply a _social concept_ to recognize those who have **served**. It's as _plentiful_ and _abundant_ as our minds make it out to be. Stealing implies a +/- transaction, which in this case, valor meant for true deserving veterans are being stripped away from imposters. Those who rightfully have valor, still maintain it...whatever that means.
+**Valor** isn't some non-fungible asset circulating in a _finite pool_. It's simply a _social concept_ to recognize those who have **served**. It's as _plentiful_ and _abundant_ as our minds make it out to be.
+
+*Stealing* implies a **+/- transaction**, which in this context, valor meant for true deserving veterans are being stripped away from imposters.  In this case, no one is stealing from anyone. Those who rightfully have valor, still maintain it...whatever that means.
 
 Clearly, **Stolen Valor** isn't what you'd deem as _commendable_ behavior, but nor is it as _bad_ as it has been publicized. In fact, I'd argue that the act itself, isn't necessarily being _harmful_ to anyone else other than potentially, **the imposter's themselves**.
 
