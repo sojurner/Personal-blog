@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import ReactTooltip from "react-tooltip"
+import Carousel from "react-alice-carousel"
 
 import { AniFadeLink, AniLoaderLink } from "@components/Link"
 import { SaxophoneCat, DrummerCat } from "@components/Svg"
@@ -12,7 +13,6 @@ import Flex from "@components/Flex"
 import Tag from "@components/Tag"
 import SEO from "@components/SEO"
 import Button from "@components/Button"
-import Carousel from "@components/Carousel"
 import { memes } from "../utils/constants"
 
 import { blogTypeRef } from "../utils/constants"
@@ -427,8 +427,14 @@ const HomePage = () => {
           >
             Latest Memes
           </Typography>
-          <Carousel className="memes-carousel">
-            {data.allFile.edges.map(({ node }, index) => (
+          <Flex className="memes-carousel">
+          <Carousel
+            responsive={{
+              0: { items: 2 },
+              568: { items: 2 },
+              1024: { items: 3 },
+            }}
+            items={data.allFile.edges.map(({ node }, index) => (
               <AniFadeLink
                 key={`${node.name}-${index}`}
                 to={`/meme/${node.name}`}
@@ -444,7 +450,9 @@ const HomePage = () => {
                 </Flex>
               </AniFadeLink>
             ))}
-          </Carousel>
+            className="memes-carousel"
+          ></Carousel>
+          </Flex>
           <AniFadeLink
             to="/memes"
             direction="left"
