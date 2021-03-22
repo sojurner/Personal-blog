@@ -428,30 +428,30 @@ const HomePage = () => {
             Latest Memes
           </Typography>
           <Flex className="memes-carousel">
-          <Carousel
-            responsive={{
-              0: { items: 2 },
-              568: { items: 2 },
-              1024: { items: 3 },
-            }}
-            items={data.allFile.edges.map(({ node }, index) => (
-              <AniFadeLink
-                key={`${node.name}-${index}`}
-                to={`/meme/${node.name}`}
-              >
-                <Flex className="meme-img-container" classes={["flexCloumn"]}>
-                  <Img
-                    className="meme-img"
-                    fluid={node.childImageSharp.fluid}
-                  />
-                  <Typography tag="p" variant="neutralLight">
-                    {memes[node.name].title}
-                  </Typography>
-                </Flex>
-              </AniFadeLink>
-            ))}
-            className="memes-carousel"
-          ></Carousel>
+            <Carousel
+              responsive={{
+                0: { items: 2 },
+                568: { items: 2 },
+                1024: { items: 3 },
+              }}
+              items={data.allFile.edges.map(({ node }, index) => (
+                <AniFadeLink
+                  key={`${node.name}-${index}`}
+                  to={`/meme/${node.name}`}
+                >
+                  <Flex className="meme-img-container" classes={["flexCloumn"]}>
+                    <Img
+                      className="meme-img"
+                      fluid={node.childImageSharp.fluid}
+                    />
+                    <Typography tag="p" variant="neutralLight">
+                      {memes[node.name].title}
+                    </Typography>
+                  </Flex>
+                </AniFadeLink>
+              ))}
+              className="memes-carousel"
+            />
           </Flex>
           <AniFadeLink
             to="/memes"
