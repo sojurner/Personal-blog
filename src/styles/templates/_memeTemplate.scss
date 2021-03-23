@@ -57,11 +57,31 @@
     height: max-content;
   }
 
-  .meme-share {
-    font-size: 1.2em;
-    padding: 0.4em;
-    height: max-content;
+  .meme-social {
     margin-left: auto;
+
+    &__share,
+    &__src-link {
+      font-size: 1.2em;
+      padding: 0.4em;
+      height: max-content;
+      margin: 0 5px;
+    }
+  }
+
+  .meme-social__src-link {
+    display: flex;
+    padding: 0.4em 0.5em 0.4em 0.4em;
+
+    span {
+      margin-left: 5px;
+      color: inherit;
+      font-weight: 500;
+    }
+
+    &:hover {
+      color: $color-blank-500;
+    }
   }
 
   .meme-divider {

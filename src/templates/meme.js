@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 
 import MainLayout from "@components/Layouts"
@@ -9,21 +9,27 @@ import Flex from "@components/Flex"
 import Chip from "@components/Chip"
 import Typography from "@components/Typography"
 import Icon from "@components/Icon"
-import { AniFadeLink } from "@components/Link"
 
 import "@styles/templates/_memeTemplate.scss"
-import { memes, tagIconRef } from "../utils/constants"
+import { tagIconRef } from "../utils/constants"
 import { useMemeView } from "../hooks"
 
 const UPVOTE = "upvote"
 const DOWNVOTE = "downvote"
 
 const Meme = ({ data, location }) => {
-  const { name, childImageSharp } = data.file
-  let { edges } = data.allFile
-  edges = edges.sort((a, b) => 0.5 - Math.random())
+  const {
+    title: _title,
+    tags: _tags,
+    timestamp: _timestamp,
+    source: _src,
+    contentful_id,
+    img: _img,
+  } = data.contentfulMeme
+  let { nodes: memeSuggestions } = data.allContentfulMeme
+  memeSuggestions = memeSuggestions.sort((a, b) => 0.5 - Math.random()).slice(0, 6)
 
-  const [memePts, updatePoints] = useMemeView(name)
+  const [memePts, updatePoints] = useMemeView(contentful_id)
   const [voteSession, setVoteSession] = React.useState("")
   const [notification, setNotification] = React.useState(false)
 
@@ -54,11 +60,11 @@ const Meme = ({ data, location }) => {
 
   return (
     <MainLayout className="page-meme">
-      <SEO title={memes[name].title} />
+      <SEO title={_title} />
       <Flex className="meme" classes={["flexColumn"]}>
         <Flex className="meme-title">
           <Typography tag="h3" variant="neutralDefault">
-            {memes[name].title}
+            {_title}
           </Typography>
         </Flex>
 
@@ -67,14 +73,10 @@ const Meme = ({ data, location }) => {
           classes={["flexRow", "justifyContentBetween", "alignItemsCenter"]}
         >
           <Typography className="meme-date" tag="span" variant="neutralLight">
-            {new Intl.DateTimeFormat("en-US", {
-              month: "short",
-              day: "numeric",
-              year: "numeric",
-            }).format(new Date(memes[name].timestamp))}
+            {_timestamp}
           </Typography>
           <Flex className="meme-tags">
-            {memes[name].tags.map((tag, index) => (
+            {_tags.split(",").map((tag, index) => (
               <Chip
                 variant="default"
                 label={tag}
@@ -84,8 +86,7 @@ const Meme = ({ data, location }) => {
             ))}
           </Flex>
         </Flex>
-
-        <Img className="meme-img" fluid={childImageSharp.fluid} />
+        <Img className="meme-img" fluid={_img.fluid} />
         <Flex className="meme-footer" classes={["flexRow", "alignItemsCenter"]}>
           <Flex
             className="meme-stats"
@@ -127,13 +128,25 @@ const Meme = ({ data, location }) => {
               <Icon svg="downfinger" />
             </Button>
           </Flex>
-          <Button
-            onClick={onMemeCopyLink}
-            variant="secondary"
-            className="meme-share"
-          >
-            <Icon svg="link" />
-          </Button>
+          <Flex className="meme-social">
+            {_src && (
+              <Button
+                onClick={() => window.open(_src, "_blank")}
+                variant="default"
+                className="meme-social__src-link"
+              >
+                <Icon svg="link" />
+                <Typography tag="span">src</Typography>
+              </Button>
+            )}
+            <Button
+              onClick={onMemeCopyLink}
+              variant="secondary"
+              className="meme-social__share"
+            >
+              <Icon svg="link" />
+            </Button>
+          </Flex>
         </Flex>
       </Flex>
       <Flex
@@ -145,24 +158,21 @@ const Meme = ({ data, location }) => {
         </Typography>
         <Flex>
           <div className="other-memes-group">
-            {edges.map(({ node }, index) => (
-              <AniFadeLink
-                key={`${node.name}-${index}`}
-                to={`/meme/${node.name}`}
+            {memeSuggestions.map((meme, index) => (
+              <Link
+                key={`${meme.title}-${index}`}
+                to={`/meme/${meme.contentful_id}`}
               >
                 <Flex
                   className="other-memes-img-container"
                   classes={["flexColumn", "justifyContentCenter"]}
                 >
-                  <Img
-                    className="other-memes-img"
-                    fluid={node.childImageSharp.fluid}
-                  />
+                  <Img className="other-memes-img" fluid={meme.img.fluid} />
                   <Typography tag="p" variant="neutralLight">
-                    {memes[node.name].title}
+                    {meme.title}
                   </Typography>
                 </Flex>
-              </AniFadeLink>
+              </Link>
             ))}
           </div>
         </Flex>
@@ -180,30 +190,28 @@ const Meme = ({ data, location }) => {
 }
 
 const query = graphql`
-  query($name: String!) {
-    file(name: { eq: $name }) {
-      name
-      childImageSharp {
+  query($id: String!) {
+    contentfulMeme(contentful_id: { eq: $id }) {
+      title
+      tags
+      timestamp(formatString: "MMM DD, YYYY")
+      source
+      contentful_id
+      img {
         fluid(maxWidth: 700) {
-          ...GatsbyImageSharpFluid
+          ...GatsbyContentfulFluid
         }
       }
     }
-    allFile(
-      limit: 6
-      filter: {
-        extension: { regex: "/(jpeg|jpg|gif|png)/" }
-        relativePath: { regex: "/memes/" }
-        name: { ne: $name }
-      }
+    allContentfulMeme(
+      filter: { contentful_id: { ne: $id } }
     ) {
-      edges {
-        node {
-          name
-          childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
+      nodes {
+        title
+        contentful_id
+        img {
+          fluid(maxWidth: 800) {
+            ...GatsbyContentfulFluid
           }
         }
       }

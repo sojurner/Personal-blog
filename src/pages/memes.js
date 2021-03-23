@@ -14,37 +14,36 @@ import Icon from "@components/Icon"
 import { AniLoaderLink } from "@components/Link"
 
 import "@styles/pages/_memes.scss"
-import { memes, tagIconRef } from "../utils/constants"
+import { tagIconRef } from "../utils/constants"
 import { useMemeMeta } from "../hooks"
 
 const MemesPage = ({ location }) => {
   const data = useStaticQuery(graphql`
-  query {
-    allFile(
-      filter: {
-        extension: { regex: "/(jpeg|jpg|gif|png)/" }
-        relativePath: { regex: "/memes/" }
-      }
-    ) {
-      edges {
-        node {
-          name
-          childImageSharp {
+    query {
+      allContentfulMeme(
+        sort: { fields: [timestamp], order: DESC }
+      ) {
+        nodes {
+          title
+          tags
+          source
+          timestamp(formatString: "MMM DD, YYYY")
+          contentful_id
+          img {
             fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyContentfulFluid
             }
           }
         }
       }
     }
-  }
-`)
+  `)
 
   const [memeSession, setMemeSession] = React.useState({})
   const [notification, setNotification] = React.useState(false)
   const [visibleState, setVisibleState] = React.useState(
-    data.allFile.edges.reduce((result, { node }) => {
-      result[node.name] = false
+    data.allContentfulMeme.nodes.reduce((result, node) => {
+      result[node.contentful_id] = false
       return result
     }, {})
   )
@@ -86,29 +85,24 @@ const MemesPage = ({ location }) => {
     <MainLayout className="page-memes">
       <SEO title="Memes" />
       <Flex className="memes" classes={["flexColumn"]}>
-        {data.allFile.edges.sort((a,b) => {
-          return new Date(memes[b.node.name].timestamp) - new Date(memes[a.node.name].timestamp)
-        }).map(({ node }, index) => {
+        {data.allContentfulMeme.nodes.map((node, index) => {
           return (
             <VSensor
               key={`post-ref-${index}`}
               delayedCall={true}
               scrollDelay={500}
-              onChange={isVisible => onChange(isVisible, node.name)}
+              onChange={isVisible => onChange(isVisible, node.contentful_id)}
               partialVisibility={true}
             >
               <div key={`meme-${index}`}>
-                <Flex
-                  className="meme"
-                  classes={["flexColumn"]}
-                >
+                <Flex className="meme" classes={["flexColumn"]}>
                   <AniLoaderLink
                     className="meme-link--title"
-                    to={`/meme/${node.name}`}
+                    to={`/meme/${node.contentful_id}`}
                   >
                     <Flex className="meme-title">
                       <Typography tag="h3" variant="neutralDefault">
-                        {memes[node.name].title}
+                        {node.title}
                       </Typography>
                     </Flex>
 
@@ -125,33 +119,29 @@ const MemesPage = ({ location }) => {
                         tag="span"
                         variant="neutralLight"
                       >
-                        {new Intl.DateTimeFormat("en-US", {
-                          month: "short",
-                          day: "numeric",
-                          year: "numeric",
-                        }).format(new Date(memes[node.name].timestamp))}
+                        {node.timestamp}
                       </Typography>
                       <Flex className="meme-tags">
-                        {memes[node.name].tags.map((tag, i) => (
+                        {node.tags.split(",").map((tag, i) => (
                           <Chip
                             variant="default"
                             label={tag}
-                            key={`chip-${node.name}-${i}`}
+                            key={`chip-${node.contentful_id}-${i}`}
                             icon={tagIconRef[tag]}
                           />
                         ))}
                       </Flex>
                     </Flex>
                   </AniLoaderLink>
-                  {node.childImageSharp && visibleState[node.name] && (
+                  {node.img && visibleState[node.contentful_id] && (
                     <AniLoaderLink
                       className="meme-link--img"
-                      to={`/meme/${node.name}`}
+                      to={`/meme/${node.contentful_id}`}
                     >
                       <Img
                         className="meme-img"
                         key={`img-${index}`}
-                        fluid={node.childImageSharp.fluid}
+                        fluid={node.img.fluid}
                       />
                     </AniLoaderLink>
                   )}
@@ -167,8 +157,8 @@ const MemesPage = ({ location }) => {
                       >
                         <Icon svg="uparrow" variant="neutralLight" />
                         <Typography tag="p" variant="neutralLight">
-                          {memeState[node.name]
-                            ? memeState[node.name].points
+                          {memeState[node.contentful_id]
+                            ? memeState[node.contentful_id].points
                             : 0}
                         </Typography>
                       </Flex>
@@ -180,38 +170,36 @@ const MemesPage = ({ location }) => {
                       <Button
                         className="meme-vote meme-vote--up"
                         variant={
-                          memeSession.hasOwnProperty(node.name)
-                            ? memeSession[node.name]
+                          memeSession.hasOwnProperty(node.contentful_id)
+                            ? memeSession[node.contentful_id]
                               ? "positiveActive"
                               : "positive"
                             : "positive"
                         }
-                        onClick={() => onMemeVote(node.name, true)}
+                        onClick={() => onMemeVote(node.contentful_id, true)}
                       >
                         <Icon svg="upfinger" />
                       </Button>
                       <Button
                         className="meme-vote meme-vote--down"
                         variant={
-                          memeSession.hasOwnProperty(node.name)
-                            ? memeSession[node.name]
+                          memeSession.hasOwnProperty(node.contentful_id)
+                            ? memeSession[node.contentful_id]
                               ? "negative"
                               : "negativeActive"
                             : "negative"
                         }
-                        onClick={() => onMemeVote(node.name, false)}
+                        onClick={() => onMemeVote(node.contentful_id, false)}
                       >
                         <Icon svg="downfinger" />
                       </Button>
                     </Flex>
                     <Flex className="meme-social">
-                      {memes[node.name].src && (
+                      {node.source && (
                         <Button
-                          onClick={() =>
-                            window.open(memes[node.name].src, "_blank")
-                          }
+                          onClick={() => window.open(node.source, "_blank")}
                           variant="default"
-                          className="meme-src-link"
+                          className="meme-social__src-link"
                         >
                           <Icon svg="link" />
                           <Typography tag="span">src</Typography>
@@ -219,16 +207,16 @@ const MemesPage = ({ location }) => {
                       )}
 
                       <Button
-                        onClick={() => onMemeCopyLink(node.name)}
+                        onClick={() => onMemeCopyLink(node.contentful_id)}
                         variant="secondary"
-                        className="meme-share"
+                        className="meme-social__share"
                       >
                         <Icon svg="share" />
                       </Button>
                     </Flex>
                   </Flex>
                 </Flex>
-                {index < data.allFile.edges.length - 1 && (
+                {index < data.allContentfulMeme.nodes.length - 1 && (
                   <Divider className="meme-divider" />
                 )}
               </div>

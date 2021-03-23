@@ -73,16 +73,9 @@ module.exports.createPages = async ({ graphql, actions }) => {
           fieldValue
         }
       }
-      allFile(
-        filter: {
-          extension: { regex: "/(jpeg|jpg|gif|png)/" }
-          relativePath: { regex: "/memes/" }
-        }
-      ) {
-        edges {
-          node {
-            name
-          }
+      allContentfulMeme {
+        nodes {
+          contentful_id
         }
       }
     }
@@ -90,7 +83,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
   const { edges: posts } = response.data.allMarkdownRemark
   const { group: tags } = response.data.tagsGroup
-  const { edges: memes } = response.data.allFile
+  const { nodes: memes } = response.data.allContentfulMeme
 
   posts.forEach(edge => {
     const { fields, frontmatter } = edge.node
@@ -110,11 +103,11 @@ module.exports.createPages = async ({ graphql, actions }) => {
   })
 
   memes.forEach(kek => {
-    const { name } = kek.node
+    const { contentful_id } = kek
     createPage({
       component: path.resolve("./src/templates/meme.js"),
-      path: `/meme/${name}`,
-      context: { name },
+      path: `/meme/${contentful_id}`,
+      context: { id: contentful_id },
     })
   })
 }

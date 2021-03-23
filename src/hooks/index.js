@@ -52,7 +52,6 @@ const usePageViewMeta = () => {
     if (!firebase) return
     setLoading(true)
 
-    // const pageRef = firebase.database().ref("pages")
     table.once("value", snapshot => {
       if (snapshot.exists()) {
         setViewState(snapshot.val())
@@ -115,7 +114,7 @@ const useMemeMeta = () => {
 }
 
 const useMemeView = id => {
-  const [_, table] = useFirebase("memes")
+  const [firebase, table] = useFirebase("memes")
 
   const [memePoints, setMemePoints] = useState(null)
   const [error, setError] = useState("")
@@ -129,20 +128,23 @@ const useMemeView = id => {
   }
 
   useEffect(() => {
-    if (!table) return
+    if (!firebase || !table) return
 
     setLoading(true)
 
     table.once("value", snapshot => {
-      if (snapshot.exists()) {
+      
+      if(snapshot.child(id).exists) {
         setMemePoints(snapshot.child(id).val().points)
       } else {
+        setMemePoints(0)
+        
         setError("failed to retrieve data...")
       }
     })
 
     setLoading(false)
-  }, [table, id])
+  }, [firebase, table, id])
 
   return [memePoints, updatePoints, error, loading]
 }

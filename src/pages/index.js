@@ -13,7 +13,6 @@ import Flex from "@components/Flex"
 import Tag from "@components/Tag"
 import SEO from "@components/SEO"
 import Button from "@components/Button"
-import { memes } from "../utils/constants"
 
 import { blogTypeRef } from "../utils/constants"
 import "@styles/index.scss"
@@ -64,20 +63,13 @@ const HomePage = () => {
           }
         }
       }
-      allFile(
-        filter: {
-          extension: { regex: "/(jpeg|jpg|gif|png)/" }
-          relativePath: { regex: "/memes/" }
-        }
-        limit: 9
-      ) {
-        edges {
-          node {
-            name
-            childImageSharp {
-              fluid(maxWidth: 800) {
-                ...GatsbyImageSharpFluid
-              }
+      allContentfulMeme(limit: 9, sort: { fields: [timestamp], order: DESC }) {
+        nodes {
+          title
+          contentful_id
+          img {
+            fluid(maxWidth: 800) {
+              ...GatsbyContentfulFluid
             }
           }
         }
@@ -434,21 +426,18 @@ const HomePage = () => {
                 568: { items: 2 },
                 1024: { items: 3 },
               }}
-              items={data.allFile.edges.map(({ node }, index) => (
-                <AniFadeLink
-                  key={`${node.name}-${index}`}
-                  to={`/meme/${node.name}`}
+              items={data.allContentfulMeme.nodes.map((node, index) => (
+                <AniLoaderLink
+                  key={`${node.contentful_id}-${index}`}
+                  to={`/meme/${node.contentful_id}`}
                 >
                   <Flex className="meme-img-container" classes={["flexCloumn"]}>
-                    <Img
-                      className="meme-img"
-                      fluid={node.childImageSharp.fluid}
-                    />
+                    <Img className="meme-img" fluid={node.img.fluid} />
                     <Typography tag="p" variant="neutralLight">
-                      {memes[node.name].title}
+                      {node.title}
                     </Typography>
                   </Flex>
-                </AniFadeLink>
+                </AniLoaderLink>
               ))}
               className="memes-carousel"
             />
