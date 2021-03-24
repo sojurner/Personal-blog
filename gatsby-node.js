@@ -73,17 +73,11 @@ module.exports.createPages = async ({ graphql, actions }) => {
           fieldValue
         }
       }
-      allContentfulMeme {
-        nodes {
-          contentful_id
-        }
-      }
     }
   `)
 
   const { edges: posts } = response.data.allMarkdownRemark
   const { group: tags } = response.data.tagsGroup
-  const { nodes: memes } = response.data.allContentfulMeme
 
   posts.forEach(edge => {
     const { fields, frontmatter } = edge.node
@@ -99,15 +93,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve("./src/templates/blogCategory.js"),
       path: `/blog/${tag.fieldValue}`,
       context: { subject: tag.fieldValue },
-    })
-  })
-
-  memes.forEach(kek => {
-    const { contentful_id } = kek
-    createPage({
-      component: path.resolve("./src/templates/meme.js"),
-      path: `/meme/${contentful_id}`,
-      context: { id: contentful_id },
     })
   })
 }

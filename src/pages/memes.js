@@ -11,7 +11,6 @@ import Chip from "@components/Chip"
 import Divider from "@components/Divider"
 import Typography from "@components/Typography"
 import Icon from "@components/Icon"
-import { AniLoaderLink } from "@components/Link"
 
 import "@styles/pages/_memes.scss"
 import { tagIconRef } from "../utils/constants"
@@ -20,9 +19,7 @@ import { useMemeMeta } from "../hooks"
 const MemesPage = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulMeme(
-        sort: { fields: [timestamp], order: DESC }
-      ) {
+      allContentfulMeme(sort: { fields: [timestamp], order: DESC }) {
         nodes {
           title
           tags
@@ -62,7 +59,7 @@ const MemesPage = ({ location }) => {
 
   const onMemeCopyLink = path => {
     const el = document.createElement("textarea")
-    el.value = `${location.origin}/meme/${path}`
+    el.value = `${location.origin}/memes#${path}`
     console.log(location)
 
     el.setAttribute("readonly", "")
@@ -94,56 +91,50 @@ const MemesPage = ({ location }) => {
               onChange={isVisible => onChange(isVisible, node.contentful_id)}
               partialVisibility={true}
             >
-              <div key={`meme-${index}`}>
+              <div style={{ position: "relative" }} key={`meme-${index}`}>
+                <div
+                  id={node.contentful_id}
+                  style={{ position: "absolute", top: "-100px", opacity: 0 }}
+                ></div>
                 <Flex className="meme" classes={["flexColumn"]}>
-                  <AniLoaderLink
-                    className="meme-link--title"
-                    to={`/meme/${node.contentful_id}`}
-                  >
-                    <Flex className="meme-title">
-                      <Typography tag="h3" variant="neutralDefault">
-                        {node.title}
-                      </Typography>
-                    </Flex>
+                  <Flex className="meme-title">
+                    <Typography tag="h3" variant="neutralDefault">
+                      {node.title}
+                    </Typography>
+                  </Flex>
 
-                    <Flex
-                      className="meme-info"
-                      classes={[
-                        "flexRow",
-                        "justifyContentBetween",
-                        "alignItemsCenter",
-                      ]}
+                  <Flex
+                    className="meme-info"
+                    classes={[
+                      "flexRow",
+                      "justifyContentBetween",
+                      "alignItemsCenter",
+                    ]}
+                  >
+                    <Typography
+                      className="meme-date"
+                      tag="span"
+                      variant="neutralLight"
                     >
-                      <Typography
-                        className="meme-date"
-                        tag="span"
-                        variant="neutralLight"
-                      >
-                        {node.timestamp}
-                      </Typography>
-                      <Flex className="meme-tags">
-                        {node.tags.split(",").map((tag, i) => (
-                          <Chip
-                            variant="default"
-                            label={tag}
-                            key={`chip-${node.contentful_id}-${i}`}
-                            icon={tagIconRef[tag]}
-                          />
-                        ))}
-                      </Flex>
+                      {node.timestamp}
+                    </Typography>
+                    <Flex className="meme-tags">
+                      {node.tags.split(",").map((tag, i) => (
+                        <Chip
+                          variant="default"
+                          label={tag}
+                          key={`chip-${node.contentful_id}-${i}`}
+                          icon={tagIconRef[tag]}
+                        />
+                      ))}
                     </Flex>
-                  </AniLoaderLink>
+                  </Flex>
                   {node.img && visibleState[node.contentful_id] && (
-                    <AniLoaderLink
-                      className="meme-link--img"
-                      to={`/meme/${node.contentful_id}`}
-                    >
-                      <Img
-                        className="meme-img"
-                        key={`img-${index}`}
-                        fluid={node.img.fluid}
-                      />
-                    </AniLoaderLink>
+                    <Img
+                      className="meme-img"
+                      key={`img-${index}`}
+                      fluid={node.img.fluid}
+                    />
                   )}
 
                   <Flex

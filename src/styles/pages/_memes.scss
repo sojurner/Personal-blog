@@ -13,16 +13,6 @@
     position: relative;
   }
 
-  .meme-link {
-    &--title {
-      &:hover {
-        .meme-title {
-          filter: brightness(1.4);
-        }
-      }
-    }
-  }
-
   .meme-img {
     width: 550px;
     margin: auto;
