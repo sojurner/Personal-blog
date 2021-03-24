@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import { useLocation } from "@reach/router"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
 import { AniFadeLink } from "@components/Link"
@@ -34,13 +35,25 @@ const MainHeader = () => {
                   to={routeProps.to}
                 >
                   <Typography
+                    className="nav-link-txt"
                     variant={
-                      routeProps.label == root ? "neutralBlank" : "primaryDark"
+                      routeProps.label === root ? "neutralBlank" : "primaryDark"
                     }
-                    tag="p"
                   >
                     {routeProps.label}
                   </Typography>
+                  {routeProps.sub && (
+                    <Flex
+                      classes={["flexColumn"]}
+                      className="nav-link__sub-menu"
+                    >
+                      {routeProps.sub.map(sublink => (
+                        <Link key={`sublink-${sublink.label}`} to={sublink.to}>
+                          <Typography variant="primaryDark">{sublink.label}</Typography>
+                        </Link>
+                      ))}
+                    </Flex>
+                  )}
                 </AniFadeLink>
               )
             })}
@@ -89,7 +102,9 @@ const TemplateHeader = ({ fixed }) => {
                 >
                   <Typography
                     variant={
-                      routeProps.label == root ? "neutralBlank" : "primaryDefault"
+                      routeProps.label == root
+                        ? "neutralBlank"
+                        : "primaryDefault"
                     }
                     tag="p"
                   >

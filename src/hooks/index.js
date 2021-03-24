@@ -149,6 +149,7 @@ const useMemeView = id => {
   return [memePoints, updatePoints, error, loading]
 }
 
+
 export {
   usePageView,
   usePageViewMeta,

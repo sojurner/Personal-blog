@@ -4,12 +4,14 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component"
 import ReactTooltip from "react-tooltip"
+import { useMediaQuery } from "react-responsive"
 
 import MainLayout from "@components/Layouts"
 import SEO from "@components/SEO"
 import Flex from "@components/Flex"
 import Icon from "@components/Icon"
 import Typography from "@components/Typography"
+import SoundCloudWidget from "@components/SoundCloudWidget"
 import { ContactCard, SkillsCard } from "@components/Card"
 
 import {
@@ -22,304 +24,402 @@ import {
 import avatar_1 from "../images/avatar-cartoon_pk.png"
 import army from "../images/army_pk.png"
 
+import { musicLinks } from "../utils/constants"
 import "react-vertical-timeline-component/style.min.css"
 import "@styles/index.scss"
 import "@styles/pages/_aboutPage.scss"
 
-const AboutPage = () => (
-  <MainLayout className="page-about">
-    <SEO title="About" />
-    <Flex
-      classes={["flexColumn"]}
-      className="page-about__landing-container--outer"
-    >
-      <Flex className="page-about__landing-container--inner-1">
-        <Flex
-          className="page-about__landing-greeting"
-          classes={["flexColumn", "alignItemsStart"]}
-        >
-          <Typography tag="h1" className="page-about__landing-greeting__name">
-            About
-          </Typography>
-          <Typography
-            tag="h3"
-            variant="neutralLight"
-            className="page-about__landing-greeting__motto"
-          >
-            - You miss 100% of the shots you don't make
-          </Typography>
-        </Flex>
-        <Flex className="page-about__landing-greeting__imgs">
-          <img
-            src={avatar_1}
-            alt={"personal pic"}
-            className="page-about__landing-greeting__imgs-profile"
-          />
-          <BrushStroke className="page-about__brush-stroke page-about__landing-greeting__imgs-brushstroke" />
-        </Flex>
-      </Flex>
+const AboutPage = () => {
+  const [targetUrl, setTargetUrl] = React.useState(musicLinks[0].scURL)
+  const isMobile = useMediaQuery({ query: "(max-width: 950px)" })
+
+  const handleCategoryClick = url => {
+    if (url === targetUrl) return
+    setTargetUrl(url)
+  }
+
+  return (
+    <MainLayout className="page-about">
+      <SEO title="About" />
       <Flex
-        className="page-about__landing-container--inner-2"
         classes={["flexColumn"]}
+        className="page-about__landing-container--outer"
       >
-        <Typography
-          className="page-about__landing-greeting__about-desc"
-          tag="h2"
-          variant="neutralDefault"
-        >
-          Welcome!
-        </Typography>
-        <Typography
-          tag="h2"
-          variant="neutralDark"
-          className="page-about__landing-greeting__about-header"
-        >
-          Who Am I?
-        </Typography>
-        <div className="page-about__landing-greeting__about-header-div" />
-        <Typography
-          tag="h4"
-          className="page-about__landing-greeting__about-skills"
-          variant="neutralLight"
-        >
-          I'm a programmer with a huge{" "}
-          <Typography
-            tag="span"
-            variant="neutralDark"
-            onClick={() =>
-              window.open(
-                "https://images-na.ssl-images-amazon.com/images/I/51hethHdQnL.jpg",
-                "_blank"
-              )
-            }
+        <Flex className="page-about__landing-container--inner-1">
+          <Flex
+            className="page-about__landing-greeting"
+            classes={["flexColumn", "alignItemsStart"]}
           >
-            passion for root
-          </Typography>
-          . I currently work as a full-stack dev with emphasis on front-end.
-          Aside from work, I love <strong>Hiking</strong>, I'm an avid fan of{" "}
-          <strong>Baseball</strong>, and I love eating{" "}
-          <strong>Pork Rinds</strong>.
-        </Typography>
-        <Typography
-          tag="h2"
-          className="page-about__landing-greeting__about-header"
-          variant="neutralDark"
-        >
-          What You'll Find Here
-        </Typography>
-        <div className="page-about__landing-greeting__about-header-div" />
-        <Typography
-          tag="h4"
-          className="page-about__landing-greeting__about-skills"
-          variant="neutralLight"
-        >
-          As of now, I'll blog just about anything that comes to my mind.
-          Typically, I'll stick to what I know: personal interests and
-          experiences, programming tools and tips, and{" "}
-          <Typography
-            tag="span"
-            variant="neutralDark"
-            onClick={() =>
-              window.open(
-                "https://www.youtube.com/watch?v=sDj72zqZakE",
-                "_blank"
-              )
-            }
-          >
-            falling waffle.
-          </Typography>
-        </Typography>
-      </Flex>
-    </Flex>
-    <Flex
-      classes={["flexColumn"]}
-      className="page-about__history-container--outer"
-    >
-      <Flex
-        classes={["flexColumn", "alignItemsStart"]}
-        className="page-about__history-container--inner"
-      >
-        <Typography tag="h1" className="page-about__history__title">
-          History
-        </Typography>
-        <Typography
-          tag="h3"
-          variant="neutralLight"
-          className="page-about__history__motto"
-        >
-          - The plural of anecdote is not statistics.
-        </Typography>
-        <DripGrunge className="page-about__history__bg" />
-      </Flex>
-      <VerticalTimeline className="page-about__history__timeline">
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="2013 - 2017"
-          icon={<Icon svg="military" color="#b32158" />}
-        >
-          <Typography tag="h3">US Army</Typography>
-
-          <Typography
-            tag="h4"
-            variant="neutralLight"
-            className="vertical-timeline-element-subtitle"
-          >
-            Combat Medic
-          </Typography>
-          <img
-            src={army}
-            alt="army-pic"
-            className="page-about__history__timeline__img"
-          />
-          <Typography
-            variant="neutralLight"
-            className="page-about__history__timeline__p"
-          >
-            Four years of service with 168th Multifunctional Medical Battalion
-            (Camp Walker, S. Korea) and Lyster Army Health Clinic (Fort Rucker,
-            AL).
-          </Typography>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="2018 - Now"
-          icon={<Icon svg="codetags" color="#3c354a" />}
-        >
-          <Typography tag="h3">Catalyst Healthcare</Typography>
-          <Typography
-            tag="h4"
-            variant="neutralLight"
-            className="vertical-timeline-element-subtitle"
-          >
-            Front-end Developer
-          </Typography>
-          <Flex className="page-about__history__timeline__skill-icons">
-            <ReactTooltip
-              id="icon-dotnet"
-              backgroundColor="var(--pk-color-icon-dotnet)"
-              type="dark"
-              effect="solid"
+            <Typography tag="h1" className="page-about__landing-greeting__name">
+              About
+            </Typography>
+            <Typography
+              tag="h3"
+              variant="neutralLight"
+              className="page-about__landing-greeting__motto"
             >
-              <span>Asp.net core</span>
-            </ReactTooltip>
-            <Icon
-              data-tip
-              data-for="icon-dotnet"
-              color="var(--pk-color-icon-dotnet)"
-              svg="dotnet"
-            />
-
-            <ReactTooltip
-              id="icon-blazor"
-              backgroundColor="var(--pk-color-icon-dotnet)"
-              type="dark"
-              effect="solid"
-            >
-              <span>Blazor</span>
-            </ReactTooltip>
-            <Icon
-              data-tip
-              data-for="icon-blazor"
-              color="var(--pk-color-icon-dotnet)"
-              svg="blazor"
-            />
-
-            <ReactTooltip
-              id="icon-react"
-              backgroundColor="var(--pk-color-icon-react)"
-              type="light"
-              effect="solid"
-            >
-              <span>ReactJS</span>
-            </ReactTooltip>
-            <Icon
-              data-tip
-              data-for="icon-react"
-              color="var(--pk-color-icon-react)"
-              svg="react"
-            />
-
-            <ReactTooltip
-              id="icon-sass"
-              backgroundColor="var(--pk-color-icon-sass)"
-              type="dark"
-              effect="solid"
-            >
-              <span>Sass</span>
-            </ReactTooltip>
-            <Icon
-              data-tip
-              data-for="icon-sass"
-              color="var(--pk-color-icon-sass)"
-              svg="sass"
-            />
-
-            <ReactTooltip
-              id="icon-docker"
-              backgroundColor="var(--pk-color-icon-docker)"
-              type="dark"
-              effect="solid"
-            >
-              <span>Docker</span>
-            </ReactTooltip>
-            <Icon
-              data-tip
-              data-for="icon-docker"
-              color="var(--pk-color-icon-docker)"
-              svg="docker"
-            />
+              - You miss 100% of the shots you don't make
+            </Typography>
           </Flex>
+          <Flex className="page-about__landing-greeting__imgs">
+            <img
+              src={avatar_1}
+              alt={"personal pic"}
+              className="page-about__landing-greeting__imgs-profile"
+            />
+            <BrushStroke className="page-about__brush-stroke page-about__landing-greeting__imgs-brushstroke" />
+          </Flex>
+        </Flex>
+        <Flex
+          className="page-about__landing-container--inner-2"
+          classes={["flexColumn"]}
+        >
           <Typography
-            variant="neutralLight"
-            className="page-about__history__timeline__p"
+            className="page-about__landing-greeting__about-desc"
+            tag="h2"
+            variant="neutralDefault"
           >
-            Primary front-end developer working mostly in Blazor and .asp-net core.
+            Welcome!
           </Typography>
-        </VerticalTimelineElement>
-      </VerticalTimeline>
-    </Flex>
+          <Typography
+            tag="h2"
+            variant="neutralDark"
+            className="page-about__landing-greeting__about-header"
+          >
+            Who Am I?
+          </Typography>
+          <div className="page-about__landing-greeting__about-header-div" />
+          <Typography
+            tag="h4"
+            className="page-about__landing-greeting__about-skills"
+            variant="neutralLight"
+          >
+            I'm a programmer with a huge{" "}
+            <Typography
+              tag="span"
+              variant="neutralDark"
+              onClick={() =>
+                window.open(
+                  "https://images-na.ssl-images-amazon.com/images/I/51hethHdQnL.jpg",
+                  "_blank"
+                )
+              }
+            >
+              passion for root
+            </Typography>
+            . I currently work as a full-stack dev with emphasis on front-end.
+            Aside from work, I love <strong>Hiking</strong>, I'm an avid fan of{" "}
+            <strong>Baseball</strong>, and I love eating{" "}
+            <strong>Pork Rinds</strong>.
+          </Typography>
+          <Typography
+            tag="h2"
+            className="page-about__landing-greeting__about-header"
+            variant="neutralDark"
+          >
+            What You'll Find Here
+          </Typography>
+          <div className="page-about__landing-greeting__about-header-div" />
+          <Typography
+            tag="h4"
+            className="page-about__landing-greeting__about-skills"
+            variant="neutralLight"
+          >
+            As of now, I'll blog just about anything that comes to my mind.
+            Typically, I'll stick to what I know: personal interests and
+            experiences, programming tools and tips, and{" "}
+            <Typography
+              tag="span"
+              variant="neutralDark"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/watch?v=sDj72zqZakE",
+                  "_blank"
+                )
+              }
+            >
+              falling waffle.
+            </Typography>
+          </Typography>
+        </Flex>
+      </Flex>
 
-    <Flex classes={["flexColumn"]} className="page-about__cards-container">
-      <Flex className="page-about__cards-container--inner-1">
+      <Flex
+        classes={["flexColumn"]}
+        className="page-about__history-container--outer"
+      >
+        <span id="history" />
+
         <Flex
-          className="page-about__cards-skills"
           classes={["flexColumn", "alignItemsStart"]}
+          className="page-about__history-container--inner"
         >
-          <Typography tag="h1" className="page-about__cards-skills__title">
-            Skillset
+          <Typography tag="h1" className="page-about__history__title">
+            History
           </Typography>
           <Typography
             tag="h3"
             variant="neutralLight"
-            className="page-about__cards-skills__motto"
+            className="page-about__history__motto"
           >
-            - BDD: Bug Driven Development
+            - The plural of anecdote is not statistics.
           </Typography>
-          <InkGrunge className="page-about__ink-grunge" />
+          <DripGrunge className="page-about__history__bg" />
         </Flex>
-        <SkillsCard className="page-about__card-skills" />
+        <VerticalTimeline className="page-about__history__timeline">
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            date="2013 - 2017"
+            icon={<Icon svg="military" color="#b32158" />}
+          >
+            <Typography tag="h3">US Army</Typography>
+
+            <Typography
+              tag="h4"
+              variant="neutralLight"
+              className="vertical-timeline-element-subtitle"
+            >
+              Combat Medic
+            </Typography>
+            <img
+              src={army}
+              alt="army-pic"
+              className="page-about__history__timeline__img"
+            />
+            <Typography
+              variant="neutralLight"
+              className="page-about__history__timeline__p"
+            >
+              Four years of service with 168th Multifunctional Medical Battalion
+              (Camp Walker, S. Korea) and Lyster Army Health Clinic (Fort
+              Rucker, AL).
+            </Typography>
+          </VerticalTimelineElement>
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            date="2018 - Now"
+            icon={<Icon svg="codetags" color="#3c354a" />}
+          >
+            <Typography tag="h3">Catalyst Healthcare</Typography>
+            <Typography
+              tag="h4"
+              variant="neutralLight"
+              className="vertical-timeline-element-subtitle"
+            >
+              Front-end Developer
+            </Typography>
+            <Flex className="page-about__history__timeline__skill-icons">
+              <ReactTooltip
+                id="icon-dotnet"
+                backgroundColor="var(--pk-color-icon-dotnet)"
+                type="dark"
+                effect="solid"
+              >
+                <span>Asp.net core</span>
+              </ReactTooltip>
+              <Icon
+                data-tip
+                data-for="icon-dotnet"
+                color="var(--pk-color-icon-dotnet)"
+                svg="dotnet"
+              />
+
+              <ReactTooltip
+                id="icon-blazor"
+                backgroundColor="var(--pk-color-icon-dotnet)"
+                type="dark"
+                effect="solid"
+              >
+                <span>Blazor</span>
+              </ReactTooltip>
+              <Icon
+                data-tip
+                data-for="icon-blazor"
+                color="var(--pk-color-icon-dotnet)"
+                svg="blazor"
+              />
+
+              <ReactTooltip
+                id="icon-react"
+                backgroundColor="var(--pk-color-icon-react)"
+                type="light"
+                effect="solid"
+              >
+                <span>ReactJS</span>
+              </ReactTooltip>
+              <Icon
+                data-tip
+                data-for="icon-react"
+                color="var(--pk-color-icon-react)"
+                svg="react"
+              />
+
+              <ReactTooltip
+                id="icon-sass"
+                backgroundColor="var(--pk-color-icon-sass)"
+                type="dark"
+                effect="solid"
+              >
+                <span>Sass</span>
+              </ReactTooltip>
+              <Icon
+                data-tip
+                data-for="icon-sass"
+                color="var(--pk-color-icon-sass)"
+                svg="sass"
+              />
+
+              <ReactTooltip
+                id="icon-docker"
+                backgroundColor="var(--pk-color-icon-docker)"
+                type="dark"
+                effect="solid"
+              >
+                <span>Docker</span>
+              </ReactTooltip>
+              <Icon
+                data-tip
+                data-for="icon-docker"
+                color="var(--pk-color-icon-docker)"
+                svg="docker"
+              />
+            </Flex>
+            <Typography
+              variant="neutralLight"
+              className="page-about__history__timeline__p"
+            >
+              Primary front-end developer working mostly in Blazor and .asp-net
+              core.
+            </Typography>
+          </VerticalTimelineElement>
+        </VerticalTimeline>
       </Flex>
-      <Flex className="page-about__cards-container--inner-2">
+
+      <Flex
+        classes={["flexColumn"]}
+        className="page-about__music-container--outer"
+      >
+        <span id="music" />
         <Flex
-          className="page-about__cards-contact"
           classes={["flexColumn", "alignItemsStart"]}
+          className="page-about__music-container--inner"
         >
-          <Typography tag="h1" className="page-about__cards-contact__title">
-            Contact
+          <Typography tag="h1" className="page-about__music__title">
+            Music
           </Typography>
           <Typography
             tag="h3"
             variant="neutralLight"
-            className="page-about__cards-contact__motto"
+            className="page-about__history__motto"
           >
-            - 20% of the time, 24/7 contact all the time.
+            - Toons and Beets
           </Typography>
-          <SplashGrunge className="page-about__splash-grunge" />
         </Flex>
-        <ContactCard className="page-about__card-contact" />
+        <Flex className="music" classes={["flexRow", "alignItemsCenter"]}>
+          {isMobile ? (
+            <>
+              <Flex className="music-menu">
+                {musicLinks.slice(0, 3).map(link => (
+                  <Flex
+                    classes={["flexRow", "alignItemsCenter"]}
+                    key={`music-${link.title}`}
+                    className={`music-category music-category--${link.name} ${
+                      targetUrl === link.scURL ? "music-category--active" : ""
+                    }`}
+                    onClick={handleCategoryClick.bind(null, link.scURL)}
+                  >
+                    <Typography tag="h5" variant="currentColor">
+                      {link.title}
+                    </Typography>
+                  </Flex>
+                ))}
+              </Flex>
+              <SoundCloudWidget url={targetUrl} />
+              <Flex className="music-menu">
+                {musicLinks.slice(3).map(link => (
+                  <Flex
+                    classes={["flexRow", "alignItemsCenter"]}
+                    key={`music-${link.title}`}
+                    className={`music-category music-category--${link.name} ${
+                      targetUrl === link.scURL ? "music-category--active" : ""
+                    }`}
+                    onClick={() => setTargetUrl(link.scURL)}
+                  >
+                    <Typography tag="h5" variant="currentColor">
+                      {link.title}
+                    </Typography>
+                  </Flex>
+                ))}
+              </Flex>
+            </>
+          ) : (
+            <>
+              <Flex classes={["flexColumn"]} className="music-menu">
+                {musicLinks.map(link => (
+                  <Flex
+                    classes={["flexRow", "alignItemsCenter"]}
+                    key={`music-${link.title}`}
+                    className={`music-category music-category--${link.name} ${
+                      targetUrl === link.scURL ? "music-category--active" : ""
+                    }`}
+                    onClick={() => setTargetUrl(link.scURL)}
+                  >
+                    <Typography tag="h5" variant="currentColor">
+                      {link.title}
+                    </Typography>
+                  </Flex>
+                ))}
+              </Flex>
+              <SoundCloudWidget url={targetUrl} />
+            </>
+          )}
+        </Flex>
       </Flex>
-    </Flex>
-  </MainLayout>
-)
+
+      <Flex classes={["flexColumn"]} className="page-about__cards-container">
+        <Flex className="page-about__cards-container--inner-1">
+          <Flex
+            className="page-about__cards-skills"
+            classes={["flexColumn", "alignItemsStart"]}
+          >
+            <Typography tag="h1" className="page-about__cards-skills__title">
+              Skillset
+            </Typography>
+            <Typography
+              tag="h3"
+              variant="neutralLight"
+              className="page-about__cards-skills__motto"
+            >
+              - BDD: Bug Driven Development
+            </Typography>
+            <InkGrunge className="page-about__ink-grunge" />
+          </Flex>
+          <SkillsCard className="page-about__card-skills" />
+        </Flex>
+        <Flex className="page-about__cards-container--inner-2">
+          <Flex
+            className="page-about__cards-contact"
+            classes={["flexColumn", "alignItemsStart"]}
+          >
+            <span id="contact" />
+
+            <Typography tag="h1" className="page-about__cards-contact__title">
+              Contact
+            </Typography>
+            <Typography
+              tag="h3"
+              variant="neutralLight"
+              className="page-about__cards-contact__motto"
+            >
+              - 20% of the time, 24/7 contact all the time.
+            </Typography>
+            <SplashGrunge className="page-about__splash-grunge" />
+          </Flex>
+          <ContactCard className="page-about__card-contact" />
+        </Flex>
+      </Flex>
+    </MainLayout>
+  )
+}
 
 export default AboutPage

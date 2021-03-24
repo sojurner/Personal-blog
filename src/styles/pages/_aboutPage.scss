@@ -6,15 +6,23 @@
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
-    // margin: 0 3em;
+    width: 70vw;
+    margin: auto;
+
+    @media only screen and (max-width: 950px) {
+      width: 100vw;
+    }
   }
 
   &__landing-container {
     &--outer {
       position: relative;
-      width: 100vw;
       height: max-content;
       margin: 13vh auto 0 auto;
+      width: 800px;
+      @media only screen and (max-width: 950px) {
+        width: 100%;
+      }
     }
 
     &--inner-1 {
@@ -22,20 +30,21 @@
       margin: 0 auto;
       @media only screen and (max-width: 950px) {
         flex-direction: column;
-        margin: 0 auto 10vh auto;
+        margin: 0 0 10vh;
+        justify-content: center;
+        justify-self: center;
+        align-self: center;
       }
     }
 
     &--inner-2 {
-      margin: 15vh auto 0 auto;
+      margin: 15vh auto 0 0;
       width: 500px;
-      transform: translate(-11.7em, 0);
 
       @media only screen and (max-width: 950px) {
-        transform: translate(0, 0);
-        width: 100vw;
-        margin: 10vh auto 0 auto;
+        margin: 10vh auto 0 0;
         padding: 0 15px;
+        width: 90vw;
       }
     }
   }
@@ -83,7 +92,7 @@
 
     &-profile {
       z-index: 1;
-      height: 300px;
+      width: 370px;
       @media only screen and (max-width: 950px) {
         position: static;
         left: 10%;
@@ -126,14 +135,16 @@
     }
   }
 
-  &__history-container {
+  &__history-container,
+  &__music-container {
     &--outer {
+      position: relative;
       margin: 15vh auto 5vh auto;
-      transform: translate(8em, 0);
+      width: 800px;
 
       @media only screen and (max-width: 950px) {
         transform: translate(0, 0);
-
+        width: 100%;
         margin: 15vh auto 0 auto;
         flex-direction: column;
         padding: 0 15px;
@@ -192,14 +203,13 @@
 
   &__cards-container {
     height: max-content;
-    width: 100vw;
-    margin: 2em 0;
+    margin: 2em auto;
+    width: 800px;
   }
 
   &__cards-container--inner-1,
   &__cards-container--inner-2 {
-    margin: 15vh auto 10vh auto;
-    transform: translate(-6em, 0);
+    margin: 15vh auto 10vh 0;
 
     @media only screen and (max-width: 950px) {
       transform: translate(0, 0);
@@ -211,7 +221,7 @@
   }
 
   &__cards-container--inner-2 {
-    margin: 15vh auto 30vh auto;
+    margin: 15vh auto 30vh 0;
   }
 
   &__cards__skillset__title {
@@ -239,7 +249,8 @@
 
   &__cards-skills__title,
   &__cards-contact__title,
-  &__history__title {
+  &__history__title,
+  &__music__title {
     font-size: 4.3em;
     @media only screen and (max-width: 500px) {
       font-size: 3.5em;
@@ -271,5 +282,85 @@
   &__ink-grunge,
   &__splash-grunge {
     position: absolute;
+  }
+
+  .music {
+    padding: 0 0.5em;
+    margin: 4em 0;
+  }
+
+  .music-category {
+    border-bottom: 1px solid $color-neutral-800;
+    height: 65px;
+    width: 220px;
+    padding: 0 1em;
+    background-position: center center;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+
+    h5 {
+      color: white;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.603);
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    &--active {
+      z-index: 1;
+      box-shadow: inset 0 0 60px whitesmoke, inset 20px 0 80px #f0f,
+        inset -20px 0 80px #0ff, inset 20px 0 50px #f0f, inset -20px 0 50px #0ff,
+        0 0 30px #fff, -10px 0 50px #f0f, 10px 0 50px #0ff;
+    }
+  }
+
+  .music-category--lofi {
+    background-image: url(../../images/lofi.jpeg);
+  }
+
+  .music-category--ambient {
+    background-image: url(../../images/ambient.jpeg);
+  }
+
+  .music-category--alt-rock {
+    background-image: url(../../images/alt-rock.jpeg);
+  }
+  .music-category--orchestra {
+    background-image: url(../../images/orchestra.jpeg);
+  }
+  .music-category--indie-folk {
+    background-image: url(../../images/indie-folk.jpeg);
+  }
+
+  .music-category--majestic {
+    background-image: url(../../images/majestic.jpeg);
+  }
+
+  #music,
+  #contact,
+  #history {
+    position: absolute;
+    top: -150px;
+  }
+
+  @media only screen and (max-width: 950px) {
+    .music {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .music-menu {
+      flex-direction: row;
+      width: 100%;
+      overflow: auto;
+    }
+
+    .music-category {
+      justify-content: center;
+      flex: 1 1 auto;
+    }
   }
 }

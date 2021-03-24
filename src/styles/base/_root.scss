@@ -247,14 +247,6 @@ body.dark {
     --pk-color-blank-700: var(--pk-color-neutral-500);
   }
 
-  .header--base {
-    --pk-color-primary-900: #ecb829;
-    --pk-color-primary-800: #ecb829;
-    --pk-color-primary-700: #f8d984;
-    --pk-color-primary-600: #f8d984;
-    --pk-color-primary-400: #ecb829;
-  }
-
   .vertical-timeline::before {
     background: var(--pk-color-neutral-200);
   }
