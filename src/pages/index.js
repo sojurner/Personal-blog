@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 import ReactTooltip from "react-tooltip"
 import Carousel from "react-alice-carousel"
@@ -427,9 +427,9 @@ const HomePage = () => {
                 1024: { items: 3 },
               }}
               items={data.allContentfulMeme.nodes.map((node, index) => (
-                <AniLoaderLink
+                <Link
                   key={`${node.contentful_id}-${index}`}
-                  to={`/meme/${node.contentful_id}`}
+                  to={`/memes#${node.contentful_id}`}
                 >
                   <Flex className="meme-img-container" classes={["flexCloumn"]}>
                     <Img className="meme-img" fluid={node.img.fluid} />
@@ -437,18 +437,18 @@ const HomePage = () => {
                       {node.title}
                     </Typography>
                   </Flex>
-                </AniLoaderLink>
+                </Link>
               ))}
               className="memes-carousel"
             />
           </Flex>
-          <AniFadeLink
+          <AniLoaderLink
             to="/memes"
             direction="left"
             className="meme-all-link to-section-btn-link"
           >
             <Button variant="default">More Memes</Button>
-          </AniFadeLink>
+          </AniLoaderLink>
         </Flex>
       </Flex>
     </RefMainLayout>
