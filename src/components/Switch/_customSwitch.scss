@@ -4,64 +4,162 @@
 .switch--darkmode {
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
+}
+.plus-minus {
+  z-index: 2;
+  --duration: 0.5s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-perspective: 240px;
+  perspective: 240px;
+  border-radius: 50%;
+  height: 18px;
+  width: 18px;
 
-  label {
-    position: relative;
-    display: block;
-    width: 45px;
-    height: 26px;
-    border-radius: 100px;
-    background-color: $color-primary-900;
-    overflow: hidden;
-    cursor: pointer;
-    &:before,
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      top: 4px;
-      left: 5px;
-      transition: 0.5s ease;
-    }
-    &:before {
-      background-color: $color-primary-100;
-      clip-path: polygon(
-        50% 0%,
-        61% 35%,
-        98% 35%,
-        68% 57%,
-        79% 91%,
-        50% 70%,
-        21% 91%,
-        32% 57%,
-        2% 35%,
-        39% 35%
-      );
-    }
+  border: 2px solid $color-primary-900;
+  background-size: 300% 300%;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  transform: scale(var(--scale, 1)) translateZ(0);
+  animation: var(--name, unchecked) var(--duration) ease forwards;
+}
+.plus-minus::before,
+.plus-minus::after {
+  content: "";
+  position: absolute;
+  height: var(--height, 16px);
+  left: 5px;
+  top: var(--top, 6px);
+  background: var(--background, $color-primary-900);
+}
+.plus-minus::after {
+  --height: 4px;
+  --top: 12px;
+  --background: $color-blank-800;
+}
 
-    &:after {
-      background-color: $color-primary-900;
-      transform: scale(0.00001);
-    }
+.plus-minus:checked {
+  --name: checked;
+}
+
+@-webkit-keyframes checked {
+  from {
+    background-image: radial-gradient(
+      ellipse at center,
+      $color-primary-900 0%,
+      var(#1e2235) 25%,
+      $color-blank-800 25.1%,
+      $color-blank-800 100%
+    );
+    background-position: 100% 50%;
   }
-
-  input[type="checkbox"] {
-    display: none;
-    &:checked + label {
-      &:before {
-        background-color: $color-blank-800;
-        transform: translateX(17px);
-        clip-path:none;
-      }
-
-      &:after {
-        transform: translateX(10px) scale(1);
-      }
-    }
+  to {
+    background-image: radial-gradient(
+      ellipse at center,
+      $color-primary-900 0%,
+      $color-primary-900 25%,
+      $color-blank-800 25.1%,
+      $color-blank-800 100%
+    );
+    background-position: 35% 50%;
   }
+}
+
+@keyframes checked {
+  from {
+    background-image: radial-gradient(
+      ellipse at center,
+      $color-primary-900 0%,
+      $color-primary-900 25%,
+      $color-blank-800 25.1%,
+      $color-blank-800 100%
+    );
+    background-position: 100% 50%;
+  }
+  to {
+    background-image: radial-gradient(
+      ellipse at center,
+      $color-primary-900 0%,
+      $color-primary-900 25%,
+      $color-blank-800 25.1%,
+      $color-blank-800 100%
+    );
+    background-position: 30% 50%;
+    transform: rotate(-20deg);
+  }
+}
+@-webkit-keyframes unchecked {
+  from {
+    background-image: radial-gradient(
+      ellipse at center,
+      $color-blank-800 0%,
+      $color-blank-800 25%,
+      $color-primary-900 25%,
+      $color-primary-900 100%
+    );
+    background-position: 0% 50%;
+  }
+  to {
+    background-image: radial-gradient(
+      ellipse at center,
+      $color-blank-800 0%,
+      $color-blank-800 25%,
+      $color-primary-900 25%,
+      $color-primary-900 100%
+    );
+    background-position: 50% 50%;
+    backround-color: #000000;
+  }
+}
+@keyframes unchecked {
+  from {
+    background-image: radial-gradient(
+      ellipse at center,
+      $color-blank-800 0%,
+      $color-blank-800 25%,
+      $color-primary-900 25%,
+      $color-primary-900 100%
+    );
+    background-position: 0% 50%;
+  }
+  to {
+    background-image: radial-gradient(
+      ellipse at center,
+      $color-blank-800 0%,
+      $color-blank-800 25%,
+      $color-primary-900 25%,
+      $color-primary-900 100%
+    );
+    background-position: 50% 50%;
+    backround-color: #000000;
+  }
+}
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.plus-minus:checked ~ svg {
+  transform: scale(0.1);
+  opacity: 0;
+}
+
+.lines {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  transition: all 0.7s;
+  opacity: .8;
+  transform: scale(1.4);
+  font-size: 1.3em;
 }
