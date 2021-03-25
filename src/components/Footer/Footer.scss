@@ -9,28 +9,28 @@ $icon-bg: rgba(77, 79, 80, 0.623);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4em 2em 3em;
+    padding: 4em 2em 2em;
     justify-self: center;
     background: $color-bg-footer;
     position: relative;
   }
 
-  &__wings-border {
+  &__lead {
     position: absolute;
     width: 100%;
     top: 0;
-    margin: 0 0 5em 0;
     transform: translate(0, -49%);
+  }
 
-    &__right,
-    &__left {
+  .lead {
+    &__border {
       width: inherit;
       height: 3px;
       background: $color-neutral-500;
       box-shadow: 0 0 13px 0px $color-neutral-600;
     }
 
-    &__center {
+    &__wings {
       background: var(--pk-color-bg-footer);
       border-radius: 40px;
       position: relative;
@@ -41,80 +41,69 @@ $icon-bg: rgba(77, 79, 80, 0.623);
       display: flex;
       align-items: center;
       justify-content: center;
-      
-      svg {
-        font-size: 70px;
-        width: 100%;
+    }
 
-        @for $i from 1 to 41 {
-          g path:nth-child(#{$i}) {
-            fill: nth($fill-colors, random(9));
-          }
+    &__wings-icon {
+      font-size: 70px;
+      width: 100%;
+
+      @for $i from 1 to 41 {
+        g path:nth-child(#{$i}) {
+          fill: nth($fill-colors, random(9));
         }
       }
     }
   }
 
-  &__links-container {
-    margin: 0 0 3em 0;
+  &__links-section {
+    margin: 0 0 1em 0;
     position: relative;
+  }
+
+  &__links-items {
+    padding: 0;
+    width: 200px;
+    flex-wrap: wrap;
+    display: flex;
+    margin: 5px 0;
   }
 
   &__links-item {
     color: $color-blank-700;
     font-family: var(--pk-font-family-primary);
-    font-size: 1.5em;
-    margin: 0 10px;
+    font-size: 16px;
+    margin: 5px 10px;
+    text-transform: capitalize;
 
     &--active {
       text-decoration: underline;
-    }
-  }
 
-  &__links-divider {
-    height: 50%;
-    width: 2px;
-    background: $color-neutral-900;
-    margin: 0 10px;
+    }
   }
 
   &__contact-container--outer {
     @media only screen and (max-width: 500px) {
       flex-direction: column;
       width: 100%;
-      align-items: center;
     }
   }
 
   &__contact-container--inner {
     margin-right: 10vw;
     @media only screen and (max-width: 500px) {
-      margin: 0;
+      margin: 1em 0 2em;
     }
   }
 
   &__contact-item-container {
-    &:not:first-child,
-    &:not:last-child {
-      margin: 15px 0;
-    }
-
-    &:first-child {
-      margin-bottom: 15px;
-    }
-
-    &:last-child {
-      margin-top: 15px;
-    }
+    margin: 5px 0 0 -5px;
   }
 
   &__contact-item__icon {
     margin-right: 10px;
-    font-size: 2em;
-    padding: 0.2em;
   }
 
-  &__copyright-logo {
+  &__logo {
     margin-right: 10px;
     color: $color-blank-700;
     font-size: 3em;
@@ -122,29 +111,27 @@ $icon-bg: rgba(77, 79, 80, 0.623);
 
   &__copyright-container {
     height: max-content;
-    margin-right: 15px;
-  }
-
-  &__copyright-social {
-    @media only screen and (max-width: 500px) {
-      // flex-direction: column-reverse;
-    }
+    margin-top: 2em;
+    font-weight: 100;
+    letter-spacing: 1px;
   }
 
   &__social-container {
+    margin: 1em 0 0 -8px;
     @media only screen and (max-width: 500px) {
-      margin: 3em 0 1em;
     }
   }
 
   &__social-item {
-    font-size: 2.5em;
-    margin: 0 5px;
     cursor: pointer;
+    padding: 0.5em;
+    font-size: 1.1em;
+    box-shadow: none;
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
     svg {
-      border-radius: 50%;
-      padding: 0.2em;
-      background: $icon-bg;
+      font-size: 1.2em;
     }
   }
 }

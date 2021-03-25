@@ -5,8 +5,9 @@ import Typography from "@components/Typography"
 import Icon from "@components/Icon"
 import { Logo, Wings } from "@components/Svg"
 import Flex from "@components/Flex"
+import Button, { BtnVariantKey } from "@components/Button"
 
-import { socialLinks } from "../../utils/constants"
+import { socialLinks, routes, blogSectionRoutes } from "../../utils/constants"
 import "./Footer.scss"
 
 const Footer: React.FC = props => {
@@ -36,89 +37,117 @@ const Footer: React.FC = props => {
   ]
 
   return (
-    <footer className="footer-container" {...props}>
-      <Flex
-        classes={["flexRow", "alignItemsCenter", "justifyContentCenter"]}
-        className="footer__wings-border"
-      >
-        <div className="footer__wings-border__left" />
-        <div className="footer__wings-border__center">
-          <Wings />
-        </div>
-        <div className="footer__wings-border__right" />
-      </Flex>
-      <Flex
-        className="footer__links-container"
-        classes={["flexRow", "alignItemsCenter"]}
-      >
-        <Link
-          to="/about"
-          className="footer__links-item"
-          activeClassName="footer__links-item--active"
-        >
-          About
-        </Link>
-        <div className="footer__links-divider" />
-        <Link
-          to="/blog"
-          className="footer__links-item"
-          activeClassName="footer__links-item--active"
-        >
-          Blog
-        </Link>
-      </Flex>
+    <footer className="footer footer-container" {...props}>
+      <FooterLead />
       <Flex className="footer__contact-container--outer">
         <Flex
           className="footer__contact-container--inner"
           classes={["flexColumn"]}
         >
-          {contactInfo.map((ele, index) => (
-            <Flex
-              key={`footer-contact-ele-${index}`}
-              className="footer__contact-item-container"
-              classes={["flexRow", "alignItemsCenter"]}
-            >
-              <Icon
-                className="footer__contact-item__icon"
-                svg={ele.icon}
-                color="var(--pk-color-blank-700)"
-              />
-              <Typography
-                className="footer__contact-value"
-                variant="neutralBlank"
-              >
-                {ele.value}
-              </Typography>
-            </Flex>
+          <Link to="/">
+            <Logo className="footer__logo" />
+          </Link>
+          {contactInfo.map(ele => (
+            <FooterContactDetail
+              key={`footer-contact-ele-${ele.value}`}
+              value={ele.value}
+              icon={ele.icon}
+            />
           ))}
-        </Flex>
-        <Flex className="footer__copyright-social" classes={["flexColumn"]}>
+
           <Flex className="footer__social-container" classes={["flexRow"]}>
             {socialLinks.map(ele => (
-              <div
-                className="footer__social-item"
-                key={`social-${ele.icon}`}
-                onClick={() => window.open(ele.link, "_blank")}
-              >
-                <Icon svg={ele.icon} color="var(--pk-color-blank-700)" />
-              </div>
+              <FooterSocialLink
+                key={`social-${ele.link}`}
+                variant={ele.variant as BtnVariantKey}
+                link={ele.link}
+                icon={ele.icon}
+              />
             ))}
           </Flex>
-          <Flex className="footer__copyright-container">
-            <Logo className="footer__copyright-logo" />
-            <Flex classes={["flexColumn", "justifyContentCenter"]}>
-              <Typography tag="label" variant="neutralBlank">
-                Copyright ©
-              </Typography>
-              <Typography tag="label" variant="neutralBlank">
-                2020 Paul Kim
-              </Typography>
-            </Flex>
-          </Flex>
         </Flex>
+        <Flex classes={["flexColumn"]}>
+          <FooterLinkSection title="Pages" routes={routes} />
+          <FooterLinkSection title="Topics" routes={blogSectionRoutes} />
+        </Flex>
+      </Flex>
+      <Flex className="footer__copyright-container">
+        <Typography tag="span" variant="neutralBlank">
+          © 2021 Paul Kim
+        </Typography>
       </Flex>
     </footer>
   )
 }
 
-export { Footer as default }
+const FooterLinkSection = ({ title, routes }) => (
+  <Flex classes={["flexColumn"]} className="footer__links-section">
+    <Typography tag="label" variant="neutralLight">
+      {title}
+    </Typography>
+    <ul className="footer__links-items">
+      {routes.map(route => (
+        <Link
+          to={route.to}
+          key={`footer-route-${route.label}`}
+          className="footer__links-item"
+          activeClassName="footer__links-item--active"
+        >
+          {route.label}
+        </Link>
+      ))}
+    </ul>
+  </Flex>
+)
+
+const FooterLead: React.FC = () => (
+  <Flex
+    classes={["flexRow", "alignItemsCenter", "justifyContentCenter"]}
+    className="footer__lead"
+  >
+    <div className="lead__border" />
+    <div className="lead__wings">
+      <Wings className="lead__wings-icon" />
+    </div>
+    <div className="lead__border" />
+  </Flex>
+)
+
+const FooterContactDetail: React.FC<{ icon: string; value: string }> = ({
+  icon,
+  value,
+}) => (
+  <Flex
+    className="footer__contact-item-container"
+    classes={["flexRow", "alignItemsCenter"]}
+  >
+    <Icon
+      className="footer__contact-item__icon"
+      svg={icon}
+      color="var(--pk-color-blank-700)"
+    />
+    <Typography
+      className="footer__contact-value"
+      tag="label"
+      variant="neutralBlank"
+    >
+      {value}
+    </Typography>
+  </Flex>
+)
+
+const FooterSocialLink: React.FC<{
+  icon: string
+  link: string
+  variant: BtnVariantKey
+}> = ({ icon, link, variant }) => (
+  <Button
+    className="footer__social-item"
+    variant={variant}
+    onClick={() => window.open(link, "_blank")}
+  >
+    <Icon svg={icon} />
+  </Button>
+)
+
+export { FooterLead, FooterSocialLink, FooterContactDetail, Footer as default }

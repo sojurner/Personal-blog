@@ -163,7 +163,7 @@ const Blog = ({ data }) => {
             </Typography>
             {frontmatter.previous.map((link, index) => (
               <Link
-                key={`${link}-${index}`}
+                key={`previous-${link}-${index}`}
                 to={`/blog/${frontmatter.subject}/${link}`}
               >
                 <Typography
@@ -201,12 +201,12 @@ const Blog = ({ data }) => {
         >
           <Flex classes={["flexColumn"]}>
             {data.allMarkdownRemark.edges.slice(0, 3).map(ele => (
-              <BlogColumn key={`related-${ele.node.fields}`} node={ele.node} />
+              <BlogColumn key={`related-1-${ele.node.fields.slug}`} node={ele.node} />
             ))}
           </Flex>
           <Flex classes={["flexColumn"]}>
             {data.allMarkdownRemark.edges.slice(3, 6).map(ele => (
-              <BlogColumn key={`related-${ele.node.fields}`} node={ele.node} />
+              <BlogColumn key={`related-2-${ele.node.fields.slug}`} node={ele.node} />
             ))}
           </Flex>
         </Flex>

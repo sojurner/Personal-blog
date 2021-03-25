@@ -159,7 +159,7 @@
     margin: auto;
 
     &--inner {
-      margin: 10em 0;
+      margin: 5em 0;
       &:first-child {
         margin-top: -5em;
       }
@@ -241,6 +241,7 @@
           font-weight: bold;
           color: $color-primary-500;
           text-decoration: underline;
+          width: max-content;
 
           &:hover {
             filter: hue-rotate(20deg);
@@ -304,85 +305,8 @@
     }
   }
 
-  &__post-section__link-blog {
-    margin-top: 10px;
-  }
-
-  &__post-section {
-    align-items: center;
-  }
-
-  &__post-section {
-    margin: 7em 0 3em 0;
-    & > h1 {
-      margin: 0 0 2em;
-    }
-  }
-
-  &__post-section__cards-container {
-    max-width: 850px;
-  }
-
-  &__post-section__card {
-    width: 350px;
-    height: 420px;
-    margin: 1em 1em;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-
-    &:hover {
-      h3,
-      p {
-        text-decoration: underline;
-      }
-    }
-
-    $themed-hovers: (
-      primary: $color-primary-800,
-      secondary: $color-secondary-800,
-      negative: $color-negative-800,
-      positive: $color-positive-800,
-    );
-
-    @each $theme, $color in $themed-hovers {
-      &--#{$theme}:hover {
-        h3,
-        p {
-          color: $color;
-        }
-      }
-    }
-
-    &__img {
-      width: 370px;
-      height: 200px;
-    }
-
-    &__date-tag {
-      margin: 0.3em 0 0.5em 0;
-    }
-
-    &__tag {
-      cursor: pointer;
-      margin-left: 10px;
-    }
-
-    h3 {
-      margin: 1em 0 0.3em;
-      width: 370px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-
-  .memes {
-    margin: 5em 0 10em 0;
-  }
-
-  .to-section-btn-link {
-    margin-top: 2em;
+  .extended-section {
+    margin: 5em 0;
   }
 
   .extended-title {
@@ -412,53 +336,209 @@
     }
   }
 
-  .alice-carousel__next-btn-item, .alice-carousel__prev-btn-item {
-    span {
-      font-size: 1.3em;
-      color: $color-secondary-800;
-    }
-  }
-
-  .memes-carousel {
-    width: 900px;
-    margin: 2.5em 0 1em 0;
-
-    @media only screen and (max-width: 800px) {
-      width: 500px; 
-    }
-
-    @media only screen and (max-width: 500px) {
-      width: 350px; 
-    }
-  }
-
-  .meme-img-container {
-    width: 300px;
-    padding: 0 10px;
+  .music-title {
     margin: auto;
-    transition: 0.2s linear;
+  }
+  .music {
+    padding: 0 0.5em;
+    margin: 4em 0;
+  }
 
-    p {
-      margin: 5px 0;
+  .music-category {
+    border-bottom: 1px solid $color-neutral-800;
+    height: 65px;
+    width: 220px;
+    padding: 0 1em;
+    background-position: center center;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+
+    h5 {
+      color: white;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.603);
     }
+
     &:hover {
-      transform: scale(1.05);
-      p {
-        text-decoration: underline;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    &--active {
+      z-index: 1;
+      box-shadow: inset 0 0 60px whitesmoke, inset 20px 0 80px #f0f,
+        inset -20px 0 80px #0ff, inset 20px 0 50px #f0f, inset -20px 0 50px #0ff,
+        0 0 30px #fff, -10px 0 50px #f0f, 10px 0 50px #0ff;
+    }
+  }
+
+  .music-category--lofi {
+    background-image: url(../../images/lofi.jpeg);
+  }
+
+  .music-category--ambient {
+    background-image: url(../../images/ambient.jpeg);
+  }
+
+  .music-category--alt-rock {
+    background-image: url(../../images/alt-rock.jpeg);
+  }
+  .music-category--orchestra {
+    background-image: url(../../images/orchestra.jpeg);
+  }
+  .music-category--indie-folk {
+    background-image: url(../../images/indie-folk.jpeg);
+  }
+
+  .music-category--majestic {
+    background-image: url(../../images/majestic.jpeg);
+  }
+
+  @media only screen and (max-width: 950px) {
+    .music {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .music-menu {
+      flex-direction: row;
+      width: 100%;
+      overflow: auto;
+    }
+
+    .music-category {
+      justify-content: center;
+      flex: 1 1 auto;
+    }
+  }
+
+  &__blog-section {
+    align-items: center;
+    margin: 7em 0 3em 0;
+
+    & > h1 {
+      margin: 0 0 2em;
+    }
+
+    &__link-blog {
+      margin-top: 10px;
+    }
+
+    &__cards-container {
+      max-width: 850px;
+    }
+
+    &__card {
+      width: 350px;
+      height: 420px;
+      margin: 1em 1em;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+
+      &:hover {
+        h3,
+        p {
+          text-decoration: underline;
+        }
+      }
+
+      $themed-hovers: (
+        primary: $color-primary-800,
+        secondary: $color-secondary-800,
+        negative: $color-negative-800,
+        positive: $color-positive-800,
+      );
+
+      @each $theme, $color in $themed-hovers {
+        &--#{$theme}:hover {
+          h3,
+          p {
+            color: $color;
+          }
+        }
+      }
+
+      &__img {
+        width: 370px;
+        height: 200px;
+      }
+
+      &__date-tag {
+        margin: 0.3em 0 0.5em 0;
+      }
+
+      &__tag {
+        cursor: pointer;
+        margin-left: 10px;
+      }
+
+      h3 {
+        margin: 1em 0 0.3em;
+        width: 370px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  &__memes-section {
+    margin: 5em 0 10em 0;
+    
+    .to-section-btn-link {
+      margin-top: 2em;
+    }
+
+    .alice-carousel__next-btn-item,
+    .alice-carousel__prev-btn-item {
+      span {
+        font-size: 1.3em;
+        color: $color-secondary-800;
       }
     }
 
-    @media only screen and (max-width: 500px) {
-      width: 170px; 
+    .memes-carousel {
+      width: 900px;
+      margin: 2.5em 0 1em 0;
+
+      @media only screen and (max-width: 800px) {
+        width: 500px;
+      }
+
+      @media only screen and (max-width: 500px) {
+        width: 350px;
+      }
     }
-  }
 
-  .meme-img {
-    width: 280px;
-    height: 150px;
+    .meme-img-container {
+      width: 300px;
+      padding: 0 10px;
+      margin: auto;
+      transition: 0.2s linear;
 
-    @media only screen and (max-width: 500px) {
-      width: 150px; 
+      p {
+        margin: 5px 0;
+      }
+      &:hover {
+        transform: scale(1.05);
+        p {
+          text-decoration: underline;
+        }
+      }
+
+      @media only screen and (max-width: 500px) {
+        width: 170px;
+      }
+    }
+
+    .meme-img {
+      width: 280px;
+      height: 150px;
+
+      @media only screen and (max-width: 500px) {
+        width: 150px;
+      }
     }
   }
 }

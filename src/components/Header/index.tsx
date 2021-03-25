@@ -2,10 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 import { useLocation } from "@reach/router"
 import { ThemeToggler } from "gatsby-plugin-dark-mode"
-import { AniFadeLink } from "@components/Link"
 
 import Typography from "@components/Typography"
-import Flex, { flexClasses } from "@components/Flex"
+import Flex from "@components/Flex"
 import { Logo } from "@components/Svg"
 import { DarkModeSwitch } from "@components/Switch"
 
@@ -18,16 +17,14 @@ const MainHeader = () => {
   return (
     <ThemeToggler>
       {({ theme, toggleTheme }) => (
-        <header
-          className={`header--base header--sticky header--primary ${flexClasses.flexRow} ${flexClasses.alignItemsCenter}`}
-        >
-          <AniFadeLink to="/" className="header__logo">
+        <header className="header--base header--sticky header--primary">
+          <Link to="/" className="header__logo">
             <Logo />
-          </AniFadeLink>
+          </Link>
           <Flex className="header__nav-container">
             {routes.map(routeProps => {
               return (
-                <AniFadeLink
+                <Link
                   key={`header-link-${routeProps.label}`}
                   className="header__nav-link"
                   activeClassName="header__nav-link--active"
@@ -36,13 +33,14 @@ const MainHeader = () => {
                 >
                   <Typography
                     className="nav-link-txt"
+                    tag="h5"
                     variant={
                       routeProps.label === root ? "neutralBlank" : "primaryDark"
                     }
                   >
                     {routeProps.label}
                   </Typography>
-                </AniFadeLink>
+                </Link>
               )
             })}
           </Flex>
@@ -64,20 +62,18 @@ const TemplateHeader = ({ fixed }) => {
     <ThemeToggler>
       {({ theme, toggleTheme }) => (
         <header
-          className={`header--base ${
-            fixed && "header--fixed header--primary"
-          } ${flexClasses.flexRow} ${flexClasses.alignItemsCenter}`}
+          className={`header--base ${fixed && "header--fixed header--primary"}`}
         >
-          <AniFadeLink
+          <Link
             to="/"
             className={`header__logo ${!fixed && "header-template__logo"}`}
           >
             <Logo />
-          </AniFadeLink>
+          </Link>
           <Flex className="header__nav-container">
             {routes.map(routeProps => {
               return (
-                <AniFadeLink
+                <Link
                   key={`header-link-${routeProps.label}`}
                   className={`header__nav-link ${
                     !fixed && "header-template__nav-link"
@@ -89,16 +85,15 @@ const TemplateHeader = ({ fixed }) => {
                   to={routeProps.to}
                 >
                   <Typography
+                    className="nav-link-txt"
                     variant={
-                      routeProps.label == root
-                        ? "neutralBlank"
-                        : "primaryDark"
+                      routeProps.label == root ? "neutralBlank" : "primaryDark"
                     }
-                    tag="p"
+                    tag="h5"
                   >
                     {routeProps.label}
                   </Typography>
-                </AniFadeLink>
+                </Link>
               )
             })}
           </Flex>

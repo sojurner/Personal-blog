@@ -258,19 +258,17 @@ body.dark {
 
   .header-template {
     &__nav-link {
-      p {color: var(--pk-color-primary-900);}
+      p {
+        color: var(--pk-color-primary-900);
+      }
     }
   }
 
   .sc-widget {
     iframe {
-      filter: invert(.85);
+      filter: invert(0.85);
     }
   }
-
-  // .vertical-timeline-element-icon {
-  //   background: var(--pk-color-neutral-200);
-  // }
 }
 
 code[class*="language-"] *,
@@ -281,9 +279,9 @@ pre[class*="language-"] * {
 
 h1,
 h2,
-h3 {
+h3,
+h5 {
   font-family: var(--pk-font-family-primary);
-  color: var(--pk-color-neutral-050);
 }
 
 h4,

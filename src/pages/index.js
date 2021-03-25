@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 import ReactTooltip from "react-tooltip"
+import { useMediaQuery } from "react-responsive"
 import Carousel from "react-alice-carousel"
 
 import { AniFadeLink, AniLoaderLink } from "@components/Link"
@@ -13,8 +14,9 @@ import Flex from "@components/Flex"
 import Tag from "@components/Tag"
 import SEO from "@components/SEO"
 import Button from "@components/Button"
+import SoundCloudWidget from "@components/SoundCloudWidget"
 
-import { blogTypeRef } from "../utils/constants"
+import { blogTypeRef, musicLinks } from "../utils/constants"
 import "@styles/index.scss"
 import "@styles/pages/_homePage.scss"
 
@@ -77,8 +79,15 @@ const HomePage = () => {
     }
   `)
 
-  const mainRef = React.useRef()
+  const [targetUrl, setTargetUrl] = React.useState(musicLinks[0].scURL)
   const [loaded, setLoaded] = React.useState(false)
+  const isMobile = useMediaQuery({ query: "(max-width: 950px)" })
+  const mainRef = React.useRef()
+
+  const handleCategoryClick = url => {
+    if (url === targetUrl) return
+    setTargetUrl(url)
+  }
 
   React.useEffect(() => {
     setTimeout(() => setLoaded(true), 1000)
@@ -185,8 +194,8 @@ const HomePage = () => {
               <div className="page-home__about-section__divider" />
 
               <Typography tag="h4" variant="neutralLight">
-                As a full-stack web developer, here are some technologies I'm most
-                familiar with:
+                As a full-stack web developer, here are some technologies I'm
+                most familiar with:
               </Typography>
               <Flex
                 className="page-home__about-section__skill-icons"
@@ -352,13 +361,84 @@ const HomePage = () => {
             </Flex>
           </Flex>
         </Flex>
-        <Flex classes={["flexColumn"]} className="page-home__post-section">
+        <Flex className="page-home__music-section extended-section" classes={["flexColumn"]}>
+          <Typography
+            className="music-title extended-title"
+            tag="h1"
+            variant="neutralDark"
+          >
+            Music
+          </Typography>
+          <Flex
+            className="music"
+            classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
+          >
+            {isMobile ? (
+              <>
+                <Flex className="music-menu">
+                  {musicLinks.slice(0, 3).map(link => (
+                    <Flex
+                      classes={["flexRow", "alignItemsCenter"]}
+                      key={`music-${link.title}`}
+                      className={`music-category music-category--${link.name} ${
+                        targetUrl === link.scURL ? "music-category--active" : ""
+                      }`}
+                      onClick={handleCategoryClick.bind(null, link.scURL)}
+                    >
+                      <Typography tag="h5" variant="currentColor">
+                        {link.title}
+                      </Typography>
+                    </Flex>
+                  ))}
+                </Flex>
+                <SoundCloudWidget url={targetUrl} />
+                <Flex className="music-menu">
+                  {musicLinks.slice(3).map(link => (
+                    <Flex
+                      classes={["flexRow", "alignItemsCenter"]}
+                      key={`music-${link.title}`}
+                      className={`music-category music-category--${link.name} ${
+                        targetUrl === link.scURL ? "music-category--active" : ""
+                      }`}
+                      onClick={() => setTargetUrl(link.scURL)}
+                    >
+                      <Typography tag="h5" variant="currentColor">
+                        {link.title}
+                      </Typography>
+                    </Flex>
+                  ))}
+                </Flex>
+              </>
+            ) : (
+              <>
+                <Flex classes={["flexColumn"]} className="music-menu">
+                  {musicLinks.map(link => (
+                    <Flex
+                      classes={["flexRow", "alignItemsCenter"]}
+                      key={`music-${link.title}`}
+                      className={`music-category music-category--${link.name} ${
+                        targetUrl === link.scURL ? "music-category--active" : ""
+                      }`}
+                      onClick={() => setTargetUrl(link.scURL)}
+                    >
+                      <Typography tag="h5" variant="currentColor">
+                        {link.title}
+                      </Typography>
+                    </Flex>
+                  ))}
+                </Flex>
+                <SoundCloudWidget url={targetUrl} />
+              </>
+            )}
+          </Flex>
+        </Flex>
+        <Flex classes={["flexColumn"]} className="extended-section page-home__blog-section">
           <Typography className="extended-title" tag="h1" variant="neutralDark">
             Latest Blogs
           </Typography>
 
           <Flex
-            className="page-home__post-section__cards-container"
+            className="page-home__blog-section__cards-container"
             classes={["flexRow", "justifyContentAround", "flexWrap"]}
           >
             {data.allMarkdownRemark.edges.map(({ node }) => {
@@ -370,28 +450,28 @@ const HomePage = () => {
                 >
                   <Flex
                     classes={["flexColumn"]}
-                    className={`page-home__post-section__card--${
+                    className={`page-home__blog-section__card--${
                       blogTypeRef[frontmatter.subject].tagVariant
-                    } page-home__post-section__card`}
+                    } page-home__blog-section__card`}
                   >
                     <Img
                       fluid={featuredImg.childImageSharp.fluid}
                       src={frontmatter.featuredImgUrl}
                       alt="blog front img"
-                      className={`page-home__post-section__card__img`}
+                      className={`page-home__blog-section__card__img`}
                     />
                     <Typography variant="neutralDark" tag="h3">
                       {frontmatter.title}
                     </Typography>
                     <Flex
-                      className="page-home__post-section__card__date-tag"
+                      className="page-home__blog-section__card__date-tag"
                       classes={["flexRow", "alignItemsCenter"]}
                     >
                       <Typography tag="label" variant="neutralLight">
                         {frontmatter.date}
                       </Typography>
                       <Tag
-                        className="page-home__post-section__card__tag"
+                        className="page-home__blog-section__card__tag"
                         label={frontmatter.subject}
                         variant={blogTypeRef[frontmatter.subject].tagVariant}
                       />
@@ -405,13 +485,13 @@ const HomePage = () => {
           <AniFadeLink
             to="/blog"
             direction="left"
-            className="page-home__post-section__link-blog to-section-btn-link"
+            className="page-home__blog-section__link-blog to-section-btn-link"
           >
             <Button variant="default">More Posts</Button>
           </AniFadeLink>
         </Flex>
 
-        <Flex className="memes" classes={["flexColumn", "alignItemsCenter"]}>
+        <Flex className="extended-section page-home__memes-section" classes={["flexColumn", "alignItemsCenter"]}>
           <Typography
             className="memes-title extended-title"
             tag="h1"

@@ -2,15 +2,18 @@ const socialLinks = [
   {
     icon: "linkedIn",
     link: "https://www.linkedin.com/in/paulkim-sojurner/",
+    variant: "secondary",
   },
   {
     icon: "accountFile",
     link:
       "https://drive.google.com/file/d/1orOhfD7jKerqiN1NXIVKNXt1Zmj9VBri/view?usp=sharing",
+    variant: "positive",
   },
   {
     icon: "github",
     link: "https://github.com/sojurner",
+    variant: "negative",
   },
 ]
 
@@ -47,7 +50,7 @@ const musicLinks = [
   },
 ]
 
-export const blogTypeRef = {
+const blogTypeRef = {
   military: {
     textVariant: "negativeDark",
     chipVariant: "negative",
@@ -70,7 +73,7 @@ export const blogTypeRef = {
   },
 }
 
-export const tagIconRef = {
+const tagIconRef = {
   code: "codetags",
   military: "military",
   storytelling: "book",
@@ -83,18 +86,33 @@ export const tagIconRef = {
 const routes = [
   { to: "/blog", label: "blog" },
   { to: "/memes", label: "memes" },
+  { to: "/about", label: "about" },
+]
+
+const blogSectionRoutes = [
   {
-    to: "/about",
-    label: "about",
-    sub: [
-      { to: "/about#contact", label: "contact" },
-      { to: "/about#history", label: "history" },
-      {
-        to: "/about#music",
-        label: "music",
-      },
-    ],
+    to: "/blog/code",
+    label: "code",
+  },
+  {
+    to: "/blog/culture",
+    label: "culture",
+  },
+  {
+    to: "/blog/military",
+    label: "military",
+  },
+  {
+    to: "/blog/storytelling",
+    label: "storytelling",
   },
 ]
 
-export { socialLinks, routes, musicLinks }
+export {
+  socialLinks,
+  tagIconRef,
+  blogTypeRef,
+  blogSectionRoutes,
+  routes,
+  musicLinks,
+}

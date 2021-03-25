@@ -4,14 +4,12 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component"
 import ReactTooltip from "react-tooltip"
-import { useMediaQuery } from "react-responsive"
 
 import MainLayout from "@components/Layouts"
 import SEO from "@components/SEO"
 import Flex from "@components/Flex"
 import Icon from "@components/Icon"
 import Typography from "@components/Typography"
-import SoundCloudWidget from "@components/SoundCloudWidget"
 import { ContactCard, SkillsCard } from "@components/Card"
 
 import {
@@ -24,19 +22,12 @@ import {
 import avatar_1 from "../images/avatar-cartoon_pk.png"
 import army from "../images/army_pk.png"
 
-import { musicLinks } from "../utils/constants"
 import "react-vertical-timeline-component/style.min.css"
 import "@styles/index.scss"
 import "@styles/pages/_aboutPage.scss"
 
 const AboutPage = () => {
-  const [targetUrl, setTargetUrl] = React.useState(musicLinks[0].scURL)
-  const isMobile = useMediaQuery({ query: "(max-width: 950px)" })
 
-  const handleCategoryClick = url => {
-    if (url === targetUrl) return
-    setTargetUrl(url)
-  }
 
   return (
     <MainLayout className="page-about">
@@ -293,87 +284,6 @@ const AboutPage = () => {
             </Typography>
           </VerticalTimelineElement>
         </VerticalTimeline>
-      </Flex>
-
-      <Flex
-        classes={["flexColumn"]}
-        className="page-about__music-container--outer"
-      >
-        <span id="music" />
-        <Flex
-          classes={["flexColumn", "alignItemsStart"]}
-          className="page-about__music-container--inner"
-        >
-          <Typography tag="h1" className="page-about__music__title">
-            Music
-          </Typography>
-          <Typography
-            tag="h3"
-            variant="neutralLight"
-            className="page-about__history__motto"
-          >
-            - Toons and Beets
-          </Typography>
-        </Flex>
-        <Flex className="music" classes={["flexRow", "alignItemsCenter"]}>
-          {isMobile ? (
-            <>
-              <Flex className="music-menu">
-                {musicLinks.slice(0, 3).map(link => (
-                  <Flex
-                    classes={["flexRow", "alignItemsCenter"]}
-                    key={`music-${link.title}`}
-                    className={`music-category music-category--${link.name} ${
-                      targetUrl === link.scURL ? "music-category--active" : ""
-                    }`}
-                    onClick={handleCategoryClick.bind(null, link.scURL)}
-                  >
-                    <Typography tag="h5" variant="currentColor">
-                      {link.title}
-                    </Typography>
-                  </Flex>
-                ))}
-              </Flex>
-              <SoundCloudWidget url={targetUrl} />
-              <Flex className="music-menu">
-                {musicLinks.slice(3).map(link => (
-                  <Flex
-                    classes={["flexRow", "alignItemsCenter"]}
-                    key={`music-${link.title}`}
-                    className={`music-category music-category--${link.name} ${
-                      targetUrl === link.scURL ? "music-category--active" : ""
-                    }`}
-                    onClick={() => setTargetUrl(link.scURL)}
-                  >
-                    <Typography tag="h5" variant="currentColor">
-                      {link.title}
-                    </Typography>
-                  </Flex>
-                ))}
-              </Flex>
-            </>
-          ) : (
-            <>
-              <Flex classes={["flexColumn"]} className="music-menu">
-                {musicLinks.map(link => (
-                  <Flex
-                    classes={["flexRow", "alignItemsCenter"]}
-                    key={`music-${link.title}`}
-                    className={`music-category music-category--${link.name} ${
-                      targetUrl === link.scURL ? "music-category--active" : ""
-                    }`}
-                    onClick={() => setTargetUrl(link.scURL)}
-                  >
-                    <Typography tag="h5" variant="currentColor">
-                      {link.title}
-                    </Typography>
-                  </Flex>
-                ))}
-              </Flex>
-              <SoundCloudWidget url={targetUrl} />
-            </>
-          )}
-        </Flex>
       </Flex>
 
       <Flex classes={["flexColumn"]} className="page-about__cards-container">

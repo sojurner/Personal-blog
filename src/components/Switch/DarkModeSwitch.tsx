@@ -13,9 +13,9 @@ const DarkModeSwitch = props => {
         height="1em"
         viewBox="0 0 24 24"
         stroke="var(--pk-color-primary-900)"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
       <path d="M12 2L12 5"></path>
       <path d="M12 19L12 22"></path>
