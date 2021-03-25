@@ -28,7 +28,7 @@ However, even if this type of practice was _commonplace_, I, as a veteran, could
 
 **Valor** isn't some non-fungible asset circulating in a _finite pool_. It's simply a _social concept_ to recognize those who have **served**. It's as _plentiful_ and _abundant_ as our minds make it out to be.
 
-*Stealing* implies a **+/- transaction**, which in this context, valor meant for true deserving veterans are being stripped away from imposters.  In this case, no one is stealing from anyone. Those who rightfully have valor, still maintain it...whatever that means.
+_Stealing_ implies a **+/- transaction**, which in this context, valor meant for true deserving veterans are being stripped away from imposters. In this case, no one is stealing from anyone. Those who rightfully have valor, still maintain it...whatever that means.
 
 Clearly, **Stolen Valor** isn't what you'd deem as _commendable_ behavior, but nor is it as _bad_ as it has been publicized. In fact, I'd argue that the act itself, isn't necessarily being _harmful_ to anyone else other than potentially, **the imposter's themselves**.
 
@@ -40,7 +40,7 @@ Lets not forget, the main reason **Stolen Valor** was able to exist, was because
 
 For the record, I hated my **Service Dress Uniform (SDU)**. I, for one, strongly believe in _function over form_, and the **SDU** epitomizes the _polar opposite_. It's _purely visuals_ with its only _functional purpose_ (from a military context) is being an **analog for civilian business attire**.
 
-Be aware, that behind every person in an military service dress uniform was hours, if not days, of **preparation** and _painstaking_ **inspections**, in order to please the public eye. There's a [500pg manual](https://www.army.gov.au/sites/default/files/2020-03/Army%20Dress%20Manual_0.pdf), providing every possible numbing detail about the SDU including the exact _positional measurements_ for every _ribbon, badge, medal_, and/or item to be placed on the uniform. 
+Be aware, that behind every person in an military service dress uniform was hours, if not days, of **preparation** and _painstaking_ **inspections**, in order to please the public eye. There's a [500pg manual](https://www.army.gov.au/sites/default/files/2020-03/Army%20Dress%20Manual_0.pdf), providing every possible numbing detail about the SDU including the exact _positional measurements_ for every _ribbon, badge, medal_, and/or item to be placed on the uniform.
 
 The SDU is one aspect of the military, I'm glad to never have to partake in again.
 
@@ -50,15 +50,17 @@ The amount of time I've spent making the damn ornaments "**straight**", gives me
 
 The problem I've always had, is that "**military straight**" is _relative_. If the goal is to be "**straight**" as in parallel to the ground, then from my experience, it's an _impossible task to achieve_.
 
-![army service dress uniform](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.army.mil%2Fe2%2Fimages%2Frv7%2Funiforms%2Funiform_closeups_service_coat.jpg&f=1&nofb=1)
+<img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.army.mil%2Fe2%2Fimages%2Frv7%2Funiforms%2Funiform_closeups_service_coat.jpg&f=1&nofb=1"
+alt="army service dress uniform"
+style="object-fit:contain;" />
 
 You can't pin something "**straight**" on an article of clothing that is made to fit on the curvature of the upper body, especially when its pinned on two sides. Its not a _flat surface_; you're dealing with both _depth & height_. Something that is pinned "**straight**" when the jacket is _hanging from a hanger_, won't appear "**straight**" when the jacket is worn on a moving human being.
 
-I've gotten into my fair share of trouble, _arguing endlessly_ with **sergeants** about the necessity of the SDU. Perhaps a clear red flag, that a military career wasn't for me.  Despite my stubborn millenial efforts, the main argument I was constantly _rebutted_ against was:
+I've gotten into my fair share of trouble, _arguing endlessly_ with **sergeants** about the necessity of the SDU. Perhaps a clear red flag, that a military career wasn't for me. Despite my stubborn millenial efforts, the main argument I was constantly _rebutted_ against was:
 
 > It is a timeless _tradition_ that revolves around **Paying Attention to Detail**, which translates to _all aspects_ of being a service member\*.
 
-OK, in that case, why can't it both _serve a purpose_ and _be productive_? Other unpopular customs in the military, such as **room inspections** and **overnight duty**, at least offer some form of _productive result_ (a cleaned room, surveilance requirements) while instilling the same _paying attention to detail_ practice. The only "_productive_" output I see with SDUs is for **recognition and tradition**, which again further clashes with my *function over form* preference
+OK, in that case, why can't it both _serve a purpose_ and _be productive_? Other unpopular customs in the military, such as **room inspections** and **overnight duty**, at least offer some form of _productive result_ (a cleaned room, surveilance requirements) while instilling the same _paying attention to detail_ practice. The only "_productive_" output I see with SDUs is for **recognition and tradition**, which again further clashes with my _function over form_ preference
 
 ## The Costs
 

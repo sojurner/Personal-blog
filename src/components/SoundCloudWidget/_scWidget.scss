@@ -1,0 +1,36 @@
+@import "../../styles/utils/vars";
+
+.sc-widget {
+  
+  &--default {
+    width: 600px;
+    height: 390px;
+    position: relative;
+
+    @media only screen and (max-width: 950px) {
+      width: 100%;
+    }
+  }
+
+  &--fixed-player {
+    z-index: 10;
+    height: 58px;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+
+    button {
+      position: absolute;
+      padding: 0.5em 1em;
+      top: 8px;
+      right: 10px;
+      background: $color-blank-800;
+      border-radius: 50%;
+      border-width: 2px;
+
+      &::after {
+        border-radius: 50%;
+      }
+    }
+  }
+}

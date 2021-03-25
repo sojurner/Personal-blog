@@ -256,6 +256,18 @@ body.dark {
     border: 3px solid var(--pk-color-neutral-100);
   }
 
+  .header-template {
+    &__nav-link {
+      p {color: var(--pk-color-primary-900);}
+    }
+  }
+
+  .sc-widget {
+    iframe {
+      filter: invert(.85);
+    }
+  }
+
   // .vertical-timeline-element-icon {
   //   background: var(--pk-color-neutral-200);
   // }

@@ -42,18 +42,6 @@ const MainHeader = () => {
                   >
                     {routeProps.label}
                   </Typography>
-                  {routeProps.sub && (
-                    <Flex
-                      classes={["flexColumn"]}
-                      className="nav-link__sub-menu"
-                    >
-                      {routeProps.sub.map(sublink => (
-                        <Link key={`sublink-${sublink.label}`} to={sublink.to}>
-                          <Typography variant="primaryDark">{sublink.label}</Typography>
-                        </Link>
-                      ))}
-                    </Flex>
-                  )}
                 </AniFadeLink>
               )
             })}
@@ -104,7 +92,7 @@ const TemplateHeader = ({ fixed }) => {
                     variant={
                       routeProps.label == root
                         ? "neutralBlank"
-                        : "primaryDefault"
+                        : "primaryDark"
                     }
                     tag="p"
                   >

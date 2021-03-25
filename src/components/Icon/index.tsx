@@ -6,7 +6,7 @@ import military from "@iconify-icons/mdi/knife-military"
 import account from "@iconify-icons/mdi-light/account"
 import refresh from "@iconify-icons/mdi/refresh"
 import eye from "@iconify-icons/mdi/eye-outline"
-import accountFile from '@iconify-icons/mdi/file-account'
+import accountFile from "@iconify-icons/mdi/file-account"
 
 import social from "@iconify-icons/mdi/account-group-outline"
 import book from "@iconify-icons/mdi/book-open-page-variant-outline"
@@ -22,7 +22,7 @@ import html from "@iconify-icons/mdi/language-html5"
 
 import react from "@iconify-icons/mdi/react"
 import nodejs from "@iconify-icons/mdi/nodejs"
-import blazor from '@iconify-icons/simple-icons/blazor'
+import blazor from "@iconify-icons/simple-icons/blazor"
 import sass from "@iconify-icons/mdi/sass"
 import dotnet from "@iconify-icons/mdi/dot-net"
 
@@ -41,15 +41,14 @@ import email from "@iconify-icons/mdi/email-outline"
 import linkedIn from "@iconify-icons/mdi/linkedin-box"
 import telegram from "@iconify-icons/mdi/telegram"
 
-import uparrow from '@iconify-icons/mdi/arrow-up-bold-outline';
-import downarrow from '@iconify-icons/mdi/arrow-down-bold';
-import upfinger from "@iconify-icons/mdi/hand-pointing-up";
+import uparrow from "@iconify-icons/mdi/arrow-up-bold-outline"
+import downarrow from "@iconify-icons/mdi/arrow-down-bold"
+import upfinger from "@iconify-icons/mdi/hand-pointing-up"
 import downfinger from "@iconify-icons/mdi/hand-pointing-down"
-import rightChevron from "@iconify-icons/mdi/chevron-right"
-import leftChevron from "@iconify-icons/mdi/chevron-left"
 
 import link from "@iconify-icons/mdi/link-variant"
 import share from "@iconify-icons/mdi/share-variant-outline"
+import headphones from "@iconify-icons/mdi/headphones"
 
 import iconStyles from "./Icon.module.scss"
 import { PKColorVariant } from "@typings/component"
@@ -114,8 +113,7 @@ const iconSvg = Object.freeze({
   share,
   uparrow,
   downarrow,
-  leftChevron,
-  rightChevron,
+  headphones,
 })
 
 type IconVariantKey = keyof typeof iconVariants

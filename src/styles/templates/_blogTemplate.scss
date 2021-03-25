@@ -91,6 +91,12 @@ $darkmode-light: #ecb829;
       color: $darkmode-default;
       margin-right: 10px;
     }
+
+    &__music {
+      font-size: 1.5em;
+      padding: .3em;
+      margin-left: 10px;
+    }
   }
 
   &__go-back {

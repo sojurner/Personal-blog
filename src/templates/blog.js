@@ -12,6 +12,8 @@ import Tag from "@components/Tag"
 import Icon from "@components/Icon"
 import Avatar from "@components/Avatar"
 import SEO from "@components/SEO"
+import Button from "@components/Button"
+import { SoundCloudWidgetPlayer } from "@components/SoundCloudWidget"
 
 import "@styles/templates/_blogTemplate.scss"
 import { blogTypeRef } from "../utils/constants"
@@ -21,56 +23,14 @@ const Blog = ({ data }) => {
   const [isVisible, setIsVisible] = React.useState(false)
   const { frontmatter, fields, featuredImg, html } = data.markdownRemark
   const [viewCount] = usePageView(fields.slug)
+  const [showSCWidget, setShowSCWidget] = React.useState(false)
 
   const onChange = visible => {
     if (isVisible !== visible) setIsVisible(visible)
   }
 
-  const createColumn = ele => {
-    const { frontmatter, fields, featuredImg } = ele.node
-    return (
-      <div
-        key={`related-${fields.slug}`}
-        className="template-blog__related__card"
-        depth="z4"
-      >
-        <AniLoaderLink to={`/blog/${frontmatter.subject}/${fields.slug}`}>
-          <Img
-            loading="lazy"
-            fluid={featuredImg.childImageSharp.fluid}
-            alt={frontmatter.featuredImgAlt}
-          />
-        </AniLoaderLink>
-        <Flex
-          classes={["flexColumn"]}
-          className="template-blog__related__card-text"
-        >
-          <AniLoaderLink
-            to={`/blog/${frontmatter.subject}/${fields.slug}`}
-            key={`related-${fields.slug}`}
-          >
-            <Typography tag="h3">{frontmatter.title}</Typography>
-          </AniLoaderLink>
-          <Flex
-            classes={["flexRow", "alignItemsCenter"]}
-            className="template-blog__related__card__date-tag"
-          >
-            <AniFadeLink
-              to={`/blog/${frontmatter.subject}`}
-              key={`related-${fields.slug}`}
-            >
-              <Tag
-                label={frontmatter.subject}
-                variant={blogTypeRef[frontmatter.subject].tagVariant}
-              />
-            </AniFadeLink>
-            <Typography variant="neutralLight" tag="label">
-              {frontmatter.date}
-            </Typography>
-          </Flex>
-        </Flex>
-      </div>
-    )
+  const handleSCWidgetToggle = () => {
+    setShowSCWidget(state => !state)
   }
 
   return (
@@ -98,25 +58,6 @@ const Blog = ({ data }) => {
             ⤺ back to posts
           </Typography>
         </AniFadeLink>
-        <Flex
-          classes={["flexRow", "alignItemsCenter"]}
-          className="template-blog__author-profile"
-        >
-          <Typography
-            tag="h3"
-            className="template-blog__author-profile__author"
-          >
-            {frontmatter.author}
-          </Typography>
-          <Avatar
-            fluid={frontmatter.avatar.childImageSharp.fluid}
-            alt={frontmatter.author
-              .split(" ")
-              .map(x => x[0])
-              .join("")}
-            className="template-blog__author-profile__avatar"
-          />
-        </Flex>
         <Flex
           classes={["flexColumn", "justifyContentCenter"]}
           className="template-blog__header"
@@ -184,6 +125,32 @@ const Blog = ({ data }) => {
             </Flex>
           </Flex>
         </Flex>
+        <Flex
+          classes={["flexRow", "alignItemsCenter"]}
+          className="template-blog__author-profile"
+        >
+          <Typography
+            tag="h3"
+            className="template-blog__author-profile__author"
+          >
+            {frontmatter.author}
+          </Typography>
+          <Avatar
+            fluid={frontmatter.avatar.childImageSharp.fluid}
+            alt={frontmatter.author
+              .split(" ")
+              .map(x => x[0])
+              .join("")}
+            className="template-blog__author-profile__avatar"
+          />
+          <Button
+            onClick={handleSCWidgetToggle}
+            className="template-blog__author-profile__music"
+            variant="secondary"
+          >
+            <Icon svg="headphones" />
+          </Button>
+        </Flex>
       </Flex>
       <div className="template-blog-container">
         {frontmatter.previous && (
@@ -233,14 +200,68 @@ const Blog = ({ data }) => {
           className="template-blog__related__link-card-section"
         >
           <Flex classes={["flexColumn"]}>
-            {data.allMarkdownRemark.edges.slice(0, 3).map(createColumn)}
+            {data.allMarkdownRemark.edges.slice(0, 3).map(ele => (
+              <BlogColumn key={`related-${ele.node.fields}`} node={ele.node} />
+            ))}
           </Flex>
           <Flex classes={["flexColumn"]}>
-            {data.allMarkdownRemark.edges.slice(3, 6).map(createColumn)}
+            {data.allMarkdownRemark.edges.slice(3, 6).map(ele => (
+              <BlogColumn key={`related-${ele.node.fields}`} node={ele.node} />
+            ))}
           </Flex>
         </Flex>
       </Flex>
+      {showSCWidget && (
+        <SoundCloudWidgetPlayer onClose={handleSCWidgetToggle} />
+      )}
     </TemplateLayout>
+  )
+}
+
+const BlogColumn = ({ node }) => {
+  const { frontmatter, fields, featuredImg } = node
+  return (
+    <div
+      key={`related-${fields.slug}`}
+      className="template-blog__related__card"
+      depth="z4"
+    >
+      <AniLoaderLink to={`/blog/${frontmatter.subject}/${fields.slug}`}>
+        <Img
+          loading="lazy"
+          fluid={featuredImg.childImageSharp.fluid}
+          alt={frontmatter.featuredImgAlt}
+        />
+      </AniLoaderLink>
+      <Flex
+        classes={["flexColumn"]}
+        className="template-blog__related__card-text"
+      >
+        <AniLoaderLink
+          to={`/blog/${frontmatter.subject}/${fields.slug}`}
+          key={`related-${fields.slug}`}
+        >
+          <Typography tag="h3">{frontmatter.title}</Typography>
+        </AniLoaderLink>
+        <Flex
+          classes={["flexRow", "alignItemsCenter"]}
+          className="template-blog__related__card__date-tag"
+        >
+          <AniFadeLink
+            to={`/blog/${frontmatter.subject}`}
+            key={`related-${fields.slug}`}
+          >
+            <Tag
+              label={frontmatter.subject}
+              variant={blogTypeRef[frontmatter.subject].tagVariant}
+            />
+          </AniFadeLink>
+          <Typography variant="neutralLight" tag="label">
+            {frontmatter.date}
+          </Typography>
+        </Flex>
+      </Flex>
+    </div>
   )
 }
 

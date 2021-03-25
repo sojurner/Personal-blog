@@ -129,21 +129,9 @@
   }
 }
 
-$darkmode-light: #ecb829;
-
 .header-template {
-  &__logo {
-    color: $darkmode-light;
-  }
-
-  &__dark-mode-switch {
-    & ~ label {
-      background-color: $darkmode-light;
-
-      &::before {
-        background-color: rgb(63, 58, 90);
-      }
-    }
+  &__nav-link p {
+    color: var(--pk-color-primary-050);
   }
 }
 
