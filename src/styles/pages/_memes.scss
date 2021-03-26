@@ -92,6 +92,37 @@
     margin: 50px 0;
   }
 
+  .notification-clipboard {
+    @include blend-shadow($color-boxshadow-neutral, $_z10);
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.2s linear;
+    color: $color-bg-main;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: $color-secondary-600;
+    display: flex;
+    align-items: center;
+    p {
+      color: $color-bg-main;
+    }
+    svg {
+      margin-right: 5px;
+    }
+  }
+
+  .notification--show {
+    opacity: 1;
+    bottom: 20px;
+    z-index: 100;
+  }
+
+  .notification--hide {
+    bottom: -20px;
+    opacity: 0;
+  }
+
   @media only screen and (max-width: 600px) {
     .memes {
       width: 95vw;
