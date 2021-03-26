@@ -44,9 +44,21 @@ const Footer: React.FC = props => {
           className="footer__contact-container--inner"
           classes={["flexColumn"]}
         >
-          <Link to="/">
-            <Logo className="footer__logo" />
-          </Link>
+          <Flex classes={["flexRow", "alignItemsCenter"]}>
+            <Link to="/">
+              <Logo className="footer__logo" />
+            </Link>
+            <Flex className="footer__social-container" classes={["flexRow"]}>
+              {socialLinks.map(ele => (
+                <FooterSocialLink
+                  key={`social-${ele.link}`}
+                  variant={ele.variant as BtnVariantKey}
+                  link={ele.link}
+                  icon={ele.icon}
+                />
+              ))}
+            </Flex>
+          </Flex>
           {contactInfo.map(ele => (
             <FooterContactDetail
               key={`footer-contact-ele-${ele.value}`}
@@ -54,21 +66,18 @@ const Footer: React.FC = props => {
               icon={ele.icon}
             />
           ))}
-
-          <Flex className="footer__social-container" classes={["flexRow"]}>
-            {socialLinks.map(ele => (
-              <FooterSocialLink
-                key={`social-${ele.link}`}
-                variant={ele.variant as BtnVariantKey}
-                link={ele.link}
-                icon={ele.icon}
-              />
-            ))}
-          </Flex>
         </Flex>
         <Flex classes={["flexColumn"]}>
-          <FooterLinkSection title="Pages" routes={routes} />
-          <FooterLinkSection title="Topics" routes={blogSectionRoutes} />
+          <FooterLinkSection
+            groupClass={"flex-linear"}
+            title="Pages"
+            routes={routes}
+          />
+          <FooterLinkSection
+            groupClass={"grid-dual"}
+            title="Topics"
+            routes={blogSectionRoutes}
+          />
         </Flex>
       </Flex>
       <Flex className="footer__copyright-container">
@@ -80,12 +89,12 @@ const Footer: React.FC = props => {
   )
 }
 
-const FooterLinkSection = ({ title, routes }) => (
+const FooterLinkSection = ({ title, routes, groupClass }) => (
   <Flex classes={["flexColumn"]} className="footer__links-section">
     <Typography tag="label" variant="neutralLight">
       {title}
     </Typography>
-    <ul className="footer__links-items">
+    <ul className={`footer__links-items ${groupClass}`}>
       {routes.map(route => (
         <Link
           to={route.to}
