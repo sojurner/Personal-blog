@@ -1,0 +1,37 @@
+@import "../../styles/utils/vars";
+
+$color-list: (#4f9cfd, #a54afd, #fc4d91, #4de2ae, #ffbf55);
+
+@mixin pulse($i) {
+  @keyframes x {
+    0% {
+      fill: nth($color-list, $i);
+    }
+
+    25% {
+      fill: nth($color-list, $i % 5 + 1);
+    }
+
+    50% {
+      fill: nth($color-list, $i % 4 + 2);
+    }
+    75% {
+      fill: nth($color-list, $i % 5 + 1);
+    }
+    100% {
+      fill: nth($color-list, $i);
+    }
+  }
+}
+
+.pk-logo {
+  &:hover {
+    @for $i from 1 to 5 {
+      .pk-logo__path-#{$i} {
+        @include pulse($i);
+        animation: x 2.5s linear forwards infinite;
+        animation-delay: #{$i * 0.2}s;
+      }
+    }
+  }
+}

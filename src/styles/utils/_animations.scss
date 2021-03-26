@@ -1,0 +1,49 @@
+@import './vars';
+
+@keyframes music-notes {
+  0% {
+    fill: nth($fill-colors, random(9));
+  }
+  10% {
+    fill: nth($fill-colors, random(9));
+  }
+  20% {
+    fill: nth($fill-colors, random(9));
+  }
+  30% {
+    fill: nth($fill-colors, random(9));
+  }
+  40% {
+    fill: nth($fill-colors, random(9));
+  }
+  50% {
+    fill: nth($fill-colors, random(9));
+  }
+  60% {
+    fill: nth($fill-colors, random(9));
+  }
+  70% {
+    fill: nth($fill-colors, random(9));
+  }
+  80% {
+    fill: nth($fill-colors, random(9));
+  }
+  90% {
+    fill: nth($fill-colors, random(9));
+  }
+  100% {
+    fill: nth($fill-colors, random(9));
+  }
+}
+
+@keyframes music-revolver {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

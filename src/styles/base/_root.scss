@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@400;500;600;700&display=swap");
 
 :root {
   --pk-color-neutral-050: #241d34;
@@ -282,6 +282,7 @@ h2,
 h3,
 h5 {
   font-family: var(--pk-font-family-primary);
+  font-weight: 400;
 }
 
 h4,

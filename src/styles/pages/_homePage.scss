@@ -1,6 +1,6 @@
 @import "react-alice-carousel/lib/scss/alice-carousel.scss";
 
-@import "../utils/vars";
+@import "../utils/animations";
 @import "../utils/mixins";
 
 .page-home {
@@ -237,17 +237,6 @@
           color: $color-secondary-700;
         }
 
-        a {
-          font-weight: bold;
-          color: $color-primary-500;
-          text-decoration: underline;
-          width: max-content;
-
-          &:hover {
-            filter: hue-rotate(20deg);
-          }
-        }
-
         &:nth-child(4) {
           margin: 1.5em 0 0 0;
         }
@@ -256,6 +245,11 @@
           margin: 0em 0 1em 0;
         }
       }
+    }
+
+    &__link {
+      width: max-content;
+
     }
 
     &__skill-icons {
@@ -543,50 +537,3 @@
   }
 }
 
-@keyframes music-notes {
-  0% {
-    fill: nth($fill-colors, random(9));
-  }
-  10% {
-    fill: nth($fill-colors, random(9));
-  }
-  20% {
-    fill: nth($fill-colors, random(9));
-  }
-  30% {
-    fill: nth($fill-colors, random(9));
-  }
-  40% {
-    fill: nth($fill-colors, random(9));
-  }
-  50% {
-    fill: nth($fill-colors, random(9));
-  }
-  60% {
-    fill: nth($fill-colors, random(9));
-  }
-  70% {
-    fill: nth($fill-colors, random(9));
-  }
-  80% {
-    fill: nth($fill-colors, random(9));
-  }
-  90% {
-    fill: nth($fill-colors, random(9));
-  }
-  100% {
-    fill: nth($fill-colors, random(9));
-  }
-}
-
-@keyframes music-revolver {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
