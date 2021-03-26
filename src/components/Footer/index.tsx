@@ -67,7 +67,7 @@ const Footer: React.FC = props => {
             />
           ))}
         </Flex>
-        <Flex classes={["flexColumn"]}>
+        <Flex classes={["flexRow"]}>
           <FooterLinkSection
             groupClass={"flex-linear"}
             title="Pages"
@@ -91,7 +91,7 @@ const Footer: React.FC = props => {
 
 const FooterLinkSection = ({ title, routes, groupClass }) => (
   <Flex classes={["flexColumn"]} className="footer__links-section">
-    <Typography tag="label" variant="neutralLight">
+    <Typography tag="label" variant="neutralBlank">
       {title}
     </Typography>
     <ul className={`footer__links-items ${groupClass}`}>
