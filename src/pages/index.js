@@ -194,8 +194,7 @@ const HomePage = () => {
               <div className="page-home__about-section__divider" />
 
               <Typography tag="h4" variant="neutralLight">
-                As a full-stack web developer, here are some technologies I'm
-                most familiar with:
+                As a full-stack web developer, here's a broad overview of my skillset:
               </Typography>
               <Flex
                 className="page-home__about-section__skill-icons"
