@@ -128,7 +128,7 @@ const MemesPage = ({ location }) => {
 const MemePost = ({ id, children }) => {
   return (
     <div style={{ position: "relative" }}>
-      <a id={id} style={{ position: "absolute", top: "-100px", opacity: 0 }} />
+      <span id={id} style={{ position: "absolute", top: "-100px", opacity: 0 }} />
       <Flex className="meme" classes={["flexColumn"]}>
         {children}
       </Flex>
