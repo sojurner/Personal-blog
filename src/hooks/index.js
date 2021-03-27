@@ -133,12 +133,11 @@ const useMemeView = id => {
     setLoading(true)
 
     table.once("value", snapshot => {
-      
-      if(snapshot.child(id).exists) {
+      if (snapshot.child(id).exists) {
         setMemePoints(snapshot.child(id).val().points)
       } else {
         setMemePoints(0)
-        
+
         setError("failed to retrieve data...")
       }
     })
@@ -148,7 +147,6 @@ const useMemeView = id => {
 
   return [memePoints, updatePoints, error, loading]
 }
-
 
 export {
   usePageView,

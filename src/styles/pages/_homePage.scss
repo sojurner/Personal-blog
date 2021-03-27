@@ -250,21 +250,18 @@
 
     &__link {
       width: max-content;
-
     }
 
     &__skill-icons {
       font-size: 2em;
-      margin: 0.5em 0 0.2em;
-      justify-self: center;
-      align-self: center;
-
-      div {
-        margin: 0.3em;
-      }
+      margin: 0.8em 0 0;
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      width: max-content;
 
       svg {
-        margin: 0 0.2em;
+        margin: .2em 0.3em;
       }
     }
 
@@ -480,7 +477,7 @@
 
   &__memes-section {
     margin: 5em 0 10em 0;
-    
+
     .to-section-btn-link {
       margin-top: 2em;
     }
@@ -537,4 +534,3 @@
     }
   }
 }
-

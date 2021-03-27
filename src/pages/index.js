@@ -1,22 +1,22 @@
 import React from "react"
-import { graphql, useStaticQuery, Link } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import ReactTooltip from "react-tooltip"
 import { useMediaQuery } from "react-responsive"
 import Carousel from "react-alice-carousel"
 
-import { AniFadeLink, AniLoaderLink } from "@components/Link"
+import { AniLoaderLink } from "@components/Link"
 import { SaxophoneCat, DrummerCat } from "@components/Svg"
 import Icon from "@components/Icon"
 import Typography from "@components/Typography"
-import { RefMainLayout } from "@components/Layouts"
+import MainLayout from "@components/Layouts"
 import Flex from "@components/Flex"
 import Tag from "@components/Tag"
 import SEO from "@components/SEO"
 import Button from "@components/Button"
 import SoundCloudWidget from "@components/SoundCloudWidget"
 
-import { blogTypeRef, musicLinks } from "../utils/constants"
+import { blogTypeRef, musicLinks, skillsetIcons } from "../utils/constants"
 import "@styles/index.scss"
 import "@styles/pages/_homePage.scss"
 
@@ -79,81 +79,21 @@ const HomePage = () => {
     }
   `)
 
-  const [targetUrl, setTargetUrl] = React.useState(musicLinks[0].scURL)
-  const [loaded, setLoaded] = React.useState(false)
-  const isMobile = useMediaQuery({ query: "(max-width: 950px)" })
-  const mainRef = React.useRef()
-
-  const handleCategoryClick = url => {
-    if (url === targetUrl) return
-    setTargetUrl(url)
-  }
-
-  React.useEffect(() => {
-    setTimeout(() => setLoaded(true), 1000)
-  }, [])
-
   return (
-    <RefMainLayout ref={mainRef} className="page-home">
+    <MainLayout className="page-home">
       <SEO title={data.site.siteMetadata.author} />
       <Flex className="page-home__landing-container" classes={["flexColumn"]}>
-        <Flex
-          classes={["flexColumn", "alignItemsCenter", "justifyContentCenter"]}
-          className="page-home__landing-container--inner"
-        >
-          <Flex
-            classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
-            className="page-home__landing-header"
-          >
-            <Flex
-              classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
-              className="page-home__landing-header__txt"
-            >
-              <Img
-                className="page-home__landing-header__front-img"
-                shape="hexagon"
-                fluid={data.file.childImageSharp.fluid}
-                alt={data.site.siteMetadata.author
-                  .split(" ")
-                  .map(x => x[0])
-                  .join("")}
-              />
-              <svg
-                className="page-home__landing-header__curved-svg"
-                viewBox="0 0 500 500"
-              >
-                <path
-                  id="curve"
-                  d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"
-                />
-                <text width="500">
-                  <textPath xlinkHref="#curve">Software Developer</textPath>
-                </text>
-              </svg>
-              <Flex
-                classes={["flexColumn"]}
-                className={`page-home__landing-header__txt-name ${
-                  loaded && "page-home__landing-header__txt-name--loaded"
-                }`}
-              >
-                <Typography
-                  className="page-home__landing-header__txt-firstname"
-                  tag="h1"
-                  variant="primaryDark"
-                >
-                  PAUL
-                </Typography>
-                <Typography
-                  className="page-home__landing-header__txt-lastname"
-                  tag="h1"
-                  variant="secondaryDark"
-                >
-                  KIM
-                </Typography>
-              </Flex>
-            </Flex>
-          </Flex>
-        </Flex>
+        <HomeLanding>
+          <LandingImage
+            fluid={data.file.childImageSharp.fluid}
+            alt={data.site.siteMetadata.author
+              .split(" ")
+              .map(x => x[0])
+              .join("")}
+          />
+          <LandingCurvedText />
+          <LandingName />
+        </HomeLanding>
         <Flex className="page-home__about-section" classes={["flexColumn"]}>
           <Flex className="page-home__about-section--inner">
             <Flex className="page-home__about-section__img page-home__about-section__img-sax-cat">
@@ -173,13 +113,13 @@ const HomePage = () => {
                 <em>therapeutic</em> outlet. I'll share all that I know, and all
                 that I've wondered through my blog.
               </Typography>
-
-              <AniFadeLink
+              <HomeButtonLink
                 to="/blog"
+                variant="primary"
                 className="page-home__about-section__link"
               >
-                <Button variant="primary">Go to blog</Button>
-              </AniFadeLink>
+                Go to blog
+              </HomeButtonLink>
             </Flex>
           </Flex>
 
@@ -194,173 +134,35 @@ const HomePage = () => {
               <div className="page-home__about-section__divider" />
 
               <Typography tag="h4" variant="neutralLight">
-                As a full-stack web developer, here's a broad overview of my skillset:
+                As a <em>full-stack developer</em>, here's a broad overview of
+                my
+                <em> skillset</em>:
               </Typography>
-              <Flex
-                className="page-home__about-section__skill-icons"
-                classes={["flexColumn", "alignItemsCenter"]}
-              >
-                <Flex>
-                  <ReactTooltip
-                    id="icon-js"
-                    backgroundColor="var(--pk-color-icon-js)"
-                    type="light"
-                    effect="solid"
-                  >
-                    <span>JavaScript</span>
-                  </ReactTooltip>
-                  <Icon
-                    data-tip
-                    data-for="icon-js"
-                    color="var(--pk-color-icon-js)"
-                    svg="javascript"
+              <div className="page-home__about-section__skill-icons">
+                {skillsetIcons.map(skillProps => (
+                  <HomeSKillIcon
+                    key={`skill-icon-${skillProps.svg}`}
+                    {...skillProps}
                   />
-
-                  <ReactTooltip
-                    id="icon-ts"
-                    backgroundColor="var(--pk-color-icon-ts)"
-                    type="dark"
-                    effect="solid"
-                  >
-                    <span>TypeScript</span>
-                  </ReactTooltip>
-                  <Icon
-                    data-tip
-                    data-for="icon-ts"
-                    color="var(--pk-color-icon-ts)"
-                    svg="typescript"
-                  />
-                  <ReactTooltip
-                    id="icon-node"
-                    backgroundColor="var(--pk-color-icon-node)"
-                    type="dark"
-                    effect="solid"
-                  >
-                    <span>NodeJS</span>
-                  </ReactTooltip>
-                  <Icon
-                    data-tip
-                    data-for="icon-node"
-                    color="var(--pk-color-icon-node)"
-                    svg="nodejs"
-                  />
-                  <ReactTooltip
-                    id="icon-react"
-                    backgroundColor="var(--pk-color-icon-react)"
-                    type="light"
-                    effect="solid"
-                  >
-                    <span>ReactJS</span>
-                  </ReactTooltip>
-                  <Icon
-                    data-tip
-                    data-for="icon-react"
-                    color="var(--pk-color-icon-react)"
-                    svg="react"
-                  />
-                </Flex>
-                <Flex>
-                  <ReactTooltip
-                    id="icon-csharp"
-                    backgroundColor="var(--pk-color-icon-csharp)"
-                    type="dark"
-                    effect="solid"
-                  >
-                    <span>C#</span>
-                  </ReactTooltip>
-                  <Icon
-                    data-tip
-                    data-for="icon-csharp"
-                    color="var(--pk-color-icon-csharp)"
-                    svg="csharp"
-                  />
-                  <ReactTooltip
-                    id="icon-dotnet"
-                    backgroundColor="var(--pk-color-icon-dotnet)"
-                    type="dark"
-                    effect="solid"
-                  >
-                    <span>Asp.net core</span>
-                  </ReactTooltip>
-                  <Icon
-                    data-tip
-                    data-for="icon-dotnet"
-                    color="var(--pk-color-icon-dotnet)"
-                    svg="dotnet"
-                  />
-                  <ReactTooltip
-                    id="icon-blazor"
-                    backgroundColor="var(--pk-color-icon-dotnet)"
-                    type="dark"
-                    effect="solid"
-                  >
-                    <span>Blazor</span>
-                  </ReactTooltip>
-                  <Icon
-                    data-tip
-                    data-for="icon-blazor"
-                    color="var(--pk-color-icon-dotnet)"
-                    svg="blazor"
-                  />
-                </Flex>
-                <Flex>
-                  <ReactTooltip
-                    id="icon-html"
-                    backgroundColor="var(--pk-color-icon-html)"
-                    type="dark"
-                    effect="solid"
-                  >
-                    <span>HTML5</span>
-                  </ReactTooltip>
-                  <Icon
-                    data-tip
-                    data-for="icon-html"
-                    color="var(--pk-color-icon-html)"
-                    svg="html"
-                  />
-                  <ReactTooltip
-                    id="icon-sass"
-                    backgroundColor="var(--pk-color-icon-sass)"
-                    type="dark"
-                    effect="solid"
-                  >
-                    <span>SASS</span>
-                  </ReactTooltip>
-                  <Icon
-                    data-tip
-                    data-for="icon-sass"
-                    color="var(--pk-color-icon-sass)"
-                    svg="sass"
-                  />
-                  <ReactTooltip
-                    id="icon-css"
-                    backgroundColor="var(--pk-color-icon-css)"
-                    type="dark"
-                    effect="solid"
-                  >
-                    <span>CSS3</span>
-                  </ReactTooltip>
-                  <Icon
-                    data-tip
-                    data-for="icon-css"
-                    color="var(--pk-color-icon-css)"
-                    svg="css"
-                  />
-                </Flex>
-              </Flex>
-              <AniFadeLink
+                ))}
+              </div>
+              <HomeButtonLink
                 to="/about"
+                variant="secondary"
                 className="page-home__about-section__link"
               >
-                <Button variant="secondary">More about me</Button>
-              </AniFadeLink>
+                More about me
+              </HomeButtonLink>
             </Flex>
             <Flex className="page-home__about-section__img page-home__about-section__img-drummer-cat">
               <DrummerCat />
             </Flex>
           </Flex>
         </Flex>
-        <Flex className="page-home__music-section extended-section" classes={["flexColumn"]}>
+        <Flex
+          className="page-home__music-section extended-section"
+          classes={["flexColumn"]}
+        >
           <Typography
             className="music-title extended-title"
             tag="h1"
@@ -368,70 +170,12 @@ const HomePage = () => {
           >
             Music
           </Typography>
-          <Flex
-            className="music"
-            classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
-          >
-            {isMobile ? (
-              <>
-                <Flex className="music-menu">
-                  {musicLinks.slice(0, 3).map(link => (
-                    <Flex
-                      classes={["flexRow", "alignItemsCenter"]}
-                      key={`music-${link.title}`}
-                      className={`music-category music-category--${link.name} ${
-                        targetUrl === link.scURL ? "music-category--active" : ""
-                      }`}
-                      onClick={handleCategoryClick.bind(null, link.scURL)}
-                    >
-                      <Typography tag="h5" variant="currentColor">
-                        {link.title}
-                      </Typography>
-                    </Flex>
-                  ))}
-                </Flex>
-                <SoundCloudWidget url={targetUrl} />
-                <Flex className="music-menu">
-                  {musicLinks.slice(3).map(link => (
-                    <Flex
-                      classes={["flexRow", "alignItemsCenter"]}
-                      key={`music-${link.title}`}
-                      className={`music-category music-category--${link.name} ${
-                        targetUrl === link.scURL ? "music-category--active" : ""
-                      }`}
-                      onClick={() => setTargetUrl(link.scURL)}
-                    >
-                      <Typography tag="h5" variant="currentColor">
-                        {link.title}
-                      </Typography>
-                    </Flex>
-                  ))}
-                </Flex>
-              </>
-            ) : (
-              <>
-                <Flex classes={["flexColumn"]} className="music-menu">
-                  {musicLinks.map(link => (
-                    <Flex
-                      classes={["flexRow", "alignItemsCenter"]}
-                      key={`music-${link.title}`}
-                      className={`music-category music-category--${link.name} ${
-                        targetUrl === link.scURL ? "music-category--active" : ""
-                      }`}
-                      onClick={() => setTargetUrl(link.scURL)}
-                    >
-                      <Typography tag="h5" variant="currentColor">
-                        {link.title}
-                      </Typography>
-                    </Flex>
-                  ))}
-                </Flex>
-                <SoundCloudWidget url={targetUrl} />
-              </>
-            )}
-          </Flex>
+          <HomeSCEmbed />
         </Flex>
-        <Flex classes={["flexColumn"]} className="extended-section page-home__blog-section">
+        <Flex
+          classes={["flexColumn"]}
+          className="extended-section page-home__blog-section"
+        >
           <Typography className="extended-title" tag="h1" variant="neutralDark">
             Latest Blogs
           </Typography>
@@ -443,54 +187,38 @@ const HomePage = () => {
             {data.allMarkdownRemark.edges.map(({ node }) => {
               const { frontmatter, fields, featuredImg } = node
               return (
-                <AniLoaderLink
+                <HomeBlogCard
                   key={`latest-posts-${frontmatter.title}`}
+                  variant={blogTypeRef[frontmatter.subject].tagVariant}
                   to={`blog/${frontmatter.subject}/${fields.slug}`}
+                  className={`page-home__blog-section__card--${
+                    blogTypeRef[frontmatter.subject].tagVariant
+                  } page-home__blog-section__card`}
                 >
-                  <Flex
-                    classes={["flexColumn"]}
-                    className={`page-home__blog-section__card--${
-                      blogTypeRef[frontmatter.subject].tagVariant
-                    } page-home__blog-section__card`}
-                  >
-                    <Img
-                      fluid={featuredImg.childImageSharp.fluid}
-                      src={frontmatter.featuredImgUrl}
-                      alt="blog front img"
-                      className={`page-home__blog-section__card__img`}
-                    />
-                    <Typography variant="neutralDark" tag="h3">
-                      {frontmatter.title}
-                    </Typography>
-                    <Flex
-                      className="page-home__blog-section__card__date-tag"
-                      classes={["flexRow", "alignItemsCenter"]}
-                    >
-                      <Typography tag="label" variant="neutralLight">
-                        {frontmatter.date}
-                      </Typography>
-                      <Tag
-                        className="page-home__blog-section__card__tag"
-                        label={frontmatter.subject}
-                        variant={blogTypeRef[frontmatter.subject].tagVariant}
-                      />
-                    </Flex>
-                    <Typography>{frontmatter.desc}</Typography>
-                  </Flex>
-                </AniLoaderLink>
+                  <Img
+                    alt="blog front img"
+                    className={`page-home__blog-section__card__img`}
+                    fluid={featuredImg.childImageSharp.fluid}
+                    src={frontmatter.featuredImgUrl}
+                  />
+                  <HomeBlogCardContent frontmatter={frontmatter} />
+                </HomeBlogCard>
               )
             })}
           </Flex>
-          <AniFadeLink
+          <HomeButtonLink
             to="/blog"
-            direction="left"
-            className="page-home__blog-section__link-blog to-section-btn-link"
+            className="page-home__blog-section__link-blog"
+            variant="default"
           >
-            <Button variant="default">More Posts</Button>
-          </AniFadeLink>
+            More Posts
+          </HomeButtonLink>
         </Flex>
 
-        <Flex className="extended-section page-home__memes-section" classes={["flexColumn", "alignItemsCenter"]}>
+        <Flex
+          className="extended-section page-home__memes-section"
+          classes={["flexColumn", "alignItemsCenter"]}
+        >
           <Typography
             className="memes-title extended-title"
             tag="h1"
@@ -500,38 +228,252 @@ const HomePage = () => {
           </Typography>
           <Flex className="memes-carousel">
             <Carousel
+              className="memes-carousel"
               responsive={{
                 0: { items: 2 },
                 568: { items: 2 },
                 1024: { items: 3 },
               }}
               items={data.allContentfulMeme.nodes.map((node, index) => (
-                <Link
+                <HomeCarouselSlide
                   key={`${node.contentful_id}-${index}`}
+                  id={node.contentful_id}
                   to={`/memes#${node.contentful_id}`}
+                  fluidImg={node.img.fluid}
                 >
-                  <Flex className="meme-img-container" classes={["flexCloumn"]}>
-                    <Img className="meme-img" fluid={node.img.fluid} />
-                    <Typography tag="p" variant="neutralLight">
-                      {node.title}
-                    </Typography>
-                  </Flex>
-                </Link>
+                  {node.title}
+                </HomeCarouselSlide>
               ))}
-              className="memes-carousel"
             />
           </Flex>
-          <AniLoaderLink
+          <HomeButtonLink
             to="/memes"
-            direction="left"
-            className="meme-all-link to-section-btn-link"
+            className="meme-all-link"
+            variant="default"
           >
-            <Button variant="default">More Memes</Button>
-          </AniLoaderLink>
+            More Memes
+          </HomeButtonLink>
         </Flex>
       </Flex>
-    </RefMainLayout>
+    </MainLayout>
   )
 }
+
+const LandingImage = props => (
+  <Img className="page-home__landing-header__front-img" {...props} />
+)
+
+const LandingName = () => (
+  <Flex
+    classes={["flexColumn"]}
+    className="page-home__landing-header__txt-name"
+  >
+    <Typography
+      className="page-home__landing-header__txt-firstname"
+      tag="h1"
+      variant="primaryDark"
+    >
+      PAUL
+    </Typography>
+    <Typography
+      className="page-home__landing-header__txt-lastname"
+      tag="h1"
+      variant="secondaryDark"
+    >
+      KIM
+    </Typography>
+  </Flex>
+)
+
+const LandingCurvedText = () => (
+  <svg className="page-home__landing-header__curved-svg" viewBox="0 0 500 500">
+    <path
+      id="curve"
+      d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97"
+    />
+    <text width="500">
+      <textPath xlinkHref="#curve">Software Developer</textPath>
+    </text>
+  </svg>
+)
+
+const HomeLanding = ({ children }) => (
+  <Flex className="page-home__landing-container" classes={["flexColumn"]}>
+    <Flex
+      classes={["flexColumn", "alignItemsCenter", "justifyContentCenter"]}
+      className="page-home__landing-container--inner"
+    >
+      <Flex
+        classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
+        className="page-home__landing-header"
+      >
+        <Flex
+          classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
+          className="page-home__landing-header__txt"
+        >
+          {children}
+        </Flex>
+      </Flex>
+    </Flex>
+  </Flex>
+)
+
+const HomeSCEmbed = () => {
+  const isMobile = useMediaQuery({ query: "(max-width: 950px)" })
+  const [targetUrl, setTargetUrl] = React.useState("")
+
+  const handleCategoryClick = url => {
+    if (url === targetUrl) return
+    setTargetUrl(url)
+  }
+
+  React.useEffect(() => {
+    setTargetUrl(musicLinks[0].scURL)
+  }, [])
+
+  if (!targetUrl) return null
+
+  return (
+    <Flex
+      className="music"
+      classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
+    >
+      {isMobile ? (
+        <SCResponsive
+          targetUrl={targetUrl}
+          onCategoryClick={handleCategoryClick}
+        />
+      ) : (
+        <SCDesktop
+          targetUrl={targetUrl}
+          onCategoryClick={handleCategoryClick}
+        />
+      )}
+    </Flex>
+  )
+}
+
+const SCResponsive = ({ onCategoryClick, targetUrl }) => {
+  return (
+    <>
+      <Flex className="music-menu">
+        {musicLinks.slice(0, 3).map(link => (
+          <Flex
+            classes={["flexRow", "alignItemsCenter"]}
+            key={`music-${link.title}`}
+            className={`music-category music-category--${link.name} ${
+              targetUrl === link.scURL ? "music-category--active" : ""
+            }`}
+            onClick={onCategoryClick.bind(null, link.scURL)}
+          >
+            <Typography tag="h5" variant="currentColor">
+              {link.title}
+            </Typography>
+          </Flex>
+        ))}
+      </Flex>
+      <SoundCloudWidget url={targetUrl} />
+      <Flex className="music-menu">
+        {musicLinks.slice(3).map(link => (
+          <Flex
+            classes={["flexRow", "alignItemsCenter"]}
+            key={`music-${link.title}`}
+            className={`music-category music-category--${link.name} ${
+              targetUrl === link.scURL ? "music-category--active" : ""
+            }`}
+            onClick={onCategoryClick.bind(null, link.scURL)}
+          >
+            <Typography tag="h5" variant="currentColor">
+              {link.title}
+            </Typography>
+          </Flex>
+        ))}
+      </Flex>
+    </>
+  )
+}
+
+const SCDesktop = ({ onCategoryClick, targetUrl }) => (
+  <>
+    <Flex classes={["flexColumn"]} className="music-menu">
+      {musicLinks.map(link => (
+        <Flex
+          classes={["flexRow", "alignItemsCenter"]}
+          key={`music-${link.title}`}
+          className={`music-category music-category--${link.name} ${
+            targetUrl === link.scURL ? "music-category--active" : ""
+          }`}
+          onClick={onCategoryClick.bind(null, link.scURL)}
+        >
+          <Typography tag="h5" variant="currentColor">
+            {link.title}
+          </Typography>
+        </Flex>
+      ))}
+    </Flex>
+    <SoundCloudWidget url={targetUrl} />
+  </>
+)
+
+const HomeBlogCard = ({ to, className, children }) => (
+  <AniLoaderLink to={to}>
+    <Flex classes={["flexColumn"]} className={className}>
+      {children}
+    </Flex>
+  </AniLoaderLink>
+)
+
+const HomeBlogCardContent = ({ frontmatter }) => (
+  <>
+    <Typography variant="neutralDark" tag="h3">
+      {frontmatter.title}
+    </Typography>
+    <Flex
+      className="page-home__blog-section__card__date-tag"
+      classes={["flexRow", "alignItemsCenter"]}
+    >
+      <Typography tag="label" variant="neutralLight">
+        {frontmatter.date}
+      </Typography>
+      <Tag
+        className="page-home__blog-section__card__tag"
+        label={frontmatter.subject}
+        variant={blogTypeRef[frontmatter.subject].tagVariant}
+      />
+    </Flex>
+    <Typography>{frontmatter.desc}</Typography>
+  </>
+)
+
+const HomeSKillIcon = ({ svg, label, color, type }) => (
+  <div>
+    <ReactTooltip
+      id={`icon-${svg}`}
+      backgroundColor={color}
+      type={type}
+      effect="solid"
+    >
+      <span>{label}</span>
+    </ReactTooltip>
+    <Icon data-tip data-for={`icon-${svg}`} color={color} svg={svg} />
+  </div>
+)
+
+const HomeButtonLink = ({ to, children, className, variant }) => (
+  <AniLoaderLink to={to} className={`${className} to-section-btn-link"`}>
+    <Button variant={variant}>{children}</Button>
+  </AniLoaderLink>
+)
+
+const HomeCarouselSlide = ({ id, fluidImg, children }) => (
+  <AniLoaderLink to={`/memes#${id}`}>
+    <Flex className="meme-img-container" classes={["flexCloumn"]}>
+      <Img className="meme-img" fluid={fluidImg} />
+      <Typography tag="p" variant="neutralLight">
+        {children}
+      </Typography>
+    </Flex>
+  </AniLoaderLink>
+)
 
 export default HomePage

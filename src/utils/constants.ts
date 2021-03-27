@@ -108,11 +108,75 @@ const blogSectionRoutes = [
   },
 ]
 
+const skillsetIcons = [
+  {
+    svg: "javascript",
+    label: "JavaScript",
+    color: "var(--pk-color-icon-js)",
+    type: "light",
+  },
+  {
+    svg: "typescript",
+    label: "TypeScript",
+    color: "var(--pk-color-icon-ts)",
+    type: "dark",
+  },
+  {
+    svg: "nodejs",
+    label: "NodeJS",
+    color: "var(--pk-color-icon-node)",
+    type: "dark",
+  },
+  {
+    svg: "react",
+    label: "React",
+    color: "var(--pk-color-icon-react)",
+    type: "light",
+  },
+  {
+    svg: "csharp",
+    label: "C#",
+    color: "var(--pk-color-icon-csharp)",
+    type: "dark",
+  },
+  {
+    svg: "dotnet",
+    label: ".net 5",
+    color: "var(--pk-color-icon-dotnet)",
+    type: "dark",
+  },
+  {
+    svg: "blazor",
+    label: "Blazor",
+    color: "var(--pk-color-icon-dotnet)",
+    type: "dark",
+  },
+  {
+    svg: "html",
+    label: "HTML5",
+    color: "var(--pk-color-icon-html)",
+    type: "dark",
+  },
+  {
+    svg: "sass",
+    label: "SASS",
+    color: "var(--pk-color-icon-sass)",
+    type: "dark",
+  },
+  {
+    svg: "css",
+    label: "CSS3",
+    color: "var(--pk-color-icon-css)",
+    type: "dark",
+  },
+]
+
 export {
   socialLinks,
   tagIconRef,
   blogTypeRef,
   blogSectionRoutes,
+  skillsetIcons,
   routes,
   musicLinks,
 }
