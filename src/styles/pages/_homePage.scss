@@ -278,9 +278,13 @@
       }
 
       &__txt {
+        margin: auto;
         width: initial;
-        margin: 0;
         padding: 0 1em;
+
+        & > h4 {
+          width: 100%;
+        }
       }
 
       &__link {
