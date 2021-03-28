@@ -23,43 +23,45 @@ const Blog = ({ data }) => {
   const { frontmatter, fields, featuredImg, html } = data.markdownRemark
   const [viewCount] = usePageView(fields.slug)
   const [showSCWidget, setShowSCWidget] = React.useState(false)
-  const articleRef = React.useRef()
+  const aRef = React.useRef()
 
   const handleSCWidgetToggle = () => {
     setShowSCWidget(state => !state)
   }
 
   React.useEffect(() => {
-    const ref = articleRef.current
+    const ref = aRef.current
     if (!ref) return
 
     const observer = new IntersectionObserver(
       entries => {
-        if (entries[0].isIntersecting) {
+        if (entries[0].boundingClientRect.y <= 0) {
           if (!isVisible) setIsVisible(true)
         } else {
           if (isVisible) setIsVisible(false)
         }
       },
-      { threshold: [0.15] }
+      { threshold: [0.5] }
     )
 
     observer.observe(ref)
-  }, [articleRef, isVisible])
+
+    return () => observer.unobserve(ref)
+  }, [aRef, isVisible])
 
   return (
     <TemplateLayout inView={!isVisible} className="template-blog">
+      <SEO title={frontmatter.title} description={frontmatter.desc} />
       <Flex
         className="template-blog__landing-container"
         classes={["flexColumn", "justifyContentCenter", "alignItemsCenter"]}
       >
-        <SEO title={frontmatter.title} description={frontmatter.desc} />
         <Img
           className="template-blog__feature-img"
           fluid={featuredImg.childImageSharp.fluid}
           alt={frontmatter.featuredImgAlt}
         />
-        <div className="template-blog__shade-transition" />
+        <div ref={aRef} className="template-blog__shade-transition" />
         <AniFadeLink to="/blog">
           <Typography className="template-blog__go-back" variant="neutralDark">
             ⤺ back to posts
@@ -185,7 +187,6 @@ const Blog = ({ data }) => {
           </Flex>
         )}
         <article
-          ref={articleRef}
           className="template-blog__content-article"
           dangerouslySetInnerHTML={{ __html: html }}
         />
