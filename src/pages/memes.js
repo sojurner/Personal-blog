@@ -1,9 +1,8 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import VSensor from "react-visibility-sensor"
 
-import MainLayout from "@components/Layouts"
+import { RefMainLayout } from "@components/Layouts"
 import SEO from "@components/SEO"
 import Button from "@components/Button"
 import Flex from "@components/Flex"
@@ -38,19 +37,27 @@ const MemesPage = ({ location }) => {
 
   const [memeSession, setMemeSession] = React.useState({})
   const [notification, setNotification] = React.useState("")
-  const [visibleState, setVisibleState] = React.useState(
-    data.allContentfulMeme.nodes.reduce((result, node) => {
-      result[node.contentful_id] = false
-      return result
-    }, {})
-  )
+  const [itemRange, setItemRange] = React.useState([0, 2])
+  const mainRef = React.useRef()
 
+  React.useEffect(() => {
+    const ref = mainRef.current
+    if (!ref) return
+    
+    const loadMore = () => {
+      if (itemRange[1] >= data.allContentfulMeme.nodes.length - 1) return
+      const { scrollTop, clientHeight, scrollHeight } = ref
+
+      if (scrollTop + clientHeight >= scrollHeight - 250) {
+        setItemRange(state => [state[0], state[1] + 3])
+      }
+    }
+
+    ref.addEventListener("scroll", loadMore)
+
+    return () => ref.removeEventListener("scroll", loadMore)
+  }, [itemRange])
   const [memeState, updateMemePoints] = useMemeMeta()
-
-  function onChange(isVisible, slug) {
-    if (visibleState[slug]) return
-    setVisibleState(state => ({ ...state, [slug]: isVisible }))
-  }
 
   const onMemeVote = (id, vote) => {
     setMemeSession(state => ({ ...state, [id]: vote }))
@@ -78,39 +85,29 @@ const MemesPage = ({ location }) => {
   }
 
   return (
-    <MainLayout className="page-memes">
+    <RefMainLayout ref={mainRef} className="page-memes">
       <SEO title="Memes" />
       <Flex className="memes" classes={["flexColumn"]}>
-        {data.allContentfulMeme.nodes.map((node, index) => {
+        {data.allContentfulMeme.nodes.slice(...itemRange).map((node, index) => {
           return (
-            <VSensor
-              key={`post-ref-${index}`}
-              delayedCall={true}
-              scrollDelay={500}
-              onChange={isVisible => onChange(isVisible, node.contentful_id)}
-              partialVisibility={true}
-            >
-              <MemePost id={node.contentful_id}>
-                <MemeHeader
-                  title={node.title}
-                  timestamp={node.timestamp}
-                  tags={node.tags}
+            <MemePost key={`post-ref-${index}`} id={node.contentful_id}>
+              <MemeHeader
+                title={node.title}
+                timestamp={node.timestamp}
+                tags={node.tags}
+              />
+              {node.img && <MemeImg fluid={node.img.fluid} />}
+              <MemeAction memeVote={memeState[node.contentful_id]}>
+                <MemeVoting
+                  memeSession={memeSession[node.contentful_id]}
+                  onMemeVote={bool => onMemeVote(node.contentful_id, bool)}
                 />
-                {node.img && visibleState[node.contentful_id] && (
-                  <MemeImg fluid={node.img.fluid} />
-                )}
-                <MemeAction memeVote={memeState[node.contentful_id]}>
-                  <MemeVoting
-                    memeSession={memeSession[node.contentful_id]}
-                    onMemeVote={bool => onMemeVote(node.contentful_id, bool)}
-                  />
-                  <MemeSocial
-                    onMemeCopyLink={() => onMemeCopyLink(node.contentful_id)}
-                    source={node.source}
-                  />
-                </MemeAction>
-              </MemePost>
-            </VSensor>
+                <MemeSocial
+                  onMemeCopyLink={() => onMemeCopyLink(node.contentful_id)}
+                  source={node.source}
+                />
+              </MemeAction>
+            </MemePost>
           )
         })}
       </Flex>
@@ -121,14 +118,17 @@ const MemesPage = ({ location }) => {
       >
         {notification}
       </MemeNotification>
-    </MainLayout>
+    </RefMainLayout>
   )
 }
 
 const MemePost = ({ id, children }) => {
   return (
     <div style={{ position: "relative" }}>
-      <span id={id} style={{ position: "absolute", top: "-100px", opacity: 0 }} />
+      <span
+        id={id}
+        style={{ position: "absolute", top: "-100px", opacity: 0 }}
+      />
       <Flex className="meme" classes={["flexColumn"]}>
         {children}
       </Flex>

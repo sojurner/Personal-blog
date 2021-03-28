@@ -6,6 +6,7 @@
     width: 600px;
     height: 390px;
     position: relative;
+    grid-area: widget;
 
     @media only screen and (max-width: 950px) {
       width: 100%;

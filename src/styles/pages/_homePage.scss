@@ -331,9 +331,19 @@
   .music-title {
     margin: auto;
   }
+
   .music {
     padding: 0 0.5em;
-    margin: 4em 0;
+    margin: 4em auto;
+    display: grid;
+    width: max-content;
+    grid-template-areas:
+      "a widget widget"
+      "b widget widget"
+      "c widget widget"
+      "d widget widget"
+      "e widget widget"
+      "f widget widget"
   }
 
   .music-category {
@@ -346,6 +356,7 @@
     background-blend-mode: multiply;
     background-color: rgba(0, 0, 0, 0.6);
     cursor: pointer;
+    grid-area: tab;
 
     h5 {
       color: white;
@@ -366,30 +377,42 @@
 
   .music-category--lofi {
     background-image: url(../../images/lofi.jpeg);
+    grid-area: 1 / 1 / 1 / 1;
   }
 
   .music-category--ambient {
     background-image: url(../../images/ambient.jpeg);
+    grid-area: 2 / 1 / 2 / 1;
   }
 
   .music-category--alt-rock {
     background-image: url(../../images/alt-rock.jpeg);
+    grid-area: 3 / 1 / 3 / 1;
   }
   .music-category--orchestra {
     background-image: url(../../images/orchestra.jpeg);
+    grid-area: 4 / 1 / 4 / 1;
   }
   .music-category--indie-folk {
     background-image: url(../../images/indie-folk.jpeg);
+    grid-area: 5 / 1 / 5 / 1;
   }
 
   .music-category--majestic {
     background-image: url(../../images/majestic.jpeg);
+    grid-area: 6 / 1 / 6 / 1;
   }
 
   @media only screen and (max-width: 950px) {
     .music {
-      flex-direction: column;
-      justify-content: center;
+      width: 100%;
+      grid-template-areas:
+        "a b c"
+        "widget widget widget"
+        "widget widget widget"
+        "widget widget widget"
+        "widget widget widget"
+        "d e f";
     }
 
     .music-menu {
@@ -401,6 +424,35 @@
     .music-category {
       justify-content: center;
       flex: 1 1 auto;
+      width: initial;
+    }
+
+    .music-category--lofi {
+      background-image: url(../../images/lofi.jpeg);
+      grid-area: 1 / 1 / 1 / 1;
+    }
+
+    .music-category--ambient {
+      background-image: url(../../images/ambient.jpeg);
+      grid-area: 1 / 2 / 1 / 2;
+    }
+
+    .music-category--alt-rock {
+      background-image: url(../../images/alt-rock.jpeg);
+      grid-area: 1 / 3 / 1 / 3;
+    }
+    .music-category--orchestra {
+      background-image: url(../../images/orchestra.jpeg);
+      grid-area: 6 / 1 / 6 / 1;
+    }
+    .music-category--indie-folk {
+      background-image: url(../../images/indie-folk.jpeg);
+      grid-area: 6 / 2 / 6 / 2;
+    }
+
+    .music-category--majestic {
+      background-image: url(../../images/majestic.jpeg);
+      grid-area: 6 / 3 / 6 / 3;
     }
   }
 

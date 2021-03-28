@@ -2,7 +2,6 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import ReactTooltip from "react-tooltip"
-import { useMediaQuery } from "react-responsive"
 import Carousel from "react-alice-carousel"
 
 import { AniLoaderLink } from "@components/Link"
@@ -316,83 +315,17 @@ const HomeLanding = ({ children }) => (
 )
 
 const HomeSCEmbed = () => {
-  const isMobile = useMediaQuery({ query: "(max-width: 950px)" })
-  const [targetUrl, setTargetUrl] = React.useState("")
+  const [targetUrl, setTargetUrl] = React.useState(musicLinks[0].scURL)
 
   const handleCategoryClick = url => {
     if (url === targetUrl) return
     setTargetUrl(url)
   }
 
-  React.useEffect(() => {
-    setTargetUrl(musicLinks[0].scURL)
-  }, [])
-
   if (!targetUrl) return null
 
   return (
-    <Flex
-      className="music"
-      classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
-    >
-      {isMobile ? (
-        <SCResponsive
-          targetUrl={targetUrl}
-          onCategoryClick={handleCategoryClick}
-        />
-      ) : (
-        <SCDesktop
-          targetUrl={targetUrl}
-          onCategoryClick={handleCategoryClick}
-        />
-      )}
-    </Flex>
-  )
-}
-
-const SCResponsive = ({ onCategoryClick, targetUrl }) => {
-  return (
-    <>
-      <Flex className="music-menu">
-        {musicLinks.slice(0, 3).map(link => (
-          <Flex
-            classes={["flexRow", "alignItemsCenter"]}
-            key={`music-${link.title}`}
-            className={`music-category music-category--${link.name} ${
-              targetUrl === link.scURL ? "music-category--active" : ""
-            }`}
-            onClick={onCategoryClick.bind(null, link.scURL)}
-          >
-            <Typography tag="h5" variant="currentColor">
-              {link.title}
-            </Typography>
-          </Flex>
-        ))}
-      </Flex>
-      <SoundCloudWidget url={targetUrl} />
-      <Flex className="music-menu">
-        {musicLinks.slice(3).map(link => (
-          <Flex
-            classes={["flexRow", "alignItemsCenter"]}
-            key={`music-${link.title}`}
-            className={`music-category music-category--${link.name} ${
-              targetUrl === link.scURL ? "music-category--active" : ""
-            }`}
-            onClick={onCategoryClick.bind(null, link.scURL)}
-          >
-            <Typography tag="h5" variant="currentColor">
-              {link.title}
-            </Typography>
-          </Flex>
-        ))}
-      </Flex>
-    </>
-  )
-}
-
-const SCDesktop = ({ onCategoryClick, targetUrl }) => (
-  <>
-    <Flex classes={["flexColumn"]} className="music-menu">
+    <div className="music">
       {musicLinks.map(link => (
         <Flex
           classes={["flexRow", "alignItemsCenter"]}
@@ -400,17 +333,17 @@ const SCDesktop = ({ onCategoryClick, targetUrl }) => (
           className={`music-category music-category--${link.name} ${
             targetUrl === link.scURL ? "music-category--active" : ""
           }`}
-          onClick={onCategoryClick.bind(null, link.scURL)}
+          onClick={handleCategoryClick.bind(null, link.scURL)}
         >
           <Typography tag="h5" variant="currentColor">
             {link.title}
           </Typography>
         </Flex>
       ))}
-    </Flex>
-    <SoundCloudWidget url={targetUrl} />
-  </>
-)
+      <SoundCloudWidget url={targetUrl} />
+    </div>
+  )
+}
 
 const HomeBlogCard = ({ to, className, children }) => (
   <AniLoaderLink to={to}>
