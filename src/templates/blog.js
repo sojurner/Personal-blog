@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-import VSensor from "react-visibility-sensor"
 
 import { AniLoaderLink, AniFadeLink } from "@components/Link"
 import { TemplateLayout } from "@components/Layouts"
@@ -24,34 +23,42 @@ const Blog = ({ data }) => {
   const { frontmatter, fields, featuredImg, html } = data.markdownRemark
   const [viewCount] = usePageView(fields.slug)
   const [showSCWidget, setShowSCWidget] = React.useState(false)
-
-  const onChange = visible => {
-    if (isVisible !== visible) setIsVisible(visible)
-  }
+  const articleRef = React.useRef()
 
   const handleSCWidgetToggle = () => {
     setShowSCWidget(state => !state)
   }
 
+  React.useEffect(() => {
+    const ref = articleRef.current
+    if (!ref) return
+
+    const observer = new IntersectionObserver(
+      entries => {
+        if (entries[0].isIntersecting) {
+          if (!isVisible) setIsVisible(true)
+        } else {
+          if (isVisible) setIsVisible(false)
+        }
+      },
+      { threshold: [0.15] }
+    )
+
+    observer.observe(ref)
+  }, [articleRef, isVisible])
+
   return (
-    <TemplateLayout inView={isVisible} className="template-blog">
+    <TemplateLayout inView={!isVisible} className="template-blog">
       <Flex
         className="template-blog__landing-container"
         classes={["flexColumn", "justifyContentCenter", "alignItemsCenter"]}
       >
         <SEO title={frontmatter.title} description={frontmatter.desc} />
-        <VSensor
-          intervalDelay={500}
-          partialVisibility={true}
-          onChange={onChange}
-          offset={{ bottom: -30 }}
-        >
-          <Img
-            className="template-blog__feature-img"
-            fluid={featuredImg.childImageSharp.fluid}
-            alt={frontmatter.featuredImgAlt}
-          />
-        </VSensor>
+        <Img
+          className="template-blog__feature-img"
+          fluid={featuredImg.childImageSharp.fluid}
+          alt={frontmatter.featuredImgAlt}
+        />
         <div className="template-blog__shade-transition" />
         <AniFadeLink to="/blog">
           <Typography className="template-blog__go-back" variant="neutralDark">
@@ -178,6 +185,7 @@ const Blog = ({ data }) => {
           </Flex>
         )}
         <article
+          ref={articleRef}
           className="template-blog__content-article"
           dangerouslySetInnerHTML={{ __html: html }}
         />
@@ -201,12 +209,18 @@ const Blog = ({ data }) => {
         >
           <Flex classes={["flexColumn"]}>
             {data.allMarkdownRemark.edges.slice(0, 3).map(ele => (
-              <BlogColumn key={`related-1-${ele.node.fields.slug}`} node={ele.node} />
+              <BlogColumn
+                key={`related-1-${ele.node.fields.slug}`}
+                node={ele.node}
+              />
             ))}
           </Flex>
           <Flex classes={["flexColumn"]}>
             {data.allMarkdownRemark.edges.slice(3, 6).map(ele => (
-              <BlogColumn key={`related-2-${ele.node.fields.slug}`} node={ele.node} />
+              <BlogColumn
+                key={`related-2-${ele.node.fields.slug}`}
+                node={ele.node}
+              />
             ))}
           </Flex>
         </Flex>
