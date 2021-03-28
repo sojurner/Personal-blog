@@ -11,8 +11,9 @@
   }
 
   &--fixed {
-    position: fixed;
-    width: 99.5%;
+    position: sticky;
+    top: 0;
+    width: 100%;
     animation: down-drag 0.5s ease-in-out;
   }
 
