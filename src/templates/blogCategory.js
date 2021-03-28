@@ -2,8 +2,6 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { useInView } from "react-intersection-observer"
-import ContentLoader from "react-content-loader"
-import VSensor from "react-visibility-sensor"
 
 import { RefMainLayout } from "@components/Layouts"
 import { AniLoaderLink } from "@components/Link"
@@ -21,7 +19,7 @@ import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
 
 import { blogTypeRef, tagIconRef } from "../utils/constants"
-import { usePageViewMeta } from "../hooks"
+import { useInfiniteScroll, usePageViewMeta } from "../hooks"
 
 const query = graphql`
   query($subject: String!) {
@@ -73,28 +71,12 @@ const query = graphql`
 `
 
 const BlogCategory = ({ data, pageContext }) => {
-  const [visibleState, setVisibleState] = React.useState(
-    data.filteredRemarks.edges.reduce((result, { node: { fields } }) => {
-      result[fields.slug] = false
-      return result
-    }, {})
-  )
-  const [loading, setLoading] = React.useState(true)
   const [pageViews] = usePageViewMeta()
-
-  const mainRef = React.useRef()
   const [endRef, inView] = useInView({ threshold: 0 })
-
-  React.useEffect(() => {
-    setTimeout(() => {
-      setLoading(false)
-    }, 1500)
-  }, [])
-
-  function onChange(isVisible, slug) {
-    if (visibleState[slug]) return
-    setVisibleState(state => ({ ...state, [slug]: isVisible }))
-  }
+  const [mainRef, itemRange] = useInfiniteScroll(
+    [0, 3],
+    data.metaRemarks.totalCount
+  )
 
   return (
     <RefMainLayout ref={mainRef} className="page-blog">
@@ -149,157 +131,123 @@ const BlogCategory = ({ data, pageContext }) => {
         className="page-blog__content-posts"
         classes={["flexColumn", "alignItemsEnd"]}
       >
-        {!loading ? (
-          data.filteredRemarks.edges.map((post, index) => {
-            const { fields, frontmatter, featuredImg } = post.node
-            return (
-              <VSensor
-                delayedCall={true}
-                key={`post-ref-${index}`}
-                scrollDelay={500}
-                onChange={isVisible => onChange(isVisible, fields.slug)}
-                partialVisibility={true}
+        {data.filteredRemarks.edges.slice(...itemRange).map((post, index) => {
+          const { fields, frontmatter, featuredImg } = post.node
+          return (
+            <AniLoaderLink
+              key={`post-ref-${index}`}
+              to={`/blog/${frontmatter.subject}/${fields.slug}`}
+              className="page-blog__card-link"
+            >
+              <Card
+                classes={["flexColumn", "justifyContentCenter"]}
+                className="page-blog__card page-blog__card--loaded"
+                depth={"z5"}
+                variant={"default"}
               >
-                <AniLoaderLink
-                  to={`/blog/${frontmatter.subject}/${fields.slug}`}
-                  className="page-blog__card-link"
+                {featuredImg && (
+                  <Img
+                    className="page-blog__card-header__foreground-img"
+                    fluid={featuredImg.childImageSharp.fluid}
+                    alt={frontmatter.featuredImgAlt}
+                  />
+                )}
+                <Flex
+                  className="page-blog__card-header__profile-container"
+                  classes={["flexRow", "alignItemsCenter"]}
                 >
-                  <Card
-                    classes={["flexColumn", "justifyContentCenter"]}
-                    className={
-                      visibleState[fields.slug]
-                        ? "page-blog__card page-blog__card--loaded"
-                        : "page-blog__card page-blog__card--hidden"
-                    }
-                    depth={"z5"}
-                    variant={"default"}
+                  <Avatar
+                    fluid={frontmatter.avatar.childImageSharp.fluid}
+                    alt={frontmatter.author
+                      .split(" ")
+                      .map(x => x[0])
+                      .join("")}
+                    className="page-blog__card-header__profile-avatar"
+                  />
+                  <Typography
+                    tag="label"
+                    className="page-blog__card-header__profile-author"
                   >
-                    {featuredImg && (
-                      <Img
-                        className="page-blog__card-header__foreground-img"
-                        fluid={featuredImg.childImageSharp.fluid}
-                        alt={frontmatter.featuredImgAlt}
-                      />
-                    )}
+                    {frontmatter.author}
+                  </Typography>
+                </Flex>
+                <Flex
+                  classes={["flexColumn"]}
+                  className="page-blog__card-content"
+                >
+                  <Typography
+                    className="page-blog__card-content__txt-title"
+                    tag="h2"
+                    variant={blogTypeRef[frontmatter.subject].textVariant}
+                  >
+                    {frontmatter.title}
+                  </Typography>
+                  <Flex className="page-blog__card-content__details">
                     <Flex
-                      className="page-blog__card-header__profile-container"
+                      className="page-blog__card-content__details__date"
                       classes={["flexRow", "alignItemsCenter"]}
                     >
-                      <Avatar
-                        fluid={frontmatter.avatar.childImageSharp.fluid}
-                        alt={frontmatter.author
-                          .split(" ")
-                          .map(x => x[0])
-                          .join("")}
-                        className="page-blog__card-header__profile-avatar"
+                      <Icon
+                        svg="calendar"
+                        className="page-blog__card-content__details-icon"
+                        variant="neutralLight"
                       />
                       <Typography
-                        tag="label"
-                        className="page-blog__card-header__profile-author"
+                        tag="span"
+                        className="page-blog__card-content__details-txt"
+                        variant="neutralLight"
                       >
-                        {frontmatter.author}
+                        {frontmatter.date}
                       </Typography>
                     </Flex>
                     <Flex
-                      classes={["flexColumn"]}
-                      className="page-blog__card-content"
+                      className="page-blog__card-content__details__view-counter page-blog__card-content__details-inner"
+                      classes={["flexRow", "alignItemsCenter"]}
                     >
+                      <Icon
+                        svg="eye"
+                        className="page-blog__card-content__details-icon"
+                        variant="neutralLight"
+                      />
                       <Typography
-                        className="page-blog__card-content__txt-title"
-                        tag="h2"
-                        variant={blogTypeRef[frontmatter.subject].textVariant}
+                        tag="span"
+                        className="page-blog__card-content__details-txt"
+                        variant="neutralLight"
                       >
-                        {frontmatter.title}
+                        {pageViews && pageViews[fields.slug]
+                          ? pageViews[fields.slug].views
+                          : 0}{" "}
+                        views
                       </Typography>
-                      <Flex className="page-blog__card-content__details">
-                        <Flex
-                          className="page-blog__card-content__details__date"
-                          classes={["flexRow", "alignItemsCenter"]}
-                        >
-                          <Icon
-                            svg="calendar"
-                            className="page-blog__card-content__details-icon"
-                            variant="neutralLight"
-                          />
-                          <Typography
-                            tag="span"
-                            className="page-blog__card-content__details-txt"
-                            variant="neutralLight"
-                          >
-                            {frontmatter.date}
-                          </Typography>
-                        </Flex>
-                        <Flex
-                          className="page-blog__card-content__details__view-counter page-blog__card-content__details-inner"
-                          classes={["flexRow", "alignItemsCenter"]}
-                        >
-                          <Icon
-                            svg="eye"
-                            className="page-blog__card-content__details-icon"
-                            variant="neutralLight"
-                          />
-                          <Typography
-                            tag="span"
-                            className="page-blog__card-content__details-txt"
-                            variant="neutralLight"
-                          >
-                            {pageViews && pageViews[fields.slug]
-                              ? pageViews[fields.slug].views
-                              : 0}{" "}
-                            views
-                          </Typography>
-                        </Flex>
-                      </Flex>
-
-                      <Typography
-                        className="page-blog__card-content__txt-desc"
-                        variant={blogTypeRef[frontmatter.subject].textVariant}
-                      >
-                        {frontmatter.desc}
-                      </Typography>
-                      <Divider className="page-blog__card-content__divider" />
-                      <Flex
-                        classes={["flexRow", "flexWrap", "alignSelfBaseline"]}
-                        className="page-blog__card-footer-tags"
-                      >
-                        {frontmatter.tags.map((tag, index) => (
-                          <Tag
-                            label={tag}
-                            key={`card-tag-${index}`}
-                            variant={blogTypeRef[tag].tagVariant}
-                          />
-                        ))}
-                      </Flex>
                     </Flex>
-                  </Card>
-                </AniLoaderLink>
-              </VSensor>
-            )
-          })
-        ) : (
-          <>
-            {[...Array(2).keys()].map((_, index) => (
-              <ContentLoader
-                key={`loader-${index}`}
-                height={450}
-                speed={1}
-                backgroundColor={"var(--pk-color-skeleton-bg)"}
-                foregroundColor={"var(--pk-color-skeleton-fg)"}
-                viewBox="0 0 250 200"
-                className="page-blog__loader"
-              >
-                <rect x="0" y="0" rx="5" ry="5" width="250" height="100" />
-                <rect x="40" y="108" rx="4" ry="4" width="210" height="15" />
-                <rect x="40" y="127" rx="4" ry="4" width="50" height="7" />
-                <circle cx="20" cy="120" r="13" />
-                <rect x="0" y="140" rx="4" ry="4" width="250" height="10" />
-                <rect x="0" y="155" rx="3" ry="3" width="250" height="10" />
-              </ContentLoader>
-            ))}
-          </>
-        )}
+                  </Flex>
+
+                  <Typography
+                    className="page-blog__card-content__txt-desc"
+                    variant={blogTypeRef[frontmatter.subject].textVariant}
+                  >
+                    {frontmatter.desc}
+                  </Typography>
+                  <Divider className="page-blog__card-content__divider" />
+                  <Flex
+                    classes={["flexRow", "flexWrap", "alignSelfBaseline"]}
+                    className="page-blog__card-footer-tags"
+                  >
+                    {frontmatter.tags.map((tag, index) => (
+                      <Tag
+                        label={tag}
+                        key={`card-tag-${index}`}
+                        variant={blogTypeRef[tag].tagVariant}
+                      />
+                    ))}
+                  </Flex>
+                </Flex>
+              </Card>
+            </AniLoaderLink>
+          )
+        })}
       </Flex>
-      <div ref={endRef} />
+      <div style={{ position: "absolute", bottom: "-40px" }} ref={endRef} />
     </RefMainLayout>
   )
 }

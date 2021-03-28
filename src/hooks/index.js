@@ -1,5 +1,5 @@
 // ViewCounter.js
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import getFirebase from "../utils/firebase"
 
 const useFirebase = dbKey => {
@@ -148,10 +148,36 @@ const useMemeView = id => {
   return [memePoints, updatePoints, error, loading]
 }
 
+const useInfiniteScroll = (initialRange, listCount) => {
+  const ref = useRef()
+  const [itemRange, setItemRange] = useState(initialRange)
+
+  useEffect(() => {
+    const cloneRef = ref.current
+    if (!cloneRef) return
+
+    const loadMore = () => {
+      if (itemRange[1] >= listCount - 1) return
+      const { scrollTop, clientHeight, scrollHeight } = cloneRef
+
+      if (scrollTop + clientHeight >= scrollHeight - 300) {
+        setItemRange(state => [state[0], state[1] + 3])
+      }
+    }
+
+    cloneRef.addEventListener("scroll", loadMore)
+
+    return () => cloneRef.removeEventListener("scroll", loadMore)
+  }, [ref, itemRange, listCount])
+
+  return [ref, itemRange]
+}
+
 export {
   usePageView,
   usePageViewMeta,
   useMemeMeta,
   useMemeView,
+  useInfiniteScroll,
   useFirebase as default,
 }

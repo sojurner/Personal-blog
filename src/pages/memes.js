@@ -13,7 +13,7 @@ import Icon from "@components/Icon"
 
 import "@styles/pages/_memes.scss"
 import { tagIconRef } from "../utils/constants"
-import { useMemeMeta } from "../hooks"
+import { useMemeMeta, useInfiniteScroll } from "../hooks"
 
 const MemesPage = ({ location }) => {
   const data = useStaticQuery(graphql`
@@ -37,27 +37,12 @@ const MemesPage = ({ location }) => {
 
   const [memeSession, setMemeSession] = React.useState({})
   const [notification, setNotification] = React.useState("")
-  const [itemRange, setItemRange] = React.useState([0, 2])
-  const mainRef = React.useRef()
 
-  React.useEffect(() => {
-    const ref = mainRef.current
-    if (!ref) return
-    
-    const loadMore = () => {
-      if (itemRange[1] >= data.allContentfulMeme.nodes.length - 1) return
-      const { scrollTop, clientHeight, scrollHeight } = ref
-
-      if (scrollTop + clientHeight >= scrollHeight - 250) {
-        setItemRange(state => [state[0], state[1] + 3])
-      }
-    }
-
-    ref.addEventListener("scroll", loadMore)
-
-    return () => ref.removeEventListener("scroll", loadMore)
-  }, [itemRange])
   const [memeState, updateMemePoints] = useMemeMeta()
+  const [mainRef, itemRange] = useInfiniteScroll(
+    [0, 3],
+    data.allContentfulMeme.nodes.length
+  )
 
   const onMemeVote = (id, vote) => {
     setMemeSession(state => ({ ...state, [id]: vote }))

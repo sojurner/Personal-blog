@@ -52,4 +52,21 @@ const RefMainLayout = React.forwardRef<HTMLInputElement, LayoutProps>(
   )
 )
 
-export { RefMainLayout, TemplateLayout, MainLayout as default }
+const RefTemplateLayout = React.forwardRef<
+  HTMLInputElement,
+  TemplateLayoutProps
+>(({ children, className, inView, ...props }, ref) => (
+  <main ref={ref} className={`${className || ""} page-base`} {...props}>
+    <TemplateHeader fixed={!inView} />
+    {!inView && <GradientWrapper />}
+    <section className={`${className}__content-section`}>{children}</section>
+    <Footer />
+  </main>
+))
+
+export {
+  RefMainLayout,
+  TemplateLayout,
+  RefTemplateLayout,
+  MainLayout as default,
+}
