@@ -76,170 +76,209 @@ const BlogPage = () => {
     <RefMainLayout ref={mainRef} className="page-blog">
       <SEO title="Blog" />
       {!inView && (
-        <aside className="page-blog__aside">
-          <Flex className="page-blog__aside__filter-container">
-            <Typography
-              className="page-blog__aside__filter-title"
-              tag="h3"
-              variant="neutralLight"
-            >
-              Tags:{" "}
-            </Typography>
-            <Flex
-              className="page-blog__aside__filter-tags-container"
-              classes={["flexRow", "flexWrap"]}
-            >
-              <Link to={`/blog`} className="page-blog__aside__filter-tag">
-                <Chip
-                  label={`all (${data.allMarkdownRemark.totalCount})`}
-                  icon="refresh"
-                  variant="neutral"
-                />
-              </Link>
-              {data.allMarkdownRemark.group.map((ele, index) => {
-                return (
-                  <Link
-                    key={`post-ref-${index}`}
-                    to={`/blog/${ele.tag}`}
-                    className="page-blog__aside__filter-tag"
-                  >
-                    <Chip
-                      label={`${ele.tag} (${ele.totalCount})`}
-                      key={`filter-chip-${index}`}
-                      icon={tagIconRef[ele.tag]}
-                      variant="default"
-                    />
-                  </Link>
-                )
-              })}
-            </Flex>
-          </Flex>
-        </aside>
+        <FilterSection>
+          <FilterChips
+            postCount={data.allMarkdownRemark.totalCount}
+            categories={data.allMarkdownRemark.group}
+          />
+        </FilterSection>
       )}
 
-      <Flex
-        className="page-blog__content-posts"
-        classes={["flexColumn", "alignItemsEnd"]}
-      >
-        {data.allMarkdownRemark.edges.slice(...itemRange).map((post, index) => {
-          const { fields, frontmatter, featuredImg } = post.node
-          return (
-            <AniLoaderLink
-              key={`post-ref-${index}`}
-              to={`/blog/${frontmatter.subject}/${fields.slug}`}
-              className="page-blog__card-link"
-            >
-              <Card
-                classes={["flexColumn", "justifyContentCenter"]}
-                className="page-blog__card page-blog__card--loaded"
-                depth={"z5"}
-                variant={"default"}
-              >
-                {featuredImg && (
-                  <Img
-                    fluid={featuredImg.childImageSharp.fluid}
-                    className="page-blog__card-header__foreground-img"
-                    alt={frontmatter.featuredImgAlt}
-                  />
-                )}
+      <BlogPostSection>
+        {data.allMarkdownRemark.edges.slice(...itemRange).map((post, index) => (
+          <BlogCard
+            key={`post-ref-${index}`}
+            viewCount={
+              pageViews && pageViews[post.node.fields.slug]
+                ? pageViews[post.node.fields.slug].views
+                : 0
+            }
+            {...post.node}
+          />
+        ))}
+      </BlogPostSection>
 
-                <Flex
-                  className="page-blog__card-header__profile-container"
-                  classes={["flexRow", "alignItemsCenter"]}
-                >
-                  <Avatar
-                    fluid={frontmatter.avatar.childImageSharp.fluid}
-                    alt={frontmatter.author
-                      .split(" ")
-                      .map(x => x[0])
-                      .join("")}
-                    className="page-blog__card-header__profile-avatar"
-                  />
-                  <Typography
-                    tag="label"
-                    className="page-blog__card-header__profile-author"
-                  >
-                    {frontmatter.author}
-                  </Typography>
-                </Flex>
-                <Flex
-                  classes={["flexColumn"]}
-                  className="page-blog__card-content"
-                >
-                  <Typography
-                    className="page-blog__card-content__txt-title"
-                    tag="h2"
-                    variant={blogTypeRef[frontmatter.subject].textVariant}
-                  >
-                    {frontmatter.title}
-                  </Typography>
-                  <Flex className="page-blog__card-content__details">
-                    <Flex
-                      className="page-blog__card-content__details__date"
-                      classes={["flexRow", "alignItemsCenter"]}
-                    >
-                      <Icon
-                        svg="calendar"
-                        className="page-blog__card-content__details-icon"
-                        variant="neutralLight"
-                      />
-                      <Typography
-                        tag="span"
-                        className="page-blog__card-content__details-txt"
-                        variant="neutralLight"
-                      >
-                        {frontmatter.date}
-                      </Typography>
-                    </Flex>
-                    <Flex
-                      className="page-blog__card-content__details__view-counter page-blog__card-content__details-inner"
-                      classes={["flexRow", "alignItemsCenter"]}
-                    >
-                      <Icon
-                        svg="eye"
-                        className="page-blog__card-content__details-icon"
-                        variant="neutralLight"
-                      />
-                      <Typography
-                        tag="span"
-                        className="page-blog__card-content__details-txt"
-                        variant="neutralLight"
-                      >
-                        {pageViews && pageViews[fields.slug]
-                          ? pageViews[fields.slug].views
-                          : 0}{" "}
-                        views
-                      </Typography>
-                    </Flex>
-                  </Flex>
-                  <Typography
-                    className="page-blog__card-content__txt-desc"
-                    variant={blogTypeRef[frontmatter.subject].textVariant}
-                  >
-                    {frontmatter.desc}
-                  </Typography>
-                  <Divider className="page-blog__card-content__divider" />
-                  <Flex
-                    classes={["flexRow", "flexWrap", "alignSelfBaseline"]}
-                    className="page-blog__card-footer-tags"
-                  >
-                    {frontmatter.tags.map((tag, index) => (
-                      <Tag
-                        label={tag}
-                        key={`card-tag-${index}`}
-                        variant={blogTypeRef[tag].tagVariant}
-                      />
-                    ))}
-                  </Flex>
-                </Flex>
-              </Card>
-            </AniLoaderLink>
-          )
-        })}
-      </Flex>
       <div style={{ position: "absolute", bottom: "-40px" }} ref={endRef} />
     </RefMainLayout>
   )
 }
+
+const FilterSection = ({ children }) => (
+  <aside className="page-blog__aside">
+    <Flex className="page-blog__aside__filter-container">
+      <Typography
+        className="page-blog__aside__filter-title"
+        tag="h3"
+        variant="neutralLight"
+      >
+        Tags:{" "}
+      </Typography>
+      {children}
+    </Flex>
+  </aside>
+)
+
+const FilterChips = ({ postCount, categories }) => (
+  <Flex
+    className="page-blog__aside__filter-tags-container"
+    classes={["flexRow", "flexWrap"]}
+  >
+    <Link to={`/blog`} className="page-blog__aside__filter-tag">
+      <Chip label={`all (${postCount})`} icon="refresh" variant="neutral" />
+    </Link>
+    {categories.map((ele, index) => {
+      return (
+        <Link
+          key={`post-ref-${index}`}
+          to={`/blog/${ele.tag}`}
+          className="page-blog__aside__filter-tag"
+        >
+          <Chip
+            label={`${ele.tag} (${ele.totalCount})`}
+            key={`filter-chip-${index}`}
+            icon={tagIconRef[ele.tag]}
+            variant="default"
+          />
+        </Link>
+      )
+    })}
+  </Flex>
+)
+
+const BlogPostSection = props => (
+  <Flex
+    className="page-blog__content-posts"
+    classes={["flexColumn", "alignItemsEnd"]}
+    {...props}
+  ></Flex>
+)
+
+const BlogAuthor = ({ author, fluid, alt }) => (
+  <Flex
+    className="page-blog__card-header__profile-container"
+    classes={["flexRow", "alignItemsCenter"]}
+  >
+    <Avatar
+      fluid={fluid}
+      alt={alt}
+      className="page-blog__card-header__profile-avatar"
+    />
+    <Typography tag="label" className="page-blog__card-header__profile-author">
+      {author}
+    </Typography>
+  </Flex>
+)
+
+const BlogDescription = props => (
+  <Typography className="page-blog__card-content__txt-desc" {...props} />
+)
+
+const BlogTitle = props => (
+  <Typography
+    className="page-blog__card-content__txt-title"
+    tag="h2"
+    {...props}
+  />
+)
+
+const BlogDate = ({ date }) => (
+  <Flex
+    className="page-blog__card-content__details__date"
+    classes={["flexRow", "alignItemsCenter"]}
+  >
+    <Icon
+      svg="calendar"
+      className="page-blog__card-content__details-icon"
+      variant="neutralLight"
+    />
+    <Typography
+      tag="span"
+      className="page-blog__card-content__details-txt"
+      variant="neutralLight"
+    >
+      {date}
+    </Typography>
+  </Flex>
+)
+
+const BlogViewCount = ({ viewCount }) => (
+  <Flex
+    className="page-blog__card-content__details__view-counter page-blog__card-content__details-inner"
+    classes={["flexRow", "alignItemsCenter"]}
+  >
+    <Icon
+      svg="eye"
+      className="page-blog__card-content__details-icon"
+      variant="neutralLight"
+    />
+    <Typography
+      tag="span"
+      className="page-blog__card-content__details-txt"
+      variant="neutralLight"
+    >
+      {viewCount}
+      views
+    </Typography>
+  </Flex>
+)
+
+const BlogCard = ({ frontmatter, featuredImg, fields, viewCount }) => (
+  <AniLoaderLink
+    to={`/blog/${frontmatter.subject}/${fields.slug}`}
+    className="page-blog__card-link"
+  >
+    <Card
+      classes={["flexColumn", "justifyContentCenter"]}
+      className="page-blog__card page-blog__card--loaded"
+      depth={"z5"}
+      variant={"default"}
+    >
+      {featuredImg && (
+        <Img
+          fluid={featuredImg.childImageSharp.fluid}
+          className="page-blog__card-header__foreground-img"
+          alt={frontmatter.featuredImgAlt}
+        />
+      )}
+
+      <BlogAuthor
+        fluid={frontmatter.avatar.childImageSharp.fluid}
+        alt={frontmatter.author
+          .split(" ")
+          .map(x => x[0])
+          .join("")}
+      >
+        {frontmatter.author}
+      </BlogAuthor>
+      <Flex classes={["flexColumn"]} className="page-blog__card-content">
+        <BlogTitle variant={blogTypeRef[frontmatter.subject].textVariant}>
+          {frontmatter.title}
+        </BlogTitle>
+
+        <Flex className="page-blog__card-content__details">
+          <BlogDate date={frontmatter.date} />
+          <BlogViewCount viewCount={viewCount} />
+        </Flex>
+        <BlogDescription variant={blogTypeRef[frontmatter.subject].textVariant}>
+          {frontmatter.desc}
+        </BlogDescription>
+
+        <Divider className="page-blog__card-content__divider" />
+        <Flex
+          classes={["flexRow", "flexWrap", "alignSelfBaseline"]}
+          className="page-blog__card-footer-tags"
+        >
+          {frontmatter.tags.map((tag, index) => (
+            <Tag
+              label={tag}
+              key={`card-tag-${index}`}
+              variant={blogTypeRef[tag].tagVariant}
+            />
+          ))}
+        </Flex>
+      </Flex>
+    </Card>
+  </AniLoaderLink>
+)
 
 export default BlogPage
