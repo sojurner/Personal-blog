@@ -1,23 +1,24 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
-import ReactTooltip from "react-tooltip"
-import Carousel from "react-alice-carousel"
+import { useInView } from "react-intersection-observer"
+import loadable from "@loadable/component"
 
 import { AniLoaderLink } from "@components/Link"
 import { SaxophoneCat, DrummerCat } from "@components/Svg"
-import Icon from "@components/Icon"
-import Typography from "@components/Typography"
-import MainLayout from "@components/Layouts"
-import Flex from "@components/Flex"
-import Tag from "@components/Tag"
-import SEO from "@components/SEO"
-import Button from "@components/Button"
-import SoundCloudWidget from "@components/SoundCloudWidget"
 
 import { blogTypeRef, musicLinks, skillsetIcons } from "../utils/constants"
 import "@styles/index.scss"
 import "@styles/pages/_homePage.scss"
+
+const Img = loadable(() => import("gatsby-image"))
+const Icon = loadable(() => import("@components/Icon"))
+const Typography = loadable(() => import("@components/Typography"))
+const MainLayout = loadable(() => import("@components/Layouts"))
+const Flex = loadable(() => import("@components/Flex"))
+const Tag = loadable(() => import("@components/Tag"))
+const SEO = loadable(() => import("@components/SEO"))
+const Button = loadable(() => import("@components/Button"))
+const SoundCloudWidget = loadable(() => import("@components/SoundCloudWidget"))
 
 const HomePage = () => {
   const data = useStaticQuery(graphql`
@@ -78,6 +79,12 @@ const HomePage = () => {
     }
   `)
 
+  const [landingRef, landingInView] = useInView({ threshold: .01, triggerOnce: true })
+  const [welcomeRef, welcomeInView] = useInView({ threshold: .01, triggerOnce: true })
+  const [aboutRef, aboutInView] = useInView({ threshold: .01, triggerOnce: true })
+  const [musicRef, musicInView] = useInView({ threshold: .01, triggerOnce: true })
+  const [blogRef, blogInView] = useInView({ threshold: .01, triggerOnce: true })
+
   return (
     <MainLayout className="page-home">
       <SEO title={data.site.siteMetadata.author} />
@@ -85,179 +92,163 @@ const HomePage = () => {
         className="page-home__landing-container"
         classes={["flexColumn", "justifyContentCenter"]}
       >
-        <HomeLanding>
-          <LandingImage
-            fluid={data.file.childImageSharp.fluid}
-            alt={data.site.siteMetadata.author
-              .split(" ")
-              .map(x => x[0])
-              .join("")}
-          />
-          <LandingCurvedText />
-          <LandingName />
-        </HomeLanding>
+        <span ref={landingRef} />
+        {landingInView && (
+          <HomeLanding>
+            <LandingImage
+              fluid={data.file.childImageSharp.fluid}
+              alt={data.site.siteMetadata.author
+                .split(" ")
+                .map(x => x[0])
+                .join("")}
+            />
+            <LandingCurvedText />
+            <LandingName />
+          </HomeLanding>
+        )}
       </Flex>
       <Flex className="page-home__about-section" classes={["flexColumn"]}>
-        <Flex
-          classes={["flexRow", "justifyContentCenter"]}
-          className="page-home__about-section--inner"
-        >
-          <Flex className="page-home__about-section__img page-home__about-section__img-sax-cat">
-            <SaxophoneCat />
-          </Flex>
+        <span ref={welcomeRef} />
+        {welcomeInView && (
           <Flex
-            className="page-home__about-section__txt"
-            classes={["flexColumn"]}
+            classes={["flexRow", "justifyContentCenter"]}
+            className="page-home__about-section--inner"
           >
-            <Typography variant="neutralDark" tag="h2">
-              Welcome!
-            </Typography>
-            <div className="page-home__about-section__divider" />
-
-            <Typography tag="h4" variant="neutralLight">
-              I started this website as a <em>creative</em> and{" "}
-              <em>therapeutic</em> outlet. I'll share all that I know, and all
-              that I've wondered through my blog.
-            </Typography>
-            <HomeButtonLink
-              to="/blog"
-              variant="primary"
-              className="page-home__about-section__link"
+            <Flex className="page-home__about-section__img page-home__about-section__img-sax-cat">
+              <SaxophoneCat />
+            </Flex>
+            <Flex
+              className="page-home__about-section__txt"
+              classes={["flexColumn"]}
             >
-              Go to blog
-            </HomeButtonLink>
-          </Flex>
-        </Flex>
+              <Typography variant="neutralDark" tag="h2">
+                Welcome!
+              </Typography>
+              <div className="page-home__about-section__divider" />
 
-        <Flex
-          classes={["flexRow", "justifyContentCenter"]}
-          className="page-home__about-section--inner"
-        >
+              <Typography tag="h4" variant="neutralLight">
+                I started this website as a <em>creative</em> and{" "}
+                <em>therapeutic</em> outlet. I'll share all that I know, and all
+                that I've wondered through my blog.
+              </Typography>
+              <HomeButtonLink
+                to="/blog"
+                variant="primary"
+                className="page-home__about-section__link"
+              >
+                Go to blog
+              </HomeButtonLink>
+            </Flex>
+          </Flex>
+        )}
+
+        <span ref={aboutRef} />
+        {aboutInView && (
           <Flex
-            className="page-home__about-section__txt"
-            classes={["flexColumn"]}
+            classes={["flexRow", "justifyContentCenter"]}
+            className="page-home__about-section--inner"
           >
-            <Typography variant="neutralDark" tag="h2">
-              About
-            </Typography>
-            <div className="page-home__about-section__divider" />
-
-            <Typography tag="h4" variant="neutralLight">
-              As a <em>full-stack developer</em>, here's a broad overview of my
-              <em> skillset</em>:
-            </Typography>
-            <div className="page-home__about-section__skill-icons">
-              {skillsetIcons.map(skillProps => (
-                <HomeSKillIcon
-                  key={`skill-icon-${skillProps.svg}`}
-                  {...skillProps}
-                />
-              ))}
-            </div>
-            <HomeButtonLink
-              to="/about"
-              variant="secondary"
-              className="page-home__about-section__link"
+            <Flex
+              className="page-home__about-section__txt"
+              classes={["flexColumn"]}
             >
-              More about me
-            </HomeButtonLink>
-          </Flex>
-          <Flex className="page-home__about-section__img page-home__about-section__img-drummer-cat">
-            <DrummerCat />
-          </Flex>
-        </Flex>
-      </Flex>
-      <Flex
-        className="page-home__music-section extended-section"
-        classes={["flexColumn"]}
-      >
-        <Typography
-          className="music-title extended-title"
-          tag="h1"
-          variant="neutralDark"
-        >
-          Music
-        </Typography>
-        <HomeSCEmbed />
-      </Flex>
-      <Flex
-        classes={["flexColumn"]}
-        className="extended-section page-home__blog-section"
-      >
-        <Typography className="extended-title" tag="h1" variant="neutralDark">
-          Latest Blogs
-        </Typography>
+              <Typography variant="neutralDark" tag="h2">
+                About
+              </Typography>
+              <div className="page-home__about-section__divider" />
 
+              <Typography tag="h4" variant="neutralLight">
+                As a <em>full-stack developer</em>, here's a broad overview of
+                my
+                <em> skillset</em>:
+              </Typography>
+              <div className="page-home__about-section__skill-icons">
+                {skillsetIcons.map(skillProps => (
+                  <HomeSKillIcon
+                    key={`skill-icon-${skillProps.svg}`}
+                    {...skillProps}
+                  />
+                ))}
+              </div>
+              <HomeButtonLink
+                to="/about"
+                variant="secondary"
+                className="page-home__about-section__link"
+              >
+                More about me
+              </HomeButtonLink>
+            </Flex>
+            <Flex className="page-home__about-section__img page-home__about-section__img-drummer-cat">
+              <DrummerCat />
+            </Flex>
+          </Flex>
+        )}
+      </Flex>
+
+      <span ref={musicRef} />
+
+      {musicInView && (
         <Flex
-          className="page-home__blog-section__cards-container"
-          classes={["flexRow", "justifyContentAround", "flexWrap"]}
+          className="page-home__music-section extended-section"
+          classes={["flexColumn"]}
         >
-          {data.allMarkdownRemark.edges.map(({ node }) => {
-            const { frontmatter, fields, featuredImg } = node
-            return (
-              <HomeBlogCard
-                key={`latest-posts-${frontmatter.title}`}
-                variant={blogTypeRef[frontmatter.subject].tagVariant}
-                to={`blog/${frontmatter.subject}/${fields.slug}`}
-                className={`page-home__blog-section__card--${
-                  blogTypeRef[frontmatter.subject].tagVariant
-                } page-home__blog-section__card`}
-              >
-                <Img
-                  alt="blog front img"
-                  className={`page-home__blog-section__card__img`}
-                  fluid={featuredImg.childImageSharp.fluid}
-                  src={frontmatter.featuredImgUrl}
-                />
-                <HomeBlogCardContent frontmatter={frontmatter} />
-              </HomeBlogCard>
-            )
-          })}
+          <Typography
+            className="music-title extended-title"
+            tag="h1"
+            variant="neutralDark"
+          >
+            Music
+          </Typography>
+          <HomeSCEmbed />
         </Flex>
-        <HomeButtonLink
-          to="/blog"
-          className="page-home__blog-section__link-blog"
-          variant="default"
-        >
-          More Posts
-        </HomeButtonLink>
-      </Flex>
+      )}
 
-      <Flex
-        className="extended-section page-home__memes-section"
-        classes={["flexColumn", "alignItemsCenter"]}
-      >
-        <Typography
-          className="memes-title extended-title"
-          tag="h1"
-          variant="neutralDark"
+      <span ref={blogRef} />
+
+      {blogInView && (
+        <Flex
+          classes={["flexColumn"]}
+          className="extended-section page-home__blog-section"
         >
-          Latest Memes
-        </Typography>
-        <Flex className="memes-carousel">
-          <Carousel
-            className="memes-carousel"
-            responsive={{
-              0: { items: 2 },
-              568: { items: 2 },
-              1024: { items: 3 },
-            }}
-            items={data.allContentfulMeme.nodes.map((node, index) => (
-              <HomeCarouselSlide
-                key={`${node.contentful_id}-${index}`}
-                id={node.contentful_id}
-                to={`/memes#${node.contentful_id}`}
-                fluidImg={node.img.fluid}
-              >
-                {node.title}
-              </HomeCarouselSlide>
-            ))}
-          />
+          <Typography className="extended-title" tag="h1" variant="neutralDark">
+            Latest Blogs
+          </Typography>
+
+          <Flex
+            className="page-home__blog-section__cards-container"
+            classes={["flexRow", "justifyContentAround", "flexWrap"]}
+          >
+            {data.allMarkdownRemark.edges.map(({ node }) => {
+              const { frontmatter, fields, featuredImg } = node
+              return (
+                <HomeBlogCard
+                  key={`latest-posts-${frontmatter.title}`}
+                  variant={blogTypeRef[frontmatter.subject].tagVariant}
+                  to={`blog/${frontmatter.subject}/${fields.slug}`}
+                  className={`page-home__blog-section__card--${
+                    blogTypeRef[frontmatter.subject].tagVariant
+                  } page-home__blog-section__card`}
+                >
+                  <Img
+                    alt="blog front img"
+                    className={`page-home__blog-section__card__img`}
+                    fluid={featuredImg.childImageSharp.fluid}
+                    src={frontmatter.featuredImgUrl}
+                  />
+                  <HomeBlogCardContent frontmatter={frontmatter} />
+                </HomeBlogCard>
+              )
+            })}
+          </Flex>
+          <HomeButtonLink
+            to="/blog"
+            className="page-home__blog-section__link-blog"
+            variant="default"
+          >
+            More Posts
+          </HomeButtonLink>
         </Flex>
-        <HomeButtonLink to="/memes" className="meme-all-link" variant="default">
-          More Memes
-        </HomeButtonLink>
-      </Flex>
+      )}
     </MainLayout>
   )
 }
@@ -375,34 +366,15 @@ const HomeBlogCardContent = ({ frontmatter }) => (
   </>
 )
 
-const HomeSKillIcon = ({ svg, label, color, type }) => (
+const HomeSKillIcon = props => (
   <div>
-    <ReactTooltip
-      id={`icon-${svg}`}
-      backgroundColor={color}
-      type={type}
-      effect="solid"
-    >
-      <span>{label}</span>
-    </ReactTooltip>
-    <Icon data-tip data-for={`icon-${svg}`} color={color} svg={svg} />
+    <Icon {...props} />
   </div>
 )
 
 const HomeButtonLink = ({ to, children, className, variant }) => (
   <AniLoaderLink to={to} className={`${className} to-section-btn-link"`}>
     <Button variant={variant}>{children}</Button>
-  </AniLoaderLink>
-)
-
-const HomeCarouselSlide = ({ id, fluidImg, children }) => (
-  <AniLoaderLink to={`/memes#${id}`}>
-    <Flex className="meme-img-container" classes={["flexCloumn"]}>
-      <Img className="meme-img" fluid={fluidImg} />
-      <Typography tag="p" variant="neutralLight">
-        {children}
-      </Typography>
-    </Flex>
   </AniLoaderLink>
 )
 

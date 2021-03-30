@@ -1,22 +1,24 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
+import loadable from "@loadable/component"
 
 import { AniLoaderLink, AniFadeLink } from "@components/Link"
 import { TemplateLayout } from "@components/Layouts"
-import Typography from "@components/Typography"
-import Flex from "@components/Flex"
-import Divider from "@components/Divider"
-import Tag from "@components/Tag"
-import Icon from "@components/Icon"
-import Avatar from "@components/Avatar"
-import SEO from "@components/SEO"
-import Button from "@components/Button"
 import { SoundCloudWidgetPlayer } from "@components/SoundCloudWidget"
 
 import "@styles/templates/_blogTemplate.scss"
 import { blogTypeRef } from "../utils/constants"
 import { usePageView } from "../hooks"
+
+const Img = loadable(() => import("gatsby-image"))
+const Icon = loadable(() => import("@components/Icon"))
+const Typography = loadable(() => import("@components/Typography"))
+const Flex = loadable(() => import("@components/Flex"))
+const Tag = loadable(() => import("@components/Tag"))
+const SEO = loadable(() => import("@components/SEO"))
+const Button = loadable(() => import("@components/Button"))
+const Divider = loadable(() => import("@components/Divider"))
+const Avatar = loadable(() => import("@components/Avatar"))
 
 const Blog = ({ data }) => {
   const [isVisible, setIsVisible] = React.useState(false)

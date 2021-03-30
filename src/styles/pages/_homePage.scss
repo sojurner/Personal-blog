@@ -1,5 +1,3 @@
-@import "react-alice-carousel/lib/scss/alice-carousel.scss";
-
 @import "../utils/animations";
 @import "../utils/mixins";
 
@@ -343,7 +341,7 @@
       "c widget widget"
       "d widget widget"
       "e widget widget"
-      "f widget widget"
+      "f widget widget";
   }
 
   .music-category {
@@ -523,65 +521,6 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-      }
-    }
-  }
-
-  &__memes-section {
-    margin: 5em 0 10em 0;
-
-    .to-section-btn-link {
-      margin-top: 2em;
-    }
-
-    .alice-carousel__next-btn-item,
-    .alice-carousel__prev-btn-item {
-      span {
-        font-size: 1.3em;
-        color: $color-secondary-800;
-      }
-    }
-
-    .memes-carousel {
-      width: 900px;
-      margin: 2.5em 0 1em 0;
-
-      @media only screen and (max-width: 800px) {
-        width: 500px;
-      }
-
-      @media only screen and (max-width: 500px) {
-        width: 350px;
-      }
-    }
-
-    .meme-img-container {
-      width: 300px;
-      padding: 0 10px;
-      margin: auto;
-      transition: 0.2s linear;
-
-      p {
-        margin: 5px 0;
-      }
-      &:hover {
-        transform: scale(1.05);
-        p {
-          text-decoration: underline;
-        }
-      }
-
-      @media only screen and (max-width: 500px) {
-        width: 170px;
-      }
-    }
-
-    .meme-img {
-      width: 280px;
-      height: 150px;
-
-      @media only screen and (max-width: 500px) {
-        width: 150px;
       }
     }
   }

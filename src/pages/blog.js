@@ -1,24 +1,26 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
 import { useInView } from "react-intersection-observer"
+import loadable from "@loadable/component"
 
 import { RefMainLayout } from "@components/Layouts"
 import { AniLoaderLink } from "@components/Link"
-import Flex from "@components/Flex"
-import Card from "@components/Card"
-import Chip from "@components/Chip"
-import Tag from "@components/Tag"
-import Icon from "@components/Icon"
-import Typography from "@components/Typography"
-import Avatar from "@components/Avatar"
-import Divider from "@components/Divider"
-import SEO from "@components/SEO"
 
 import { blogTypeRef, tagIconRef } from "../utils/constants"
 import { usePageViewMeta, useInfiniteScroll } from "../hooks"
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
+
+const Img = loadable(() => import("gatsby-image"))
+const Flex = loadable(() => import("@components/Flex"))
+const Card = loadable(() => import("@components/Card"))
+const Chip = loadable(() => import("@components/Chip"))
+const Tag = loadable(() => import("@components/Tag"))
+const Icon = loadable(() => import("@components/Icon"))
+const Typography = loadable(() => import("@components/Typography"))
+const Avatar = loadable(() => import("@components/Avatar"))
+const SEO = loadable(() => import("@components/SEO"))
+const Divider = loadable(() => import("@components/Divider"))
 
 const BlogPage = () => {
   const data = useStaticQuery(graphql`
@@ -216,8 +218,7 @@ const BlogViewCount = ({ viewCount }) => (
       className="page-blog__card-content__details-txt"
       variant="neutralLight"
     >
-      {viewCount}
-      views
+      {viewCount} views
     </Typography>
   </Flex>
 )

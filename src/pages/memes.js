@@ -1,19 +1,21 @@
-import React from "react"
+import React from 'react'
+import loadable from '@loadable/component'
 import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
 
 import { RefMainLayout } from "@components/Layouts"
-import SEO from "@components/SEO"
-import Button from "@components/Button"
-import Flex from "@components/Flex"
-import Chip from "@components/Chip"
-import Divider from "@components/Divider"
-import Typography from "@components/Typography"
-import Icon from "@components/Icon"
 
 import "@styles/pages/_memes.scss"
 import { tagIconRef } from "../utils/constants"
 import { useMemeMeta, useInfiniteScroll } from "../hooks"
+
+const Img = loadable(() => import("gatsby-image"))
+const SEO = loadable(() => import("@components/SEO"))
+const Button = loadable(() => import("@components/Button"))
+const Flex = loadable(() => import("@components/Flex"))
+const Chip = loadable(() => import("@components/Chip"))
+const Divider = loadable(() => import("@components/Divider"))
+const Typography = loadable(() => import("@components/Typography"))
+const Icon = loadable(() => import("@components/Icon"))
 
 const MemesPage = ({ location }) => {
   const data = useStaticQuery(graphql`

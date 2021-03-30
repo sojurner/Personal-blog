@@ -1,5 +1,4 @@
 import React from "react"
-import ReactTooltip from "react-tooltip"
 
 import Card, { PKCardComponent } from "."
 import Icon from "@components/Icon"
@@ -39,74 +38,30 @@ const SkillsCard: React.FC<PKCardComponent> = ({ className, ...props }) => {
             Languages
           </Typography>
           <Flex className="card-skills__content__skillset-icons">
-            <ReactTooltip
-              id="icon-csharp"
-              backgroundColor="var(--pk-color-icon-csharp)"
-              type="dark"
-              effect="solid"
-            >
-              <span>C#</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-csharp"
               color="var(--pk-color-icon-csharp)"
               svg="csharp"
             />
-
-            <ReactTooltip
-              id="icon-js"
-              backgroundColor="var(--pk-color-icon-js)"
-              type="light"
-              effect="solid"
-            >
-              <span>JavaScript</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-js"
               color="var(--pk-color-icon-js)"
               svg="javascript"
             />
-
-            <ReactTooltip
-              id="icon-ts"
-              backgroundColor="var(--pk-color-icon-ts)"
-              type="dark"
-              effect="solid"
-            >
-              <span>TypeScript</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-ts"
               color="var(--pk-color-icon-ts)"
               svg="typescript"
             />
-
-            <ReactTooltip
-              id="icon-html"
-              backgroundColor="var(--pk-color-icon-html)"
-              type="dark"
-              effect="solid"
-            >
-              <span>HTML5</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-html"
               color="var(--pk-color-icon-html)"
               svg="html"
             />
-
-            <ReactTooltip
-              id="icon-css"
-              backgroundColor="var(--pk-color-icon-css)"
-              type="dark"
-              effect="solid"
-            >
-              <span>CSS3</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-css"
@@ -137,74 +92,30 @@ const SkillsCard: React.FC<PKCardComponent> = ({ className, ...props }) => {
             Frameworks
           </Typography>
           <Flex className="card-skills__content__skillset-icons">
-            <ReactTooltip
-              id="icon-react"
-              backgroundColor="var(--pk-color-icon-react)"
-              type="light"
-              effect="solid"
-            >
-              <span>ReactJS</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-react"
               color="var(--pk-color-icon-react)"
               svg="react"
             />
-
-            <ReactTooltip
-              id="icon-dotnet"
-              backgroundColor="var(--pk-color-icon-dotnet)"
-              type="dark"
-              effect="solid"
-            >
-              <span>Asp.net core</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-dotnet"
               color="var(--pk-color-icon-dotnet)"
               svg="dotnet"
             />
-
-            <ReactTooltip
-              id="icon-blazor"
-              backgroundColor="var(--pk-color-icon-dotnet)"
-              type="dark"
-              effect="solid"
-            >
-              <span>Blazor</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-blazor"
               color="var(--pk-color-icon-dotnet)"
               svg="blazor"
             />
-
-            <ReactTooltip
-              id="icon-node"
-              backgroundColor="var(--pk-color-icon-node)"
-              type="dark"
-              effect="solid"
-            >
-              <span>NodeJS</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-node"
               color="var(--pk-color-icon-node)"
               svg="nodejs"
             />
-
-            <ReactTooltip
-              id="icon-sass"
-              backgroundColor="var(--pk-color-icon-sass)"
-              type="dark"
-              effect="solid"
-            >
-              <span>SASS</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-sass"
@@ -235,74 +146,30 @@ const SkillsCard: React.FC<PKCardComponent> = ({ className, ...props }) => {
             Tools
           </Typography>
           <Flex className="card-skills__content__skillset-icons">
-            <ReactTooltip
-              id="icon-vscode"
-              backgroundColor="var(--pk-color-icon-vscode)"
-              type="dark"
-              effect="solid"
-            >
-              <span>VS Code</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-vscode"
               color="var(--pk-color-icon-vscode)"
               svg="vscode"
             />
-
-            <ReactTooltip
-              id="icon-vs"
-              backgroundColor="var(--pk-color-icon-vs)"
-              type="dark"
-              effect="solid"
-            >
-              <span>Visual Studio</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-vs"
               color="var(--pk-color-icon-vs)"
               svg="vs"
             />
-
-            <ReactTooltip
-              id="icon-docker"
-              backgroundColor="var(--pk-color-icon-docker)"
-              type="dark"
-              effect="solid"
-            >
-              <span>Docker</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-docker"
               color="var(--pk-color-icon-docker)"
               svg="docker"
             />
-
-            <ReactTooltip
-              id="icon-gitlab"
-              backgroundColor="var(--pk-color-icon-gitlab)"
-              type="dark"
-              effect="solid"
-            >
-              <span>Gitlab</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-gitlab"
               color="var(--pk-color-icon-gitlab)"
               svg="gitlab"
             />
-
-            <ReactTooltip
-              id="icon-github"
-              backgroundColor="var(--pk-color-icon-github)"
-              type="dark"
-              effect="solid"
-            >
-              <span>Github</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-github"

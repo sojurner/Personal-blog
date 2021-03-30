@@ -1,5 +1,5 @@
 import React from "react"
-import Img, {GatsbyImageFluidProps} from "gatsby-image"
+import Img, { GatsbyImageFluidProps } from "gatsby-image"
 
 import avatarStyles from "./Avatar.module.scss"
 import { PKVariant } from "@typings/component"
@@ -48,17 +48,12 @@ const Avatar: React.FC<PKAvatarComponent> = ({
     avatarVariants[variant]
   } ${className || ""}`.trim()
 
-  return (
-    <Img
-      className={classes}
-      {...props}
-    />
-  )
+  return <Img className={classes} {...props} />
 }
 
 Avatar.defaultProps = {
   variant: "default",
-  shape: "circle"
+  shape: "circle",
 }
 
 export { avatarVariants, Avatar as default }

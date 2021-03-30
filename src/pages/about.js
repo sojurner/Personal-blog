@@ -1,15 +1,9 @@
-import React from "react"
+import React from 'react'
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component"
-import ReactTooltip from "react-tooltip"
-
-import MainLayout from "@components/Layouts"
-import SEO from "@components/SEO"
-import Flex from "@components/Flex"
-import Icon from "@components/Icon"
-import Typography from "@components/Typography"
+import loadable from "@loadable/component"
 import { ContactCard, SkillsCard } from "@components/Card"
 
 import {
@@ -19,12 +13,17 @@ import {
   DripGrunge,
 } from "@components/Svg"
 
-import avatar_1 from "../images/avatar-cartoon_pk.png"
-import army from "../images/army_pk.png"
-
 import "react-vertical-timeline-component/style.min.css"
 import "@styles/index.scss"
 import "@styles/pages/_aboutPage.scss"
+
+const Flex = loadable(() => import("@components/Flex"))
+const SEO = loadable(() => import("@components/SEO"))
+const MainLayout = loadable(() => import("@components/Layouts"))
+const Icon = loadable(() => import("@components/Icon"))
+const Typography = loadable(() => import("@components/Typography"))
+const cartoonAvatar = loadable(() => import("../images/avatar-cartoon_pk.png"))
+const armyPic = loadable(() => import("../images/army_pk.png"))
 
 const AboutPage = () => (
   <MainLayout className="page-about">
@@ -51,7 +50,7 @@ const AboutPage = () => (
         </Flex>
         <Flex className="page-about__landing-greeting__imgs">
           <img
-            src={avatar_1}
+            src={cartoonAvatar}
             alt={"personal pic"}
             className="page-about__landing-greeting__imgs-profile"
           />
@@ -170,7 +169,7 @@ const AboutPage = () => (
             Combat Medic
           </Typography>
           <img
-            src={army}
+            src={armyPic}
             alt="army-pic"
             className="page-about__history__timeline__img"
           />
@@ -197,74 +196,30 @@ const AboutPage = () => (
             Front-end Developer
           </Typography>
           <Flex className="page-about__history__timeline__skill-icons">
-            <ReactTooltip
-              id="icon-dotnet"
-              backgroundColor="var(--pk-color-icon-dotnet)"
-              type="dark"
-              effect="solid"
-            >
-              <span>Asp.net core</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-dotnet"
               color="var(--pk-color-icon-dotnet)"
               svg="dotnet"
             />
-
-            <ReactTooltip
-              id="icon-blazor"
-              backgroundColor="var(--pk-color-icon-dotnet)"
-              type="dark"
-              effect="solid"
-            >
-              <span>Blazor</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-blazor"
               color="var(--pk-color-icon-dotnet)"
               svg="blazor"
             />
-
-            <ReactTooltip
-              id="icon-react"
-              backgroundColor="var(--pk-color-icon-react)"
-              type="light"
-              effect="solid"
-            >
-              <span>ReactJS</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-react"
               color="var(--pk-color-icon-react)"
               svg="react"
             />
-
-            <ReactTooltip
-              id="icon-sass"
-              backgroundColor="var(--pk-color-icon-sass)"
-              type="dark"
-              effect="solid"
-            >
-              <span>Sass</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-sass"
               color="var(--pk-color-icon-sass)"
               svg="sass"
             />
-
-            <ReactTooltip
-              id="icon-docker"
-              backgroundColor="var(--pk-color-icon-docker)"
-              type="dark"
-              effect="solid"
-            >
-              <span>Docker</span>
-            </ReactTooltip>
             <Icon
               data-tip
               data-for="icon-docker"

@@ -1,74 +1,28 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
 import { useInView } from "react-intersection-observer"
+import loadable from "@loadable/component"
 
 import { RefMainLayout } from "@components/Layouts"
 import { AniLoaderLink } from "@components/Link"
-import Flex from "@components/Flex"
-import Card from "@components/Card"
-import Chip from "@components/Chip"
-import Tag from "@components/Tag"
-import Icon from "@components/Icon"
-import Typography from "@components/Typography"
-import Avatar from "@components/Avatar"
-import Divider from "@components/Divider"
-import SEO from "@components/SEO"
 
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
+import "prismjs/themes/prism-tomorrow.css"
 
 import { blogTypeRef, tagIconRef } from "../utils/constants"
 import { useInfiniteScroll, usePageViewMeta } from "../hooks"
 
-const query = graphql`
-  query($subject: String!) {
-    filteredRemarks: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { eq: $subject } } }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            desc
-            date(formatString: "MMM D, YYYY")
-            subject
-            author
-            tags
-            featuredImgAlt
-            avatar {
-              childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          featuredImg {
-            childImageSharp {
-              fluid(maxWidth: 500) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-    metaRemarks: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: ASC }
-    ) {
-      totalCount
-      group(field: frontmatter___tags) {
-        tag: fieldValue
-        totalCount
-      }
-    }
-  }
-`
+const Img = loadable(() => import("gatsby-image"))
+const Icon = loadable(() => import("@components/Icon"))
+const Typography = loadable(() => import("@components/Typography"))
+const Card = loadable(() => import("@components/Card"))
+const Flex = loadable(() => import("@components/Flex"))
+const Tag = loadable(() => import("@components/Tag"))
+const SEO = loadable(() => import("@components/SEO"))
+const Chip = loadable(() => import("@components/Chip"))
+const Avatar = loadable(() => import("@components/Avatar"))
+const Divider = loadable(() => import("@components/Divider"))
 
 const BlogCategory = ({ data, pageContext }) => {
   const [pageViews] = usePageViewMeta()
@@ -251,5 +205,54 @@ const BlogCategory = ({ data, pageContext }) => {
     </RefMainLayout>
   )
 }
+
+const query = graphql`
+  query($subject: String!) {
+    filteredRemarks: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { tags: { eq: $subject } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            desc
+            date(formatString: "MMM D, YYYY")
+            subject
+            author
+            tags
+            featuredImgAlt
+            avatar {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          featuredImg {
+            childImageSharp {
+              fluid(maxWidth: 500) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+    metaRemarks: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: ASC }
+    ) {
+      totalCount
+      group(field: frontmatter___tags) {
+        tag: fieldValue
+        totalCount
+      }
+    }
+  }
+`
 
 export { query, BlogCategory as default }
