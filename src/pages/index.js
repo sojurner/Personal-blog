@@ -79,11 +79,22 @@ const HomePage = () => {
     }
   `)
 
-  const [landingRef, landingInView] = useInView({ threshold: .01, triggerOnce: true })
-  const [welcomeRef, welcomeInView] = useInView({ threshold: .01, triggerOnce: true })
-  const [aboutRef, aboutInView] = useInView({ threshold: .01, triggerOnce: true })
-  const [musicRef, musicInView] = useInView({ threshold: .01, triggerOnce: true })
-  const [blogRef, blogInView] = useInView({ threshold: .01, triggerOnce: true })
+  const [welcomeRef, welcomeInView] = useInView({
+    threshold: 0.01,
+    triggerOnce: true,
+  })
+  const [aboutRef, aboutInView] = useInView({
+    threshold: 0.01,
+    triggerOnce: true,
+  })
+  const [musicRef, musicInView] = useInView({
+    threshold: 0.01,
+    triggerOnce: true,
+  })
+  const [blogRef, blogInView] = useInView({
+    threshold: 0.01,
+    triggerOnce: true,
+  })
 
   return (
     <MainLayout className="page-home">
@@ -92,23 +103,20 @@ const HomePage = () => {
         className="page-home__landing-container"
         classes={["flexColumn", "justifyContentCenter"]}
       >
-        <span ref={landingRef} />
-        {landingInView && (
-          <HomeLanding>
-            <LandingImage
-              fluid={data.file.childImageSharp.fluid}
-              alt={data.site.siteMetadata.author
-                .split(" ")
-                .map(x => x[0])
-                .join("")}
-            />
-            <LandingCurvedText />
-            <LandingName />
-          </HomeLanding>
-        )}
+        <HomeLanding>
+          <LandingImage
+            fluid={data.file.childImageSharp.fluid}
+            alt={data.site.siteMetadata.author
+              .split(" ")
+              .map(x => x[0])
+              .join("")}
+          />
+          <LandingCurvedText />
+          <LandingName />
+        </HomeLanding>
       </Flex>
       <Flex className="page-home__about-section" classes={["flexColumn"]}>
-        <span ref={welcomeRef} />
+        <span style={{marginTop: -30}} ref={welcomeRef} />
         {welcomeInView && (
           <Flex
             classes={["flexRow", "justifyContentCenter"]}
@@ -142,7 +150,7 @@ const HomePage = () => {
           </Flex>
         )}
 
-        <span ref={aboutRef} />
+        <span style={{marginTop: -30}} ref={aboutRef} />
         {aboutInView && (
           <Flex
             classes={["flexRow", "justifyContentCenter"]}
@@ -185,7 +193,7 @@ const HomePage = () => {
         )}
       </Flex>
 
-      <span ref={musicRef} />
+      <span style={{marginTop: -30}} ref={musicRef} />
 
       {musicInView && (
         <Flex
@@ -203,7 +211,7 @@ const HomePage = () => {
         </Flex>
       )}
 
-      <span ref={blogRef} />
+      <span style={{marginTop: -30}} ref={blogRef} />
 
       {blogInView && (
         <Flex

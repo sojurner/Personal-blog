@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -17,270 +18,286 @@ import "react-vertical-timeline-component/style.min.css"
 import "@styles/index.scss"
 import "@styles/pages/_aboutPage.scss"
 
+const Img = loadable(() => import("gatsby-image"))
 const Flex = loadable(() => import("@components/Flex"))
 const SEO = loadable(() => import("@components/SEO"))
 const MainLayout = loadable(() => import("@components/Layouts"))
 const Icon = loadable(() => import("@components/Icon"))
 const Typography = loadable(() => import("@components/Typography"))
-const cartoonAvatar = loadable(() => import("../images/avatar-cartoon_pk.png"))
-const armyPic = loadable(() => import("../images/army_pk.png"))
 
-const AboutPage = () => (
-  <MainLayout className="page-about">
-    <SEO title="About" />
-    <Flex
-      classes={["flexColumn"]}
-      className="page-about__landing-container--outer"
-    >
-      <Flex className="page-about__landing-container--inner-1">
-        <Flex
-          className="page-about__landing-greeting"
-          classes={["flexColumn", "alignItemsStart"]}
-        >
-          <Typography tag="h1" className="page-about__landing-greeting__name">
-            About
-          </Typography>
-          <Typography
-            tag="h3"
-            variant="neutralLight"
-            className="page-about__landing-greeting__motto"
-          >
-            - You miss 100% of the shots you don't make
-          </Typography>
-        </Flex>
-        <Flex className="page-about__landing-greeting__imgs">
-          <img
-            src={cartoonAvatar}
-            alt={"personal pic"}
-            className="page-about__landing-greeting__imgs-profile"
-          />
-          <BrushStroke className="page-about__brush-stroke page-about__landing-greeting__imgs-brushstroke" />
-        </Flex>
-      </Flex>
+const AboutPage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allImageSharp(filter: { fluid: { originalName: { regex: "/pk/" } } }) {
+        totalCount
+        nodes {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
+  const [avatar, army] = data.allImageSharp.nodes
+  return (
+    <MainLayout className="page-about">
+      <SEO title="About" />
       <Flex
-        className="page-about__landing-container--inner-2"
         classes={["flexColumn"]}
+        className="page-about__landing-container--outer"
       >
-        <Typography
-          className="page-about__landing-greeting__about-desc"
-          tag="h2"
-          variant="neutralDefault"
-        >
-          Welcome!
-        </Typography>
-        <Typography
-          tag="h2"
-          variant="neutralDark"
-          className="page-about__landing-greeting__about-header"
-        >
-          Who Am I?
-        </Typography>
-        <div className="page-about__landing-greeting__about-header-div" />
-        <Typography
-          tag="h4"
-          className="page-about__landing-greeting__about-skills"
-          variant="neutralLight"
-        >
-          I'm a programmer with a huge{" "}
-          <Typography
-            tag="span"
-            variant="neutralDark"
-            onClick={() =>
-              window.open(
-                "https://images-na.ssl-images-amazon.com/images/I/51hethHdQnL.jpg",
-                "_blank"
-              )
-            }
+        <Flex className="page-about__landing-container--inner-1">
+          <Flex
+            className="page-about__landing-greeting"
+            classes={["flexColumn", "alignItemsStart"]}
           >
-            passion for root
-          </Typography>
-          . I currently work as a full-stack dev with emphasis on front-end.
-          Aside from work, I love <strong>Hiking</strong>, I'm an avid fan of{" "}
-          <strong>Baseball</strong>, and I love eating{" "}
-          <strong>Pork Rinds</strong>.
-        </Typography>
-        <Typography
-          tag="h2"
-          className="page-about__landing-greeting__about-header"
-          variant="neutralDark"
+            <Typography tag="h1" className="page-about__landing-greeting__name">
+              About
+            </Typography>
+            <Typography
+              tag="h3"
+              variant="neutralLight"
+              className="page-about__landing-greeting__motto"
+            >
+              - You miss 100% of the shots you don't make
+            </Typography>
+          </Flex>
+          <Flex className="page-about__landing-greeting__imgs">
+            <Img
+              fluid={avatar.fluid}
+              alt={"personal pic"}
+              className="page-about__landing-greeting__imgs-profile"
+            />
+            <BrushStroke className="page-about__brush-stroke page-about__landing-greeting__imgs-brushstroke" />
+          </Flex>
+        </Flex>
+        <Flex
+          className="page-about__landing-container--inner-2"
+          classes={["flexColumn"]}
         >
-          What You'll Find Here
-        </Typography>
-        <div className="page-about__landing-greeting__about-header-div" />
-        <Typography
-          tag="h4"
-          className="page-about__landing-greeting__about-skills"
-          variant="neutralLight"
-        >
-          As of now, I'll blog just about anything that comes to my mind.
-          Typically, I'll stick to what I know: personal interests and
-          experiences, programming tools and tips, and{" "}
           <Typography
-            tag="span"
-            variant="neutralDark"
-            onClick={() =>
-              window.open(
-                "https://www.youtube.com/watch?v=sDj72zqZakE",
-                "_blank"
-              )
-            }
+            className="page-about__landing-greeting__about-desc"
+            tag="h2"
+            variant="neutralDefault"
           >
-            falling waffle.
+            Welcome!
           </Typography>
-        </Typography>
+          <Typography
+            tag="h2"
+            variant="neutralDark"
+            className="page-about__landing-greeting__about-header"
+          >
+            Who Am I?
+          </Typography>
+          <div className="page-about__landing-greeting__about-header-div" />
+          <Typography
+            tag="h4"
+            className="page-about__landing-greeting__about-skills"
+            variant="neutralLight"
+          >
+            I'm a programmer with a huge{" "}
+            <Typography
+              tag="span"
+              variant="neutralDark"
+              onClick={() =>
+                window.open(
+                  "https://images-na.ssl-images-amazon.com/images/I/51hethHdQnL.jpg",
+                  "_blank"
+                )
+              }
+            >
+              passion for root
+            </Typography>
+            . I currently work as a full-stack dev with emphasis on front-end.
+            Aside from work, I love <strong>Hiking</strong>, I'm an avid fan of{" "}
+            <strong>Baseball</strong>, and I love eating{" "}
+            <strong>Pork Rinds</strong>.
+          </Typography>
+          <Typography
+            tag="h2"
+            className="page-about__landing-greeting__about-header"
+            variant="neutralDark"
+          >
+            What You'll Find Here
+          </Typography>
+          <div className="page-about__landing-greeting__about-header-div" />
+          <Typography
+            tag="h4"
+            className="page-about__landing-greeting__about-skills"
+            variant="neutralLight"
+          >
+            As of now, I'll blog just about anything that comes to my mind.
+            Typically, I'll stick to what I know: personal interests and
+            experiences, programming tools and tips, and{" "}
+            <Typography
+              tag="span"
+              variant="neutralDark"
+              onClick={() =>
+                window.open(
+                  "https://www.youtube.com/watch?v=sDj72zqZakE",
+                  "_blank"
+                )
+              }
+            >
+              falling waffle.
+            </Typography>
+          </Typography>
+        </Flex>
       </Flex>
-    </Flex>
-
-    <Flex
-      classes={["flexColumn"]}
-      className="page-about__history-container--outer"
-    >
-      <span id="history" />
 
       <Flex
-        classes={["flexColumn", "alignItemsStart"]}
-        className="page-about__history-container--inner"
+        classes={["flexColumn"]}
+        className="page-about__history-container--outer"
       >
-        <Typography tag="h1" className="page-about__history__title">
-          History
-        </Typography>
-        <Typography
-          tag="h3"
-          variant="neutralLight"
-          className="page-about__history__motto"
-        >
-          - The plural of anecdote is not statistics.
-        </Typography>
-        <DripGrunge className="page-about__history__bg" />
-      </Flex>
-      <VerticalTimeline className="page-about__history__timeline">
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="2013 - 2017"
-          icon={<Icon svg="military" color="#b32158" />}
-        >
-          <Typography tag="h3">US Army</Typography>
+        <span id="history" />
 
-          <Typography
-            tag="h4"
-            variant="neutralLight"
-            className="vertical-timeline-element-subtitle"
-          >
-            Combat Medic
-          </Typography>
-          <img
-            src={armyPic}
-            alt="army-pic"
-            className="page-about__history__timeline__img"
-          />
-          <Typography
-            variant="neutralLight"
-            className="page-about__history__timeline__p"
-          >
-            Four years of service with 168th Multifunctional Medical Battalion
-            (Camp Walker, S. Korea) and Lyster Army Health Clinic (Fort Rucker,
-            AL).
-          </Typography>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          date="2018 - Now"
-          icon={<Icon svg="codetags" color="#3c354a" />}
+        <Flex
+          classes={["flexColumn", "alignItemsStart"]}
+          className="page-about__history-container--inner"
         >
-          <Typography tag="h3">Catalyst Healthcare</Typography>
-          <Typography
-            tag="h4"
-            variant="neutralLight"
-            className="vertical-timeline-element-subtitle"
-          >
-            Front-end Developer
+          <Typography tag="h1" className="page-about__history__title">
+            History
           </Typography>
-          <Flex className="page-about__history__timeline__skill-icons">
-            <Icon
-              data-tip
-              data-for="icon-dotnet"
-              color="var(--pk-color-icon-dotnet)"
-              svg="dotnet"
+          <Typography
+            tag="h3"
+            variant="neutralLight"
+            className="page-about__history__motto"
+          >
+            - The plural of anecdote is not statistics.
+          </Typography>
+          <DripGrunge className="page-about__history__bg" />
+        </Flex>
+        <VerticalTimeline className="page-about__history__timeline">
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            date="2013 - 2017"
+            icon={<Icon svg="military" color="#b32158" />}
+          >
+            <Typography tag="h3">US Army</Typography>
+
+            <Typography
+              tag="h4"
+              variant="neutralLight"
+              className="vertical-timeline-element-subtitle"
+            >
+              Combat Medic
+            </Typography>
+
+            <Typography
+              variant="neutralLight"
+              className="page-about__history__timeline__p"
+            >
+              Four years of service with 168th Multifunctional Medical Battalion
+              (Camp Walker, S. Korea) and Lyster Army Health Clinic (Fort
+              Rucker, AL).
+            </Typography>
+            <Img
+              fluid={army.fluid}
+              alt="army-pic"
+              className="page-about__history__timeline__img"
             />
-            <Icon
-              data-tip
-              data-for="icon-blazor"
-              color="var(--pk-color-icon-dotnet)"
-              svg="blazor"
-            />
-            <Icon
-              data-tip
-              data-for="icon-react"
-              color="var(--pk-color-icon-react)"
-              svg="react"
-            />
-            <Icon
-              data-tip
-              data-for="icon-sass"
-              color="var(--pk-color-icon-sass)"
-              svg="sass"
-            />
-            <Icon
-              data-tip
-              data-for="icon-docker"
-              color="var(--pk-color-icon-docker)"
-              svg="docker"
-            />
+          </VerticalTimelineElement>
+          <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            date="2018 - Now"
+            icon={<Icon svg="codetags" color="#3c354a" />}
+          >
+            <Typography tag="h3">Catalyst Healthcare</Typography>
+            <Typography
+              tag="h4"
+              variant="neutralLight"
+              className="vertical-timeline-element-subtitle"
+            >
+              Front-end Developer
+            </Typography>
+            <Flex className="page-about__history__timeline__skill-icons">
+              <Icon
+                data-tip
+                data-for="icon-dotnet"
+                color="var(--pk-color-icon-dotnet)"
+                svg="dotnet"
+              />
+              <Icon
+                data-tip
+                data-for="icon-blazor"
+                color="var(--pk-color-icon-dotnet)"
+                svg="blazor"
+              />
+              <Icon
+                data-tip
+                data-for="icon-react"
+                color="var(--pk-color-icon-react)"
+                svg="react"
+              />
+              <Icon
+                data-tip
+                data-for="icon-sass"
+                color="var(--pk-color-icon-sass)"
+                svg="sass"
+              />
+              <Icon
+                data-tip
+                data-for="icon-docker"
+                color="var(--pk-color-icon-docker)"
+                svg="docker"
+              />
+            </Flex>
+            <Typography
+              variant="neutralLight"
+              className="page-about__history__timeline__p"
+            >
+              Primary front-end developer working mostly in Blazor and .asp-net
+              core.
+            </Typography>
+          </VerticalTimelineElement>
+        </VerticalTimeline>
+      </Flex>
+
+      <Flex classes={["flexColumn"]} className="page-about__cards-container">
+        <Flex className="page-about__cards-container--inner-1">
+          <Flex
+            className="page-about__cards-skills"
+            classes={["flexColumn", "alignItemsStart"]}
+          >
+            <Typography tag="h1" className="page-about__cards-skills__title">
+              Skillset
+            </Typography>
+            <Typography
+              tag="h3"
+              variant="neutralLight"
+              className="page-about__cards-skills__motto"
+            >
+              - BDD: Bug Driven Development
+            </Typography>
+            <InkGrunge className="page-about__ink-grunge" />
           </Flex>
-          <Typography
-            variant="neutralLight"
-            className="page-about__history__timeline__p"
-          >
-            Primary front-end developer working mostly in Blazor and .asp-net
-            core.
-          </Typography>
-        </VerticalTimelineElement>
-      </VerticalTimeline>
-    </Flex>
-
-    <Flex classes={["flexColumn"]} className="page-about__cards-container">
-      <Flex className="page-about__cards-container--inner-1">
-        <Flex
-          className="page-about__cards-skills"
-          classes={["flexColumn", "alignItemsStart"]}
-        >
-          <Typography tag="h1" className="page-about__cards-skills__title">
-            Skillset
-          </Typography>
-          <Typography
-            tag="h3"
-            variant="neutralLight"
-            className="page-about__cards-skills__motto"
-          >
-            - BDD: Bug Driven Development
-          </Typography>
-          <InkGrunge className="page-about__ink-grunge" />
+          <SkillsCard className="page-about__card-skills" />
         </Flex>
-        <SkillsCard className="page-about__card-skills" />
-      </Flex>
-      <Flex className="page-about__cards-container--inner-2">
-        <Flex
-          className="page-about__cards-contact"
-          classes={["flexColumn", "alignItemsStart"]}
-        >
-          <span id="contact" />
-
-          <Typography tag="h1" className="page-about__cards-contact__title">
-            Contact
-          </Typography>
-          <Typography
-            tag="h3"
-            variant="neutralLight"
-            className="page-about__cards-contact__motto"
+        <Flex className="page-about__cards-container--inner-2">
+          <Flex
+            className="page-about__cards-contact"
+            classes={["flexColumn", "alignItemsStart"]}
           >
-            - 20% of the time, 24/7 contact all the time.
-          </Typography>
-          <SplashGrunge className="page-about__splash-grunge" />
+            <span id="contact" />
+
+            <Typography tag="h1" className="page-about__cards-contact__title">
+              Contact
+            </Typography>
+            <Typography
+              tag="h3"
+              variant="neutralLight"
+              className="page-about__cards-contact__motto"
+            >
+              - 20% of the time, 24/7 contact all the time.
+            </Typography>
+            <SplashGrunge className="page-about__splash-grunge" />
+          </Flex>
+          <ContactCard className="page-about__card-contact" />
         </Flex>
-        <ContactCard className="page-about__card-contact" />
       </Flex>
-    </Flex>
-  </MainLayout>
-)
+    </MainLayout>
+  )
+}
 
 export default AboutPage
