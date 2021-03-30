@@ -25,12 +25,13 @@
 .card-skills__content__title-icon,
 .card-contact__content__title-icon {
   border-radius: 50%;
-  box-shadow: 0 0 0 4px $color-blank-800, inset 0 2px 0 rgba(0, 0, 0, 0.08),
-    0 3px 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 4px $color-blank-800, inset 0 2px 2px rgba(0, 0, 0, 0.08),
+    inset 0 -2px 2px rgba(0, 0, 0, 0.08), 0 2px 0 4px rgba(0, 0, 0, 0.08),
+    0 -2px 0 4px rgba(0, 0, 0, 0.08);
   font-size: 3em;
-  border: 1px solid rgba(0, 0, 0, 0.016);
+  border: 1px solid rgba(0, 0, 0, 0.086);
   margin-right: 20px;
-  padding: 0.15em;
+  padding: 0.15em 0.1em 0.1em 0.1em;
 }
 
 .card-skills__content__skillset-label {
@@ -39,6 +40,6 @@
 
 .card-skills__content__skillset-label,
 .card-contact__content__txt-label {
-  opacity: 0.4;
+  opacity: 0.6;
   font-weight: 500;
 }

@@ -212,36 +212,11 @@ const AboutPage = () => {
               Front-end Developer
             </Typography>
             <Flex className="page-about__history__timeline__skill-icons">
-              <Icon
-                data-tip
-                data-for="icon-dotnet"
-                color="var(--pk-color-icon-dotnet)"
-                svg="dotnet"
-              />
-              <Icon
-                data-tip
-                data-for="icon-blazor"
-                color="var(--pk-color-icon-dotnet)"
-                svg="blazor"
-              />
-              <Icon
-                data-tip
-                data-for="icon-react"
-                color="var(--pk-color-icon-react)"
-                svg="react"
-              />
-              <Icon
-                data-tip
-                data-for="icon-sass"
-                color="var(--pk-color-icon-sass)"
-                svg="sass"
-              />
-              <Icon
-                data-tip
-                data-for="icon-docker"
-                color="var(--pk-color-icon-docker)"
-                svg="docker"
-              />
+              <Icon color="var(--pk-color-icon-dotnet)" svg="dotnet" />
+              <Icon color="var(--pk-color-icon-dotnet)" svg="blazor" />
+              <Icon color="var(--pk-color-icon-react)" svg="react" />
+              <Icon color="var(--pk-color-icon-sass)" svg="sass" />
+              <Icon color="var(--pk-color-icon-docker)" svg="docker" />
             </Flex>
             <Typography
               variant="neutralLight"

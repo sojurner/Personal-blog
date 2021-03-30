@@ -1,5 +1,5 @@
-import React from 'react'
-import loadable from '@loadable/component'
+import React from "react"
+import loadable from "@loadable/component"
 import { graphql, useStaticQuery } from "gatsby"
 
 import { RefMainLayout } from "@components/Layouts"
@@ -164,7 +164,7 @@ const MemeVoting = ({ onMemeVote, memeSession }) => {
       classes={["flexRow", "justifyContentCenter"]}
     >
       <MemeUpvote
-        onUpvote={() => onMemeVote(true)}
+        onClick={() => onMemeVote(true)}
         variant={
           memeSession === undefined
             ? "positive"
@@ -174,7 +174,7 @@ const MemeVoting = ({ onMemeVote, memeSession }) => {
         }
       />
       <MemeDownvote
-        onDownvote={() => onMemeVote(false)}
+        onClick={() => onMemeVote(false)}
         variant={
           memeSession === undefined
             ? "negative"
@@ -187,24 +187,20 @@ const MemeVoting = ({ onMemeVote, memeSession }) => {
   )
 }
 
-const MemeUpvote = ({ onUpvote, variant }) => {
+const MemeUpvote = props => {
   return (
-    <Button
-      className="meme-vote meme-vote--up"
-      variant={variant}
-      onClick={onUpvote}
-    >
+    <Button className="meme-vote meme-vote--up" aria-label="Up vote" {...props}>
       <Icon svg="upfinger" />
     </Button>
   )
 }
 
-const MemeDownvote = ({ onDownvote, variant }) => {
+const MemeDownvote = props => {
   return (
     <Button
       className="meme-vote meme-vote--down"
-      variant={variant}
-      onClick={onDownvote}
+      aria-label="Down vote"
+      {...props}
     >
       <Icon svg="downfinger" />
     </Button>
@@ -223,14 +219,19 @@ const MemeSocial = ({ source, onMemeCopyLink }) => (
 )
 
 const MemeSrc = props => (
-  <Button variant="default" className="meme-social__src-link" {...props}>
+  <Button
+    variant="default"
+    aria-label="Source link"
+    className="meme-social__src-link"
+    {...props}
+  >
     <Icon svg="link" />
     <Typography tag="span">src</Typography>
   </Button>
 )
 
 const MemeShare = props => (
-  <Button variant="secondary" className="meme-social__share" {...props}>
+  <Button aria-label="Copy link" variant="secondary" className="meme-social__share" {...props}>
     <Icon svg="share" />
   </Button>
 )

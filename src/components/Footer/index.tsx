@@ -7,7 +7,12 @@ import { Logo, Wings } from "@components/Svg"
 import Flex from "@components/Flex"
 import Button, { BtnVariantKey } from "@components/Button"
 
-import { socialLinks, routes, blogSectionRoutes } from "../../utils/constants"
+import {
+  socialLinks,
+  routes,
+  blogSectionRoutes,
+  Route,
+} from "../../utils/constants"
 import "./Footer.scss"
 
 const Footer: React.FC = props => {
@@ -45,16 +50,15 @@ const Footer: React.FC = props => {
           classes={["flexColumn"]}
         >
           <Flex classes={["flexRow", "alignItemsCenter"]}>
-            <Link to="/">
+            <Link aria-label="Logo home page" to="/">
               <Logo className="footer__logo" />
             </Link>
             <Flex className="footer__social-container" classes={["flexRow"]}>
-              {socialLinks.map(ele => (
+              {socialLinks.map(({ variant, ...linkProps }) => (
                 <FooterSocialLink
-                  key={`social-${ele.link}`}
-                  variant={ele.variant as BtnVariantKey}
-                  link={ele.link}
-                  icon={ele.icon}
+                  key={`social-${linkProps.link}`}
+                  variant={variant as BtnVariantKey}
+                  {...linkProps}
                 />
               ))}
             </Flex>
@@ -95,14 +99,14 @@ const FooterLinkSection = ({ title, routes, groupClass }) => (
       {title}
     </Typography>
     <ul className={`footer__links-items ${groupClass}`}>
-      {routes.map(route => (
+      {(routes as Route[]).map(({ label, ...routeProps }) => (
         <Link
-          to={route.to}
-          key={`footer-route-${route.label}`}
+          key={`footer-route-${label}`}
           className="footer__links-item"
           activeClassName="footer__links-item--active"
+          {...routeProps}
         >
-          {route.label}
+          {label}
         </Link>
       ))}
     </ul>
@@ -149,11 +153,12 @@ const FooterSocialLink: React.FC<{
   icon: string
   link: string
   variant: BtnVariantKey
-}> = ({ icon, link, variant }) => (
+}> = ({ icon, link, variant, ...props }) => (
   <Button
     className="footer__social-item"
     variant={variant}
     onClick={() => window.open(link, "_blank")}
+    {...props}
   >
     <Icon svg={icon} />
   </Button>

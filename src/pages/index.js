@@ -116,7 +116,7 @@ const HomePage = () => {
         </HomeLanding>
       </Flex>
       <Flex className="page-home__about-section" classes={["flexColumn"]}>
-        <span style={{marginTop: -30}} ref={welcomeRef} />
+        <span style={{ marginTop: -30 }} ref={welcomeRef} />
         {welcomeInView && (
           <Flex
             classes={["flexRow", "justifyContentCenter"]}
@@ -139,18 +139,19 @@ const HomePage = () => {
                 <em>therapeutic</em> outlet. I'll share all that I know, and all
                 that I've wondered through my blog.
               </Typography>
-              <HomeButtonLink
+              <ButtonLink
                 to="/blog"
+                aria-label="to blog page"
                 variant="primary"
                 className="page-home__about-section__link"
               >
                 Go to blog
-              </HomeButtonLink>
+              </ButtonLink>
             </Flex>
           </Flex>
         )}
 
-        <span style={{marginTop: -30}} ref={aboutRef} />
+        <span style={{ marginTop: -30 }} ref={aboutRef} />
         {aboutInView && (
           <Flex
             classes={["flexRow", "justifyContentCenter"]}
@@ -172,19 +173,20 @@ const HomePage = () => {
               </Typography>
               <div className="page-home__about-section__skill-icons">
                 {skillsetIcons.map(skillProps => (
-                  <HomeSKillIcon
+                  <SkillIcon
                     key={`skill-icon-${skillProps.svg}`}
                     {...skillProps}
                   />
                 ))}
               </div>
-              <HomeButtonLink
+              <ButtonLink
                 to="/about"
                 variant="secondary"
+                aria-label="to about page"
                 className="page-home__about-section__link"
               >
                 More about me
-              </HomeButtonLink>
+              </ButtonLink>
             </Flex>
             <Flex className="page-home__about-section__img page-home__about-section__img-drummer-cat">
               <DrummerCat />
@@ -193,7 +195,7 @@ const HomePage = () => {
         )}
       </Flex>
 
-      <span style={{marginTop: -30}} ref={musicRef} />
+      <span style={{ marginTop: -30 }} ref={musicRef} />
 
       {musicInView && (
         <Flex
@@ -207,11 +209,11 @@ const HomePage = () => {
           >
             Music
           </Typography>
-          <HomeSCEmbed />
+          <SCEmbed />
         </Flex>
       )}
 
-      <span style={{marginTop: -30}} ref={blogRef} />
+      <span style={{ marginTop: -30 }} ref={blogRef} />
 
       {blogInView && (
         <Flex
@@ -229,10 +231,11 @@ const HomePage = () => {
             {data.allMarkdownRemark.edges.map(({ node }) => {
               const { frontmatter, fields, featuredImg } = node
               return (
-                <HomeBlogCard
+                <BlogCard
                   key={`latest-posts-${frontmatter.title}`}
                   variant={blogTypeRef[frontmatter.subject].tagVariant}
                   to={`blog/${frontmatter.subject}/${fields.slug}`}
+                  aria-label={frontmatter.title}
                   className={`page-home__blog-section__card--${
                     blogTypeRef[frontmatter.subject].tagVariant
                   } page-home__blog-section__card`}
@@ -243,18 +246,19 @@ const HomePage = () => {
                     fluid={featuredImg.childImageSharp.fluid}
                     src={frontmatter.featuredImgUrl}
                   />
-                  <HomeBlogCardContent frontmatter={frontmatter} />
-                </HomeBlogCard>
+                  <BlogCardContent frontmatter={frontmatter} />
+                </BlogCard>
               )
             })}
           </Flex>
-          <HomeButtonLink
+          <ButtonLink
             to="/blog"
+            aria-label="to blog page"
             className="page-home__blog-section__link-blog"
             variant="default"
           >
             More Posts
-          </HomeButtonLink>
+          </ButtonLink>
         </Flex>
       )}
     </MainLayout>
@@ -313,7 +317,7 @@ const HomeLanding = ({ children }) => (
   </Flex>
 )
 
-const HomeSCEmbed = () => {
+const SCEmbed = () => {
   const [targetUrl, setTargetUrl] = React.useState(musicLinks[0].scURL)
 
   const handleCategoryClick = url => {
@@ -344,15 +348,15 @@ const HomeSCEmbed = () => {
   )
 }
 
-const HomeBlogCard = ({ to, className, children }) => (
-  <AniLoaderLink to={to}>
+const BlogCard = ({ className, children, ...props }) => (
+  <AniLoaderLink {...props}>
     <Flex classes={["flexColumn"]} className={className}>
       {children}
     </Flex>
   </AniLoaderLink>
 )
 
-const HomeBlogCardContent = ({ frontmatter }) => (
+const BlogCardContent = ({ frontmatter }) => (
   <>
     <Typography variant="neutralDark" tag="h3">
       {frontmatter.title}
@@ -374,14 +378,14 @@ const HomeBlogCardContent = ({ frontmatter }) => (
   </>
 )
 
-const HomeSKillIcon = props => (
+const SkillIcon = props => (
   <div>
     <Icon {...props} />
   </div>
 )
 
-const HomeButtonLink = ({ to, children, className, variant }) => (
-  <AniLoaderLink to={to} className={`${className} to-section-btn-link"`}>
+const ButtonLink = ({ children, className, variant, ...props }) => (
+  <AniLoaderLink className={`${className} to-section-btn-link"`} {...props}>
     <Button variant={variant}>{children}</Button>
   </AniLoaderLink>
 )

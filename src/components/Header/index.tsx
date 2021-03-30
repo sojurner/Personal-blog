@@ -18,34 +18,31 @@ const MainHeader = () => {
     <ThemeToggler>
       {({ theme, toggleTheme }) => (
         <header className="header--base header--sticky header--primary">
-          <Link to="/" className="header__logo">
+          <Link aria-label="logo home page" to="/" className="header__logo">
             <Logo />
           </Link>
           <Flex className="header__nav-container">
-            {routes.map(routeProps => {
+            {routes.map(({ label, ...routeProps }) => {
               return (
                 <Link
-                  key={`header-link-${routeProps.label}`}
+                  key={`header-link-${label}`}
                   className="header__nav-link"
                   activeClassName="header__nav-link--active"
                   partiallyActive={true}
-                  to={routeProps.to}
+                  {...routeProps}
                 >
                   <Typography
                     className="nav-link-txt"
                     tag="h5"
-                    variant={
-                      routeProps.label === root ? "neutralBlank" : "primaryDark"
-                    }
+                    variant={label === root ? "neutralBlank" : "primaryDark"}
                   >
-                    {routeProps.label}
+                    {label}
                   </Typography>
                 </Link>
               )
             })}
           </Flex>
           <DarkModeSwitch
-            className="header__dark-mode-switch"
             onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
             checked={theme === "dark"}
           />
@@ -98,9 +95,6 @@ const TemplateHeader = ({ fixed }) => {
             })}
           </Flex>
           <DarkModeSwitch
-            className={`header__dark-mode-switch ${
-              !fixed && "header-template__dark-mode-switch"
-            }`}
             onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
             checked={theme === "dark"}
           />

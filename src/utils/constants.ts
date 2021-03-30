@@ -3,17 +3,20 @@ const socialLinks = [
     icon: "linkedIn",
     link: "https://www.linkedin.com/in/paulkim-sojurner/",
     variant: "secondary",
+    "aria-label": "LinkedIn",
   },
   {
     icon: "accountFile",
     link:
       "https://drive.google.com/file/d/1orOhfD7jKerqiN1NXIVKNXt1Zmj9VBri/view?usp=sharing",
     variant: "positive",
+    "aria-label": "CV",
   },
   {
     icon: "github",
     link: "https://github.com/sojurner",
     variant: "negative",
+    "aria-label": "Github",
   },
 ]
 
@@ -83,28 +86,38 @@ const tagIconRef = {
   tech: "console",
 }
 
-const routes = [
-  { to: "/blog", label: "blog" },
-  { to: "/memes", label: "memes" },
-  { to: "/about", label: "about" },
+export interface Route {
+  to: string
+  label: string
+  "aria-label": string
+}
+
+const routes: Route[] = [
+  { to: "/blog", label: "blog", "aria-label": "to blog page" },
+  { to: "/memes", label: "memes", "aria-label": "to memes page" },
+  { to: "/about", label: "about", "aria-label": "to about page" },
 ]
 
-const blogSectionRoutes = [
+const blogSectionRoutes: Route[] = [
   {
     to: "/blog/code",
     label: "code",
+    "aria-label": "Code blog posts",
   },
   {
     to: "/blog/culture",
     label: "culture",
+    "aria-label": "Culture blog posts",
   },
   {
     to: "/blog/military",
     label: "military",
+    "aria-label": "Military blog posts",
   },
   {
     to: "/blog/storytelling",
     label: "storytelling",
+    "aria-label": "Story-telling blog posts",
   },
 ]
 

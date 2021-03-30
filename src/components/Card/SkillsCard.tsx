@@ -38,36 +38,11 @@ const SkillsCard: React.FC<PKCardComponent> = ({ className, ...props }) => {
             Languages
           </Typography>
           <Flex className="card-skills__content__skillset-icons">
-            <Icon
-              data-tip
-              data-for="icon-csharp"
-              color="var(--pk-color-icon-csharp)"
-              svg="csharp"
-            />
-            <Icon
-              data-tip
-              data-for="icon-js"
-              color="var(--pk-color-icon-js)"
-              svg="javascript"
-            />
-            <Icon
-              data-tip
-              data-for="icon-ts"
-              color="var(--pk-color-icon-ts)"
-              svg="typescript"
-            />
-            <Icon
-              data-tip
-              data-for="icon-html"
-              color="var(--pk-color-icon-html)"
-              svg="html"
-            />
-            <Icon
-              data-tip
-              data-for="icon-css"
-              color="var(--pk-color-icon-css)"
-              svg="css"
-            />
+            <Icon color="var(--pk-color-icon-csharp)" svg="csharp" />
+            <Icon color="var(--pk-color-icon-js)" svg="javascript" />
+            <Icon color="var(--pk-color-icon-ts)" svg="typescript" />
+            <Icon color="var(--pk-color-icon-html)" svg="html" />
+            <Icon color="var(--pk-color-icon-css)" svg="css" />
           </Flex>
         </Flex>
       </Flex>
@@ -92,36 +67,11 @@ const SkillsCard: React.FC<PKCardComponent> = ({ className, ...props }) => {
             Frameworks
           </Typography>
           <Flex className="card-skills__content__skillset-icons">
-            <Icon
-              data-tip
-              data-for="icon-react"
-              color="var(--pk-color-icon-react)"
-              svg="react"
-            />
-            <Icon
-              data-tip
-              data-for="icon-dotnet"
-              color="var(--pk-color-icon-dotnet)"
-              svg="dotnet"
-            />
-            <Icon
-              data-tip
-              data-for="icon-blazor"
-              color="var(--pk-color-icon-dotnet)"
-              svg="blazor"
-            />
-            <Icon
-              data-tip
-              data-for="icon-node"
-              color="var(--pk-color-icon-node)"
-              svg="nodejs"
-            />
-            <Icon
-              data-tip
-              data-for="icon-sass"
-              color="var(--pk-color-icon-sass)"
-              svg="sass"
-            />
+            <Icon color="var(--pk-color-icon-react)" svg="react" />
+            <Icon color="var(--pk-color-icon-dotnet)" svg="dotnet" />
+            <Icon color="var(--pk-color-icon-dotnet)" svg="blazor" />
+            <Icon color="var(--pk-color-icon-node)" svg="nodejs" />
+            <Icon color="var(--pk-color-icon-sass)" svg="sass" />
           </Flex>
         </Flex>
       </Flex>
@@ -146,36 +96,11 @@ const SkillsCard: React.FC<PKCardComponent> = ({ className, ...props }) => {
             Tools
           </Typography>
           <Flex className="card-skills__content__skillset-icons">
-            <Icon
-              data-tip
-              data-for="icon-vscode"
-              color="var(--pk-color-icon-vscode)"
-              svg="vscode"
-            />
-            <Icon
-              data-tip
-              data-for="icon-vs"
-              color="var(--pk-color-icon-vs)"
-              svg="vs"
-            />
-            <Icon
-              data-tip
-              data-for="icon-docker"
-              color="var(--pk-color-icon-docker)"
-              svg="docker"
-            />
-            <Icon
-              data-tip
-              data-for="icon-gitlab"
-              color="var(--pk-color-icon-gitlab)"
-              svg="gitlab"
-            />
-            <Icon
-              data-tip
-              data-for="icon-github"
-              color="var(--pk-color-icon-github)"
-              svg="github"
-            />
+            <Icon color="var(--pk-color-icon-vscode)" svg="vscode" />
+
+            <Icon color="var(--pk-color-icon-docker)" svg="docker" />
+            <Icon color="var(--pk-color-icon-gitlab)" svg="gitlab" />
+            <Icon color="var(--pk-color-icon-github)" svg="github" />
           </Flex>
         </Flex>
       </Flex>
