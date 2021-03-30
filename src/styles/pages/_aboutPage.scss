@@ -94,9 +94,7 @@
       z-index: 1;
       width: 370px;
       @media only screen and (max-width: 950px) {
-        position: static;
-        left: 10%;
-        top: 0;
+        left: auto;
       }
     }
     &-brushstroke {
