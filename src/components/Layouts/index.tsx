@@ -1,7 +1,7 @@
 import React from "react"
 
 import Footer from "@components/Footer"
-import { GradientWrapper } from "@components/Svg"
+import GradientWrapper from "../../assets/GradientWrapper.svg"
 import Header, { TemplateHeader } from "@components/Header"
 
 interface LayoutProps extends React.HTMLAttributes<HTMLElement> {
@@ -12,6 +12,23 @@ interface TemplateLayoutProps extends LayoutProps {
   inView: boolean
 }
 
+const UnderFade = () => (
+  <div
+    style={{
+      position: "fixed",
+      left: "0px",
+      right: "0px",
+      top: "60px",
+      width: "98%",
+      pointerEvents: "none",
+      transform: "translateY(-1px)",
+      zIndex: 2,
+    }}
+  >
+    <GradientWrapper />
+  </div>
+)
+
 const MainLayout: React.FC<LayoutProps> = ({
   children,
   className,
@@ -20,7 +37,7 @@ const MainLayout: React.FC<LayoutProps> = ({
   return (
     <main className={`${className || ""} page-base`} {...props}>
       <Header />
-      <GradientWrapper />
+      <UnderFade />
       <section className={`${className}__content-section`}>{children}</section>
       <Footer />
     </main>
@@ -35,7 +52,7 @@ const TemplateLayout: React.FC<TemplateLayoutProps> = ({
 }) => (
   <main className={`${className || ""} page-base`} {...props}>
     <TemplateHeader fixed={!inView} />
-    {!inView && <GradientWrapper />}
+    {!inView && <UnderFade />}
     <section className={`${className}__content-section`}>{children}</section>
     <Footer />
   </main>
@@ -45,7 +62,7 @@ const RefMainLayout = React.forwardRef<HTMLInputElement, LayoutProps>(
   ({ children, className, ...props }, ref) => (
     <main ref={ref} className={`${className || ""} page-base`} {...props}>
       <Header />
-      <GradientWrapper />
+      <UnderFade />
       <section className={`${className}__content-section`}>{children}</section>
       <Footer />
     </main>
@@ -58,7 +75,7 @@ const RefTemplateLayout = React.forwardRef<
 >(({ children, className, inView, ...props }, ref) => (
   <main ref={ref} className={`${className || ""} page-base`} {...props}>
     <TemplateHeader fixed={!inView} />
-    {!inView && <GradientWrapper />}
+    {!inView && <UnderFade />}
     <section className={`${className}__content-section`}>{children}</section>
     <Footer />
   </main>

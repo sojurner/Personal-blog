@@ -5,14 +5,13 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component"
 import loadable from "@loadable/component"
+import { useInView } from "react-intersection-observer"
 import { ContactCard, SkillsCard } from "@components/Card"
 
-import {
-  BrushStroke,
-  InkGrunge,
-  SplashGrunge,
-  DripGrunge,
-} from "@components/Svg"
+import BrushStroke from "../assets/BrushStroke.svg"
+import InkGrunge from "../assets/InkGrunge.svg"
+import SplashGrunge from "../assets/SplashGrunge.svg"
+import DripGrunge from "../assets/DripGrunge.svg"
 
 import "react-vertical-timeline-component/style.min.css"
 import "@styles/index.scss"
@@ -40,6 +39,16 @@ const AboutPage = () => {
   `)
 
   const [avatar, army] = data.allImageSharp.nodes
+
+  const [historyRef, historyInView] = useInView({
+    threshold: 0.01,
+    triggerOnce: true,
+  })
+  const [cardsRef, cardsInView] = useInView({
+    threshold: 0.01,
+    triggerOnce: true,
+  })
+
   return (
     <MainLayout className="page-about">
       <SEO title="About" />
@@ -146,131 +155,135 @@ const AboutPage = () => {
         </Flex>
       </Flex>
 
-      <Flex
-        classes={["flexColumn"]}
-        className="page-about__history-container--outer"
-      >
-        <span id="history" />
-
+      <span style={{ marginTop: -80 }} ref={historyRef} />
+      {historyInView && (
         <Flex
-          classes={["flexColumn", "alignItemsStart"]}
-          className="page-about__history-container--inner"
+          classes={["flexColumn"]}
+          className="page-about__history-container--outer"
         >
-          <Typography tag="h1" className="page-about__history__title">
-            History
-          </Typography>
-          <Typography
-            tag="h3"
-            variant="neutralLight"
-            className="page-about__history__motto"
+          <Flex
+            classes={["flexColumn", "alignItemsStart"]}
+            className="page-about__history-container--inner"
           >
-            - The plural of anecdote is not statistics.
-          </Typography>
-          <DripGrunge className="page-about__history__bg" />
+            <Typography tag="h1" className="page-about__history__title">
+              History
+            </Typography>
+            <Typography
+              tag="h3"
+              variant="neutralLight"
+              className="page-about__history__motto"
+            >
+              - The plural of anecdote is not statistics.
+            </Typography>
+            <DripGrunge className="page-about__history__bg" />
+          </Flex>
+          <VerticalTimeline className="page-about__history__timeline">
+            <VerticalTimelineElement
+              className="vertical-timeline-element--work"
+              date="2013 - 2017"
+              icon={<Icon svg="military" color="#b32158" />}
+            >
+              <Typography tag="h3">US Army</Typography>
+
+              <Typography
+                tag="h4"
+                variant="neutralLight"
+                className="vertical-timeline-element-subtitle"
+              >
+                Combat Medic
+              </Typography>
+
+              <Typography
+                variant="neutralLight"
+                className="page-about__history__timeline__p"
+              >
+                Four years of service with 168th Multifunctional Medical
+                Battalion (Camp Walker, S. Korea) and Lyster Army Health Clinic
+                (Fort Rucker, AL).
+              </Typography>
+              <Img
+                fluid={army.fluid}
+                alt="army-pic"
+                className="page-about__history__timeline__img"
+              />
+            </VerticalTimelineElement>
+            <VerticalTimelineElement
+              className="vertical-timeline-element--work"
+              date="2018 - Now"
+              icon={<Icon svg="codetags" color="#3c354a" />}
+            >
+              <Typography tag="h3">Catalyst Healthcare</Typography>
+              <Typography
+                tag="h4"
+                variant="neutralLight"
+                className="vertical-timeline-element-subtitle"
+              >
+                Front-end Developer
+              </Typography>
+              <Flex className="page-about__history__timeline__skill-icons">
+                <Icon color="var(--pk-color-icon-dotnet)" svg="dotnet" />
+                <Icon color="var(--pk-color-icon-dotnet)" svg="blazor" />
+                <Icon color="var(--pk-color-icon-react)" svg="react" />
+                <Icon color="var(--pk-color-icon-sass)" svg="sass" />
+                <Icon color="var(--pk-color-icon-docker)" svg="docker" />
+              </Flex>
+              <Typography
+                variant="neutralLight"
+                className="page-about__history__timeline__p"
+              >
+                Primary front-end developer working mostly in Blazor and
+                .asp-net core.
+              </Typography>
+            </VerticalTimelineElement>
+          </VerticalTimeline>
         </Flex>
-        <VerticalTimeline className="page-about__history__timeline">
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            date="2013 - 2017"
-            icon={<Icon svg="military" color="#b32158" />}
-          >
-            <Typography tag="h3">US Army</Typography>
+      )}
 
-            <Typography
-              tag="h4"
-              variant="neutralLight"
-              className="vertical-timeline-element-subtitle"
+      <span style={{ marginTop: -80 }} ref={cardsRef} />
+      {cardsInView && (
+        <Flex classes={["flexColumn"]} className="page-about__cards-container">
+          <Flex className="page-about__cards-container--inner-1">
+            <Flex
+              className="page-about__cards-skills"
+              classes={["flexColumn", "alignItemsStart"]}
             >
-              Combat Medic
-            </Typography>
-
-            <Typography
-              variant="neutralLight"
-              className="page-about__history__timeline__p"
-            >
-              Four years of service with 168th Multifunctional Medical Battalion
-              (Camp Walker, S. Korea) and Lyster Army Health Clinic (Fort
-              Rucker, AL).
-            </Typography>
-            <Img
-              fluid={army.fluid}
-              alt="army-pic"
-              className="page-about__history__timeline__img"
-            />
-          </VerticalTimelineElement>
-          <VerticalTimelineElement
-            className="vertical-timeline-element--work"
-            date="2018 - Now"
-            icon={<Icon svg="codetags" color="#3c354a" />}
-          >
-            <Typography tag="h3">Catalyst Healthcare</Typography>
-            <Typography
-              tag="h4"
-              variant="neutralLight"
-              className="vertical-timeline-element-subtitle"
-            >
-              Front-end Developer
-            </Typography>
-            <Flex className="page-about__history__timeline__skill-icons">
-              <Icon color="var(--pk-color-icon-dotnet)" svg="dotnet" />
-              <Icon color="var(--pk-color-icon-dotnet)" svg="blazor" />
-              <Icon color="var(--pk-color-icon-react)" svg="react" />
-              <Icon color="var(--pk-color-icon-sass)" svg="sass" />
-              <Icon color="var(--pk-color-icon-docker)" svg="docker" />
+              <Typography tag="h1" className="page-about__cards-skills__title">
+                Skillset
+              </Typography>
+              <Typography
+                tag="h3"
+                variant="neutralLight"
+                className="page-about__cards-skills__motto"
+              >
+                - BDD: Bug Driven Development
+              </Typography>
+              <InkGrunge className="page-about__ink-grunge" />
             </Flex>
-            <Typography
-              variant="neutralLight"
-              className="page-about__history__timeline__p"
-            >
-              Primary front-end developer working mostly in Blazor and .asp-net
-              core.
-            </Typography>
-          </VerticalTimelineElement>
-        </VerticalTimeline>
-      </Flex>
-
-      <Flex classes={["flexColumn"]} className="page-about__cards-container">
-        <Flex className="page-about__cards-container--inner-1">
-          <Flex
-            className="page-about__cards-skills"
-            classes={["flexColumn", "alignItemsStart"]}
-          >
-            <Typography tag="h1" className="page-about__cards-skills__title">
-              Skillset
-            </Typography>
-            <Typography
-              tag="h3"
-              variant="neutralLight"
-              className="page-about__cards-skills__motto"
-            >
-              - BDD: Bug Driven Development
-            </Typography>
-            <InkGrunge className="page-about__ink-grunge" />
+            <SkillsCard className="page-about__card-skills" />
           </Flex>
-          <SkillsCard className="page-about__card-skills" />
-        </Flex>
-        <Flex className="page-about__cards-container--inner-2">
-          <Flex
-            className="page-about__cards-contact"
-            classes={["flexColumn", "alignItemsStart"]}
-          >
-            <span id="contact" />
-
-            <Typography tag="h1" className="page-about__cards-contact__title">
-              Contact
-            </Typography>
-            <Typography
-              tag="h3"
-              variant="neutralLight"
-              className="page-about__cards-contact__motto"
+          <Flex className="page-about__cards-container--inner-2">
+            <Flex
+              className="page-about__cards-contact"
+              classes={["flexColumn", "alignItemsStart"]}
             >
-              - 20% of the time, 24/7 contact all the time.
-            </Typography>
-            <SplashGrunge className="page-about__splash-grunge" />
+              <span id="contact" />
+
+              <Typography tag="h1" className="page-about__cards-contact__title">
+                Contact
+              </Typography>
+              <Typography
+                tag="h3"
+                variant="neutralLight"
+                className="page-about__cards-contact__motto"
+              >
+                - 20% of the time, 24/7 contact all the time.
+              </Typography>
+              <SplashGrunge className="page-about__splash-grunge" />
+            </Flex>
+            <ContactCard className="page-about__card-contact" />
           </Flex>
-          <ContactCard className="page-about__card-contact" />
         </Flex>
-      </Flex>
+      )}
     </MainLayout>
   )
 }

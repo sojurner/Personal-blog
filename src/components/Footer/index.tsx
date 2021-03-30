@@ -3,7 +3,9 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 
 import Typography from "@components/Typography"
 import Icon from "@components/Icon"
-import { Logo, Wings } from "@components/Svg"
+import Wings from "../../assets/Wings.svg"
+import Logo from "../../assets/Logo.svg"
+
 import Flex from "@components/Flex"
 import Button, { BtnVariantKey } from "@components/Button"
 
@@ -51,7 +53,7 @@ const Footer: React.FC = props => {
         >
           <Flex classes={["flexRow", "alignItemsCenter"]}>
             <Link aria-label="Logo home page" to="/">
-              <Logo className="footer__logo" />
+              <Logo className="footer__logo pk-logo" />
             </Link>
             <Flex className="footer__social-container" classes={["flexRow"]}>
               {socialLinks.map(({ variant, ...linkProps }) => (
@@ -100,14 +102,15 @@ const FooterLinkSection = ({ title, routes, groupClass }) => (
     </Typography>
     <ul className={`footer__links-items ${groupClass}`}>
       {(routes as Route[]).map(({ label, ...routeProps }) => (
-        <Link
-          key={`footer-route-${label}`}
-          className="footer__links-item"
-          activeClassName="footer__links-item--active"
-          {...routeProps}
-        >
-          {label}
-        </Link>
+        <li key={`footer-route-${label}`}>
+          <Link
+            className="footer__links-item"
+            activeClassName="footer__links-item--active"
+            {...routeProps}
+          >
+            {label}
+          </Link>
+        </li>
       ))}
     </ul>
   </Flex>

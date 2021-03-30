@@ -5,7 +5,7 @@ import { ThemeToggler } from "gatsby-plugin-dark-mode"
 
 import Typography from "@components/Typography"
 import Flex from "@components/Flex"
-import { Logo } from "@components/Svg"
+import Logo from "../../assets/Logo.svg"
 import { DarkModeSwitch } from "@components/Switch"
 
 import { routes } from "../../utils/constants"
@@ -19,7 +19,7 @@ const MainHeader = () => {
       {({ theme, toggleTheme }) => (
         <header className="header--base header--sticky header--primary">
           <Link aria-label="logo home page" to="/" className="header__logo">
-            <Logo />
+            <Logo className="pk-logo" />
           </Link>
           <Flex className="header__nav-container">
             {routes.map(({ label, ...routeProps }) => {

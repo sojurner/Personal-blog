@@ -16,7 +16,20 @@ module.exports = {
     author: "Paul Kim",
   },
   plugins: [
-    'gatsby-plugin-loadable-components-ssr',
+    "gatsby-plugin-loadable-components-ssr",
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: path.resolve(__dirname, "src/assets"),
+          options: {
+            props: {
+              className: "className",
+            },
+          },
+        },
+      },
+    },
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -28,6 +41,7 @@ module.exports = {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
+          "@assets/*": path.resolve(__dirname, "src/assets"),
           "@components": path.resolve(__dirname, "src/components"),
           "@styles": path.resolve(__dirname, "src/styles"),
           "@typings": path.resolve(__dirname, "src/typings"),
@@ -102,6 +116,14 @@ module.exports = {
       options: {
         name: "src",
         path: `${__dirname}/src`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        printRejected: true, // Print removed selectors and processed file names
+        develop: true, // Enable while using `gatsby develop`
+        purgeOnly: [`${__dirname}/src/styles`]
       },
     },
     "gatsby-plugin-react-helmet",

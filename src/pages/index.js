@@ -4,7 +4,8 @@ import { useInView } from "react-intersection-observer"
 import loadable from "@loadable/component"
 
 import { AniLoaderLink } from "@components/Link"
-import { SaxophoneCat, DrummerCat } from "@components/Svg"
+import SaxophoneCat from "../assets/SaxophoneCat.svg"
+import DrummerCat from "../assets/DrummerCat.svg"
 
 import { blogTypeRef, musicLinks, skillsetIcons } from "../utils/constants"
 import "@styles/index.scss"
@@ -79,10 +80,6 @@ const HomePage = () => {
     }
   `)
 
-  const [welcomeRef, welcomeInView] = useInView({
-    threshold: 0.01,
-    triggerOnce: true,
-  })
   const [aboutRef, aboutInView] = useInView({
     threshold: 0.01,
     triggerOnce: true,
@@ -116,42 +113,39 @@ const HomePage = () => {
         </HomeLanding>
       </Flex>
       <Flex className="page-home__about-section" classes={["flexColumn"]}>
-        <span style={{ marginTop: -30 }} ref={welcomeRef} />
-        {welcomeInView && (
-          <Flex
-            classes={["flexRow", "justifyContentCenter"]}
-            className="page-home__about-section--inner"
-          >
-            <Flex className="page-home__about-section__img page-home__about-section__img-sax-cat">
-              <SaxophoneCat />
-            </Flex>
-            <Flex
-              className="page-home__about-section__txt"
-              classes={["flexColumn"]}
-            >
-              <Typography variant="neutralDark" tag="h2">
-                Welcome!
-              </Typography>
-              <div className="page-home__about-section__divider" />
-
-              <Typography tag="h4" variant="neutralLight">
-                I started this website as a <em>creative</em> and{" "}
-                <em>therapeutic</em> outlet. I'll share all that I know, and all
-                that I've wondered through my blog.
-              </Typography>
-              <ButtonLink
-                to="/blog"
-                aria-label="to blog page"
-                variant="primary"
-                className="page-home__about-section__link"
-              >
-                Go to blog
-              </ButtonLink>
-            </Flex>
+        <Flex
+          classes={["flexRow", "justifyContentCenter"]}
+          className="page-home__about-section--inner"
+        >
+          <Flex className="page-home__about-section__img page-home__about-section__img-sax-cat">
+            <SaxophoneCat />
           </Flex>
-        )}
+          <Flex
+            className="page-home__about-section__txt"
+            classes={["flexColumn"]}
+          >
+            <Typography variant="neutralDark" tag="h2">
+              Welcome!
+            </Typography>
+            <div className="page-home__about-section__divider" />
 
-        <span style={{ marginTop: -30 }} ref={aboutRef} />
+            <Typography tag="h4" variant="neutralLight">
+              I started this website as a <em>creative</em> and{" "}
+              <em>therapeutic</em> outlet. I'll share all that I know, and all
+              that I've wondered through my blog.
+            </Typography>
+            <ButtonLink
+              to="/blog"
+              aria-label="to blog page"
+              variant="primary"
+              className="page-home__about-section__link"
+            >
+              Go to blog
+            </ButtonLink>
+          </Flex>
+        </Flex>
+
+        <span style={{ marginTop: -80 }} ref={aboutRef} />
         {aboutInView && (
           <Flex
             classes={["flexRow", "justifyContentCenter"]}
@@ -195,7 +189,7 @@ const HomePage = () => {
         )}
       </Flex>
 
-      <span style={{ marginTop: -30 }} ref={musicRef} />
+      <span style={{ marginTop: -80 }} ref={musicRef} />
 
       {musicInView && (
         <Flex
@@ -213,7 +207,7 @@ const HomePage = () => {
         </Flex>
       )}
 
-      <span style={{ marginTop: -30 }} ref={blogRef} />
+      <span style={{ marginTop: -80 }} ref={blogRef} />
 
       {blogInView && (
         <Flex
