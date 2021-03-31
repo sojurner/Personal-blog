@@ -5,10 +5,10 @@ import { ThemeToggler } from "gatsby-plugin-dark-mode"
 
 import Typography from "@components/Typography"
 import Flex from "@components/Flex"
-import Logo from "../../assets/Logo.svg"
+import Logo from "@assets/Logo.svg"
 import { DarkModeSwitch } from "@components/Switch"
 
-import { routes } from "../../utils/constants"
+import { routes } from "@utils/constants"
 import "./Header.scss"
 
 const MainHeader = () => {

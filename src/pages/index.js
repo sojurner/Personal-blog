@@ -4,10 +4,10 @@ import { useInView } from "react-intersection-observer"
 import loadable from "@loadable/component"
 
 import { AniLoaderLink } from "@components/Link"
-import SaxophoneCat from "../assets/SaxophoneCat.svg"
-import DrummerCat from "../assets/DrummerCat.svg"
+import SaxophoneCat from "@assets/SaxophoneCat.svg"
+import DrummerCat from "@assets/DrummerCat.svg"
 
-import { blogTypeRef, musicLinks, skillsetIcons } from "../utils/constants"
+import { blogTypeRef, musicLinks, skillsetIcons } from "@utils/constants"
 import "@styles/index.scss"
 import "@styles/pages/_homePage.scss"
 

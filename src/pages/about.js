@@ -6,12 +6,12 @@ import {
 } from "react-vertical-timeline-component"
 import loadable from "@loadable/component"
 import { useInView } from "react-intersection-observer"
-import { ContactCard, SkillsCard } from "@components/Card"
 
-import BrushStroke from "../assets/BrushStroke.svg"
-import InkGrunge from "../assets/InkGrunge.svg"
-import SplashGrunge from "../assets/SplashGrunge.svg"
-import DripGrunge from "../assets/DripGrunge.svg"
+import { ContactCard, SkillsCard } from "@components/Card"
+import BrushStroke from "@assets/BrushStroke.svg"
+import InkGrunge from "@assets/InkGrunge.svg"
+import SplashGrunge from "@assets/SplashGrunge.svg"
+import DripGrunge from "@assets/DripGrunge.svg"
 
 import "react-vertical-timeline-component/style.min.css"
 import "@styles/index.scss"

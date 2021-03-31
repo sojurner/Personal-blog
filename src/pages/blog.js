@@ -6,8 +6,8 @@ import loadable from "@loadable/component"
 import { RefMainLayout } from "@components/Layouts"
 import { AniLoaderLink } from "@components/Link"
 
-import { blogTypeRef, tagIconRef } from "../utils/constants"
-import { usePageViewMeta, useInfiniteScroll } from "../hooks"
+import { blogTypeRef, tagIconRef } from "@utils/constants"
+import { usePageViewMeta, useInfiniteScroll } from "@utils/hooks"
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
 
@@ -82,6 +82,7 @@ const BlogPage = () => {
           <FilterChips
             postCount={data.allMarkdownRemark.totalCount}
             categories={data.allMarkdownRemark.group}
+            matchingTag={"all"}
           />
         </FilterSection>
       )}
@@ -155,7 +156,7 @@ const BlogPostSection = props => (
   ></Flex>
 )
 
-const BlogAuthor = ({ author, fluid, alt }) => (
+const BlogAuthor = ({ children, fluid, alt }) => (
   <Flex
     className="page-blog__card-header__profile-container"
     classes={["flexRow", "alignItemsCenter"]}
@@ -166,7 +167,7 @@ const BlogAuthor = ({ author, fluid, alt }) => (
       className="page-blog__card-header__profile-avatar"
     />
     <Typography tag="label" className="page-blog__card-header__profile-author">
-      {author}
+      {children}
     </Typography>
   </Flex>
 )
@@ -282,4 +283,15 @@ const BlogCard = ({ frontmatter, featuredImg, fields, viewCount }) => (
   </AniLoaderLink>
 )
 
-export default BlogPage
+export {
+  BlogCard,
+  BlogViewCount,
+  BlogDate,
+  BlogTitle,
+  BlogDescription,
+  BlogAuthor,
+  BlogPostSection,
+  FilterChips,
+  FilterSection,
+  BlogPage as default,
+}

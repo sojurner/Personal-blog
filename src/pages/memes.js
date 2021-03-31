@@ -5,8 +5,9 @@ import { graphql, useStaticQuery } from "gatsby"
 import { RefMainLayout } from "@components/Layouts"
 
 import "@styles/pages/_memes.scss"
-import { tagIconRef } from "../utils/constants"
-import { useMemeMeta, useInfiniteScroll } from "../hooks"
+
+import { tagIconRef } from "@utils/constants"
+import { useMemeMeta, useInfiniteScroll } from "@utils/hooks"
 
 const Img = loadable(() => import("gatsby-image"))
 const SEO = loadable(() => import("@components/SEO"))

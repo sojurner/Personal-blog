@@ -44,9 +44,9 @@ const Avatar: React.FC<PKAvatarComponent> = ({
   className,
   ...props
 }) => {
-  const classes: string = `${avatarStyles.avatarBase} ${avatarShapes[shape]} ${
+  const classes: string = `${className || ""} ${avatarStyles.avatarBase} ${avatarShapes[shape]} ${
     avatarVariants[variant]
-  } ${className || ""}`.trim()
+  }`.trim()
 
   return <Img className={classes} {...props} />
 }

@@ -3,18 +3,13 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 
 import Typography from "@components/Typography"
 import Icon from "@components/Icon"
-import Wings from "../../assets/Wings.svg"
-import Logo from "../../assets/Logo.svg"
+import Wings from "@assets/Wings.svg"
+import Logo from "@assets/Logo.svg"
 
 import Flex from "@components/Flex"
 import Button, { BtnVariantKey } from "@components/Button"
 
-import {
-  socialLinks,
-  routes,
-  blogSectionRoutes,
-  Route,
-} from "../../utils/constants"
+import { socialLinks, routes, blogSectionRoutes, Route } from "@utils/constants"
 import "./Footer.scss"
 
 const Footer: React.FC = props => {

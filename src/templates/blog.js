@@ -7,8 +7,8 @@ import { TemplateLayout } from "@components/Layouts"
 import { SoundCloudWidgetPlayer } from "@components/SoundCloudWidget"
 
 import "@styles/templates/_blogTemplate.scss"
-import { blogTypeRef } from "../utils/constants"
-import { usePageView } from "../hooks"
+import { blogTypeRef } from "@utils/constants"
+import { usePageView } from "@utils/hooks"
 
 const Img = loadable(() => import("gatsby-image"))
 const Icon = loadable(() => import("@components/Icon"))

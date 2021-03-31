@@ -1,6 +1,6 @@
 // ViewCounter.js
 import { useEffect, useState, useRef } from "react"
-import getFirebase from "../utils/firebase"
+import getFirebase from "@utils/firebase"
 
 const useFirebase = dbKey => {
   const [instance, setInstance] = useState(null)
