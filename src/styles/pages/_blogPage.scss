@@ -100,7 +100,7 @@
     &--loaded {
       bottom: 0;
       opacity: 1;
-      transition: .5s;
+      transition: 0.5s;
     }
 
     &--hidden {
@@ -118,16 +118,18 @@
     z-index: 1;
     margin: -20px 0 0 10px;
     background: $color-blank-800;
-    padding: .3em .6em;
+    padding: 0.3em 0.6em;
     border-radius: 50px;
     width: max-content;
     box-shadow: 0 0 5px 0 $color-neutral-800;
   }
 
   &__card-header__profile-avatar {
-    height: 30px !important;
-    width: 30px !important;
-    margin-right: 8px;
+    &#{&} {
+      height: 30px;
+      width: 30px;
+      margin-right: 8px;
+    }
   }
 
   &__card-header__profile-author {
@@ -145,7 +147,7 @@
   }
 
   &__card-content {
-    padding: .6em 1.5em;
+    padding: 0.6em 1.5em;
   }
 
   &__card-content__txt-title {
@@ -176,8 +178,10 @@
   }
 
   &__card-content__divider {
-    opacity: .1;
-    margin: 5px 0
+    &#{&} {
+      opacity: 0.2;
+      margin: 5px 0 10px;
+    }
   }
 
   &__card-footer-tags {
@@ -185,7 +189,7 @@
     margin: 5px 0 0 0;
 
     & > * {
-      margin:0 10px 0 0;
+      margin: 0 10px 0 0;
     }
   }
 

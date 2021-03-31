@@ -97,7 +97,6 @@ const SkillsCard: React.FC<PKCardComponent> = ({ className, ...props }) => {
           </Typography>
           <Flex className="card-skills__content__skillset-icons">
             <Icon color="var(--pk-color-icon-vscode)" svg="vscode" />
-
             <Icon color="var(--pk-color-icon-docker)" svg="docker" />
             <Icon color="var(--pk-color-icon-gitlab)" svg="gitlab" />
             <Icon color="var(--pk-color-icon-github)" svg="github" />

@@ -84,10 +84,6 @@
   --pk-font-family-secondary: "IBM Plex Sans", sans-serif;
   --pk-font-family-code: "Menlo", Courier New, monospace;
 
-  --pk-color-skeleton-bg: #e3e3e4;
-  --pk-color-skeleton-fg: rgb(216, 216, 216);
-
-  --pk-color-icon-cellphone: gray;
   --pk-color-icon-email: #dd4a3e;
   --pk-color-icon-linkedIn: #0a66c2;
 
@@ -200,13 +196,10 @@ body.dark {
   --pk-color-boxshadow-dark: 10, 10, 10;
   --pk-color-boxshadow-light: rgba(0, 0, 0, 0.116);
 
-  --pk-color-skeleton-bg: rgb(42, 40, 65);
-  --pk-color-skeleton-fg: rgb(37, 35, 59);
-
-  --pk-color-icon-cellphone: var(--pk-color-secondary-800);
-  --pk-color-icon-email: var(--pk-color-secondary-800);
-  --pk-color-icon-linkedIn: var(--pk-color-secondary-800);
-  --pk-color-icon-github: var(--pk-color-secondary-800);
+  --pk-color-icon-cellphone: var(--pk-color-secondary-900);
+  --pk-color-icon-email: var(--pk-color-secondary-900);
+  --pk-color-icon-linkedIn: var(--pk-color-secondary-900);
+  --pk-color-icon-github: var(--pk-color-secondary-900);
 
   --pk-color-icon-web: var(--pk-color-primary-900);
   --pk-color-icon-codetags: var(--pk-color-primary-900);
@@ -227,20 +220,14 @@ body.dark {
   --pk-color-icon-gitlab: var(--pk-color-primary-800);
 
   .page-about__history__timeline {
-    --pk-color-icon-csharp: var(--pk-color-neutral-600);
-    --pk-color-icon-js: var(--pk-color-neutral-600);
-    --pk-color-icon-ts: var(--pk-color-neutral-600);
-    --pk-color-icon-html: var(--pk-color-neutral-600);
-    --pk-color-icon-css: var(--pk-color-neutral-600);
     --pk-color-icon-react: var(--pk-color-neutral-600);
-    --pk-color-icon-node: var(--pk-color-neutral-600);
     --pk-color-icon-sass: var(--pk-color-neutral-600);
     --pk-color-icon-dotnet: var(--pk-color-neutral-600);
-    --pk-color-icon-docker: var(--pk-color-neutral-600);
-    --pk-color-icon-vscode: var(--pk-color-neutral-600);
-    --pk-color-icon-vs: var(--pk-color-neutral-600);
-    --pk-color-icon-gitlab: var(--pk-color-neutral-600);
-    --pk-color-icon-github: var(--pk-color-neutral-600);
+    --pk-color-icon-docker: var(--pk-color-neutral-600);;
+  }
+
+  .card-skills {
+    --pk-color-icon-github: var(--pk-color-primary-800);
   }
 
   .footer-container {
