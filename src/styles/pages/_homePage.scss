@@ -265,7 +265,7 @@
       &--inner {
         align-items: center;
 
-        &:nth-child(2) {
+        &:first-child {
           flex-direction: column;
           margin-top: -3em;
         }
