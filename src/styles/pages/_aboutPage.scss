@@ -14,6 +14,22 @@
     }
   }
 
+  .section {
+    &--transition {
+      transition: 0.6s ease 0.6s;
+    }
+
+    &--hide {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   &__landing-container {
     &--outer {
       position: relative;

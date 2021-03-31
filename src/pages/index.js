@@ -80,6 +80,10 @@ const HomePage = () => {
     }
   `)
 
+  const [welcomeRef, welcomeInView] = useInView({
+    threshold: 0.01,
+    triggerOnce: true,
+  })
   const [aboutRef, aboutInView] = useInView({
     threshold: 0.01,
     triggerOnce: true,
@@ -112,10 +116,15 @@ const HomePage = () => {
           <LandingName />
         </HomeLanding>
       </Flex>
+
       <Flex className="page-home__about-section" classes={["flexColumn"]}>
+        <span ref={welcomeRef} />
+
         <Flex
           classes={["flexRow", "justifyContentCenter"]}
-          className="page-home__about-section--inner"
+          className={`page-home__about-section--inner section--base ${
+            welcomeInView ? "section--visible" : "section--hide"
+          }`}
         >
           <Flex className="page-home__about-section__img page-home__about-section__img-sax-cat">
             <SaxophoneCat />
@@ -145,116 +154,115 @@ const HomePage = () => {
           </Flex>
         </Flex>
 
-        <span style={{ marginTop: -80 }} ref={aboutRef} />
-        {aboutInView && (
+        <span ref={aboutRef} />
+        <Flex
+          classes={["flexRow", "justifyContentCenter"]}
+          className={`page-home__about-section--inner section--base ${
+            aboutInView ? "section--visible" : "section--hide"
+          }`}
+        >
           <Flex
-            classes={["flexRow", "justifyContentCenter"]}
-            className="page-home__about-section--inner"
+            className="page-home__about-section__txt"
+            classes={["flexColumn"]}
           >
-            <Flex
-              className="page-home__about-section__txt"
-              classes={["flexColumn"]}
-            >
-              <Typography variant="neutralDark" tag="h2">
-                About
-              </Typography>
-              <div className="page-home__about-section__divider" />
+            <Typography variant="neutralDark" tag="h2">
+              About
+            </Typography>
+            <div className="page-home__about-section__divider" />
 
-              <Typography tag="h4" variant="neutralLight">
-                As a <em>full-stack developer</em>, here's a broad overview of
-                my
-                <em> skillset</em>:
-              </Typography>
-              <div className="page-home__about-section__skill-icons">
-                {skillsetIcons.map(skillProps => (
-                  <SkillIcon
-                    key={`skill-icon-${skillProps.svg}`}
-                    {...skillProps}
-                  />
-                ))}
-              </div>
-              <ButtonLink
-                to="/about"
-                variant="secondary"
-                aria-label="to about page"
-                className="page-home__about-section__link"
-              >
-                More about me
-              </ButtonLink>
-            </Flex>
-            <Flex className="page-home__about-section__img page-home__about-section__img-drummer-cat">
-              <DrummerCat />
-            </Flex>
+            <Typography tag="h4" variant="neutralLight">
+              As a <em>full-stack developer</em>, here's a broad overview of my
+              <em> skillset</em>:
+            </Typography>
+            <div className="page-home__about-section__skill-icons">
+              {skillsetIcons.map(skillProps => (
+                <SkillIcon
+                  key={`skill-icon-${skillProps.svg}`}
+                  {...skillProps}
+                />
+              ))}
+            </div>
+            <ButtonLink
+              to="/about"
+              variant="secondary"
+              aria-label="to about page"
+              className="page-home__about-section__link"
+            >
+              More about me
+            </ButtonLink>
           </Flex>
-        )}
+          <Flex className="page-home__about-section__img page-home__about-section__img-drummer-cat">
+            <DrummerCat />
+          </Flex>
+        </Flex>
       </Flex>
 
-      <span style={{ marginTop: -80 }} ref={musicRef} />
+      <span ref={musicRef} />
 
-      {musicInView && (
-        <Flex
-          className="page-home__music-section extended-section"
-          classes={["flexColumn"]}
+      <Flex
+        className={`page-home__music-section extended-section section--base ${
+          musicInView ? "section--visible" : "section--hide"
+        }`}
+        classes={["flexColumn"]}
+      >
+        <Typography
+          className="music-title extended-title"
+          tag="h1"
+          variant="neutralDark"
         >
-          <Typography
-            className="music-title extended-title"
-            tag="h1"
-            variant="neutralDark"
-          >
-            Music
-          </Typography>
-          <SCEmbed />
-        </Flex>
-      )}
+          Music
+        </Typography>
+        {musicInView && <SCEmbed />}
+      </Flex>
 
-      <span style={{ marginTop: -80 }} ref={blogRef} />
+      <span ref={blogRef} />
 
-      {blogInView && (
+      <Flex
+        classes={["flexColumn"]}
+        className={`extended-section page-home__blog-section section--base ${
+          blogInView ? "section--visible" : "section--hide"
+        }`}
+      >
+        <Typography className="extended-title" tag="h1" variant="neutralDark">
+          Latest Blogs
+        </Typography>
+
         <Flex
-          classes={["flexColumn"]}
-          className="extended-section page-home__blog-section"
+          className="page-home__blog-section__cards-container"
+          classes={["flexRow", "justifyContentAround", "flexWrap"]}
         >
-          <Typography className="extended-title" tag="h1" variant="neutralDark">
-            Latest Blogs
-          </Typography>
-
-          <Flex
-            className="page-home__blog-section__cards-container"
-            classes={["flexRow", "justifyContentAround", "flexWrap"]}
-          >
-            {data.allMarkdownRemark.edges.map(({ node }) => {
-              const { frontmatter, fields, featuredImg } = node
-              return (
-                <BlogCard
-                  key={`latest-posts-${frontmatter.title}`}
-                  variant={blogTypeRef[frontmatter.subject].tagVariant}
-                  to={`blog/${frontmatter.subject}/${fields.slug}`}
-                  aria-label={frontmatter.title}
-                  className={`page-home__blog-section__card--${
-                    blogTypeRef[frontmatter.subject].tagVariant
-                  } page-home__blog-section__card`}
-                >
-                  <Img
-                    alt="blog front img"
-                    className={`page-home__blog-section__card__img`}
-                    fluid={featuredImg.childImageSharp.fluid}
-                    src={frontmatter.featuredImgUrl}
-                  />
-                  <BlogCardContent frontmatter={frontmatter} />
-                </BlogCard>
-              )
-            })}
-          </Flex>
-          <ButtonLink
-            to="/blog"
-            aria-label="to blog page"
-            className="page-home__blog-section__link-blog"
-            variant="default"
-          >
-            More Posts
-          </ButtonLink>
+          {data.allMarkdownRemark.edges.map(({ node }) => {
+            const { frontmatter, fields, featuredImg } = node
+            return (
+              <BlogCard
+                key={`latest-posts-${frontmatter.title}`}
+                variant={blogTypeRef[frontmatter.subject].tagVariant}
+                to={`blog/${frontmatter.subject}/${fields.slug}`}
+                aria-label={frontmatter.title}
+                className={`page-home__blog-section__card--${
+                  blogTypeRef[frontmatter.subject].tagVariant
+                } page-home__blog-section__card`}
+              >
+                <Img
+                  alt="blog front img"
+                  className={`page-home__blog-section__card__img`}
+                  fluid={featuredImg.childImageSharp.fluid}
+                  src={frontmatter.featuredImgUrl}
+                />
+                <BlogCardContent frontmatter={frontmatter} />
+              </BlogCard>
+            )
+          })}
         </Flex>
-      )}
+        <ButtonLink
+          to="/blog"
+          aria-label="to blog page"
+          className="page-home__blog-section__link-blog"
+          variant="default"
+        >
+          More Posts
+        </ButtonLink>
+      </Flex>
     </MainLayout>
   )
 }

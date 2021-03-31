@@ -6,6 +6,22 @@
     padding-bottom: 5em;
   }
 
+  .section {
+    &--base {
+      transition: 0.6s ease 0.5s;
+    }
+
+    &--hide {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   &__landing-header {
     margin-top: -15em;
     height: max-content;
@@ -154,6 +170,7 @@
 
     &--inner {
       margin: 8em 0;
+
       &:first-child {
         margin-top: -5em;
       }
@@ -178,40 +195,6 @@
       svg {
         &:nth-child(2) {
           position: absolute;
-        }
-      }
-
-      &-sax-cat {
-        @media only screen and (max-width: 500px) {
-          margin: 0 0 0.1em -50px !important;
-        }
-        svg:nth-child(2) {
-          right: 0;
-          top: 80px;
-          @for $i from 1 to 6 {
-            g path:nth-child(#{$i}) {
-              // opacity: 0;
-              fill: nth($fill-colors, $i);
-              animation: music-notes 6s ease-in-out forwards infinite;
-              animation-delay: #{$i}s;
-            }
-          }
-        }
-      }
-
-      &-drummer-cat {
-        svg:nth-child(2) {
-          opacity: 0.5;
-          right: -0.03em;
-          top: -0.03em;
-          animation: music-revolver 50s linear forwards infinite;
-          transform: rotate(0deg);
-
-          @for $i from 1 to 477 {
-            g path:nth-child(#{$i}) {
-              fill: nth($fill-colors, random(9));
-            }
-          }
         }
       }
     }
@@ -265,7 +248,7 @@
       &--inner {
         align-items: center;
 
-        &:first-child {
+        &:nth-child(2) {
           flex-direction: column;
           margin-top: -3em;
         }
@@ -291,9 +274,44 @@
 
       &__img {
         margin: 0 0 0.1em 0;
+        font-size: 17em;
       }
     }
   }
+
+  // .sax-cat {
+  //   @media only screen and (max-width: 500px) {
+  //     margin: 0 0 0.1em -50px !important;
+  //   }
+  //   svg:nth-child(2) {
+  //     right: 0;
+  //     top: 80px;
+  //     @for $i from 1 to 6 {
+  //       g path:nth-child(#{$i}) {
+  //         // opacity: 0;
+  //         fill: nth($fill-colors, $i);
+  //         animation: music-notes 6s ease-in-out forwards infinite;
+  //         animation-delay: #{$i}s;
+  //       }
+  //     }
+  //   }
+  // }
+
+  // .drummer-cat {
+  //   svg:nth-child(2) {
+  //     opacity: 0.5;
+  //     right: -0.03em;
+  //     top: -0.03em;
+  //     animation: music-revolver 50s linear forwards infinite;
+  //     transform: rotate(0deg);
+
+  //     @for $i from 1 to 477 {
+  //       g path:nth-child(#{$i}) {
+  //         fill: nth($fill-colors, random(9));
+  //       }
+  //     }
+  //   }
+  // }
 
   .extended-section {
     margin: 8em 0;
