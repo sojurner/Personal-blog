@@ -15,40 +15,40 @@ const MainHeader = () => {
   const { pathname } = useLocation()
   const [_, root] = pathname.split("/")
   return (
-    <ThemeToggler>
-      {({ theme, toggleTheme }) => (
-        <header className="header--base header--sticky header--primary">
-          <Link aria-label="logo home page" to="/" className="header__logo">
-            <Logo className="pk-logo" />
-          </Link>
-          <Flex className="header__nav-container">
-            {routes.map(({ label, ...routeProps }) => {
-              return (
-                <Link
-                  key={`header-link-${label}`}
-                  className="header__nav-link"
-                  activeClassName="header__nav-link--active"
-                  partiallyActive={true}
-                  {...routeProps}
-                >
-                  <Typography
-                    className="nav-link-txt"
-                    tag="h5"
-                    variant={label === root ? "neutralBlank" : "primaryDark"}
-                  >
-                    {label}
-                  </Typography>
-                </Link>
-              )
-            })}
-          </Flex>
+    <header className="header--base header--sticky header--primary">
+      <Link aria-label="logo home page" to="/" className="header__logo">
+        <Logo className="pk-logo" />
+      </Link>
+      <Flex className="header__nav-container">
+        {routes.map(({ label, ...routeProps }) => {
+          return (
+            <Link
+              key={`header-link-${label}`}
+              className="header__nav-link"
+              activeClassName="header__nav-link--active"
+              partiallyActive={true}
+              {...routeProps}
+            >
+              <Typography
+                className="nav-link-txt"
+                tag="h5"
+                variant={label === root ? "neutralBlank" : "primaryDark"}
+              >
+                {label}
+              </Typography>
+            </Link>
+          )
+        })}
+      </Flex>
+      <ThemeToggler>
+        {({ theme, toggleTheme }) => (
           <DarkModeSwitch
             onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
             checked={theme === "dark"}
           />
-        </header>
-      )}
-    </ThemeToggler>
+        )}
+      </ThemeToggler>
+    </header>
   )
 }
 
@@ -56,51 +56,51 @@ const TemplateHeader = ({ fixed }) => {
   const { pathname } = useLocation()
   const [_, root] = pathname.split("/")
   return (
-    <ThemeToggler>
-      {({ theme, toggleTheme }) => (
-        <header
-          className={`header--base ${fixed && "header--fixed header--primary"}`}
-        >
-          <Link
-            to="/"
-            className={`header__logo ${!fixed && "header-template__logo"}`}
-          >
-            <Logo />
-          </Link>
-          <Flex className="header__nav-container">
-            {routes.map(routeProps => {
-              return (
-                <Link
-                  key={`header-link-${routeProps.label}`}
-                  className={`header__nav-link ${
-                    !fixed && "header-template__nav-link"
-                  }`}
-                  activeClassName={`header__nav-link--active ${
-                    !fixed && "header-template__nav-link--active"
-                  }`}
-                  partiallyActive={true}
-                  to={routeProps.to}
-                >
-                  <Typography
-                    className="nav-link-txt"
-                    variant={
-                      routeProps.label == root ? "neutralBlank" : "primaryDark"
-                    }
-                    tag="h5"
-                  >
-                    {routeProps.label}
-                  </Typography>
-                </Link>
-              )
-            })}
-          </Flex>
+    <header
+      className={`header--base ${fixed && "header--fixed header--primary"}`}
+    >
+      <Link
+        to="/"
+        className={`header__logo ${!fixed && "header-template__logo"}`}
+      >
+        <Logo />
+      </Link>
+      <Flex className="header__nav-container">
+        {routes.map(routeProps => {
+          return (
+            <Link
+              key={`header-link-${routeProps.label}`}
+              className={`header__nav-link ${
+                !fixed && "header-template__nav-link"
+              }`}
+              activeClassName={`header__nav-link--active ${
+                !fixed && "header-template__nav-link--active"
+              }`}
+              partiallyActive={true}
+              to={routeProps.to}
+            >
+              <Typography
+                className="nav-link-txt"
+                variant={
+                  routeProps.label == root ? "neutralBlank" : "primaryDark"
+                }
+                tag="h5"
+              >
+                {routeProps.label}
+              </Typography>
+            </Link>
+          )
+        })}
+      </Flex>
+      <ThemeToggler>
+        {({ theme, toggleTheme }) => (
           <DarkModeSwitch
             onChange={e => toggleTheme(e.target.checked ? "dark" : "light")}
             checked={theme === "dark"}
           />
-        </header>
-      )}
-    </ThemeToggler>
+        )}
+      </ThemeToggler>
+    </header>
   )
 }
 

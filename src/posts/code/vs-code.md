@@ -21,7 +21,7 @@ I've refined my color settings over the years to best embody my favorite dual co
 
 My workbench color palette:
 
-```javascript
+```js
 // settings.json
 {
   "workbench.colorCustomizations": {
@@ -66,7 +66,7 @@ Syntax Colors are a bit tricky since certain setting properties will target diff
 
 Nonetheless heres my syntax color palette:
 
-```javascript
+```js
 // settings.json
 "editor.tokenColorCustomizations": {
     "comments": "#2a5746",

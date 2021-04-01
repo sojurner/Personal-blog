@@ -38,69 +38,70 @@ const Footer: React.FC = props => {
     },
   ]
 
-  return (
-    <footer className="footer footer-container" {...props}>
-      <FooterLead />
-      <Flex className="footer__contact-container--outer">
-        <Flex
-          className="footer__contact-container--inner"
-          classes={["flexColumn"]}
-        >
-          <Flex classes={["flexRow", "alignItemsCenter"]}>
-            <Link aria-label="Logo home page" to="/">
-              <Logo className="footer__logo pk-logo" />
-            </Link>
-            <Flex className="footer__social-container" classes={["flexRow"]}>
-              {socialLinks.map(({ variant, ...linkProps }) => (
-                <FooterSocialLink
-                  key={`social-${linkProps.link}`}
-                  variant={variant as BtnVariantKey}
-                  {...linkProps}
-                />
-              ))}
+  return React.useMemo(
+    () => (
+      <footer className="footer footer-container" {...props}>
+        <FooterLead />
+        <Flex className="footer__contact-container--outer">
+          <Flex
+            className="footer__contact-container--inner"
+            classes={["flexColumn"]}
+          >
+            <Flex classes={["flexRow", "alignItemsCenter"]}>
+              <FooterLogo />
+              <Flex className="footer__social-container" classes={["flexRow"]}>
+                {socialLinks.map(({ variant, ...linkProps }) => (
+                  <FooterSocialLink
+                    key={`social-${linkProps.link}`}
+                    variant={variant as BtnVariantKey}
+                    {...linkProps}
+                  />
+                ))}
+              </Flex>
             </Flex>
+            {contactInfo.map(ele => (
+              <FooterContactDetail
+                key={`footer-contact-ele-${ele.value}`}
+                value={ele.value}
+                icon={ele.icon}
+              />
+            ))}
           </Flex>
-          {contactInfo.map(ele => (
-            <FooterContactDetail
-              key={`footer-contact-ele-${ele.value}`}
-              value={ele.value}
-              icon={ele.icon}
+          <Flex classes={["flexRow"]}>
+            <FooterLinkSection
+              groupClass="footer-link-section__list--pages"
+              title="Pages"
+              routes={routes}
             />
-          ))}
+            <FooterLinkSection
+              groupClass="footer-link-section__list--topics"
+              title="Topics"
+              routes={blogSectionRoutes}
+            />
+          </Flex>
         </Flex>
-        <Flex classes={["flexRow"]}>
-          <FooterLinkSection
-            groupClass={"flex-linear"}
-            title="Pages"
-            routes={routes}
-          />
-          <FooterLinkSection
-            groupClass={"grid-dual"}
-            title="Topics"
-            routes={blogSectionRoutes}
-          />
-        </Flex>
-      </Flex>
-      <Flex className="footer__copyright-container">
-        <Typography tag="span" variant="neutralBlank">
-          © 2021 Paul Kim
-        </Typography>
-      </Flex>
-    </footer>
+        <FooterCopyright />
+      </footer>
+    ),
+    [props]
   )
 }
 
 const FooterLinkSection = ({ title, routes, groupClass }) => (
-  <Flex classes={["flexColumn"]} className="footer__links-section">
-    <Typography tag="label" variant="neutralBlank">
+  <Flex classes={["flexColumn"]} className="footer-link-section">
+    <Typography
+      className="footer-link-section__title"
+      tag="label"
+      variant="neutralBlank"
+    >
       {title}
     </Typography>
-    <ul className={`footer__links-items ${groupClass}`}>
+    <ul className={`footer-link-section__list ${groupClass}`}>
       {(routes as Route[]).map(({ label, ...routeProps }) => (
         <li key={`footer-route-${label}`}>
           <Link
-            className="footer__links-item"
-            activeClassName="footer__links-item--active"
+            className="footer-link-section__list__item"
+            activeClassName="footer-link-section__list__item--active"
             {...routeProps}
           >
             {label}
@@ -114,13 +115,13 @@ const FooterLinkSection = ({ title, routes, groupClass }) => (
 const FooterLead: React.FC = () => (
   <Flex
     classes={["flexRow", "alignItemsCenter", "justifyContentCenter"]}
-    className="footer__lead"
+    className="footer-lead footer-lead-container"
   >
-    <div className="lead__border" />
-    <div className="lead__wings">
-      <Wings className="lead__wings-icon" />
+    <div className="footer-lead__border" />
+    <div className="footer-lead__wings">
+      <Wings className="footer-lead__wings-icon" />
     </div>
-    <div className="lead__border" />
+    <div className="footer-lead__border" />
   </Flex>
 )
 
@@ -129,16 +130,16 @@ const FooterContactDetail: React.FC<{ icon: string; value: string }> = ({
   value,
 }) => (
   <Flex
-    className="footer__contact-item-container"
+    className="footer-contact-detail"
     classes={["flexRow", "alignItemsCenter"]}
   >
     <Icon
-      className="footer__contact-item__icon"
+      className="footer-contact-detail__icon"
       svg={icon}
       color="var(--pk-color-blank-700)"
     />
     <Typography
-      className="footer__contact-value"
+      className="footer-contact-detail__value"
       tag="label"
       variant="neutralBlank"
     >
@@ -151,15 +152,28 @@ const FooterSocialLink: React.FC<{
   icon: string
   link: string
   variant: BtnVariantKey
-}> = ({ icon, link, variant, ...props }) => (
+}> = ({ icon, link, ...props }) => (
   <Button
-    className="footer__social-item"
-    variant={variant}
+    className="footer-social-link"
     onClick={() => window.open(link, "_blank")}
     {...props}
   >
-    <Icon svg={icon} />
+    <Icon className="footer-social-link__icon" svg={icon} />
   </Button>
+)
+
+const FooterCopyright = () => (
+  <Flex className="footer-copyright">
+    <Typography tag="span" variant="neutralBlank">
+      © 2021 Paul Kim
+    </Typography>
+  </Flex>
+)
+
+const FooterLogo = () => (
+  <Link aria-label="Logo home page" to="/">
+    <Logo className="footer-logo pk-logo" />
+  </Link>
 )
 
 export { FooterLead, FooterSocialLink, FooterContactDetail, Footer as default }

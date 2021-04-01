@@ -19,16 +19,18 @@ $darkmode-light: #ecb829;
   }
 
   &__feature-img {
-    position: absolute !important;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 0;
-    top: -75px;
-    left: 0;
-    filter: contrast(0.55) brightness(0.3);
+    &#{&} {
+      position: absolute !important;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 0;
+      top: -75px;
+      left: 0;
+      filter: contrast(0.55) brightness(0.3);
+    }
   }
 
   &__shade-transition {
@@ -49,32 +51,28 @@ $darkmode-light: #ecb829;
     font-size: 50px;
     text-align: center;
     color: $darkmode-default;
-
-    @media only screen and (max-width: 500px) {
-      font-size: 35px;
-    }
   }
 
   &__tag-divider {
     margin: 2em;
+  }
 
-    &__divider {
-      height: 2px;
-      width: 30px;
-      margin: 0 20px;
-      background: $darkmode-default;
-      opacity: 0.6;
-    }
+  &__tag-divider__divider {
+    height: 2px;
+    width: 30px;
+    margin: 0 20px;
+    background: $darkmode-default;
+    opacity: 0.6;
+  }
 
-    &__tag {
-      span {
-        color: #3a3546;
+  &__tag-divider__tag {
+    span {
+      color: #3a3546;
 
-        &::before {
-          background: #3a3546;
-        }
-        cursor: pointer;
+      &::before {
+        background: #3a3546;
       }
+      cursor: pointer;
     }
   }
 
@@ -86,15 +84,16 @@ $darkmode-light: #ecb829;
     position: absolute;
     bottom: 110px;
     right: 40px;
+  }
 
+  &__author-profile {
     &__author {
       color: $darkmode-default;
       margin-right: 10px;
     }
-
     &__music {
       font-size: 1.5em;
-      padding: .3em;
+      padding: 0.3em;
       margin-left: 10px;
     }
   }
@@ -113,10 +112,8 @@ $darkmode-light: #ecb829;
   }
 
   &__subheader {
-    &__date {
-      &-container {
-        margin: 0 15px 0 0;
-      }
+    &__date-container {
+      margin: 0 15px 0 0;
     }
 
     &__view-counter,
@@ -199,18 +196,26 @@ $darkmode-light: #ecb829;
     a {
       color: $color-negative-800;
       position: relative;
-      background-image: linear-gradient(0deg,$color-negative-800 5%,transparent 5%);
+      background-image: linear-gradient(
+        0deg,
+        $color-negative-800 5%,
+        transparent 5%
+      );
       text-shadow: 0 0 5px $color-negative-100, 0 0 8px $color-negative-050;
 
       &:hover {
         color: $color-negative-500;
-        background-image: linear-gradient(0deg,$color-negative-500 5%,transparent 10%);
+        background-image: linear-gradient(
+          0deg,
+          $color-negative-500 5%,
+          transparent 10%
+        );
       }
     }
 
     blockquote {
       background: $color-blank-800;
-      padding:10px 15px;
+      padding: 10px 15px;
       border-left: 3px solid $color-neutral-900;
       font-weight: 500;
       margin-bottom: 25px;
@@ -244,12 +249,13 @@ $darkmode-light: #ecb829;
     position: relative;
     overflow: hidden;
     transition: 0.2s linear;
+
     &:hover {
       transform: scale(1.02);
     }
 
     img {
-      border-radius: 15px 15px 0 0 ;
+      border-radius: 15px 15px 0 0;
       top: 0;
       left: 0;
       position: absolute;
@@ -273,6 +279,12 @@ $darkmode-light: #ecb829;
       cursor: pointer;
       margin: 0 10px 0 0;
       height: max-content;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    &__title {
+      font-size: 35px;
     }
   }
 }
