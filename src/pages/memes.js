@@ -84,7 +84,9 @@ const MemesPage = ({ location }) => {
                 timestamp={node.timestamp}
                 tags={node.tags}
               />
-              {node.img && <MemeImg fluid={node.img.fluid} />}
+              {node.img && (
+                <MemeImg durationFadeIn={200} fluid={node.img.fluid} />
+              )}
               <MemeAction memeVote={memeState[node.contentful_id]}>
                 <MemeVoting
                   memeSession={memeSession[node.contentful_id]}
@@ -232,7 +234,12 @@ const MemeSrc = props => (
 )
 
 const MemeShare = props => (
-  <Button aria-label="Copy link" variant="secondary" className="meme-social__share" {...props}>
+  <Button
+    aria-label="Copy link"
+    variant="secondary"
+    className="meme-social__share"
+    {...props}
+  >
     <Icon svg="share" />
   </Button>
 )

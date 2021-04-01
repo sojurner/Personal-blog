@@ -160,7 +160,7 @@ const useInfiniteScroll = (initialRange, listCount) => {
       if (itemRange[1] >= listCount - 1) return
       const { scrollTop, clientHeight, scrollHeight } = cloneRef
 
-      if (scrollTop + clientHeight >= scrollHeight - 300) {
+      if (scrollTop + clientHeight >= scrollHeight - 500) {
         setItemRange(state => [state[0], state[1] + 3])
       }
     }

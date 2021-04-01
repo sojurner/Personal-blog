@@ -242,7 +242,7 @@ const AboutPage = () => {
       <span ref={cardsRef} />
       <Flex
         classes={["flexColumn"]}
-        className={`page-about__cards-container section--base ${
+        className={`page-about__cards-container section--transition ${
           cardsInView ? "section--visible" : "section--hide"
         }
       `}

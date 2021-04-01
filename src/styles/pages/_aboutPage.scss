@@ -16,7 +16,8 @@
 
   .section {
     &--transition {
-      transition: 0.6s ease 0.6s;
+      transition: 0.6s ease 0.3s;
+      will-change: transform, opacity;
     }
 
     &--hide {

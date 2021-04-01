@@ -106,6 +106,7 @@ const HomePage = () => {
       >
         <HomeLanding>
           <LandingImage
+            durationFadeIn={200}
             fluid={data.file.childImageSharp.fluid}
             alt={data.site.siteMetadata.author
               .split(" ")
