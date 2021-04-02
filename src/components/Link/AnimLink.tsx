@@ -1,8 +1,8 @@
 import React from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import { PKLink } from "."
 
-import pk_logo from "../../images/pk-logo-loader.svg"
+import LogoLoader from './LogoLoader.svg'
+import { PKLink } from "."
 
 const AniLoaderLink: React.FC<PKLink> = props => {
   return (
@@ -12,7 +12,7 @@ const AniLoaderLink: React.FC<PKLink> = props => {
       cover
       bg={`
         var(--pk-color-blank-700)
-        url(${pk_logo})
+        url(${LogoLoader})
         center
         no-repeat
         fixed
