@@ -38,7 +38,7 @@ const AboutPage = () => {
     }
   `)
 
-  const [avatar, army] = data.allImageSharp.nodes
+  const [avatarImg, armyImg] = data.allImageSharp.nodes
 
   const [historyRef, historyInView] = useInView({
     threshold: 0.01,
@@ -74,7 +74,7 @@ const AboutPage = () => {
           </Flex>
           <Flex className="page-about__landing-greeting__imgs">
             <Img
-              fluid={avatar.fluid}
+              fluid={avatarImg.fluid}
               alt={"personal pic"}
               className="page-about__landing-greeting__imgs-profile"
             />
@@ -203,7 +203,7 @@ const AboutPage = () => {
               Rucker, AL).
             </Typography>
             <Img
-              fluid={army.fluid}
+              fluid={armyImg.fluid}
               alt="army-pic"
               className="page-about__history__timeline__img"
             />

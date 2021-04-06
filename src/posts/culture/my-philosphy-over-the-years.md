@@ -1,6 +1,6 @@
 ---
 title: "My Philosphy Over the Years"
-desc: "Through ups and downs, and adapting to an ever-changing world, here are few of my takeaways on life."
+desc: "Through ups and downs, and learning to adapt in an ever-changing world, here are few of my takeaways on life."
 date: "2021-03-26"
 subject: "culture"
 tags: [culture]
@@ -84,7 +84,7 @@ I believe, emotions should be _embraced_. They should be _accepted_ for what the
 
 The modern age of _hyper consumerism_ has conditioned the human psyche to be **exteroceptive**. Consequently, it has convinced ourselves to be inadequate and that the missing piece to our wholesomeness is some form of external input.
 
-There are plenty of examples that illustrate this _emotional hole_ in our society, but perhaps the most recognized is that of the old & rich retiree with the shiny, new sports car, in attempt to fill a seemingly endless void.
+There are plenty of examples that illustrate this _emotional hole_ in our society, but perhaps the most recognized, is that of the old & rich retiree with the shiny, new sports car, in attempt to fill a seemingly endless void.
 
 Similarly, if we're feeling _sad_ or _depressed_, we assume we're missing something in our **diet**, or in need of consuming the right **drug** (again, all external sources).
 

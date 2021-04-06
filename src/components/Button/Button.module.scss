@@ -30,7 +30,7 @@ $btn-variants: (
     overflow: hidden;
 
     &:disabled {
-      opacity: .4;
+      opacity: 0.4;
       pointer-events: none;
     }
 
@@ -39,43 +39,44 @@ $btn-variants: (
       box-shadow: inset 0px -2px 5px rgb(243, 243, 243),
         inset 0px 2px 5px rgba(0, 0, 0, 0.15);
     }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: all 0.3s;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      transition: transform 0.15s, 0.15s border-radius 0.15s;
+      opacity: 0;
+      transform: scale(0.1, 0.1);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    &::after {
+      border-radius: 15px;
+    }
   }
 
   @each $variant, $colors in $btn-variants {
     &--#{$variant} {
       $color-2: nth($colors, 2);
       $color-1: nth($colors, 1);
-      
+
       color: $color-1;
 
       &::before {
-        content: '';
-        position: absolute;
-        transition: all 0.3s;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transition: transform 0.15s, 0.15s border-radius 0.15s;
-        opacity: 0;
         background: $color-1;
-        transform: scale(0.1, 0.1);
-        border-radius: 50%;
-        z-index: -1;
       }
 
       &::after {
-        content: '';
-        position: absolute;
-        transition: all 0.3s;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        transition: all 0.3s;
         border: 1px solid $color-1;
-        border-radius: 15px;
-
       }
 
       &--active {
@@ -83,7 +84,8 @@ $btn-variants: (
         @extend .btn--#{$variant};
       }
 
-      &:hover, &--active {
+      &:hover,
+      &--active {
         color: $color-2;
         &::before {
           opacity: 1;
