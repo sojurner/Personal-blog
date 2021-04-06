@@ -18,9 +18,9 @@ While I am a huge _proponent_ of generosity, at the same time, I refuse to be **
 
 The somber truth about _generosity_, is that because it originates from a place of _understanding_ and _compassion_, it can easily be **taken advantage of** either through _malicious_ intent involving **scammers** & **false charities**, or through _unproductive_ **bureacratic** entities and **freeloaders**.
 
-By no means am I indicting these kinds of people for my inability to be openly generous. I am aware of my own flawed past and the character defining moments, where I regrettably came up short. Nonetheless, it doesn't negate the idea that, if given a choice, I'd prefer to be _excluded_ rather than end up with the **short end of the stick**. Ideally, I'd like my donations to reach the _right_ people, and help those in **dire need**.
+By no means do I blame society for my inability to be openly generous. I am equally guilty of sharing a flawed past, plagued by many character defining moments, where I regrettably came up short. Nonetheless, it doesn't negate the idea that, if given a choice, I'd prefer to not to participate rather than do so and end up with the **short end of the stick**. Ideally, I'd like my donations to reach the _right_ people, and assist those in **dire need**.
 
-With that said, It's important to be _mindful_ of **overcorrection**. We all get burned every now and then, and its very tempting at the heat (pun) of the moment to assume that behind all **charitable endeavors** lies some form of _self-interest_ and _greed_, or underneath every urban **beggar** is an _moocher_.
+With that said, It's important to be _mindful_ of **overcorrection**. We all get burned every now and then, and it's searingly tempting, at the heat (pun) of the moment, to assume that behind most **charitable efforts** lies some form of _self-interest_ and _greed_, or underneath the common street **beggar** is a _moocher_.
 
 For every bad in the world, theres hundreds of _unreported good_. Good is like _air-conditioning_. It's only noticed, when it's not working.
 

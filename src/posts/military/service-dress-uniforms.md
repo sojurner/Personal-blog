@@ -18,13 +18,13 @@ To begin, I'd like to discuss a _related issue_ related to the servce dress unif
 
 ![stolen valor](https://www.wearethemighty.com/app/uploads/legacy/assets.rbl.ms/17246658/origin.jpg)
 
-It's fairly easy to spot a **military imposter**, because like the person above, they're _bad at it_. For many stalwart veterans, seeing a person in a fake uniform would understandably, spark outrage for many stalwart veterans. Me on the other hand, I can't help but chuckle.
+It's fairly easy to spot a **military imposter**, because like the person above, they're _bad at it_. Seeing a person in a fake uniform would, understandably, spark outrage for many stalwart veterans. Me on the other hand, I can't help but chuckle.
 
 ## Don't Steal my Valor?
 
-I've never actually encountered a **military imposter** in real life. So it's hard to predict how I would react if I saw one.
+I've never actually encountered a **military imposter** in real life. So it's hard to predict how I would react if ever I saw one.
 
-However, even if this type of practice was _commonplace_, I, as a veteran, could care less about it. Granted, having only served 4 short years, I am not as _emotionally invested_ in my **military identity** as many others. With that said, accusing this act as "_stealing_" is an **over exaggeration**.
+However, even if this type of practice was _commonplace_, I can't help but care none for it. Granted, having only served 4 short years, I am not as _emotionally invested_ in my **military identity** as many others. With that said, accusing this act as "_stealing_" is an **over exaggeration**.
 
 **Valor** isn't some non-fungible asset circulating in a _finite pool_. It's simply a _social concept_ to recognize those who have **served**. It's as _plentiful_ and _abundant_ as our minds make it out to be.
 
