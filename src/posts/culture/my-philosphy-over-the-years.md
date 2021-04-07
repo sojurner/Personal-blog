@@ -10,7 +10,7 @@ featuredImgAlt: "night sea"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 
-## Keep Generosity on a Short Leash
+## Generosity on a Short Leash
 
 In an era of great _wealth_ and unprecedented standard of living, it has never been easier to be **charitable**. _Generosity_ is a **life-changer** when it touches the right people.
 
@@ -18,11 +18,11 @@ While I am a huge _proponent_ of generosity, at the same time, I refuse to be **
 
 The somber truth about _generosity_, is that because it originates from a place of _understanding_ and _compassion_, it can easily be **taken advantage of** either through _malicious_ intent involving **scammers** & **false charities**, or through _unproductive_ **bureacratic** entities and **freeloaders**.
 
-By no means do I blame society for my inability to be openly generous. I am equally guilty of sharing a flawed past, plagued by many character defining moments, where I regrettably came up short. Nonetheless, it doesn't negate the idea that, if given a choice, I'd prefer to not to participate rather than do so and end up with the **short end of the stick**. Ideally, I'd like my donations to reach the _right_ people, and assist those in **dire need**.
+By no means do I _blame society_ for my inability to be openly generous. I am equally guilty of sharing a flawed past, plagued by many character defining moments, where I regrettably came up short. Nonetheless, it doesn't negate the idea that, if given a choice, I'd prefer to be excluded rather than participate and end up with the **short end of the stick**. Ideally, I'd like my donations to reach the _right_ people, and assist those in **dire need**.
 
-With that said, It's important to be _mindful_ of **overcorrection**. We all get burned every now and then, and it's searingly tempting, at the heat (pun) of the moment, to assume that behind most **charitable efforts** lies some form of _self-interest_ and _greed_, or underneath the common street **beggar** is a _moocher_.
+With that said, It's important to be _mindful_ of **overcorrection**. We all get burned every now and then, and it's _searingly_ (pun1) tempting, at the _heat_ (pun2) of the moment, to assume that behind most **charitable efforts** lies some form of _self-interest_ and _greed_, or underneath the common street **beggar** is a _moocher_.
 
-For every bad in the world, theres hundreds of _unreported good_. Good is like _air-conditioning_. It's only noticed, when it's not working.
+For every bad in the world, there are hundreds of _unreported good_. Good is like _air-conditioning_. It's only noticed, when it's not working.
 
 ## Surrender the Battle, Win the War
 
@@ -40,9 +40,9 @@ As for tasks, these are what we do on a _day to day_ basis. Failing on tasks is 
 
 > "_You only get one chance to make a *First Impression*_".
 
-While this universal adage speaks great truth, it also forces an exorbitant amount of **social pressure** on newcomers to hit homers in their first encounters. This unfortunately, can lead to a number of outcomes both favorable and undesirable. The one I'd like to focus on is the tendency to _over evaluate_ character and set _unrealistic_ expectations.
+While this universal adage speaks great truth, it also forces an exorbitant amount of **social pressure** on newcomers to hit homers in their first encounters. This unfortunately, can lead to a range of outcomes both favorable and undesirable. The one I'd like to focus on, is the tendency for the audience to _over evaluate_ character and set _unrealistic_ expectations.
 
-Now don't mistake _Undersell Yourself_ for **Sell Yourself Short**. _Undersell Yourself_ leans towards the idea that it is strategically advantageous to initially be underevaluated vs overrated. This isn't implying to _mislead_, but rather to allow people's general inclination to **set their own conclusions** based on the information you provide about yourself. Here is a list of reasons to justify this logic:
+Now don't mistake _Undersell Yourself_ for **Sell Yourself Short**. _Undersell Yourself_ leans towards the idea that it is strategically advantageous to initially be underevaluated than overrated. This isn't implying to _mislead_, but rather to keep introductions short, and allow people's general inclination to **set their own conclusions** based on the information they've been provided. Here is a list of reasons to justify this practice:
 
 - _It filters in the right friends_
 
@@ -56,11 +56,11 @@ Now don't mistake _Undersell Yourself_ for **Sell Yourself Short**. _Undersell Y
 
 - _Element of surprise is on your side_
 
-  **Novelty** is the best avenue in creating long lasting impressions, and by setting the bar low, it is at your side. Under low expectations, are the openings to surprise through overperformance.
+  **Novelty** is the best avenue in creating long lasting impressions, and by underselling yourself, it leaves plenty to be desired. Under low expectations, you have novelty at your disposal, by utilizing numerous openings of surprise through overperformance.
 
 - _Your image will more accurately be a reflection of your character & abilities._
 
-  Inevitably, over time, one's **true colors** become _inescapable_, no matter how _ostentatious_ of a **first impression**. By underselling yourself, you enable your **actions** to _speak louder than words_ and as a result present a more authentic and unpretentious image.
+  Inevitably, over time, one's **true colors** become _inescapable_, no matter how _ostentatious_ of a **first impression**. By underselling, you enable your **actions** to _speak louder than words_ and as a result, present a more authentic image.
 
 ## Find ways to Laugh
 
