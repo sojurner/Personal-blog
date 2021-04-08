@@ -43,8 +43,7 @@ import telegram from "@iconify-icons/mdi/telegram"
 
 import uparrow from "@iconify-icons/mdi/arrow-up-bold-outline"
 import downarrow from "@iconify-icons/mdi/arrow-down-bold"
-import upfinger from "@iconify-icons/mdi/hand-pointing-up"
-import downfinger from "@iconify-icons/mdi/hand-pointing-down"
+import thumbup from "@iconify-icons/mdi-light/thumb-up"
 
 import link from "@iconify-icons/mdi/link-variant"
 import share from "@iconify-icons/mdi/share-variant-outline"
@@ -107,8 +106,7 @@ const iconSvg = Object.freeze({
   accountFile,
   blazor,
   eye,
-  upfinger,
-  downfinger,
+  thumbup,
   link,
   share,
   uparrow,

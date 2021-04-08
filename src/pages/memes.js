@@ -38,23 +38,54 @@ const MemesPage = ({ location }) => {
     }
   `)
 
-  const [memeSession, setMemeSession] = React.useState({})
-  const [notification, setNotification] = React.useState("")
-
-  const [memeState, updateMemePoints] = useMemeMeta()
   const [mainRef, itemRange] = useInfiniteScroll(
     [0, 3],
     data.allContentfulMeme.nodes.length
   )
 
-  const onMemeVote = (id, vote) => {
-    setMemeSession(state => ({ ...state, [id]: vote }))
-    updateMemePoints(id, vote)
+  return (
+    <RefMainLayout ref={mainRef} className="page-memes">
+      <SEO title="Memes" />
+      <MemesControl rootUrl={location.origin}>
+        {data.allContentfulMeme.nodes.slice(...itemRange).map((node, index) => {
+          return (
+            <MemePost key={`post-ref-${index}`} id={node.contentful_id}>
+              <MemeHeader
+                title={node.title}
+                timestamp={node.timestamp}
+                tags={node.tags}
+              />
+              {node.img && (
+                <MemeImg durationFadeIn={200} fluid={node.img.fluid} />
+              )}
+              <MemeAction id={node.contentful_id}>
+                <MemeVoting id={node.contentful_id} />
+                <MemeSocial id={node.contentful_id} source={node.source} />
+              </MemeAction>
+            </MemePost>
+          )
+        })}
+        <MemeNotification />
+      </MemesControl>
+    </RefMainLayout>
+  )
+}
+
+const MemeContext = React.createContext()
+
+const MemesControl = ({ rootUrl, ...props }) => {
+  const [memeSession, setMemeSession] = React.useState({})
+  const [notification, setNotification] = React.useState("")
+  const [memeMeta, updateMemeMeta] = useMemeMeta()
+
+  const onUpVote = id => {
+    setMemeSession(state => ({ ...state, [id]: true }))
+    updateMemeMeta(id)
   }
 
-  const onMemeCopyLink = path => {
+  const onCopyLink = path => {
     const el = document.createElement("textarea")
-    el.value = `${location.origin}/memes#${path}`
+    el.value = `${rootUrl}/memes#${path}`
 
     el.setAttribute("readonly", "")
     el.style.position = "absolute"
@@ -73,42 +104,11 @@ const MemesPage = ({ location }) => {
   }
 
   return (
-    <RefMainLayout ref={mainRef} className="page-memes">
-      <SEO title="Memes" />
-      <Flex className="memes" classes={["flexColumn"]}>
-        {data.allContentfulMeme.nodes.slice(...itemRange).map((node, index) => {
-          return (
-            <MemePost key={`post-ref-${index}`} id={node.contentful_id}>
-              <MemeHeader
-                title={node.title}
-                timestamp={node.timestamp}
-                tags={node.tags}
-              />
-              {node.img && (
-                <MemeImg durationFadeIn={200} fluid={node.img.fluid} />
-              )}
-              <MemeAction memeVote={memeState[node.contentful_id]}>
-                <MemeVoting
-                  memeSession={memeSession[node.contentful_id]}
-                  onMemeVote={bool => onMemeVote(node.contentful_id, bool)}
-                />
-                <MemeSocial
-                  onMemeCopyLink={() => onMemeCopyLink(node.contentful_id)}
-                  source={node.source}
-                />
-              </MemeAction>
-            </MemePost>
-          )
-        })}
-      </Flex>
-      <MemeNotification
-        className={`notification-clipboard notification--${
-          Boolean(notification) ? "show" : "hide"
-        }`}
-      >
-        {notification}
-      </MemeNotification>
-    </RefMainLayout>
+    <MemeContext.Provider
+      value={[memeMeta, memeSession, notification, onUpVote, onCopyLink]}
+    >
+      <Flex className="memes" classes={["flexColumn"]} {...props}></Flex>
+    </MemeContext.Provider>
   )
 }
 
@@ -127,63 +127,58 @@ const MemePost = ({ id, children }) => {
   )
 }
 
-const MemeHeader = ({ title, timestamp, tags }) => (
-  <>
-    <Flex className="meme-title">
-      <Typography tag="h3" variant="neutralDefault">
-        {title}
-      </Typography>
-    </Flex>
-
-    <Flex
-      className="meme-info"
-      classes={["flexRow", "justifyContentBetween", "alignItemsCenter"]}
-    >
-      <Typography className="meme-date" tag="span" variant="neutralLight">
-        {timestamp}
-      </Typography>
-      <Flex className="meme-tags">
-        {tags.split(",").map((tag, i) => (
-          <Chip
-            variant="default"
-            label={tag}
-            key={`chip-meme-${i}`}
-            icon={tagIconRef[tag]}
-          />
-        ))}
+const MemeHeader = ({ title, timestamp, tags }) => {
+  return (
+    <>
+      <Flex className="meme-title">
+        <Typography tag="h3" variant="neutralDefault">
+          {title}
+        </Typography>
       </Flex>
-    </Flex>
-  </>
-)
+
+      <Flex
+        className="meme-info"
+        classes={["flexRow", "justifyContentBetween", "alignItemsCenter"]}
+      >
+        <Typography className="meme-date" tag="span" variant="neutralLight">
+          {timestamp}
+        </Typography>
+        <Flex className="meme-tags">
+          {tags.split(",").map((tag, i) => (
+            <Chip
+              variant="default"
+              label={tag}
+              key={`chip-meme-${i}`}
+              icon={tagIconRef[tag]}
+            />
+          ))}
+        </Flex>
+      </Flex>
+    </>
+  )
+}
 
 const MemeImg = ({ fluid }) => <Img className="meme-img" fluid={fluid} />
 
 // ----------{ voting ---------- //
 
-const MemeVoting = ({ onMemeVote, memeSession }) => {
+const MemeVoting = ({ id, ...props }) => {
+  const [, memeSession, , onUpVote] = React.useContext(MemeContext)
+
   return (
     <Flex
       className="meme-actions"
       classes={["flexRow", "justifyContentCenter"]}
+      {...props}
     >
       <MemeUpvote
-        onClick={() => onMemeVote(true)}
+        onClick={React.useCallback(() => onUpVote(id), [id, onUpVote])}
         variant={
-          memeSession === undefined
+          memeSession[id] === undefined
             ? "positive"
-            : memeSession
+            : memeSession[id]
             ? "positiveActive"
             : "positive"
-        }
-      />
-      <MemeDownvote
-        onClick={() => onMemeVote(false)}
-        variant={
-          memeSession === undefined
-            ? "negative"
-            : memeSession
-            ? "negative"
-            : "negativeActive"
         }
       />
     </Flex>
@@ -193,19 +188,7 @@ const MemeVoting = ({ onMemeVote, memeSession }) => {
 const MemeUpvote = props => {
   return (
     <Button className="meme-vote meme-vote--up" aria-label="Up vote" {...props}>
-      <Icon svg="upfinger" />
-    </Button>
-  )
-}
-
-const MemeDownvote = props => {
-  return (
-    <Button
-      className="meme-vote meme-vote--down"
-      aria-label="Down vote"
-      {...props}
-    >
-      <Icon svg="downfinger" />
+      <Icon svg="thumbup" />
     </Button>
   )
 }
@@ -214,12 +197,17 @@ const MemeDownvote = props => {
 
 // ----------{ Social ---------- //
 
-const MemeSocial = ({ source, onMemeCopyLink }) => (
-  <Flex className="meme-social">
-    {source && <MemeSrc onClick={() => window.open(source, "_blank")} />}
-    <MemeShare onClick={onMemeCopyLink} />
-  </Flex>
-)
+const MemeSocial = ({ id, source }) => {
+  const [, , , , onCopyLink] = React.useContext(MemeContext)
+  return (
+    <Flex className="meme-social">
+      {source && <MemeSrc onClick={() => window.open(source, "_blank")} />}
+      <MemeShare
+        onClick={React.useCallback(() => onCopyLink(id), [id, onCopyLink])}
+      />
+    </Flex>
+  )
+}
 
 const MemeSrc = props => (
   <Button
@@ -244,25 +232,37 @@ const MemeShare = props => (
   </Button>
 )
 
-const MemeAction = ({ memeVote, children }) => (
-  <Flex className="meme-footer" classes={["flexRow", "alignItemsCenter"]}>
-    <Flex className="meme-stats" classes={["flexRow", "alignItemsCenter"]}>
-      <Icon svg="uparrow" variant="neutralLight" />
-      <Typography tag="p" variant="neutralLight">
-        {memeVote ? memeVote.points : 0}
-      </Typography>
+const MemeAction = ({ id, children }) => {
+  const [memeMeta] = React.useContext(MemeContext)
+  return (
+    <Flex className="meme-footer" classes={["flexRow", "alignItemsCenter"]}>
+      <Flex className="meme-stats" classes={["flexRow", "alignItemsCenter"]}>
+        <Icon svg="uparrow" variant="neutralLight" />
+        <Typography tag="p" variant="neutralLight">
+          {memeMeta[id] ? memeMeta[id].points : 0}
+        </Typography>
+      </Flex>
+      {children}
     </Flex>
-    {children}
-  </Flex>
-)
+  )
+}
 
 // ---------- Social }---------- //
 
-const MemeNotification = props => (
-  <Flex {...props}>
-    <Icon svg="share" />
-    <Typography>Copied Link!</Typography>
-  </Flex>
-)
+const MemeNotification = props => {
+  const [, , notification] = React.useContext(MemeContext)
+
+  return (
+    <Flex
+      className={`notification-clipboard notification--${
+        Boolean(notification) ? "show" : "hide"
+      }`}
+      {...props}
+    >
+      <Icon svg="share" />
+      <Typography>Copied Link!</Typography>
+    </Flex>
+  )
+}
 
 export default MemesPage

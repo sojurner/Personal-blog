@@ -224,7 +224,7 @@ const PostTimestamp = props => {
 }
 
 const PostViewCount = ({ slug }) => {
-  const [_, viewCount] = React.useContext(PostContext)
+  const [, viewCount] = React.useContext(PostContext)
 
   return (
     <Flex
