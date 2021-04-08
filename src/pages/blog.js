@@ -65,10 +65,7 @@ const BlogPage = () => {
     }
   `)
 
-  const [pageViews] = usePageViewMeta()
-
   const [endRef, inView] = useInView({ threshold: 0 })
-
   const [mainRef, itemRange] = useInfiniteScroll(
     [0, 3],
     data.allMarkdownRemark.edges.totalCount
@@ -89,15 +86,7 @@ const BlogPage = () => {
 
       <BlogPostSection>
         {data.allMarkdownRemark.edges.slice(...itemRange).map((post, index) => (
-          <BlogCard
-            key={`post-ref-${index}`}
-            viewCount={
-              pageViews && pageViews[post.node.fields.slug]
-                ? pageViews[post.node.fields.slug].views
-                : 0
-            }
-            {...post.node}
-          />
+          <BlogCard key={`post-ref-${index}`} {...post.node} />
         ))}
       </BlogPostSection>
 
@@ -148,13 +137,20 @@ const FilterChips = ({ postCount, categories }) => (
   </Flex>
 )
 
-const BlogPostSection = props => (
-  <Flex
-    className="page-blog__content-posts"
-    classes={["flexColumn", "alignItemsEnd"]}
-    {...props}
-  ></Flex>
-)
+const BlogContext = React.createContext()
+
+const BlogPostSection = props => {
+  const [pageViews] = usePageViewMeta()
+  return (
+    <BlogContext.Provider value={[pageViews]}>
+      <Flex
+        className="page-blog__content-posts"
+        classes={["flexColumn", "alignItemsEnd"]}
+        {...props}
+      ></Flex>
+    </BlogContext.Provider>
+  )
+}
 
 const BlogAuthor = ({ children, fluid, alt }) => (
   <Flex
@@ -224,65 +220,76 @@ const BlogViewCount = ({ viewCount }) => (
   </Flex>
 )
 
-const BlogCard = ({ frontmatter, featuredImg, fields, viewCount }) => (
-  <AniLoaderLink
-    to={`/blog/${frontmatter.subject}/${fields.slug}`}
-    className="page-blog__card-link"
-  >
-    <Card
-      classes={["flexColumn", "justifyContentCenter"]}
-      className="page-blog__card page-blog__card--loaded"
-      depth={"z5"}
-      variant={"default"}
+const BlogCard = ({ frontmatter, featuredImg, fields }) => {
+  const [pageViews] = React.useContext(BlogContext)
+  return (
+    <AniLoaderLink
+      to={`/blog/${frontmatter.subject}/${fields.slug}`}
+      className="page-blog__card-link"
     >
-      {featuredImg && (
-        <Img
-          fluid={featuredImg.childImageSharp.fluid}
-          durationFadeIn={200}
-          className="page-blog__card-header__foreground-img"
-          alt={frontmatter.featuredImgAlt}
-        />
-      )}
-
-      <BlogAuthor
-        fluid={frontmatter.avatar.childImageSharp.fluid}
-        alt={frontmatter.author
-          .split(" ")
-          .map(x => x[0])
-          .join("")}
+      <Card
+        classes={["flexColumn", "justifyContentCenter"]}
+        className="page-blog__card page-blog__card--loaded"
+        depth={"z5"}
+        variant={"default"}
       >
-        {frontmatter.author}
-      </BlogAuthor>
-      <Flex classes={["flexColumn"]} className="page-blog__card-content">
-        <BlogTitle variant={blogTypeRef[frontmatter.subject].textVariant}>
-          {frontmatter.title}
-        </BlogTitle>
+        {featuredImg && (
+          <Img
+            fluid={featuredImg.childImageSharp.fluid}
+            durationFadeIn={200}
+            className="page-blog__card-header__foreground-img"
+            alt={frontmatter.featuredImgAlt}
+          />
+        )}
 
-        <Flex className="page-blog__card-content__details">
-          <BlogDate date={frontmatter.date} />
-          <BlogViewCount viewCount={viewCount} />
-        </Flex>
-        <BlogDescription variant={blogTypeRef[frontmatter.subject].textVariant}>
-          {frontmatter.desc}
-        </BlogDescription>
-
-        <Divider className="page-blog__card-content__divider" />
-        <Flex
-          classes={["flexRow", "flexWrap", "alignSelfBaseline"]}
-          className="page-blog__card-footer-tags"
+        <BlogAuthor
+          fluid={frontmatter.avatar.childImageSharp.fluid}
+          alt={frontmatter.author
+            .split(" ")
+            .map(x => x[0])
+            .join("")}
         >
-          {frontmatter.tags.map((tag, index) => (
-            <Tag
-              label={tag}
-              key={`card-tag-${index}`}
-              variant={blogTypeRef[tag].tagVariant}
-            />
-          ))}
+          {frontmatter.author}
+        </BlogAuthor>
+        <Flex classes={["flexColumn"]} className="page-blog__card-content">
+          <BlogTitle variant={blogTypeRef[frontmatter.subject].textVariant}>
+            {frontmatter.title}
+          </BlogTitle>
+
+          <Flex className="page-blog__card-content__details">
+            <BlogDate date={frontmatter.date} />
+            {pageViews && (
+              <BlogViewCount
+                viewCount={
+                  pageViews[fields.slug] ? pageViews[fields.slug].views : 0
+                }
+              />
+            )}
+          </Flex>
+          <BlogDescription
+            variant={blogTypeRef[frontmatter.subject].textVariant}
+          >
+            {frontmatter.desc}
+          </BlogDescription>
+
+          <Divider className="page-blog__card-content__divider" />
+          <Flex
+            classes={["flexRow", "flexWrap", "alignSelfBaseline"]}
+            className="page-blog__card-footer-tags"
+          >
+            {frontmatter.tags.map((tag, index) => (
+              <Tag
+                label={tag}
+                key={`card-tag-${index}`}
+                variant={blogTypeRef[tag].tagVariant}
+              />
+            ))}
+          </Flex>
         </Flex>
-      </Flex>
-    </Card>
-  </AniLoaderLink>
-)
+      </Card>
+    </AniLoaderLink>
+  )
+}
 
 export {
   BlogCard,
