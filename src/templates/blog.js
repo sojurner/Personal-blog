@@ -22,14 +22,7 @@ const Avatar = loadable(() => import("@components/Avatar"))
 
 const Blog = ({ data }) => {
   const [isVisible, setIsVisible] = React.useState(false)
-  const { frontmatter, fields, featuredImg, html } = data.markdownRemark
-  const [viewCount] = usePageView(fields.slug)
-  const [showSCWidget, setShowSCWidget] = React.useState(false)
   const aRef = React.useRef()
-
-  const handleSCWidgetToggle = () => {
-    setShowSCWidget(state => !state)
-  }
 
   React.useEffect(() => {
     const ref = aRef.current
@@ -51,6 +44,8 @@ const Blog = ({ data }) => {
     return () => observer.unobserve(ref)
   }, [aRef, isVisible])
 
+  const { frontmatter, fields, featuredImg, html } = data.markdownRemark
+
   return (
     <TemplateLayout inView={!isVisible} className="template-blog">
       <SEO title={frontmatter.title} description={frontmatter.desc} />
@@ -58,84 +53,23 @@ const Blog = ({ data }) => {
         className="template-blog__landing-container"
         classes={["flexColumn", "justifyContentCenter", "alignItemsCenter"]}
       >
-        <Img
-          className="template-blog__feature-img"
+        <PostBgImg
           fluid={featuredImg.childImageSharp.fluid}
           alt={frontmatter.featuredImgAlt}
         />
         <div ref={aRef} className="template-blog__shade-transition" />
-        <AniFadeLink to="/blog">
-          <Typography className="template-blog__go-back" variant="neutralDark">
-            ⤺ back to posts
-          </Typography>
-        </AniFadeLink>
-        <Flex
-          classes={["flexColumn", "justifyContentCenter"]}
-          className="template-blog__header"
-        >
-          <Typography
-            className="template-blog__title"
-            variant="neutralDark"
-            tag="h1"
-          >
-            {frontmatter.title}
-          </Typography>
-          <Flex
-            className="template-blog__tag-divider"
-            classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
-          >
-            <div className="template-blog__tag-divider__divider" />
-            <AniFadeLink
-              className="template-blog__tag-divider__tag"
-              to={`/blog/${frontmatter.subject}`}
-            >
-              <Tag
-                label={frontmatter.subject}
-                variant={blogTypeRef[frontmatter.subject].tagVariant}
-              />
-            </AniFadeLink>
-            <div className="template-blog__tag-divider__divider" />
-          </Flex>
+        <GoBackLink />
+        <PostCenterHeader frontmatter={frontmatter} slug={fields.slug}>
+          <PostTitle />
+          <PostTag />
           <Flex
             className="template-blog__subheader-container"
             classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
           >
-            <Flex
-              classes={["flexRow", "alignItemsCenter"]}
-              className="template-blog__subheader__date-container"
-            >
-              <Icon
-                svg="calendar"
-                variant="neutralDefault"
-                className="template-blog__subheader__date-icon"
-              />
-              <Typography
-                tag="span"
-                variant="neutralDefault"
-                className="template-blog__subheader__date-text"
-              >
-                {frontmatter.date}
-              </Typography>
-            </Flex>
-            <Flex
-              classes={["flexRow", "alignItemsCenter"]}
-              className="template-blog__subheader__view-counter-container"
-            >
-              <Icon
-                svg="eye"
-                variant="neutralDefault"
-                className="template-blog__subheader__view-counter-icon"
-              />
-              <Typography
-                tag="span"
-                variant="neutralDefault"
-                className="template-blog__subheader__view-counter-text"
-              >
-                {viewCount} views
-              </Typography>
-            </Flex>
+            <PostTimestamp />
+            <PostViewCount />
           </Flex>
-        </Flex>
+        </PostCenterHeader>
         <Flex
           classes={["flexRow", "alignItemsCenter"]}
           className="template-blog__author-profile"
@@ -154,13 +88,7 @@ const Blog = ({ data }) => {
               .join("")}
             className="template-blog__author-profile__avatar"
           />
-          <Button
-            onClick={handleSCWidgetToggle}
-            className="template-blog__author-profile__music"
-            variant="secondary"
-          >
-            <Icon svg="headphones" />
-          </Button>
+          <PostMusicControl />
         </Flex>
       </Flex>
       <div className="template-blog-container">
@@ -228,13 +156,145 @@ const Blog = ({ data }) => {
           </Flex>
         </Flex>
       </Flex>
-      {showSCWidget && (
-        <SoundCloudWidgetPlayer onClose={handleSCWidgetToggle} />
-      )}
     </TemplateLayout>
   )
 }
 
+const PostTag = props => {
+  const [frontmatter] = React.useContext(PostContext)
+  return (
+    <Flex
+      className="template-blog__tag-divider"
+      classes={["flexRow", "justifyContentCenter", "alignItemsCenter"]}
+      {...props}
+    >
+      <div className="template-blog__tag-divider__divider" />
+      <AniFadeLink
+        className="template-blog__tag-divider__tag"
+        to={`/blog/${frontmatter.subject}`}
+      >
+        <Tag
+          label={frontmatter.subject}
+          variant={blogTypeRef[frontmatter.subject].tagVariant}
+        />
+      </AniFadeLink>
+      <div className="template-blog__tag-divider__divider" />
+    </Flex>
+  )
+}
+
+const PostContext = React.createContext()
+
+const PostCenterHeader = ({ frontmatter, slug, ...props }) => {
+  const [viewCount] = usePageView(slug)
+
+  return (
+    <PostContext.Provider value={[frontmatter, viewCount]}>
+      <Flex
+        classes={["flexColumn", "justifyContentCenter"]}
+        className="template-blog__header"
+        {...props}
+      ></Flex>
+    </PostContext.Provider>
+  )
+}
+
+const PostTimestamp = props => {
+  const [frontmatter] = React.useContext(PostContext)
+  return (
+    <Flex
+      classes={["flexRow", "alignItemsCenter"]}
+      className="template-blog__subheader__date-container"
+      {...props}
+    >
+      <Icon
+        svg="calendar"
+        variant="neutralDefault"
+        className="template-blog__subheader__date-icon"
+      />
+      <Typography
+        tag="span"
+        variant="neutralDefault"
+        className="template-blog__subheader__date-text"
+      >
+        {frontmatter.date}
+      </Typography>
+    </Flex>
+  )
+}
+
+const PostViewCount = ({ slug }) => {
+  const [_, viewCount] = React.useContext(PostContext)
+
+  return (
+    <Flex
+      classes={["flexRow", "alignItemsCenter"]}
+      className="template-blog__subheader__view-counter-container"
+    >
+      <Icon
+        svg="eye"
+        variant="neutralDefault"
+        className="template-blog__subheader__view-counter-icon"
+      />
+      <Typography
+        tag="span"
+        variant="neutralDefault"
+        className="template-blog__subheader__view-counter-text"
+      >
+        {viewCount} views
+      </Typography>
+    </Flex>
+  )
+}
+
+const PostBgImg = props => (
+  <Img className="template-blog__feature-img" {...props} />
+)
+
+const PostTitle = props => {
+  const [frontmatter] = React.useContext(PostContext)
+
+  return (
+    <Typography
+      className="template-blog__title"
+      variant="neutralDark"
+      tag="h1"
+      {...props}
+    >
+      {frontmatter.title}
+    </Typography>
+  )
+}
+
+const PostMusicControl = () => {
+  const [showSCWidget, setShowSCWidget] = React.useState(false)
+
+  const handleSCWidgetToggle = React.useCallback(() => {
+    setShowSCWidget(state => !state)
+  }, [setShowSCWidget])
+
+  return (
+    <Flex>
+      <Button
+        onClick={handleSCWidgetToggle}
+        className="template-blog__author-profile__music"
+        variant="secondary"
+      >
+        <Icon svg="headphones" />
+      </Button>
+      {showSCWidget && (
+        <SoundCloudWidgetPlayer onClose={handleSCWidgetToggle} />
+      )}
+    </Flex>
+  )
+}
+const GoBackLink = () => (
+  <AniFadeLink to="/blog">
+    <Typography className="template-blog__go-back" variant="neutralDark">
+      ⤺ back to posts
+    </Typography>
+  </AniFadeLink>
+)
 const BlogColumn = ({ node }) => {
   const { frontmatter, fields, featuredImg } = node
   return (
