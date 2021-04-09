@@ -10,15 +10,13 @@ import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
 
 import { blogTypeRef, tagIconRef } from "@utils/constants"
-import { useInfiniteScroll, usePageViewMeta } from "@utils/hooks"
+import { useInfiniteScroll } from "@utils/hooks"
 
 const Flex = loadable(() => import("@components/Flex"))
 const SEO = loadable(() => import("@components/SEO"))
 const Chip = loadable(() => import("@components/Chip"))
 
 const BlogCategory = ({ data, pageContext }) => {
-  const [pageViews] = usePageViewMeta()
-
   const [endRef, inView] = useInView({ threshold: 0 })
 
   const [mainRef, itemRange] = useInfiniteScroll(
@@ -28,7 +26,7 @@ const BlogCategory = ({ data, pageContext }) => {
 
   return (
     <RefMainLayout ref={mainRef} className="page-blog">
-      <SEO title={`Blog ${pageContext.subject}`} />
+      <SEO title={`Blog (${pageContext.subject})`} />
       {!inView && (
         <FilterSection>
           <FilterChips
@@ -38,18 +36,9 @@ const BlogCategory = ({ data, pageContext }) => {
           />
         </FilterSection>
       )}
-
       <BlogPostSection>
         {data.filteredRemarks.edges.slice(...itemRange).map((post, index) => (
-          <BlogCard
-            key={`post-ref-${index}`}
-            viewCount={
-              pageViews && pageViews[post.node.fields.slug]
-                ? pageViews[post.node.fields.slug].views
-                : 0
-            }
-            {...post.node}
-          />
+          <BlogCard key={`post-ref-${index}`} {...post.node} />
         ))}
       </BlogPostSection>
 

@@ -83,10 +83,9 @@ const BlogPage = () => {
           />
         </FilterSection>
       )}
-
       <BlogPostSection>
         {data.allMarkdownRemark.edges.slice(...itemRange).map((post, index) => (
-          <BlogCard key={`post-ref-${index}`} {...post.node} />
+          <BlogCardMemo key={`post-ref-${index}`} {...post.node} />
         ))}
       </BlogPostSection>
 
@@ -141,6 +140,7 @@ const BlogContext = React.createContext()
 
 const BlogPostSection = props => {
   const [pageViews] = usePageViewMeta()
+
   return (
     <BlogContext.Provider value={[pageViews]}>
       <Flex
@@ -290,6 +290,11 @@ const BlogCard = ({ frontmatter, featuredImg, fields }) => {
     </AniLoaderLink>
   )
 }
+
+const BlogCardMemo = React.memo(
+  BlogCard,
+  (prev, next) => prev.fields.slug === next.fields.slug
+)
 
 export {
   BlogCard,
