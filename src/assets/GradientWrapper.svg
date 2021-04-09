@@ -7,11 +7,10 @@
     y1="0%"
     y2="100%"
     >
-    <stop offset="0%" stop-color="#fff"></stop>
-    <stop offset="8.1%" stop-color="#fff" stop-opacity="0.987"></stop>
-    <stop offset="15.5%" stop-color="#fff" stop-opacity="0.951"></stop>
-    <stop offset="22.5%" stop-color="#fff" stop-opacity="0.896"></stop>
-    <stop offset="29%" stop-color="#fff" stop-opacity="0.825"></stop>
+    <stop offset="5%" stop-color="#fff" stop-opacity="0.1"></stop>
+    <stop offset="15.5%" stop-color="#fff" stop-opacity="0.93"></stop>
+    <stop offset="22.5%" stop-color="#fff" stop-opacity="0.856"></stop>
+    <stop offset="29%" stop-color="#fff" stop-opacity="0.8"></stop>
     <stop offset="35.3%" stop-color="#fff" stop-opacity="0.741"></stop>
     <stop offset="47.1%" stop-color="#fff" stop-opacity="0.55"></stop>
     <stop offset="52.9%" stop-color="#fff" stop-opacity="0.45"></stop>
