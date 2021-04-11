@@ -1,5 +1,5 @@
 ---
-title: "My Philosphy Over the Years"
+title: "My Philosophy Over the Years"
 desc: "Through ups and downs, and learning to adapt in an ever-changing world, here are few of my takeaways on life."
 date: "2021-03-26"
 subject: "culture"
