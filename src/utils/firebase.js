@@ -16,11 +16,9 @@ const config = {
 let instance = null
 
 export default function getFirebase() {
-  if (typeof window !== "undefined") {
-    if (instance) return instance
-    instance = firebase.initializeApp(config)
-    return instance
-  }
+  if (typeof window === "undefined") return
+  if (instance) return instance
+  instance = firebase.initializeApp(config)
 
-  return null
+  return instance
 }

@@ -3,24 +3,22 @@ import { useEffect, useState, useRef } from "react"
 import getFirebase from "@utils/firebase"
 
 const useFirebase = dbKey => {
-  const [instance, setInstance] = useState(null)
   const [dbTable, setDbTable] = useState(null)
 
   useEffect(() => {
-    const instance = getFirebase(getFirebase().firebase_)
-    setInstance(instance)
+    const instance = getFirebase()
     setDbTable(instance.database().ref(dbKey))
   }, [dbKey])
 
-  return [instance, dbTable]
+  return [dbTable]
 }
 
 const usePageView = id => {
-  const [firebase, table] = useFirebase("blog")
+  const [table] = useFirebase("blog")
   const [viewCount, setViewCount] = useState(0)
 
   useEffect(() => {
-    if (!firebase) return
+    if (!table) return
 
     table.once("value", snapshot => {
       const childRef = snapshot.child(id)
@@ -36,20 +34,20 @@ const usePageView = id => {
         table.child(id).set({ views: pageViews })
       }
     })
-  }, [id, table, firebase])
+  }, [id, table])
 
   return [viewCount]
 }
 
 const usePageViewMeta = () => {
-  const [firebase, table] = useFirebase("blog")
+  const [table] = useFirebase("blog")
 
   const [viewState, setViewState] = useState()
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if (!firebase) return
+    if (!table) return
     setLoading(true)
 
     table.once("value", snapshot => {
@@ -61,19 +59,19 @@ const usePageViewMeta = () => {
     })
 
     setLoading(false)
-  }, [firebase, table])
+  }, [table])
 
   return [viewState, loading, error]
 }
 
 const useMemeMeta = () => {
-  const [firebase, table] = useFirebase("memes")
+  const [table] = useFirebase("memes")
 
   const [viewState, setViewState] = useState({})
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
 
-  const updatePoints = (id) => {
+  const updatePoints = id => {
     if (!viewState.hasOwnProperty(id)) {
       table.set({
         ...viewState,
@@ -93,7 +91,7 @@ const useMemeMeta = () => {
   }
 
   useEffect(() => {
-    if (!firebase) return
+    if (!table) return
     setLoading(true)
 
     table.once("value", snapshot => {
@@ -106,7 +104,7 @@ const useMemeMeta = () => {
     })
 
     setLoading(false)
-  }, [firebase, table])
+  }, [table])
 
   return [viewState, updatePoints, loading, error]
 }
