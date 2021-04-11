@@ -3,11 +3,11 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import { useInView } from "react-intersection-observer"
 import loadable from "@loadable/component"
 
-import { RefMainLayout } from "@components/Layouts"
+import MainLayout from "@components/Layouts"
 import { AniLoaderLink } from "@components/Link"
 
 import { blogTypeRef, tagIconRef } from "@utils/constants"
-import { usePageViewMeta, useInfiniteScroll } from "@utils/hooks"
+import { usePageViewMeta } from "@utils/hooks"
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
 
@@ -65,49 +65,48 @@ const BlogPage = () => {
     }
   `)
 
-  const [endRef, inView] = useInView({ threshold: 0 })
-  const [mainRef, itemRange] = useInfiniteScroll(
-    [0, 3],
-    data.allMarkdownRemark.edges.totalCount
-  )
-
   return (
-    <RefMainLayout ref={mainRef} className="page-blog">
+    <MainLayout className="page-blog">
       <SEO title="Blog" />
-      {!inView && (
-        <FilterSection>
-          <FilterChips
-            postCount={data.allMarkdownRemark.totalCount}
-            categories={data.allMarkdownRemark.group}
-            matchingTag={"all"}
-          />
-        </FilterSection>
-      )}
+      <FilterSection>
+        <FilterChips
+          postCount={data.allMarkdownRemark.totalCount}
+          categories={data.allMarkdownRemark.group}
+          matchingTag={"all"}
+        />
+      </FilterSection>
       <BlogPostSection>
-        {data.allMarkdownRemark.edges.slice(...itemRange).map((post, index) => (
+        {data.allMarkdownRemark.edges.map((post, index) => (
           <BlogCardMemo key={`post-ref-${index}`} {...post.node} />
         ))}
       </BlogPostSection>
-
-      <div style={{ position: "absolute", bottom: "-40px" }} ref={endRef} />
-    </RefMainLayout>
+    </MainLayout>
   )
 }
 
-const FilterSection = ({ children }) => (
-  <aside className="page-blog__aside">
-    <Flex className="page-blog__aside__filter-container">
-      <Typography
-        className="page-blog__aside__filter-title"
-        tag="h3"
-        variant="neutralLight"
-      >
-        Tags:{" "}
-      </Typography>
-      {children}
-    </Flex>
-  </aside>
-)
+const FilterSection = ({ children }) => {
+  const [endRef, inView] = useInView({ threshold: 0 })
+
+  return (
+    <>
+      <aside className="page-blog__aside">
+        {!inView && (
+          <Flex className="page-blog__aside__filter-container">
+            <Typography
+              className="page-blog__aside__filter-title"
+              tag="h3"
+              variant="neutralLight"
+            >
+              Tags:{" "}
+            </Typography>
+            {children}
+          </Flex>
+        )}
+      </aside>
+      <div style={{ position: "absolute", bottom: "-40px" }} ref={endRef} />
+    </>
+  )
+}
 
 const FilterChips = ({ postCount, categories }) => (
   <Flex
@@ -138,7 +137,7 @@ const FilterChips = ({ postCount, categories }) => (
 
 const BlogContext = React.createContext()
 
-const BlogPostSection = props => {
+const BlogPostSection = React.memo(props => {
   const [pageViews] = usePageViewMeta()
 
   return (
@@ -150,7 +149,7 @@ const BlogPostSection = props => {
       ></Flex>
     </BlogContext.Provider>
   )
-}
+})
 
 const BlogAuthor = ({ children, fluid, alt }) => (
   <Flex

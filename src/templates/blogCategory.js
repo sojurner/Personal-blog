@@ -1,49 +1,37 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { useInView } from "react-intersection-observer"
 import loadable from "@loadable/component"
 
-import { RefMainLayout } from "@components/Layouts"
+import MainLayout from "@components/Layouts"
 import { BlogCard, BlogPostSection, FilterSection } from "@pages/blog"
 
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
 
 import { blogTypeRef, tagIconRef } from "@utils/constants"
-import { useInfiniteScroll } from "@utils/hooks"
 
 const Flex = loadable(() => import("@components/Flex"))
 const SEO = loadable(() => import("@components/SEO"))
 const Chip = loadable(() => import("@components/Chip"))
 
 const BlogCategory = ({ data, pageContext }) => {
-  const [endRef, inView] = useInView({ threshold: 0 })
-
-  const [mainRef, itemRange] = useInfiniteScroll(
-    [0, 3],
-    data.filteredRemarks.edges.totalCount
-  )
-
   return (
-    <RefMainLayout ref={mainRef} className="page-blog">
+    <MainLayout className="page-blog">
       <SEO title={`Blog (${pageContext.subject})`} />
-      {!inView && (
-        <FilterSection>
-          <FilterChips
-            postCount={data.metaRemarks.totalCount}
-            categories={data.metaRemarks.group}
-            matchingTag={pageContext.subject}
-          />
-        </FilterSection>
-      )}
+      <FilterSection>
+        <FilterChips
+          postCount={data.metaRemarks.totalCount}
+          categories={data.metaRemarks.group}
+          matchingTag={pageContext.subject}
+        />
+      </FilterSection>
+
       <BlogPostSection>
-        {data.filteredRemarks.edges.slice(...itemRange).map((post, index) => (
+        {data.filteredRemarks.edges.map((post, index) => (
           <BlogCard key={`post-ref-${index}`} {...post.node} />
         ))}
       </BlogPostSection>
-
-      <div style={{ position: "absolute", bottom: "-40px" }} ref={endRef} />
-    </RefMainLayout>
+    </MainLayout>
   )
 }
 
