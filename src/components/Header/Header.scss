@@ -24,8 +24,8 @@
 
   &--primary {
     background: $color-bg-main;
-    opacity: .87;
-    backdrop-filter: blur(1rem);
+    opacity: .9;
+    backdrop-filter: blur(.5rem);
   }
 
   &__logo {
