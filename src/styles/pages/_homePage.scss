@@ -192,6 +192,7 @@
       font-size: 20em;
       color: $color-neutral-400;
       position: relative;
+
       &-clock {
         &--1 {
           color: var(--pk-color-primary-600);
@@ -216,23 +217,22 @@
       svg {
         g:nth-child(3) {
           transform-origin: center center;
-          animation: counter-clock-wise 1s linear infinite;
-          animation-play-state: paused;
-          animation-delay: calc(var(--scroll) * -1s);
+          transform: rotate(calc(var(--scroll) * -1 * 360deg));
+
+          animation-fill-mode: both;
         }
 
         g:nth-child(4) {
           transform-origin: center center;
-          animation: clock-wise 1s linear infinite;
-          animation-play-state: paused;
-          animation-delay: calc(var(--scroll) * -1s);
+          transform: rotate(calc(var(--scroll) * 360deg));
+
+          animation-fill-mode: both;
         }
 
         g:nth-child(5) {
           transform-origin: center center;
-          animation: counter-clock-wise 1s linear infinite;
-          animation-play-state: paused;
-          animation-delay: calc(var(--scroll) * -1s);
+          transform: rotate(calc(var(--scroll) * -1 * 360deg));
+          animation-fill-mode: both;
         }
         // g:first-child {
         // }

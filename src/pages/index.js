@@ -102,9 +102,11 @@ const HomePage = () => {
     if (!ref) return
 
     const setScroll = () => {
+      const { scrollTop, offsetHeight, scrollHeight } = ref
+
       ref.style.setProperty(
         "--scroll",
-        (ref.scrollTop / (ref.offsetHeight - ref.scrollHeight)) * 3
+        (scrollTop / (offsetHeight - scrollHeight)) * 2
       )
     }
 

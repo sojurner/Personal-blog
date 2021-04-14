@@ -48,18 +48,6 @@
   }
 }
 
-@keyframes counter-clock-wise {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes clock-wise {
-  to {
-    transform: rotate(-360deg);
-  }
-}
-
 @import "../../styles/utils/vars";
 
 $color-list: (#4f9cfd, #a54afd, #fc4d91, #4de2ae, #ffbf55);
