@@ -4,8 +4,8 @@ import { useInView } from "react-intersection-observer"
 import loadable from "@loadable/component"
 
 import { AniLoaderLink } from "@components/Link"
-import SaxophoneCat from "@assets/SaxophoneCat.svg"
-import DrummerCat from "@assets/DrummerCat.svg"
+import Clock from "@assets/Clock.svg"
+import { RefMainLayout } from "@components/Layouts"
 
 import { blogTypeRef, musicLinks, skillsetIcons } from "@utils/constants"
 import "@styles/index.scss"
@@ -14,7 +14,6 @@ import "@styles/pages/_homePage.scss"
 const Img = loadable(() => import("gatsby-image"))
 const Icon = loadable(() => import("@components/Icon"))
 const Typography = loadable(() => import("@components/Typography"))
-const MainLayout = loadable(() => import("@components/Layouts"))
 const Flex = loadable(() => import("@components/Flex"))
 const Tag = loadable(() => import("@components/Tag"))
 const SEO = loadable(() => import("@components/SEO"))
@@ -79,6 +78,7 @@ const HomePage = () => {
       }
     }
   `)
+  const mainRef = React.useRef()
 
   const [welcomeRef, welcomeInView] = useInView({
     threshold: 0.01,
@@ -97,8 +97,24 @@ const HomePage = () => {
     triggerOnce: true,
   })
 
+  React.useEffect(() => {
+    const ref = mainRef.current
+    if (!ref) return
+
+    const setScroll = () => {
+      ref.style.setProperty(
+        "--scroll",
+        (ref.scrollTop / (ref.offsetHeight - ref.scrollHeight)) * 3
+      )
+    }
+
+    ref.addEventListener("scroll", setScroll, false)
+
+    return () => ref.removeEventListener("scroll", setScroll, false)
+  }, [mainRef])
+
   return (
-    <MainLayout className="page-home">
+    <RefMainLayout ref={mainRef} className="page-home">
       <SEO title={data.site.siteMetadata.author} />
       <Flex
         className="page-home__landing-container"
@@ -127,8 +143,8 @@ const HomePage = () => {
             welcomeInView ? "section--visible" : "section--hide"
           }`}
         >
-          <Flex className="page-home__about-section__img page-home__about-section__img-sax-cat">
-            <SaxophoneCat />
+          <Flex className="page-home__about-section__img page-home__about-section__img-clock--1">
+            <Clock />
           </Flex>
           <Flex
             className="page-home__about-section__txt"
@@ -192,8 +208,8 @@ const HomePage = () => {
               More about me
             </ButtonLink>
           </Flex>
-          <Flex className="page-home__about-section__img page-home__about-section__img-drummer-cat">
-            <DrummerCat />
+          <Flex className="page-home__about-section__img page-home__about-section__img-clock--2">
+            <Clock />
           </Flex>
         </Flex>
       </Flex>
@@ -264,7 +280,7 @@ const HomePage = () => {
           More Posts
         </ButtonLink>
       </Flex>
-    </MainLayout>
+    </RefMainLayout>
   )
 }
 

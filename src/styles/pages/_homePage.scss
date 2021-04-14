@@ -192,11 +192,57 @@
       font-size: 20em;
       color: $color-neutral-400;
       position: relative;
-
-      svg {
-        &:nth-child(2) {
-          position: absolute;
+      &-clock {
+        &--1 {
+          color: var(--pk-color-primary-600);
+          line {
+            stroke: var(--pk-color-secondary-600);
+          }
+          circle {
+            color: var(--pk-color-negative-600);
+          }
         }
+
+        &--2 {
+          color: var(--pk-color-secondary-600);
+          line {
+            stroke: var(--pk-color-negative-600);
+          }
+          circle {
+            color: var(--pk-color-primary-600);
+          }
+        }
+      }
+      svg {
+        g:nth-child(3) {
+          transform-origin: center center;
+          animation: counter-clock-wise 1s linear infinite;
+          animation-play-state: paused;
+          animation-delay: calc(var(--scroll) * -1s);
+        }
+
+        g:nth-child(4) {
+          transform-origin: center center;
+          animation: clock-wise 1s linear infinite;
+          animation-play-state: paused;
+          animation-delay: calc(var(--scroll) * -1s);
+        }
+
+        g:nth-child(5) {
+          transform-origin: center center;
+          animation: counter-clock-wise 1s linear infinite;
+          animation-play-state: paused;
+          animation-delay: calc(var(--scroll) * -1s);
+        }
+        // g:first-child {
+        // }
+
+        // g:nth-child(4) {
+        //   transform-origin: center center;
+        //   animation-play-state: paused;
+        //   animation-delay: calc(var(--scroll) * -1s);
+        //   animation: counter-clock-wise 1s linear infinite;
+        // }
       }
     }
 
