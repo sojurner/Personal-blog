@@ -5,6 +5,7 @@ import loadable from "@loadable/component"
 
 import { AniLoaderLink } from "@components/Link"
 import Clock from "@assets/Clock.svg"
+import MagicTale from "@assets/MagicTale.svg"
 import { RefMainLayout } from "@components/Layouts"
 
 import { blogTypeRef, musicLinks, skillsetIcons } from "@utils/constants"
@@ -145,7 +146,7 @@ const HomePage = () => {
             welcomeInView ? "section--visible" : "section--hide"
           }`}
         >
-          <Flex className="page-home__about-section__img page-home__about-section__img-clock--1">
+          <Flex className="page-home__about-section__img page-home__about-section__img-clock">
             <Clock />
           </Flex>
           <Flex
@@ -210,8 +211,8 @@ const HomePage = () => {
               More about me
             </ButtonLink>
           </Flex>
-          <Flex className="page-home__about-section__img page-home__about-section__img-clock--2">
-            <Clock />
+          <Flex className="page-home__about-section__img page-home__about-section__img-magic-tale">
+            <MagicTale />
           </Flex>
         </Flex>
       </Flex>

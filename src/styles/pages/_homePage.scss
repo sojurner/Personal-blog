@@ -194,27 +194,14 @@
       position: relative;
 
       &-clock {
-        &--1 {
-          color: var(--pk-color-primary-600);
-          line {
-            stroke: var(--pk-color-secondary-600);
-          }
-          circle {
-            color: var(--pk-color-negative-600);
-          }
+        color: var(--pk-color-primary-500);
+        line {
+          stroke: var(--pk-color-secondary-600);
+        }
+        circle {
+          color: var(--pk-color-primary-700);
         }
 
-        &--2 {
-          color: var(--pk-color-secondary-600);
-          line {
-            stroke: var(--pk-color-negative-600);
-          }
-          circle {
-            color: var(--pk-color-primary-600);
-          }
-        }
-      }
-      svg {
         g:nth-child(3) {
           transform-origin: center center;
           transform: rotate(calc(var(--scroll) * -1 * 360deg));
@@ -234,15 +221,15 @@
           transform: rotate(calc(var(--scroll) * -1 * 360deg));
           animation-fill-mode: both;
         }
-        // g:first-child {
-        // }
+      }
 
-        // g:nth-child(4) {
-        //   transform-origin: center center;
-        //   animation-play-state: paused;
-        //   animation-delay: calc(var(--scroll) * -1s);
-        //   animation: counter-clock-wise 1s linear infinite;
-        // }
+      &-magic-tale {
+        color: var(--pk-color-primary-500);
+        @for $i from 1 to 54 {
+          path:nth-child(#{$i}) {
+            filter: hue-rotate(calc(var(--scroll) * -#{$i} * 360deg));
+          }
+        }
       }
     }
 
