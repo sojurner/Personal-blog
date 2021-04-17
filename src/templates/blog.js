@@ -188,6 +188,7 @@ const PostContext = React.createContext()
 const PostCenterHeader = ({ frontmatter, slug, ...props }) => {
   const [viewCount] = usePageView(slug)
 
+
   return (
     <PostContext.Provider value={[frontmatter, viewCount]}>
       <Flex

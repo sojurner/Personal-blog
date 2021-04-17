@@ -31,10 +31,24 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-contentful`,
+      resolve: `gatsby-source-prismic`,
       options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        repositoryName: process.env.PRISMIC_REPOSITORY_NAME,
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+        schemas: {
+          meme_post: require("./custom_types/meme_post.json"),
+        },
+        lang: '*',
+        imageImgixParams: {
+          auto: "compress,format",
+          fit: "max",
+          q: 50,
+        },
+        imagePlaceholderImgixParams: {
+          w: 100,
+          blur: 15,
+          q: 50,
+        },
       },
     },
     {
@@ -123,7 +137,7 @@ module.exports = {
       options: {
         printRejected: true, // Print removed selectors and processed file names
         develop: true, // Enable while using `gatsby develop`
-        purgeOnly: [`${__dirname}/src/styles`]
+        purgeOnly: [`${__dirname}/src/styles`],
       },
     },
     "gatsby-plugin-react-helmet",
