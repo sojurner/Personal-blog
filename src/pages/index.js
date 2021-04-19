@@ -66,17 +66,6 @@ const HomePage = () => {
           }
         }
       }
-      allContentfulMeme(limit: 9, sort: { fields: [timestamp], order: DESC }) {
-        nodes {
-          title
-          contentful_id
-          img {
-            fluid(maxWidth: 800) {
-              ...GatsbyContentfulFluid
-            }
-          }
-        }
-      }
     }
   `)
   const mainRef = React.useRef()
