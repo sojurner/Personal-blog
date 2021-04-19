@@ -5,15 +5,12 @@ import { graphql, useStaticQuery } from "gatsby"
 import { RefMainLayout } from "@components/Layouts"
 
 import "@styles/pages/_memes.scss"
-
-import { tagIconRef } from "@utils/constants"
 import { useMemeMeta, useInfiniteScroll } from "@utils/hooks"
 
 const Img = loadable(() => import("gatsby-image"))
 const SEO = loadable(() => import("@components/SEO"))
 const Button = loadable(() => import("@components/Button"))
 const Flex = loadable(() => import("@components/Flex"))
-const Chip = loadable(() => import("@components/Chip"))
 const Divider = loadable(() => import("@components/Divider"))
 const Typography = loadable(() => import("@components/Typography"))
 const Icon = loadable(() => import("@components/Icon"))
@@ -21,57 +18,56 @@ const Icon = loadable(() => import("@components/Icon"))
 const MemesPage = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulMeme(sort: { fields: [timestamp], order: DESC }) {
+      allDatoCmsMeme(sort: { fields: [date], order: DESC }) {
+        totalCount
         nodes {
+          id
           title
-          tags
-          source
-          timestamp(formatString: "MMM DD, YYYY")
-          contentful_id
-          img {
-            fluid(maxWidth: 800) {
-              ...GatsbyContentfulFluid
+          src
+          date(formatString: "MMM DD, YYYY")
+          image {
+            fluid(maxWidth: 550, forceBlurhash: false, imgixParams: { fm: "jpg", auto: "compress" }) {
+              ...GatsbyDatoCmsFluid
             }
           }
         }
       }
     }
   `)
-
+  
   let endRange = 3
   if (location.hash) {
-    const index = data.allContentfulMeme.nodes.findIndex(
-      x => x.contentful_id === location.hash.slice(1)
+    const index = data.allDatoCmsMeme.nodes.findIndex(
+      x => x.id === location.hash.slice(1)
     ) + 1
     endRange = index > endRange ? index : endRange
   }
 
   const [mainRef, itemRange] = useInfiniteScroll(
     [0, endRange],
-    data.allContentfulMeme.nodes.length
+    data.totalCount
   )
 
   return (
     <RefMainLayout ref={mainRef} className="page-memes">
       <SEO title="Memes" />
       <MemesControl>
-        {data.allContentfulMeme.nodes.slice(...itemRange).map((node, index) => {
+        {data.allDatoCmsMeme.nodes.slice(...itemRange).map((node, index) => {
           return (
-            <MemePost key={`post-ref-${index}`} id={node.contentful_id}>
+            <MemePost key={`post-ref-${index}`} id={node.id}>
               <MemeHeader
                 title={node.title}
-                timestamp={node.timestamp}
-                tags={node.tags}
+                timestamp={node.date}
               />
-              {node.img && (
-                <MemeImg durationFadeIn={200} fluid={node.img.fluid} />
+              {node.image && (
+                <MemeImg durationFadeIn={200} fluid={node.image.fluid} />
               )}
-              <MemeAction id={node.contentful_id}>
-                <MemeVoting id={node.contentful_id} />
+              <MemeAction id={node.id}>
+                <MemeVoting id={node.id} />
                 <MemeSocial
                   rootUrl={location.origin}
-                  id={node.contentful_id}
-                  source={node.source}
+                  id={node.id}
+                  source={node.src}
                 />
               </MemeAction>
             </MemePost>
@@ -84,7 +80,7 @@ const MemesPage = ({ location }) => {
 
 const MemeContext = React.createContext()
 
-const MemesControl = ({ rootUrl, ...props }) => {
+const MemesControl = (props) => {
   const [memeMeta, updateMemeMeta] = useMemeMeta()
 
   const onUpVote = React.useCallback(
@@ -119,7 +115,7 @@ const MemePost = React.memo(
   (prev, next) => prev.id === next.id && prev.children === next.children
 )
 
-const MemeHeader = React.memo(({ title, timestamp, tags }) => {
+const MemeHeader = React.memo(({ title, timestamp }) => {
   return (
     <>
       <Flex className="meme-title">
@@ -135,16 +131,6 @@ const MemeHeader = React.memo(({ title, timestamp, tags }) => {
         <Typography className="meme-date" tag="span" variant="neutralLight">
           {timestamp}
         </Typography>
-        <Flex className="meme-tags">
-          {tags.split(",").map((tag, i) => (
-            <Chip
-              variant="default"
-              label={tag}
-              key={`chip-meme-${i}`}
-              icon={tagIconRef[tag]}
-            />
-          ))}
-        </Flex>
       </Flex>
     </>
   )
