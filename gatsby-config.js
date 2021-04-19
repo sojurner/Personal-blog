@@ -31,11 +31,12 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-contentful`,
+      resolve: `gatsby-source-datocms`,
       options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
+        apiToken: process.env.DATOCMS_ACCESS_TOKEN,
+        preview: false,
+        disableLiveReload: false,
+      }
     },
     {
       resolve: `gatsby-plugin-alias-imports`,
