@@ -19,28 +19,28 @@ const usePageView = id => {
 
   useEffect(() => {
     if (!table) return
-
-    table.once("value", snapshot => {
-      const childRef = snapshot.child(id)
-      if (!childRef.exists()) {
-        table.set({
-          ...snapshot.val(),
-          [id]: { views: 1 },
-        })
-        setViewCount(1)
-      } else {
-        const pageViews = parseInt(childRef.val().views + 1)
-        setViewCount(pageViews)
-        table.child(id).set({ views: pageViews })
-      }
-    })
+    table
+      .child(id)
+      .get()
+      .then(snapshot => {
+        if (!snapshot.exists()) {
+          table.set({ ...snapshot.val(), [id]: { views: 1 } })
+          setViewCount(1)
+        } else {
+          const pageViews = parseInt(snapshot.val().views + 1)
+          let updates = {}
+          updates[`${id}/views`] = pageViews
+          table.update(updates)
+          setViewCount(pageViews)
+        }
+      })
   }, [id, table])
 
   return [viewCount]
 }
 
 const usePageViewMeta = () => {
-  const [table] = useFirebase("blog")
+  const [table] = useFirebase("blog/")
 
   const [viewState, setViewState] = useState()
   const [error, setError] = useState("")
@@ -50,7 +50,7 @@ const usePageViewMeta = () => {
     if (!table) return
     setLoading(true)
 
-    table.once("value", snapshot => {
+    table.get().then(snapshot => {
       if (snapshot.exists()) {
         setViewState(snapshot.val())
       } else {
@@ -60,7 +60,6 @@ const usePageViewMeta = () => {
 
     setLoading(false)
   }, [table])
-
   return [viewState, loading, error]
 }
 
@@ -94,7 +93,7 @@ const useMemeMeta = () => {
     if (!table) return
     setLoading(true)
 
-    table.once("value", snapshot => {
+    table.get().then(snapshot => {
       if (snapshot.exists()) {
         const memeData = snapshot.val()
         setViewState(state => ({ ...state, ...memeData }))
