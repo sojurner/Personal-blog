@@ -60,19 +60,27 @@ $darkmode-light: #ecb829;
   &__tag-divider__divider {
     height: 2px;
     width: 30px;
-    margin: 0 20px;
+    margin: 0 15px;
     background: $darkmode-default;
     opacity: 0.6;
   }
 
   &__tag-divider__tag {
+    margin: 0 5px;
+
     span {
       color: #3a3546;
+      cursor: pointer;
 
       &::before {
         background: #3a3546;
       }
-      cursor: pointer;
+    }
+
+    &--blog {
+      span {
+        background: $darkmode-default;
+      }
     }
   }
 
@@ -95,19 +103,6 @@ $darkmode-light: #ecb829;
       font-size: 1.5em;
       padding: 0.3em;
       margin-left: 10px;
-    }
-  }
-
-  &__go-back {
-    position: absolute;
-    top: 20px;
-    left: 30px;
-    cursor: pointer;
-    color: $darkmode-default;
-    opacity: 0.8;
-
-    &:hover {
-      opacity: 1;
     }
   }
 

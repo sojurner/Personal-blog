@@ -58,7 +58,6 @@ const Blog = ({ data }) => {
           alt={frontmatter.featuredImgAlt}
         />
         <div ref={aRef} className="template-blog__shade-transition" />
-        <GoBackLink />
         <PostCenterHeader frontmatter={frontmatter} slug={fields.slug}>
           <PostTitle />
           <PostTag />
@@ -169,7 +168,13 @@ const PostTag = props => {
       {...props}
     >
       <div className="template-blog__tag-divider__divider" />
-      <AniFadeLink
+      <Link
+        className="template-blog__tag-divider__tag template-blog__tag-divider__tag--blog"
+        to={`/blog`}
+      >
+        <Tag label={"blog"} variant={"neutral"} />
+      </Link>
+      <Link
         className="template-blog__tag-divider__tag"
         to={`/blog/${frontmatter.subject}`}
       >
@@ -177,7 +182,7 @@ const PostTag = props => {
           label={frontmatter.subject}
           variant={blogTypeRef[frontmatter.subject].tagVariant}
         />
-      </AniFadeLink>
+      </Link>
       <div className="template-blog__tag-divider__divider" />
     </Flex>
   )
@@ -288,13 +293,7 @@ const PostMusicControl = () => {
     </Flex>
   )
 }
-const GoBackLink = () => (
-  <AniFadeLink to="/blog">
-    <Typography className="template-blog__go-back" variant="neutralDark">
-      ⤺ back to posts
-    </Typography>
-  </AniFadeLink>
-)
+
 const BlogColumn = ({ node }) => {
   const { frontmatter, fields, featuredImg } = node
   return (
