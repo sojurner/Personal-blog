@@ -234,7 +234,6 @@ const BlogCard = ({ frontmatter, featuredImg, fields }) => {
         {featuredImg && (
           <Img
             fluid={featuredImg.childImageSharp.fluid}
-            imgStyle={{objectFit: "cover"}}
             durationFadeIn={200}
             className="page-blog__card-header__foreground-img"
             alt={frontmatter.featuredImgAlt}
