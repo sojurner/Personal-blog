@@ -172,13 +172,14 @@ const PostTag = props => {
         className="template-blog__tag-divider__tag template-blog__tag-divider__tag--blog"
         to={`/blog`}
       >
-        <Tag label={"blog"} variant={"neutral"} />
+        <Tag label={"blog"} shape="doubleRight" variant={"neutral"} />
       </Link>
       <Link
         className="template-blog__tag-divider__tag"
         to={`/blog/${frontmatter.subject}`}
       >
         <Tag
+          shape="doubleRight"
           label={frontmatter.subject}
           variant={blogTypeRef[frontmatter.subject].tagVariant}
         />

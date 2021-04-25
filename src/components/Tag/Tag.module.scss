@@ -23,6 +23,17 @@ $tag-variants: (
     cursor: default;
     user-select: none;
     transition: color 0.2s;
+  }
+
+  &--double-right {
+    clip-path: polygon(85% 0%, 100% 50%, 85% 100%, 0% 100%, 15% 50%, 0% 0%);
+  }
+
+  &--double-left {
+    clip-path: polygon(100% 0%, 85% 50%, 98% 100%, 25% 100%, 10% 50%, 25% 0%);
+  }
+
+  &--single-right {
     clip-path: polygon(0% 0%, 88% 0, 100% 50%, 88% 100%, 0% 100%);
 
     &::before {
@@ -39,20 +50,26 @@ $tag-variants: (
     }
   }
 
-  @each $variant, $bg in $tag-variants {
+  &--single-left {
+    clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 18% 100%, 0% 50%);
 
+    &::before {
+      content: "";
+      position: absolute;
+      background: $color-blank-800;
+      border-radius: 10px;
+      box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+      height: 5px;
+      right: 9px;
+      width: 5px;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+  }
+
+  @each $variant, $bg in $tag-variants {
     &--#{$variant} {
       background: $bg;
-
-      // &::after {
-      //   content: "";
-      //   position: absolute;
-      //   border-bottom: 13px solid transparent;
-      //   border-left: 10px solid $bg;
-      //   border-top: 13px solid transparent;
-      //   right: -10px;
-      //   top: 0;
-      // }
     }
   }
 }

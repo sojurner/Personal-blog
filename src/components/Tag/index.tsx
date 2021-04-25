@@ -14,10 +14,19 @@ const tagVariants: PKExtendedVariant = Object.freeze({
   default: tagStyles.tagDefault,
 })
 
+const tagShapes = Object.freeze({
+  singleRight: tagStyles.tagSingleRight,
+  singleLeft: tagStyles.tagSingleLeft,
+  doubleRight: tagStyles.tagDoubleRight,
+  doubleLeft: tagStyles.tagDoubleLeft,
+})
+
 type TagVariantKey = keyof typeof tagVariants
+type TagShapeKey = keyof typeof tagShapes
 
 export interface PKTagComponent extends React.HTMLAttributes<HTMLElement> {
   variant?: TagVariantKey
+  shape?: TagShapeKey
   label: string
   className?: string
 }
@@ -26,12 +35,13 @@ const Tag: React.FC<PKTagComponent> = ({
   label,
   variant,
   children,
+  shape,
   className,
   ...props
 }) => {
   const classes: string = `${tagStyles.tagBase} ${tagVariants[variant]} ${
-    className || ""
-  }`.trim()
+    tagShapes[shape]
+  } ${className || ""}`.trim()
 
   return (
     <Typography
@@ -47,6 +57,7 @@ const Tag: React.FC<PKTagComponent> = ({
 
 Tag.defaultProps = {
   variant: "default",
+  shape: "singleRight",
 }
 
 export { tagVariants, Tag as default }

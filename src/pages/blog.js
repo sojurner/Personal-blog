@@ -20,7 +20,6 @@ const Icon = loadable(() => import("@components/Icon"))
 const Typography = loadable(() => import("@components/Typography"))
 const Avatar = loadable(() => import("@components/Avatar"))
 const SEO = loadable(() => import("@components/SEO"))
-const Divider = loadable(() => import("@components/Divider"))
 
 const BlogPage = () => {
   const data = useStaticQuery(graphql`
@@ -235,21 +234,39 @@ const BlogCard = ({ frontmatter, featuredImg, fields }) => {
         {featuredImg && (
           <Img
             fluid={featuredImg.childImageSharp.fluid}
+            imgStyle={{objectFit: "cover"}}
             durationFadeIn={200}
             className="page-blog__card-header__foreground-img"
             alt={frontmatter.featuredImgAlt}
           />
         )}
-
-        <BlogAuthor
-          fluid={frontmatter.avatar.childImageSharp.fluid}
-          alt={frontmatter.author
-            .split(" ")
-            .map(x => x[0])
-            .join("")}
+        <Flex
+          classes={["flexRow", "justifyContentBetween"]}
+          className="page-blog__card-header__author-tags"
         >
-          {frontmatter.author}
-        </BlogAuthor>
+          <BlogAuthor
+            fluid={frontmatter.avatar.childImageSharp.fluid}
+            alt={frontmatter.author
+              .split(" ")
+              .map(x => x[0])
+              .join("")}
+          >
+            {frontmatter.author}
+          </BlogAuthor>
+          <Flex
+            classes={["flexRow", "flexWrap", "alignSelfBaseline"]}
+            className="page-blog__card-header__tags"
+          >
+            {frontmatter.tags.map((tag, index) => (
+              <Tag
+                className="page-blog__card-header__tags__item"
+                label={tag}
+                key={`card-tag-${index}`}
+                variant={blogTypeRef[tag].tagVariant}
+              />
+            ))}
+          </Flex>
+        </Flex>
         <Flex classes={["flexColumn"]} className="page-blog__card-content">
           <BlogTitle variant={blogTypeRef[frontmatter.subject].textVariant}>
             {frontmatter.title}
@@ -270,20 +287,6 @@ const BlogCard = ({ frontmatter, featuredImg, fields }) => {
           >
             {frontmatter.desc}
           </BlogDescription>
-
-          <Divider className="page-blog__card-content__divider" />
-          <Flex
-            classes={["flexRow", "flexWrap", "alignSelfBaseline"]}
-            className="page-blog__card-footer-tags"
-          >
-            {frontmatter.tags.map((tag, index) => (
-              <Tag
-                label={tag}
-                key={`card-tag-${index}`}
-                variant={blogTypeRef[tag].tagVariant}
-              />
-            ))}
-          </Flex>
         </Flex>
       </Card>
     </AniLoaderLink>

@@ -113,14 +113,19 @@
     z-index: 0;
   }
 
+  &__card-header__author-tags {
+    margin: -13px 0 0 0;
+    width: 100%;
+    padding: 0 1.5em;
+  }
+
   &__card-header__profile-container {
     z-index: 1;
-    margin: -20px 0 0 10px;
     background: $color-blank-800;
     padding: 0.3em 0.6em;
     border-radius: 50px;
     width: max-content;
-    box-shadow: 0 0 5px 0 $color-neutral-800;
+    margin-top: -5px;
   }
 
   &__card-header__profile-avatar {
