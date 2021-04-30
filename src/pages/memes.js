@@ -26,7 +26,11 @@ const MemesPage = ({ location }) => {
           src
           date(formatString: "MMM DD, YYYY")
           image {
-            fluid(maxWidth: 550, forceBlurhash: false, imgixParams: { fm: "jpg", auto: "compress" }) {
+            fluid(
+              maxWidth: 550
+              forceBlurhash: false
+              imgixParams: { fm: "jpg", auto: "compress" }
+            ) {
               ...GatsbyDatoCmsFluid
             }
           }
@@ -34,19 +38,17 @@ const MemesPage = ({ location }) => {
       }
     }
   `)
-  
+
   let endRange = 3
   if (location.hash) {
-    const index = data.allDatoCmsMeme.nodes.findIndex(
-      x => x.id === location.hash.slice(1)
-    ) + 1
+    const index =
+      data.allDatoCmsMeme.nodes.findIndex(
+        x => x.id === location.hash.slice(1)
+      ) + 1
     endRange = index > endRange ? index : endRange
   }
 
-  const [mainRef, itemRange] = useInfiniteScroll(
-    [0, endRange],
-    data.totalCount
-  )
+  const [mainRef, itemRange] = useInfiniteScroll([0, endRange], data.totalCount)
 
   return (
     <RefMainLayout ref={mainRef} className="page-memes">
@@ -55,10 +57,7 @@ const MemesPage = ({ location }) => {
         {data.allDatoCmsMeme.nodes.slice(...itemRange).map((node, index) => {
           return (
             <MemePost key={`post-ref-${index}`} id={node.id}>
-              <MemeHeader
-                title={node.title}
-                timestamp={node.date}
-              />
+              <MemeHeader title={node.title} timestamp={node.date} />
               {node.image && (
                 <MemeImg durationFadeIn={200} fluid={node.image.fluid} />
               )}
@@ -80,7 +79,7 @@ const MemesPage = ({ location }) => {
 
 const MemeContext = React.createContext()
 
-const MemesControl = (props) => {
+const MemesControl = props => {
   const [memeMeta, updateMemeMeta] = useMemeMeta()
 
   const onUpVote = React.useCallback(
@@ -115,7 +114,7 @@ const MemePost = React.memo(
   (prev, next) => prev.id === next.id && prev.children === next.children
 )
 
-const MemeHeader = React.memo(({ title, timestamp }) => {
+const MemeHeader = ({ title, timestamp }) => {
   return (
     <>
       <Flex className="meme-title">
@@ -134,53 +133,48 @@ const MemeHeader = React.memo(({ title, timestamp }) => {
       </Flex>
     </>
   )
-})
+}
 
-const MemeImg = React.memo(({ fluid }) => (
-  <Img className="meme-img" fluid={fluid} />
-))
+const MemeImg = props => <Img className="meme-img" {...props} />
 
 // ----------{ voting ---------- //
 
-const MemeVoting = React.memo(
-  ({ id, ...props }) => {
-    const [, onUpVote] = React.useContext(MemeContext)
-    const [voted, setVoted] = React.useState(false)
+const MemeVoting = ({ id, ...props }) => {
+  const [, onUpVote] = React.useContext(MemeContext)
+  const [voted, setVoted] = React.useState(false)
 
-    const handleUpVote = React.useCallback(() => {
-      onUpVote(id)
-      setVoted(true)
-    }, [setVoted, onUpVote, id])
+  const handleUpVote = React.useCallback(() => {
+    onUpVote(id)
+    setVoted(true)
+  }, [setVoted, onUpVote, id])
 
-    return (
-      <Flex
-        className="meme-actions"
-        classes={["flexRow", "justifyContentCenter"]}
-        {...props}
-      >
-        <MemeUpvote
-          onClick={handleUpVote}
-          variant={!voted ? "positive" : "positiveActive"}
-        />
-      </Flex>
-    )
-  },
-  (prev, next) => prev.id === next.id
-)
+  return (
+    <Flex
+      className="meme-actions"
+      classes={["flexRow", "justifyContentCenter"]}
+      {...props}
+    >
+      <MemeUpvote
+        onClick={handleUpVote}
+        variant={!voted ? "positive" : "positiveActive"}
+      />
+    </Flex>
+  )
+}
 
-const MemeUpvote = React.memo(props => {
+const MemeUpvote = props => {
   return (
     <Button className="meme-vote meme-vote--up" aria-label="Up vote" {...props}>
       <Icon svg="thumbup" />
     </Button>
   )
-})
+}
 
 // ---------- voting }---------- //
 
 // ----------{ Social ---------- //
 
-const MemeSocial = React.memo(({ id, source, rootUrl }) => {
+const MemeSocial = ({ id, source, rootUrl }) => {
   const [notification, setNotification] = React.useState("")
 
   const onCopyLink = React.useCallback(() => {
@@ -210,9 +204,9 @@ const MemeSocial = React.memo(({ id, source, rootUrl }) => {
       <MemeNotification notification={notification} />
     </Flex>
   )
-})
+}
 
-const MemeSrc = React.memo(props => (
+const MemeSrc = props => (
   <Button
     variant="default"
     aria-label="Source link"
@@ -222,9 +216,9 @@ const MemeSrc = React.memo(props => (
     <Icon svg="link" />
     <Typography tag="span">src</Typography>
   </Button>
-))
+)
 
-const MemeShare = React.memo(props => (
+const MemeShare = props => (
   <Button
     aria-label="Copy link"
     variant="secondary"
@@ -233,7 +227,7 @@ const MemeShare = React.memo(props => (
   >
     <Icon svg="share" />
   </Button>
-))
+)
 
 const MemeAction = ({ id, children }) => {
   const [memeMeta] = React.useContext(MemeContext)
