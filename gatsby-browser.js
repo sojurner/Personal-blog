@@ -1,3 +1,4 @@
+require("prismjs/themes/prism-tomorrow.css")
 const loadableReady = require("@loadable/component").loadableReady
 
 exports.replaceHydrateFunction = () => {
