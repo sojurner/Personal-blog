@@ -204,28 +204,28 @@
 
         g:nth-child(3) {
           transform-origin: center center;
-          transform: rotate(calc(var(--scroll) * -1 * 360deg));
+          transform: rotate(calc(var(--scroll) * -1 * 500deg));
 
           animation-fill-mode: both;
         }
 
         g:nth-child(4) {
           transform-origin: center center;
-          transform: rotate(calc(var(--scroll) * 360deg));
+          transform: rotate(calc(var(--scroll) * 500deg));
 
           animation-fill-mode: both;
         }
 
         g:nth-child(5) {
           transform-origin: center center;
-          transform: rotate(calc(var(--scroll) * -1 * 360deg));
+          transform: rotate(calc(var(--scroll) * -1 * 500deg));
           animation-fill-mode: both;
         }
       }
 
-      &-magic-tale {
+      &-bits {
         color: var(--pk-color-primary-500);
-        @for $i from 1 to 54 {
+        @for $i from 1 to 153 {
           path:nth-child(#{$i}) {
             filter: hue-rotate(calc(var(--scroll) * -#{$i} * 360deg));
           }
