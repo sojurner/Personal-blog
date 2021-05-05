@@ -210,7 +210,7 @@ const HomePage = () => {
 const WelcomSection = () => (
   <Flex
     classes={["flexRow", "justifyContentCenter"]}
-    className="page-home__about-section--inner section--base"
+    className="page-home__about-section--inner page-home__about-section--inner-1 section--base"
   >
     <Flex className="page-home__about-section__img page-home__about-section__img-clock">
       <Clock />
@@ -241,7 +241,7 @@ const WelcomSection = () => (
 const SkillSection = () => (
   <Flex
     classes={["flexRow", "justifyContentCenter"]}
-    className="page-home__about-section--inner section--base"
+    className="page-home__about-section--inner page-home__about-section--inner-2 section--base"
   >
     <Flex className="page-home__about-section__txt" classes={["flexColumn"]}>
       <Typography variant="neutralDark" tag="h2">

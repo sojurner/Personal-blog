@@ -283,12 +283,12 @@
       &--inner {
         align-items: center;
 
-        &:nth-child(2) {
+        &-1 {
           flex-direction: column;
-          margin-top: -3em;
         }
 
-        &:last-child {
+        &-2 {
+          margin-top: -3em;
           flex-direction: column-reverse;
         }
       }
@@ -308,7 +308,6 @@
       }
 
       &__img {
-        margin: 0 0 0.1em 0;
         font-size: 17em;
       }
     }
