@@ -70,13 +70,8 @@ const HomePage = () => {
   `)
   const mainRef = React.useRef()
 
-  const [welcomeRef, welcomeInView] = useInView({
-    threshold: 0.01,
-    triggerOnce: true,
-  })
   const [aboutRef, aboutInView] = useInView({
     threshold: 0.01,
-    triggerOnce: true,
   })
   const [musicRef, musicInView] = useInView({
     threshold: 0.01,
@@ -100,10 +95,14 @@ const HomePage = () => {
       )
     }
 
-    ref.addEventListener("scroll", setScroll, false)
+    if (aboutInView) {
+      ref.addEventListener("scroll", setScroll, false)
+    } else {
+      ref.removeEventListener("scroll", setScroll, false)
+    }
 
     return () => ref.removeEventListener("scroll", setScroll, false)
-  }, [mainRef])
+  }, [mainRef, aboutInView])
 
   return (
     <RefMainLayout ref={mainRef} className="page-home">
@@ -126,85 +125,17 @@ const HomePage = () => {
         </HomeLanding>
       </Flex>
 
-      <Flex className="page-home__about-section" classes={["flexColumn"]}>
-        <span ref={welcomeRef} />
-
-        <Flex
-          classes={["flexRow", "justifyContentCenter"]}
-          className={`page-home__about-section--inner section--base ${
-            welcomeInView ? "section--visible" : "section--hide"
-          }`}
-        >
-          <Flex className="page-home__about-section__img page-home__about-section__img-clock">
-            <Clock />
-          </Flex>
-          <Flex
-            className="page-home__about-section__txt"
-            classes={["flexColumn"]}
-          >
-            <Typography variant="neutralDark" tag="h2">
-              Welcome!
-            </Typography>
-            <div className="page-home__about-section__divider" />
-
-            <Typography tag="h4" variant="neutralLight">
-              I started this website as a <em>creative</em> and{" "}
-              <em>therapeutic</em> outlet. I'll share all that I know, and all
-              that I've wondered through my blog.
-            </Typography>
-            <ButtonLink
-              to="/blog"
-              aria-label="to blog page"
-              variant="primary"
-              className="page-home__about-section__link"
-            >
-              Go to blog
-            </ButtonLink>
-          </Flex>
+      <div
+        className={`section--base ${
+          aboutInView ? "section--visible" : "section--hide"
+        }`}
+        ref={aboutRef}
+      >
+        <Flex className="page-home__about-section" classes={["flexColumn"]}>
+          <WelcomSection />
+          <SkillSection />
         </Flex>
-
-        <span ref={aboutRef} />
-        <Flex
-          classes={["flexRow", "justifyContentCenter"]}
-          className={`page-home__about-section--inner section--base ${
-            aboutInView ? "section--visible" : "section--hide"
-          }`}
-        >
-          <Flex
-            className="page-home__about-section__txt"
-            classes={["flexColumn"]}
-          >
-            <Typography variant="neutralDark" tag="h2">
-              About
-            </Typography>
-            <div className="page-home__about-section__divider" />
-
-            <Typography tag="h4" variant="neutralLight">
-              As a <em>full-stack developer</em>, here's a broad overview of my
-              <em> skillset</em>:
-            </Typography>
-            <div className="page-home__about-section__skill-icons">
-              {skillsetIcons.map(skillProps => (
-                <SkillIcon
-                  key={`skill-icon-${skillProps.svg}`}
-                  {...skillProps}
-                />
-              ))}
-            </div>
-            <ButtonLink
-              to="/about"
-              variant="secondary"
-              aria-label="to about page"
-              className="page-home__about-section__link"
-            >
-              More about me
-            </ButtonLink>
-          </Flex>
-          <Flex className="page-home__about-section__img page-home__about-section__img-bits">
-            <Bits />
-          </Flex>
-        </Flex>
-      </Flex>
+      </div>
 
       <span ref={musicRef} />
 
@@ -275,6 +206,72 @@ const HomePage = () => {
     </RefMainLayout>
   )
 }
+
+const WelcomSection = () => (
+  <Flex
+    classes={["flexRow", "justifyContentCenter"]}
+    className="page-home__about-section--inner section--base"
+  >
+    <Flex className="page-home__about-section__img page-home__about-section__img-clock">
+      <Clock />
+    </Flex>
+    <Flex className="page-home__about-section__txt" classes={["flexColumn"]}>
+      <Typography variant="neutralDark" tag="h2">
+        Welcome!
+      </Typography>
+      <div className="page-home__about-section__divider" />
+
+      <Typography tag="h4" variant="neutralLight">
+        I started this website as a <em>creative</em> and <em>therapeutic</em>{" "}
+        outlet. I'll share all that I know, and all that I've wondered through
+        my blog.
+      </Typography>
+      <ButtonLink
+        to="/blog"
+        aria-label="to blog page"
+        variant="primary"
+        className="page-home__about-section__link"
+      >
+        Go to blog
+      </ButtonLink>
+    </Flex>
+  </Flex>
+)
+
+const SkillSection = () => (
+  <Flex
+    classes={["flexRow", "justifyContentCenter"]}
+    className="page-home__about-section--inner section--base"
+  >
+    <Flex className="page-home__about-section__txt" classes={["flexColumn"]}>
+      <Typography variant="neutralDark" tag="h2">
+        About
+      </Typography>
+      <div className="page-home__about-section__divider" />
+
+      <Typography tag="h4" variant="neutralLight">
+        As a <em>full-stack developer</em>, here's a broad overview of my
+        <em> skillset</em>:
+      </Typography>
+      <div className="page-home__about-section__skill-icons">
+        {skillsetIcons.map(skillProps => (
+          <SkillIcon key={`skill-icon-${skillProps.svg}`} {...skillProps} />
+        ))}
+      </div>
+      <ButtonLink
+        to="/about"
+        variant="secondary"
+        aria-label="to about page"
+        className="page-home__about-section__link"
+      >
+        More about me
+      </ButtonLink>
+    </Flex>
+    <Flex className="page-home__about-section__img page-home__about-section__img-bits">
+      <Bits />
+    </Flex>
+  </Flex>
+)
 
 const LandingImage = props => (
   <Img className="page-home__landing-header__front-img" {...props} />
