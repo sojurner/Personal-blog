@@ -226,8 +226,9 @@
       &-bits {
         color: var(--pk-color-primary-500);
         @for $i from 1 to 153 {
+          $rotate-deg: calc(var(--scroll) * -#{$i} * 65deg);
           path:nth-child(#{$i}) {
-            filter: hue-rotate(calc(var(--scroll) * -#{$i} * 360deg));
+            filter: hue-rotate($rotate-deg);
           }
         }
       }
