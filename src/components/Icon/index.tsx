@@ -12,6 +12,7 @@ import social from "@iconify-icons/mdi/account-group-outline"
 import book from "@iconify-icons/mdi/book-open-page-variant-outline"
 import console from "@iconify-icons/mdi-light/console"
 import calendar from "@iconify-icons/mdi/calendar-clock"
+import timer from "@iconify-icons/mdi/timer-outline"
 import mapMarker from "@iconify-icons/mdi/map-marker"
 
 import csharp from "@iconify-icons/mdi/language-csharp"
@@ -112,6 +113,7 @@ const iconSvg = Object.freeze({
   uparrow,
   downarrow,
   headphones,
+  timer
 })
 
 type IconVariantKey = keyof typeof iconVariants

@@ -106,9 +106,12 @@
   --pk-color-icon-gitlab: #f56a25;
   --pk-color-icon-github: #463e4e;
 
-  .page-blog__card-content__txt-title {
+  .page-blog__card__right{
     --pk-color-neutral-900: var(--pk-color-blank-500);
+    --pk-color-neutral-050: var(--pk-color-blank-400);
   }
+
+
 }
 
 body {
@@ -261,8 +264,9 @@ body.dark {
     }
   }
 
-  .page-blog__card-content__txt-title {
+  .page-blog__card__right{
     --pk-color-neutral-900: #f3be4c;
+    --pk-color-neutral-050: #ff9100;
   }
 }
 

@@ -221,7 +221,7 @@ const BlogReadMin = ({ min, variant }) => (
     classes={["flexColumn", "alignItemsCenter"]}
   >
     <Icon
-      svg="book"
+      svg="timer"
       className="page-blog__card-content__details-icon"
       variant={variant}
     />
@@ -230,7 +230,7 @@ const BlogReadMin = ({ min, variant }) => (
       className="page-blog__card-content__details-txt"
       variant={variant}
     >
-      {min} min read
+      {min} min
     </Typography>
   </Flex>
 )
