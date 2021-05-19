@@ -7,6 +7,7 @@ tags: [military]
 author: "Paul Kim"
 featuredImgUrl: "https://wallpapercave.com/wp/wp7231438.jpg"
 featuredImgAlt: "mainstream media"
+time: "5"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 

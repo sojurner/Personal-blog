@@ -7,6 +7,7 @@ tags: [military]
 author: "Paul Kim"
 featuredImgUrl: "https://i.redd.it/l0kzq2rx6kj11.png"
 featuredImgAlt: "service dress uniforms"
+time: "8"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 

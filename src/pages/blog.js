@@ -36,6 +36,7 @@ const BlogPage = () => {
               author
               tags
               featuredImgAlt
+              time
               avatar {
                 childImageSharp {
                   fluid(maxWidth: 800) {
@@ -150,70 +151,86 @@ const BlogPostSection = React.memo(props => {
   )
 })
 
-const BlogAuthor = ({ children, fluid, alt }) => (
+const BlogAuthor = ({ children, fluid, alt, variant }) => (
   <Flex
-    className="page-blog__card-header__profile-container"
+    className="page-blog__card__left__profile-container"
     classes={["flexRow", "alignItemsCenter"]}
   >
     <Avatar
       fluid={fluid}
       alt={alt}
-      className="page-blog__card-header__profile-avatar"
+      className="page-blog__card__left__profile-avatar"
     />
-    <Typography tag="label" className="page-blog__card-header__profile-author">
+    <Typography
+      tag="label"
+      className="page-blog__card__left__profile-author"
+      variant={variant}
+    >
       {children}
     </Typography>
   </Flex>
 )
 
-const BlogDescription = props => (
-  <Typography className="page-blog__card-content__txt-desc" {...props} />
-)
+const BlogDescription = props => <Typography {...props} />
 
-const BlogTitle = props => (
-  <Typography
-    className="page-blog__card-content__txt-title"
-    tag="h2"
-    {...props}
-  />
-)
+const BlogTitle = props => <Typography tag="h2" {...props} />
 
-const BlogDate = ({ date }) => (
+const BlogDate = ({ date, variant }) => (
   <Flex
     className="page-blog__card-content__details__date"
-    classes={["flexRow", "alignItemsCenter"]}
+    classes={["flexColumn", "alignItemsCenter", "alignSelfCenter"]}
   >
     <Icon
       svg="calendar"
       className="page-blog__card-content__details-icon"
-      variant="neutralLight"
+      variant={variant}
     />
     <Typography
       tag="span"
       className="page-blog__card-content__details-txt"
-      variant="neutralLight"
+      variant={variant}
     >
       {date}
     </Typography>
   </Flex>
 )
 
-const BlogViewCount = ({ viewCount }) => (
+const BlogViewCount = ({ viewCount, variant }) => (
   <Flex
-    className="page-blog__card-content__details__view-counter page-blog__card-content__details-inner"
-    classes={["flexRow", "alignItemsCenter"]}
+    className="page-blog__card-content__details__view-counter"
+    classes={["flexColumn", "alignItemsCenter"]}
   >
     <Icon
       svg="eye"
       className="page-blog__card-content__details-icon"
-      variant="neutralLight"
+      variant={variant}
     />
     <Typography
-      tag="span"
+      tag="label"
       className="page-blog__card-content__details-txt"
-      variant="neutralLight"
+      variant={variant}
     >
       {viewCount} views
+    </Typography>
+  </Flex>
+)
+
+const BlogReadMin = ({ min, variant }) => (
+  <Flex
+    className="page-blog__card-content__details__min-read"
+    classes={["flexColumn", "alignItemsCenter"]}
+  >
+    <Icon
+      svg="book"
+      className="page-blog__card-content__details-icon"
+      variant={variant}
+    />
+    <Typography
+      tag="label"
+      className="page-blog__card-content__details-txt"
+      variant={variant}
+    >
+      {min} min read
     </Typography>
   </Flex>
 )
@@ -226,66 +243,102 @@ const BlogCard = ({ frontmatter, featuredImg, fields }) => {
       className="page-blog__card-link"
     >
       <Card
-        classes={["flexColumn", "justifyContentCenter"]}
+        classes={["flexRow", "justifyContentStart"]}
         className="page-blog__card page-blog__card--loaded"
         depth={"z5"}
-        variant={"default"}
       >
-        {featuredImg && (
-          <Img
-            fluid={featuredImg.childImageSharp.fluid}
-            durationFadeIn={200}
-            className="page-blog__card-header__foreground-img"
-            alt={frontmatter.featuredImgAlt}
-          />
-        )}
         <Flex
-          classes={["flexRow", "justifyContentBetween"]}
-          className="page-blog__card-header__author-tags"
+          classes={["flexRow"]}
+          className={`page-blog__card__left page-blog__card__left--${
+            blogTypeRef[frontmatter.subject].cardVariant
+          }`}
         >
-          <BlogAuthor
-            fluid={frontmatter.avatar.childImageSharp.fluid}
-            alt={frontmatter.author
-              .split(" ")
-              .map(x => x[0])
-              .join("")}
-          >
-            {frontmatter.author}
-          </BlogAuthor>
           <Flex
-            classes={["flexRow", "flexWrap", "alignSelfBaseline"]}
-            className="page-blog__card-header__tags"
+            className="page-blog__card__left-inner"
+            classes={["flexColumn", "justifyContentBetween"]}
           >
-            {frontmatter.tags.map((tag, index) => (
-              <Tag
-                className="page-blog__card-header__tags__item"
-                label={tag}
-                key={`card-tag-${index}`}
-                variant={blogTypeRef[tag].tagVariant}
-              />
-            ))}
+            <Flex
+              classes={["flexRow", "flexWrap", "alignSelfCenter"]}
+              className="page-blog__card__left__tags"
+            >
+              {frontmatter.tags.map((tag, index) => (
+                <Tag
+                  className="page-blog__card__left__tags-item"
+                  label={tag}
+                  key={`card-tag-${index}`}
+                  variant={blogTypeRef[tag].tagVariant}
+                />
+              ))}
+            </Flex>
+            <BlogAuthor
+              fluid={frontmatter.avatar.childImageSharp.fluid}
+              variant={blogTypeRef[frontmatter.subject].textVariant}
+              alt={frontmatter.author
+                .split(" ")
+                .map(x => x[0])
+                .join("")}
+            >
+              {frontmatter.author}
+            </BlogAuthor>
+            <BlogDate
+              date={frontmatter.date}
+              variant={blogTypeRef[frontmatter.subject].textVariant}
+            />
+          </Flex>
+          <Flex className="page-blog__card__left__txt-container" classes={["flexColumn"]}>
+            <BlogTitle
+              className="page-blog__card__left__txt-title"
+              variant={blogTypeRef[frontmatter.subject].textVariant}
+            >
+              {frontmatter.title}
+            </BlogTitle>
+            <BlogDescription
+              className="page-blog__card__left__txt-desc"
+              variant={blogTypeRef[frontmatter.subject].textVariant}
+            >
+              {frontmatter.desc}
+            </BlogDescription>
           </Flex>
         </Flex>
-        <Flex classes={["flexColumn"]} className="page-blog__card-content">
-          <BlogTitle variant={blogTypeRef[frontmatter.subject].textVariant}>
+
+        <Flex
+          classes={["flexColumn", "flexResizeAuto"]}
+          className="page-blog__card__right"
+        >
+          <BlogTitle
+            className="page-blog__card-content__txt-title"
+            variant={"neutralLight"}
+          >
             {frontmatter.title}
           </BlogTitle>
-
-          <Flex className="page-blog__card-content__details">
-            <BlogDate date={frontmatter.date} />
+          <Flex
+            className="page-blog__card__right__details"
+            classes={["flexRow", 'alignItemsCenter', "justifyContentCenter"]}
+          >
             {pageViews && (
               <BlogViewCount
+                variant={"neutralDark"}
                 viewCount={
                   pageViews[fields.slug] ? pageViews[fields.slug].views : 0
                 }
               />
             )}
+            <Typography
+              className="page-blog__card__right__dot"
+              variant={"neutralDark"}
+            >
+              |
+            </Typography>
+            <BlogReadMin min={frontmatter.time} variant={"neutralDark"} />
           </Flex>
-          <BlogDescription
-            variant={blogTypeRef[frontmatter.subject].textVariant}
-          >
-            {frontmatter.desc}
-          </BlogDescription>
+          {featuredImg && (
+            <Img
+              fluid={featuredImg.childImageSharp.fluid}
+              durationFadeIn={200}
+              className="page-blog__card__right__front-img"
+              alt={frontmatter.featuredImgAlt}
+            />
+          )}
         </Flex>
       </Card>
     </AniLoaderLink>

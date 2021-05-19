@@ -7,6 +7,7 @@ tags: [culture]
 author: "Paul Kim"
 featuredImgUrl: "https://i.pinimg.com/originals/2d/0d/a2/2d0da2a0736afa3ecf51169c9072efd5.jpg"
 featuredImgAlt: "a nice house"
+time: "5"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 

@@ -7,6 +7,7 @@ tags: [culture]
 author: "Paul Kim"
 featuredImgUrl: "https://s.wsj.net/public/resources/images/ED-AY062_Jindal_P_20181101121307.jpg"
 featuredImgAlt: "walmart slogan"
+time: "8"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 

@@ -15,6 +15,8 @@ interface PKCardVariant extends PKVariant {
 const cardVariants: PKCardVariant = Object.freeze({
   primary: cardStyles.cardPrimary,
   secondary: cardStyles.cardSecondary,
+  negative: cardStyles.cardNegative,
+  positive: cardStyles.cardPositive,
   default: cardStyles.cardDefault,
   disabled: cardStyles.cardDisabled,
 })

@@ -7,6 +7,7 @@ tags: [culture]
 author: "Paul Kim"
 featuredImgUrl: "https://i.ytimg.com/vi/9bZkp7q19f0/maxresdefault.jpg"
 featuredImgAlt: "cartoon psy"
+time: "12"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 

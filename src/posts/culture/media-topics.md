@@ -7,6 +7,7 @@ tags: [culture]
 author: "Paul Kim"
 featuredImgUrl: "https://conatusnews.com/wp-content/uploads/2018/06/propaganda.jpg"
 featuredImgAlt: "mainstream media"
+time: "7"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 

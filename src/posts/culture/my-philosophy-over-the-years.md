@@ -7,6 +7,7 @@ tags: [culture]
 author: "Paul Kim"
 featuredImgUrl: "https://res.cloudinary.com/paulkim/image/upload/v1552422157/images/backgrounds/tree_night.jpg"
 featuredImgAlt: "night sea"
+time: "10"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 

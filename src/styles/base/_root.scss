@@ -105,6 +105,10 @@
   --pk-color-icon-vs: #68217a;
   --pk-color-icon-gitlab: #f56a25;
   --pk-color-icon-github: #463e4e;
+
+  .page-blog__card-content__txt-title {
+    --pk-color-neutral-900: var(--pk-color-blank-500);
+  }
 }
 
 body {
@@ -223,7 +227,7 @@ body.dark {
     --pk-color-icon-react: var(--pk-color-neutral-600);
     --pk-color-icon-sass: var(--pk-color-neutral-600);
     --pk-color-icon-dotnet: var(--pk-color-neutral-600);
-    --pk-color-icon-docker: var(--pk-color-neutral-600);;
+    --pk-color-icon-docker: var(--pk-color-neutral-600);
   }
 
   .card-skills {
@@ -255,6 +259,10 @@ body.dark {
     iframe {
       filter: invert(0.85);
     }
+  }
+
+  .page-blog__card-content__txt-title {
+    --pk-color-neutral-900: #f3be4c;
   }
 }
 

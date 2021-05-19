@@ -8,6 +8,7 @@ tags:
 author: "Paul Kim"
 featuredImgUrl: "https://wallpaperaccess.com/full/796847.jpg"
 featuredImgAlt: "Code block of a song"
+time: "3"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 

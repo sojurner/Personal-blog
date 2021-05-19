@@ -8,6 +8,7 @@ tags:
 author: "Paul Kim"
 featuredImgUrl: "https://wallpapercave.com/wp/wp7241559.png"
 featuredImgAlt: "vs code wallpaper"
+time: "3"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 

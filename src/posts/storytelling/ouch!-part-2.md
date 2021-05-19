@@ -8,6 +8,7 @@ author: "Paul Kim"
 featuredImgUrl: "https://this.deakin.edu.au/wp-content/uploads/2020/01/hospital.jpg"
 featuredImgAlt: "hospital emergency scene"
 avatar: ../../images/avatar-cartoon_pk.png
+time: "7"
 previous: [ouch!-part-1]
 ---
 

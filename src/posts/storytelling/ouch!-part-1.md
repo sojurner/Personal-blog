@@ -9,6 +9,7 @@ author: "Paul Kim"
 featuredImgUrl: "https://www.thelundreport.org/sites/default/files/article-images/Hospital%20dark%20hallway%20with%20doctors%20and%20gurney.jpg"
 featuredImgAlt: "hospital bed"
 avatar: ../../images/avatar-cartoon_pk.png
+time: "5"
 next: "ouch!-part-2"
 ---
 

@@ -58,21 +58,25 @@ const blogTypeRef = {
     textVariant: "negativeDark",
     chipVariant: "negative",
     tagVariant: "negative",
+    cardVariant: "negative"
   },
   storytelling: {
     textVariant: "secondaryDark",
     chipVariant: "secondary",
     tagVariant: "secondary",
+    cardVariant: "secondary"
   },
   culture: {
     textVariant: "positiveDark",
     chipVariant: "positive",
     tagVariant: "positive",
+    cardVariant: "positive"
   },
   code: {
     textVariant: "primaryDark",
     chipVariant: "primary",
     tagVariant: "primary",
+    cardVariant: "primary"
   },
 }
 

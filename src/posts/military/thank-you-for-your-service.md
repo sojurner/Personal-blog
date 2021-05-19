@@ -8,6 +8,7 @@ tags:
   - military
 featuredImgUrl: "https://wallpapercave.com/wp/UmbAAfZ.jpg"
 featuredImgAlt: "American flag"
+time: "8"
 avatar: ../../images/avatar-cartoon_pk.png
 ---
 
