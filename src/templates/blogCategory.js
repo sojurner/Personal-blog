@@ -81,6 +81,7 @@ const query = graphql`
             subject
             author
             tags
+            time
             featuredImgAlt
             avatar {
               childImageSharp {
