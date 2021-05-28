@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { useInView } from "react-intersection-observer"
+import queryString from "query-string"
 import loadable from "@loadable/component"
 
 import MainLayout from "@components/Layouts"
@@ -21,7 +22,17 @@ const Typography = loadable(() => import("@components/Typography"))
 const Avatar = loadable(() => import("@components/Avatar"))
 const SEO = loadable(() => import("@components/SEO"))
 
-const BlogPage = () => {
+const sortParams = Object.freeze({
+  views: "views",
+  date: "date",
+})
+
+const orderParams = Object.freeze({
+  asc: "asc",
+  desc: "desc",
+})
+
+const BlogPage = ({ location }) => {
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
@@ -64,18 +75,27 @@ const BlogPage = () => {
       }
     }
   `)
+  const params = React.useMemo(() => queryString.parse(location.search))
 
   return (
     <MainLayout className="page-blog">
       <SEO title="Blog" />
-      <FilterSection>
-        <FilterChips
-          postCount={data.allMarkdownRemark.totalCount}
-          categories={data.allMarkdownRemark.group}
-          matchingTag={"all"}
-        />
+      <FilterSection params={params}>
+        <Flex className="page-blog__aside__filter-container">
+          <FilterTitle>Tags: </FilterTitle>
+          <TagChips
+            postCount={data.allMarkdownRemark.totalCount}
+            categories={data.allMarkdownRemark.group}
+            matchingTag={"all"}
+          />
+        </Flex>
+
+        <Flex className="page-blog__aside__filter-container">
+          <FilterTitle>Sort by: </FilterTitle>
+          <SortOption />
+        </Flex>
       </FilterSection>
-      <BlogPostSection>
+      <BlogPostSection params={params}>
         {data.allMarkdownRemark.edges.map((post, index) => (
           <BlogCardMemo key={`post-ref-${index}`} {...post.node} />
         ))}
@@ -84,31 +104,27 @@ const BlogPage = () => {
   )
 }
 
-const FilterSection = ({ children }) => {
+const FilterSection = ({ children, params }) => {
   const [endRef, inView] = useInView({ threshold: 0 })
 
   return (
     <>
-      <aside className="page-blog__aside">
-        {!inView && (
-          <Flex className="page-blog__aside__filter-container">
-            <Typography
-              className="page-blog__aside__filter-title"
-              tag="h3"
-              variant="neutralLight"
-            >
-              Tags:{" "}
-            </Typography>
-            {children}
-          </Flex>
-        )}
-      </aside>
+      <aside className="page-blog__aside">{!inView && <>{children}</>}</aside>
       <div style={{ position: "absolute", bottom: "-40px" }} ref={endRef} />
     </>
   )
 }
 
-const FilterChips = ({ postCount, categories }) => (
+const FilterTitle = props => (
+  <Typography
+    className="page-blog__aside__filter-title"
+    tag="h3"
+    variant="neutralLight"
+    {...props}
+  ></Typography>
+)
+
+const TagChips = ({ postCount, categories }) => (
   <Flex
     className="page-blog__aside__filter-tags-container"
     classes={["flexRow", "flexWrap"]}
@@ -135,17 +151,84 @@ const FilterChips = ({ postCount, categories }) => (
   </Flex>
 )
 
+const SortOption = ({ params }) => {
+  const [initial, setInitial] = useState(sortParams.date)
+  const [isDesc, setIsDesc] = useState(true)
+
+  useEffect(() => {
+    if (!params || !params.sort) return
+
+    setInitial(params.sort)
+    setIsDesc(params.order === orderParams.desc)
+  }, [params])
+
+  return (
+    <Flex classes={["flexRow"]}>
+      <Flex
+        className="page-blog__aside__filter-tags-container"
+        classes={["flexColumn"]}
+      >
+        {Object.keys(sortParams).map((category, index) => {
+          return (
+            <Link
+              key={`post-ref-${index}`}
+              to={`/blog`}
+              className="page-blog__aside__filter-tag"
+            >
+              <Typography>{category}</Typography>
+            </Link>
+          )
+        })}
+      </Flex>
+      <Flex
+        className="page-blog__aside__filter-tags-container"
+        classes={["flexColumn"]}
+      >
+        <Link to={`/blog`} className="page-blog__aside__filter-tag">
+          <Icon svg="sortDescending" />
+        </Link>
+        <Link to={`/blog`} className="page-blog__aside__filter-tag">
+          <Icon svg="sortAscending" />
+        </Link>
+      </Flex>
+    </Flex>
+  )
+}
+
 const BlogContext = React.createContext()
 
-const BlogPostSection = React.memo(props => {
+const BlogPostSection = React.memo(({ params, ...props }) => {
   const [pageViews] = usePageViewMeta()
+  let cloneProps = props
+
+  if (!pageViews) return null
+
+  if (params.sort) {
+    cloneProps.children = cloneProps.children.sort((a, b) => {
+      switch (params.sort) {
+        case sortParams.views:
+          return params.order === orderParams.asc
+            ? pageViews[a.props.fields.slug].views -
+                pageViews[b.props.fields.slug].views
+            : pageViews[b.props.fields.slug].views -
+                pageViews[a.props.fields.slug].views
+        case sortParams.date:
+          return (
+            new Date(a.props.frontmatter.date) -
+            new Date(b.props.frontmatter.date)
+          )
+        default:
+          return a - b
+      }
+    })
+  }
 
   return (
     <BlogContext.Provider value={[pageViews]}>
       <Flex
         className="page-blog__content-posts"
         classes={["flexColumn", "alignItemsEnd"]}
-        {...props}
+        {...cloneProps}
       ></Flex>
     </BlogContext.Provider>
   )
@@ -285,7 +368,10 @@ const BlogCard = ({ frontmatter, featuredImg, fields }) => {
               variant={blogTypeRef[frontmatter.subject].textVariant}
             />
           </Flex>
-          <Flex className="page-blog__card__left__txt-container" classes={["flexColumn"]}>
+          <Flex
+            className="page-blog__card__left__txt-container"
+            classes={["flexColumn"]}
+          >
             <BlogTitle
               className="page-blog__card__left__txt-title"
               variant={blogTypeRef[frontmatter.subject].textVariant}
@@ -313,7 +399,7 @@ const BlogCard = ({ frontmatter, featuredImg, fields }) => {
           </BlogTitle>
           <Flex
             className="page-blog__card__right__details"
-            classes={["flexRow", 'alignItemsCenter', "justifyContentCenter"]}
+            classes={["flexRow", "alignItemsCenter", "justifyContentCenter"]}
           >
             {pageViews && (
               <BlogViewCount
@@ -358,7 +444,7 @@ export {
   BlogDescription,
   BlogAuthor,
   BlogPostSection,
-  FilterChips,
+  TagChips,
   FilterSection,
   BlogPage as default,
 }

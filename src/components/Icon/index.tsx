@@ -42,8 +42,8 @@ import email from "@iconify-icons/mdi/email-outline"
 import linkedIn from "@iconify-icons/mdi/linkedin-box"
 import telegram from "@iconify-icons/mdi/telegram"
 
-import uparrow from "@iconify-icons/mdi/arrow-up-bold-outline"
-import downarrow from "@iconify-icons/mdi/arrow-down-bold"
+import sortDescending from "@iconify-icons/mdi/sort-descending"
+import sortAscending from "@iconify-icons/mdi/sort-ascending"
 import thumbup from "@iconify-icons/mdi-light/thumb-up"
 
 import link from "@iconify-icons/mdi/link-variant"
@@ -110,10 +110,10 @@ const iconSvg = Object.freeze({
   thumbup,
   link,
   share,
-  uparrow,
-  downarrow,
+  sortDescending,
+  sortAscending,
   headphones,
-  timer
+  timer,
 })
 
 type IconVariantKey = keyof typeof iconVariants
