@@ -70,21 +70,19 @@ const TemplateHeader = ({ fixed }) => {
           return (
             <Link
               key={`header-link-${routeProps.label}`}
-              className={`header__nav-link ${
-                !fixed && "header-template__nav-link"
-              }`}
-              activeClassName={`header__nav-link--active ${
-                !fixed && "header-template__nav-link--active"
-              }`}
+              className={`header__nav-link ${!fixed && "header-template__nav-link"
+                }`}
+              activeClassName={`header__nav-link--active ${!fixed && "header-template__nav-link--active"
+                }`}
               partiallyActive={true}
               to={routeProps.to}
             >
               <Typography
                 className="nav-link-txt"
+                tag="h5"
                 variant={
                   routeProps.label == root ? "neutralBlank" : "primaryDark"
                 }
-                tag="h5"
               >
                 {routeProps.label}
               </Typography>

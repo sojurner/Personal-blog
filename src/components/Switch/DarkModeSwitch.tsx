@@ -5,9 +5,9 @@ import "./_customSwitch.scss"
 const DarkModeSwitch = props => {
   return (
     <label className="switch--darkmode">
-      <input type="checkbox" id="toggle" className="plus-minus" {...props} />
+      <input type="checkbox" id="toggle" className="switch--darkmode__checkbox" {...props} />
       <svg
-        className="lines"
+        className="switch--darkmode__lines"
         xmlns="http://www.w3.org/2000/svg"
         width="1em"
         height="1em"

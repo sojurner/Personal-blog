@@ -52,8 +52,16 @@
     cursor: pointer;
   }
 
+  &__aside__sort-tag {
+    margin: 0 5px -5px 5px;
+  }
+
   &__aside-filter-group {
     width: 200px;
+  }
+
+  &__aside__filter__order-switch {
+    margin-left: 15px;
   }
 
   &__content-posts {

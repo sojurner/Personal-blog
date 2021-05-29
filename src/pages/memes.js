@@ -249,9 +249,8 @@ const MemeAction = ({ id, children }) => {
 const MemeNotification = ({ notification, ...props }) => {
   return (
     <Flex
-      className={`notification-clipboard notification--${
-        Boolean(notification) ? "show" : "hide"
-      }`}
+      className={`notification-clipboard notification--${Boolean(notification) ? "show" : "hide"
+        }`}
       {...props}
     >
       <Icon svg="share" />

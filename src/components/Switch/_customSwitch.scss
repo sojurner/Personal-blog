@@ -4,77 +4,123 @@
 .switch--darkmode {
   position: relative;
   display: flex;
+
+  &__checkbox {
+    z-index: 2;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 240px;
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+    background-image: radial-gradient(
+      ellipse at center,
+      $color-blank-800 0%,
+      $color-blank-800 25%,
+      $color-primary-900 25%,
+      $color-primary-900 100%
+    );
+    background-position: 50% 50%;
+    background-color: #000000;
+  
+    border: 2px solid $color-primary-900;
+    background-size: 300% 300%;
+    transition: 0.4s ease-out;
+    transform: scale(var(--scale, 1)) translateZ(0);
+    -webkit-transform-style: preserve-3d;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-perspective: 240px;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      box-sizing: inherit;
+      height: var(--height, 16px);
+      left: 5px;
+      top: var(--top, 6px);
+      background: var(--background, $color-primary-900);
+    }
+  
+    &::after {
+      --height: 4px;
+      --top: 12px;
+      --background: $color-blank-800;
+    }
+  
+    &:checked {
+      background-image: radial-gradient(
+        ellipse at center,
+        $color-primary-900 0%,
+        $color-primary-900 25%,
+        $color-blank-800 25.1%,
+        $color-blank-800 100%
+      );
+      background-position: 30% 50%;
+      transform: rotate(-20deg);
+  
+      & ~ svg {
+        transform: scale(0.1);
+        opacity: 0;
+      }
+    }
+  }
+
+  &__lines {
+    position: absolute;
+    left: 3px;
+    top: 2px;
+    transition: all 0.7s;
+    opacity: 0.8;
+    transform: scale(1.4);
+    font-size: 1.4em;
+  }
 }
-.plus-minus {
-  z-index: 2;
-  outline: none;
+
+.switch--vertical {
   cursor: pointer;
   position: relative;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  perspective: 240px;
-  border-radius: 50%;
-  height: 18px;
-  width: 18px;
-  background-image: radial-gradient(
-    ellipse at center,
-    $color-blank-800 0%,
-    $color-blank-800 25%,
-    $color-primary-900 25%,
-    $color-primary-900 100%
-  );
-  background-position: 50% 50%;
-  background-color: #000000;
+  border-radius: 15px;
+  height: 50px;
+  &::before {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 100%;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0);
+    z-index: 0;
+    background: $color-blank-600;
+    border-radius: 15px;
+  }
 
-  border: 2px solid $color-primary-900;
-  background-size: 300% 300%;
-  transition: 0.4s ease-out;
-  transform: scale(var(--scale, 1)) translateZ(0);
-  -webkit-transform-style: preserve-3d;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-perspective: 240px;
-}
-.plus-minus::before,
-.plus-minus::after {
-  content: "";
-  position: absolute;
-  box-sizing: inherit;
-  height: var(--height, 16px);
-  left: 5px;
-  top: var(--top, 6px);
-  background: var(--background, $color-primary-900);
-}
-.plus-minus::after {
-  --height: 4px;
-  --top: 12px;
-  --background: $color-blank-800;
-}
+  &__input {
+    opacity: 0;
+    position: absolute;
 
-.plus-minus:checked {
-  background-image: radial-gradient(
-    ellipse at center,
-    $color-primary-900 0%,
-    $color-primary-900 25%,
-    $color-blank-800 25.1%,
-    $color-blank-800 100%
-  );
-  background-position: 30% 50%;
-  transform: rotate(-20deg);
-}
+    &:checked {
+      & ~ * {
+        transform: translate(0, 65%);
+        background: $color-negative-400;
+      }
+    }
 
-.plus-minus:checked ~ svg {
-  transform: scale(0.1);
-  opacity: 0;
-}
+    & ~ * {
+      transform: translate(0, 0%);
+      background: $color-positive-400;
+    }
+  }
 
-.lines {
-  position: absolute;
-  left: 3px;
-  top: 2px;
-  transition: all 0.7s;
-  opacity: 0.8;
-  transform: scale(1.4);
-  font-size: 1.4em;
+  p {
+    z-index: 100;
+    transition: .2s linear;
+    border-radius: 50%;
+    padding: 0 .5em;
+  }
 }

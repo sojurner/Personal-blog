@@ -3,12 +3,13 @@ import { Link, graphql } from "gatsby"
 import loadable from "@loadable/component"
 
 import MainLayout from "@components/Layouts"
-import { BlogCard, BlogPostSection, FilterSection } from "@pages/blog"
+import { BlogCard, BlogContext, FilterSection } from "@pages/blog"
 
 import "@styles/index.scss"
 import "@styles/pages/_blogPage.scss"
 
 import { blogTypeRef, tagIconRef } from "@utils/constants"
+import { usePageViewMeta } from "@utils/hooks"
 
 const Flex = loadable(() => import("@components/Flex"))
 const SEO = loadable(() => import("@components/SEO"))
@@ -32,6 +33,20 @@ const BlogCategory = ({ data, pageContext }) => {
         ))}
       </BlogPostSection>
     </MainLayout>
+  )
+}
+
+const BlogPostSection = props => {
+  const [pageViews] = usePageViewMeta()
+
+  return (
+    <BlogContext.Provider value={[pageViews]}>
+      <Flex
+        className="page-blog__content-posts"
+        classes={["flexColumn", "alignItemsEnd"]}
+        {...props}
+      ></Flex>
+    </BlogContext.Provider>
   )
 }
 
