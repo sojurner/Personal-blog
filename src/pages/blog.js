@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { useInView } from "react-intersection-observer"
 import queryString from "query-string"
@@ -235,8 +235,8 @@ const BlogPostSection = React.memo(props => {
     cloneProps.children = cloneProps.children.sort((a, b) => {
       switch (sort) {
         case sortParams.views:
-          return (pageViews[a.props.fields.slug].views -
-            pageViews[b.props.fields.slug].views)
+          return (pageViews[b.props.fields.slug].views -
+            pageViews[a.props.fields.slug].views)
 
         case sortParams.date:
           return (new Date(b.props.frontmatter.date) -
