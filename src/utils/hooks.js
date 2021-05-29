@@ -1,5 +1,5 @@
 // ViewCounter.js
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useReducer, useState, useRef } from "react"
 import getFirebase from "@utils/firebase"
 
 const useFirebase = dbKey => {
@@ -133,7 +133,15 @@ const useInfiniteScroll = (initialRange, listCount) => {
   return [ref, itemRange]
 }
 
+const useToggle = (initVal = false) => {
+  const [value, dispatch] = useReducer((state) => !state, initVal);
+
+  return [value, dispatch];
+};
+
+
 export {
+  useToggle,
   usePageView,
   usePageViewMeta,
   useMemeMeta,
