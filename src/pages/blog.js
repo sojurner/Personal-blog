@@ -113,8 +113,7 @@ const SortContext = React.createContext()
 const SortProvider = ({ params, ...props }) => {
   const [value, onToggle] = useToggle();
 
-  return <SortContext.Provider value={{ isDesc: value, onToggle, ...params }} {...props}>
-  </SortContext.Provider>
+  return <SortContext.Provider value={{ isDesc: value, onToggle, ...params }} {...props} />
 }
 
 const SortOrderSwitch = () => {
