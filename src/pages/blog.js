@@ -1,8 +1,9 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { useInView } from "react-intersection-observer"
 import queryString from "query-string"
 import loadable from "@loadable/component"
+import ContentLoader from 'react-content-loader'
 
 import MainLayout from "@components/Layouts"
 import { AniLoaderLink } from "@components/Link"
@@ -202,14 +203,36 @@ const SortOption = () => {
 const BlogContext = React.createContext()
 
 const BlogPostSection = React.memo(props => {
-  const [pageViews] = usePageViewMeta()
+  const [pageViews, loading] = usePageViewMeta()
   const { sort, isDesc } = useContext(SortContext)
   let cloneProps = { ...props }
 
-  if (!pageViews) return null
+  if (loading) return (
+    <Flex
+      className="page-blog__content-posts"
+      classes={["flexColumn", "alignItemsEnd"]}>
+      {[...Array(2).keys()].map((_, index) => (
+        <ContentLoader
+          key={`loader-${index}`}
+          height={450}
+          speed={1}
+          backgroundColor={"var(--pk-color-skeleton-bg)"}
+          foregroundColor={"var(--pk-color-skeleton-fg)"}
+          viewBox="0 0 250 200"
+          className="page-blog__loader"
+        >
+          <rect x="0" y="0" rx="5" ry="5" width="250" height="100" />
+          <rect x="40" y="108" rx="4" ry="4" width="210" height="15" />
+          <rect x="40" y="127" rx="4" ry="4" width="50" height="7" />
+          <circle cx="20" cy="120" r="13" />
+          <rect x="0" y="140" rx="4" ry="4" width="250" height="10" />
+          <rect x="0" y="155" rx="3" ry="3" width="250" height="10" />
+        </ContentLoader>
+      ))}
+    </Flex>
+  )
 
   if (sort) {
-
     cloneProps.children = cloneProps.children.sort((a, b) => {
       switch (sort) {
         case sortParams.views:

@@ -44,11 +44,10 @@ const usePageViewMeta = () => {
 
   const [viewState, setViewState] = useState()
   const [error, setError] = useState("")
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     if (!table) return
-    setLoading(true)
 
     table.get().then(snapshot => {
       if (snapshot.exists()) {
@@ -57,8 +56,9 @@ const usePageViewMeta = () => {
         setError("failed to retrieve data...")
       }
     })
-
-    setLoading(false)
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
   }, [table])
   return [viewState, loading, error]
 }

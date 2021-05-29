@@ -84,6 +84,9 @@
   --pk-font-family-secondary: "IBM Plex Sans", sans-serif;
   --pk-font-family-code: "Menlo", Courier New, monospace;
 
+  --pk-color-skeleton-bg: #f5f6f7;
+  --pk-color-skeleton-fg: #eee;
+
   --pk-color-icon-email: #dd4a3e;
   --pk-color-icon-linkedIn: #0a66c2;
 
@@ -202,6 +205,9 @@ body.dark {
   --pk-color-boxshadow-neutral: 71, 63, 55;
   --pk-color-boxshadow-dark: 10, 10, 10;
   --pk-color-boxshadow-light: rgba(0, 0, 0, 0.116);
+
+  --pk-color-skeleton-bg: rgb(42, 40, 65);
+  --pk-color-skeleton-fg: rgb(37, 35, 59);
 
   --pk-color-icon-cellphone: var(--pk-color-secondary-900);
   --pk-color-icon-email: var(--pk-color-secondary-900);
