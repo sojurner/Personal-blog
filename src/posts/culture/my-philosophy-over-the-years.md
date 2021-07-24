@@ -99,7 +99,8 @@ I compare this idea to a room. A **messy room** can be made _clean_, but also, a
 
 One of the most difficult challenges I've ever faced and continue to face is overcoming my insecurities. 
 
-An inflated ego, the need for approval, and hanging too long onto negative emotions^, are a few of many internal battles I continue to fight.  
+An inflated ego, the need for approval, and hanging too long onto negative emotions^, are a few of many internal battles I continue to fight.
+  
 Thankfully, one thing that has greatly helped in my efforts, is acceptance of insecurites as nothing more than self-inflicted, adverse thoughts.  
 
 The cause of each has its own roots where a meaningful story can be told, and wonderful insight can be found.
