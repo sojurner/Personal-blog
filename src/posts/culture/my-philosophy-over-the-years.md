@@ -94,3 +94,16 @@ This epidemic of insecurity and sense of lacking, stems from what i see as, an o
 In my belief, we are the _destructive reactors to our problems_, as well as, _the powerful mediators of the solution_.
 
 I compare this idea to a room. A **messy room** can be made _clean_, but also, a **clean room** can be turned _messy_. The _condition/outcome_ of the room is within the power of the owner, and we are all **owners of our respective minds**.
+
+## Don't let your insecurities kill you
+
+One of the most difficult challenges I've ever faced and continue to face is overcoming my insecurities. 
+
+An inflated ego, the need for approval, and hanging too long onto negative emotions^, are a few of many internal battles I continue to fight.  
+Thankfully, one thing that has greatly helped in my efforts, is acceptance of insecurites as nothing more than self-inflicted, adverse thoughts.  
+
+The cause of each has its own roots where a meaningful story can be told, and wonderful insight can be found.
+
+With that said, it becomes undeniably clear that the meaning each holds is simply nothing more than the meaning that is acquiesced.  It would be irrational to allow it to define you, to bring you down.  
+
+My 2 cents: Be self accountable, be self honest, and most importantly be self understanding.
